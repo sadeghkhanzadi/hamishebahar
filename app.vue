@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <nuxt-layout>
-      <nuxt-page/>
-    </nuxt-layout>
-  </div>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
 </template>
 <script setup>
 useHead({

@@ -1,11 +1,12 @@
-<script setup>
-useHead({
-  title:'خانه'
-})
+<script setup >
+
 </script>
 
 <template>
 <div>
+<header-default/>
+  <slot/>
+
 </div>
 </template>
 
