@@ -106,7 +106,7 @@ const data = ref({
 
 <template>
   <footer>
-    <div class="footer-container grid  gap-y-5 md:grid-cols-2 lg:grid-cols-4  lg:justify-items-center mt-52  lg:mx-auto   ">
+    <div class="footer-container grid  gap-y-5 md:grid-cols-2 lg:grid-cols-5  lg:justify-items-center mt-52  lg:mx-auto   ">
       <section class="brand-info px-7">
         <div class="brand-nav ">
           <div class="brand-title">
@@ -162,7 +162,7 @@ const data = ref({
           </ul>
         </nav>
       </section>
-      <section>
+      <section class="lg:col-span-2">
         <div class="contact-us px-7">
           <div class="contact-us-title">
             <h3>ارتباط با ما</h3>
