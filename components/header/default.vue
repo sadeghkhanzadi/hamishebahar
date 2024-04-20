@@ -35,29 +35,32 @@ const data = ref({
 
 <template>
 <div class="header">
-  <div class=" container mx-auto flex py-5 gap-10 md:gap-x-16 header-container">
+  <div class="  mx-auto flex justify-between  items-center md:items-baseline px-5 sm:px-7 lg:px-0 py-5 gap-10 md:gap-x-16 lg:container header-container">
       <div class="navbar-brand"><nuxt-link to="/">{{data.brand}}</nuxt-link></div>
-      <nav class="flex justify-between  w-full">
-        <ul class="nav menu flex gap-3 md:gap-14 " >
+      <nav class="flex justify-between  lg:w-full items-center">
+        <ul class="nav menu hidden justify-between gap-3 md:gap-10 lg:flex" >
           <li class="nav-item" v-for="(item , index) in data.menu" :key="index">
-            <nuxt-link class="nav-link"  :to="item.link">{{item.name}}</nuxt-link>
+            <nuxt-link class="nav-link flex items-center gap-3"  :to="item.link">
+              <span>{{item.name}}</span>
+              <span><i class="fa-solid fa-angle-down fa-md text-sm font-bold"/></span>
+            </nuxt-link>
           </li>
         </ul>
         <ul class="nav flex gap-6 items-center">
           <li class="nav-item search">
             <div class="input-group">
               <input type="text" id="search" placeholder="دنبال چی میگردی ؟">
-              <label for="search">0</label>
+              <label for="search" class="flex items-center justify-center" ><i class="fa-solid fa-search"/></label>
             </div>
           </li>
-          <li class="nav-item shop-box">
-            <nuxt-link class="nav-link" to="">
+          <li class="nav-item shop-box  ">
+            <nuxt-link class="nav-link hidden md:block" to="">
               <figure>
                 <img :src="data.icon.shop" alt="cart-shopping">
               </figure>
             </nuxt-link>
           </li>
-          <li class="nav-item start">
+          <li class="nav-item start hidden md:inline-block">
             <nuxt-link class="nav-link" to="">{{ data.start }}</nuxt-link>
           </li>
         </ul>
@@ -110,10 +113,6 @@ nav {
     padding: 8px;
     border-top-left-radius:  3px;
     border-bottom-left-radius:  3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
   }
 }
 .shop-box {
@@ -134,11 +133,33 @@ nav {
   padding: 0.5rem 1rem;
   border-radius:  25px 0 25px 0;
   transition: 0.3s;
+  color: $text-color-white-header;
   &:hover{
     background-color: $linearGradient-header-button !important;
     border-radius:0 25px 0 25px ;
     transition: 0.3s;
   }
 }
-
+@media screen and (max-width: 1450px) {
+  .header{
+    &::after,&::before{
+      display: none !important;
+    }
+  }
+};
+@media screen and (max-width: 500px) {
+  .input-group{
+    display: flex;
+    input{
+      display: none !important;
+    }
+    label{
+      border: 0;
+      padding: 8px;
+    }
+  }
+  .shop-box{
+    display: none;
+  }
+};
 </style>
