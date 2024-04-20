@@ -1,4 +1,4 @@
-package com.hamishebahar.security.users.domain;
+package com.hamishebahar.security.users.entity;
 
 
 import com.hamishebahar.security.enums.Authority;

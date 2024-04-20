@@ -2,7 +2,7 @@ package com.hamishebahar.security;
 
 import com.hamishebahar.security.jwt.JwtAuth;
 import com.hamishebahar.security.jwt.JwtUtils;
-import com.hamishebahar.security.users.domain.Users;
+import com.hamishebahar.security.users.entity.Users;
 import com.hamishebahar.security.users.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +11,6 @@ import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 

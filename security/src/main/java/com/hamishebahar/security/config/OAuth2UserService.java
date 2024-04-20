@@ -1,6 +1,6 @@
 package com.hamishebahar.security.config;
 
-import com.hamishebahar.security.users.domain.Users;
+import com.hamishebahar.security.users.entity.Users;
 import com.hamishebahar.security.users.repository.UsersRepository;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;

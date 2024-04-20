@@ -1,5 +1,7 @@
-package com.hamishebahar.security.users.domain;
+package com.hamishebahar.security.users.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.hamishebahar.security.enums.Authority;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,18 +12,18 @@ import java.io.Serializable;
 import java.util.*;
 
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Users implements Serializable, UserDetails, OAuth2User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String email;
+    private String phoneNumber;
+    private String nationalCode;
     private String password;
-
     private String name;
     private String picture;
-
     private Boolean enabled = true;
 
 //    @ElementCollection(targetClass = UserRoles.class, fetch = FetchType.EAGER)
@@ -88,7 +90,6 @@ public class Users implements Serializable, UserDetails, OAuth2User {
         return authorities;
     }
 
-    @Override
     public String getName() {
         return name;
     }
@@ -140,5 +141,21 @@ public class Users implements Serializable, UserDetails, OAuth2User {
 
     public void setRoles(List<Roles> roles) {
         this.roles = roles;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getNationalCode() {
+        return nationalCode;
+    }
+
+    public void setNationalCode(String nationalCode) {
+        this.nationalCode = nationalCode;
     }
 }

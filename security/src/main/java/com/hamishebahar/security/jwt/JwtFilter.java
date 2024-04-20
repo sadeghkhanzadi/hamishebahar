@@ -1,7 +1,7 @@
 package com.hamishebahar.security.jwt;
 
 
-import com.hamishebahar.security.users.domain.Users;
+import com.hamishebahar.security.users.entity.Users;
 import com.hamishebahar.security.users.service.UsersService;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

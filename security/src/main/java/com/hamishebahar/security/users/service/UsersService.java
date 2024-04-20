@@ -1,6 +1,6 @@
 package com.hamishebahar.security.users.service;
 
-import com.hamishebahar.security.users.domain.Users;
+import com.hamishebahar.security.users.entity.Users;
 import com.hamishebahar.security.users.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
