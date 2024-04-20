@@ -1,0 +1,12 @@
+@import "assets/fonts/_font.scss";
+*{
+  font-family: IRANSans;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  &::after,&::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
