@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="660b6f52-792a-4916-b6f9-ad8af0bd2b70" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/security/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/SecurityApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/LoginSuccessHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/OAuth2UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/enums/Authority.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/enums/UserRoles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/jwt/JwtAuth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/jwt/JwtFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/jwt/JwtUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/domain/Roles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/domain/Users.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/repository/UsersRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/test/java/com/hamishebahar/security/SecurityApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2fKNkJKslR8lnZ5F4TNfAVUH53N" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/oauth2-spring-boot-authorization-server-main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\hamishebahar\security\src\main\java\com\hamishebahar\security" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="SecurityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="security" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hamishebahar.security.SecurityApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="660b6f52-792a-4916-b6f9-ad8af0bd2b70" name="Changes" comment="" />
+      <created>1713545953062</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713545953062</updated>
+      <workItem from="1713545955095" duration="8000" />
+      <workItem from="1713545970548" duration="5474000" />
+      <workItem from="1713635887349" duration="2213000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
