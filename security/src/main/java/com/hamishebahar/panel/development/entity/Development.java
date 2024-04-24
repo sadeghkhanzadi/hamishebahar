@@ -19,7 +19,8 @@ public class Development { //میزان رشد دانش آموز
 
     //todo other fields
 
-    private Boolean isActive;
+    private Boolean is_active;
+    private Boolean is_deleted;
 
     @Column(
             name = "created_time",

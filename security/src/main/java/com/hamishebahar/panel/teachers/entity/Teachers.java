@@ -2,6 +2,7 @@ package com.hamishebahar.panel.teachers.entity;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.hamishebahar.panel.courses.entity.Courses;
 import com.hamishebahar.panel.media.entity.Medias;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -29,9 +30,11 @@ public class Teachers {
     private String nationalCode;
     private String phoneNumber;
 
-    private Boolean isActive;
+    private Boolean is_active;
+    private Boolean is_deleted;
 
-    // todo courses لیست آموزش ها
+    @ManyToMany(mappedBy = "courses")
+    private List<Courses> courses; // لیست دوره های هر مدرس
 
     @Column(
             name = "created_time",

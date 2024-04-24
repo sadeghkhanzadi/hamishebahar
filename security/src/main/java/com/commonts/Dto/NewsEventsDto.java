@@ -1,52 +1,28 @@
-package com.hamishebahar.panel.news_events.entity;
+package com.commonts.Dto;
 
-
-import com.commonts.Dto.NewsEventsDto;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.hamishebahar.panel.media.entity.Medias;
+import com.hamishebahar.panel.news_events.entity.Events;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Events {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class NewsEventsDto {
     private Long id;
     private String title;
     private String text;
     private String startDate;
     private String endDate;
-    private Boolean is_active;
-    private Boolean is_deleted;
-    @ManyToMany
-    private List<Medias> medias;
-
-
-    @Column(
-            name = "created_time",
-            updatable = false
-    )
-    @CreationTimestamp
-    private LocalDateTime createdAt;
-    @Column(
-            name = "updated_time",
-            updatable = true
-    )
-    @UpdateTimestamp
-    private LocalDateTime updatedAt;
+    private Boolean is_active = true;
+    private Boolean is_deleted = false;
+    private List<MediasDto> medias;
+    private String createdAt;
+    private String updatedAt;
 
     public static class Builder{
         private Long id;
@@ -54,10 +30,11 @@ public class Events {
         private String text;
         private String startDate;
         private String endDate;
-        private Boolean is_active;
-        private Boolean is_deleted;
-
-        private List<Medias> medias;
+        private Boolean is_active = true;
+        private Boolean is_deleted = false;
+        private List<MediasDto> medias;
+        private String createdAt;
+        private String updatedAt;
 
         public Builder Id(Long id) {
             this.id = id;
@@ -94,17 +71,26 @@ public class Events {
             return this;
         }
 
-        public Builder Medias(List<Medias> medias) {
+        public Builder Medias(List<MediasDto> medias) {
             this.medias = medias;
             return this;
         }
 
-        public Events build(){
-            return new Events(this);
+        public Builder CreatedAt(String createdAt) {
+            this.createdAt = createdAt;
+            return this;
+        }
+
+        public Builder UpdatedAt(String updatedAt) {
+            this.updatedAt = updatedAt;
+            return this;
+        }
+
+        public NewsEventsDto build(){
+            return new NewsEventsDto(this);
         }
     }
-
-    private Events(Builder builder) {
+    private NewsEventsDto(Builder builder){
         this.id = builder.id;
         this.title = builder.title;
         this.text = builder.text;
@@ -113,10 +99,12 @@ public class Events {
         this.is_active = builder.is_active;
         this.is_deleted = builder.is_deleted;
         this.medias = builder.medias;
+        this.createdAt = builder.createdAt;
+        this.updatedAt = builder.updatedAt;
     }
 
-    public NewsEventsDto convertToDto() {
-        return new NewsEventsDto.Builder()
+    public Events convertToEntity() {
+        return new Events.Builder()
                 .Id(getId() != null ? getId() : null)
                 .Title(getTitle() != null ? getTitle() : null)
                 .Text(getText() != null ? getText() : null)
@@ -124,10 +112,20 @@ public class Events {
                 .EndDate(getEndDate() != null ? getEndDate() : null)
                 .Is_active(getIs_active() != null ? getIs_active() : true)
                 .Is_deleted(getIs_deleted() != null ? getIs_deleted() : false)
-                .CreatedAt(getCreatedAt() != null ? getCreatedAt().
-                        format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL)) : null)
-                .UpdatedAt(getUpdatedAt() != null ? getUpdatedAt()
-                        .format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL)) : null)
+                .build();
+    }
+
+    public NewsEventsDto updaterFields(NewsEventsDto dto){
+        return new Builder()
+                .Id(getId() != null ? getId() : dto.getId())
+                .Title(getTitle() != null ? getTitle() : dto.getTitle())
+                .Text(getText() != null ? getText() : dto.getText())
+                .StartDate(getStartDate() != null ? getStartDate() : dto.getStartDate())
+                .EndDate(getEndDate() != null ? getEndDate() : dto.getEndDate())
+                .Is_active(getIs_active() != null &&
+                        (getIs_active() == dto.getIs_active()) ? getIs_active() : dto.getIs_active())
+                .Is_deleted(getIs_deleted() != null &&
+                        (getIs_deleted() == dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
                 .build();
     }
 }

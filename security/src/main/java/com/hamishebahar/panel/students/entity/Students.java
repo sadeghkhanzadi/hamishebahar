@@ -48,7 +48,8 @@ public class Students {
     //todo هزینه ها و واریزی ها به ازای هر فرزند باید توی والدین هم اضافه بشه البته باید توی فاکتور کیف پول گزاشته بشه
     //Todo امتیاز و جوایز
 
-    private Boolean isActive;
+    private Boolean is_active;
+    private Boolean is_deleted;
 
     @Column(
             name = "created_time",

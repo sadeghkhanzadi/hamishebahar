@@ -29,7 +29,8 @@ public class Periods {// دوره تحصیلی - دبستان - پیش دبست�
     //کارنامه
     @OneToMany
     private List<ReportCard> reportCard;
-    private Boolean isActive;
+    private Boolean is_active;
+    private Boolean is_deleted;
 
     @Column(
             name = "created_time",

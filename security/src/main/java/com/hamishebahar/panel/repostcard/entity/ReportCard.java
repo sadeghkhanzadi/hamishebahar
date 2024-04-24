@@ -28,7 +28,8 @@ public class ReportCard { //کارنامه
     @OneToOne
     private Medias medias;
 
-    private Boolean isActive;
+    private Boolean is_active;
+    private Boolean is_deleted;
 
     @Column(
             name = "created_time",

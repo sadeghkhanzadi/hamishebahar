@@ -6,5 +6,7 @@ public enum MediaStates {
     PROFILE ,
     CERTIFICATE,
     NATIONAL_CARD,
+    COURSE,
+    NEWS_EVENTS,
     CV
 }
