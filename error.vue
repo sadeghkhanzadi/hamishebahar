@@ -1,10 +1,5 @@
 <script setup>
 const error = useError()
-if (error.value.statusCode === 404 || "404"){
-  error.value.message = "صفحه مورد نظر یافت نشد ."
-}else if(error.value.statusCode === 500 || "500"){
-  error.value.message = "خطای سرور لطلفا مجدد امتحان کنید ."
-}
 function redirect(){
   clearError({redirect:"/"})
 }

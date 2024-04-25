@@ -106,7 +106,7 @@ const data = ref({
 
 <template>
   <footer>
-    <div class="footer-container grid  gap-y-5 md:grid-cols-2 lg:grid-cols-5  lg:justify-items-center mt-52  lg:mx-auto   ">
+    <div class="footer-container grid  gap-y-5 md:grid-cols-2 lg:grid-cols-5  lg:justify-items-center   lg:mx-auto   ">
       <section class="brand-info px-7">
         <div class="brand-nav ">
           <div class="brand-title">
