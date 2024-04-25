@@ -1,14 +1,14 @@
 <script setup >
-const props = defineProps(['data', 'theme','education', 'talentDiscovery','articles'])
+const props = defineProps(['data', 'theme','education', 'talentDiscovery','articles','active'])
 console.log(props.articles)
 </script>
 
 <template>
-  <div class="content-container h-[100vh] flex items-center  "
-       :class="{nocloud: props.theme === 'noCloud',education:props.education ===true,talentDiscovery: props.talentDiscovery ===true ,articles: props.articles ===true}"
+  <div class="content-container  flex items-center py-20 px-4 "
+       :class="{nocloud: props.theme === 'noCloud' ,education:props.education ===true,talentDiscovery: props.talentDiscovery ===true ,articles: props.articles ===true , active:props.active === true}"
        v-if="props.data">
     <div class="cloudy-top"></div>
-    <div class="content  mx-auto relative p-2">
+    <div class="content   mx-auto relative p-2 py-22 my-10">
       <div>
         <div class="text-center flex flex-col gap-3 mb-7 title-content">
           <div class="sub-title">
@@ -19,22 +19,22 @@ console.log(props.articles)
           </div>
           <div class="icon"><span></span></div>
         </div>
-        <div class="flex gap-10" v-if='props.data && props.theme==true'>
+        <div class=" gap-10 grid grid-cols-1 md:grid-cols-2 lg:flex " v-if='props.data && props.theme==true'>
           <home-main-card-best-class-card :data="item" v-for="(item , index) in props.data.cards" :key="index" mode="card"/>
         </div>
-        <div class="grid grid-cols-3 gap-10" v-if="props.data">
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-10" v-if="props.data">
           <home-main-card-active :data="item" v-for="(item , index) in props.data.plans" :key="index"/>
         </div>
         <div class="education-card flex flex-col gap-5">
           <home-main-card-education :data="item" v-for="(item , index) in props.data.collapse" :key="index"/>
         </div>
-        <div v-if="props.talentDiscovery" class="grid grid-cols-2 gap-7">
+        <div v-if="props.talentDiscovery" class="grid  sm:grid-cols-2 gap-7">
           <home-main-card-talent-discovery :data="item" v-for="(item , index) in props.data.items" :key="index"/>
         </div>
-        <div   class="flex gap-10">
+        <div   class="grid grid-cols-1 sm:grid-cols-2 lg:flex gap-10">
           <home-main-card-new-articles  v-for="(item , index) in props.data.categories" :key="index" :data="item" />
         </div>
-        <div class="shapes" v-if='props.data'>
+        <div class="shapes hidden xl:block" v-if='props.data'>
           <div :class="`shape shape-${item.name} absolute`" v-for="(item,index) in props.data.shapes" :key="index">
           <span>
             <img :src="item.img" alt="">
@@ -206,7 +206,7 @@ figure {
   justify-content: center;
   background-color: #E9EFF1 !important;
   min-height: 120vh !important;
-
+  padding-bottom: 8rem;
   &:after {
     content: url("@/assets/image/shape/cloud-blue-sky.png");
     position: absolute !important;
@@ -227,5 +227,31 @@ figure {
 }
 .articles{
   min-height: 80vh !important;
+  padding:0 20px;
 }
+
+//responsive mode
+
+@media screen and (max-width: 996px) {
+
+  .education{
+    padding: 20px !important;
+    .content{
+      display: grid;
+      grid-template-columns: repeat(1,1fr);
+      .img{
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+  .active{
+    padding: 0 20px;
+    .content{
+      padding: 0 ;
+    }
+  }
+}
+
+
 </style>

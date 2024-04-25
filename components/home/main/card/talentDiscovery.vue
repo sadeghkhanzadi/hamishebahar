@@ -16,15 +16,15 @@ function leaveHover() {
 
 <template>
   <div class="talent-discovery ">
-    <div class="card flex p-7 " @mouseenter="hover" @mouseleave="leaveHover" ref="hoverCard">
+    <div class="card flex flex-col  lg:flex-row p-7 " @mouseenter="hover" @mouseleave="leaveHover" ref="hoverCard">
       <div class="card-header">
         <nuxt-link class="image" to="">
-          <figure>
+          <figure class="">
             <img :src="props.data.img.link" :alt="props.data.img.name">
           </figure>
         </nuxt-link>
       </div>
-      <div class="card-body mx-7 flex flex-col justify-center">
+      <div class="card-body mx-7  flex flex-col justify-center">
         <div class="flex flex-col gap-5">
           <div class="date flex gap-2.5">
             <span class="icon"><i :class="`fa-solid fa-lg fa-${props.data.icon.calender.icon}`"/></span>
@@ -41,7 +41,7 @@ function leaveHover() {
             <p>{{ props.data.text }}</p>
           </div>
         </div>
-        <div class="mt-5">
+        <div class="mt-5 hidden md:block">
           <div class="show-post flex justify-end">
             <nuxt-link to="" class="px-5 py-2.5 inline-flex items-center gap-2.5 "
                        :style="`background-color:${props.data.color} ;`">
@@ -184,4 +184,18 @@ function leaveHover() {
     color: $color-text-card-hover-talent-discovery;
   }
 }
+
+
+//responsive mode
+@media screen and (max-width: 1024px) {
+  .card-body{
+    margin-top: 20px;
+}
+  .image{
+    figure{
+      width: 100%;
+      mask-image: none;
+    }
+  }
+  }
 </style>

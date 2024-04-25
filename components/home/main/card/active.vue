@@ -41,12 +41,26 @@ p{
   color: $color-text-activities;
 }
 .image{
+
+  position:relative;
   width: 120px;
   height: 89px;
   mask-image: url("@/assets/image/shape/card-cloud.png") ;
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: cover;
-  background-color: #1AB69D;
+  background-color: rgba(26, 182, 157, 0.5);
+  &:after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    mask-image: url("@/assets/image/shape/card-cloud.png") ;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: cover;
+    background-color: rgba(26, 182, 157, 0.9);
+    inset: 0;
+  }
 }
 </style>

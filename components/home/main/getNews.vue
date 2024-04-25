@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="news-container">
+  <div class="news-container min-h-[40vh] md:min-h-[60vh]">
     <div class="news relative ">
       <div class="news-title text-center">
         <h3>
@@ -12,21 +12,21 @@
         </h3>
       </div>
       <div class="get-email">
-        <div class="input-group mt-7 flex gap-5 items-center justify-center w-full">
+        <div class="input-group  mt-7 flex flex-col md:flex-row gap-5 items-center justify-center w-full">
           <input type="email" class="py-4 w-full px-3 rounded outline-0 text-sm "
                  placeholder="لطفا ایمیل خود را واردی کنید ">
-          <button class="btn flex gap-2 justify-center items-center py-4 px-7 text-sm text-white">
+          <button class="btn flex w-full md:w-auto gap-2 justify-center items-center py-4 px-7 text-sm text-white">
             <span>عضویت</span>
             <i class="fa-solid fa-arrow-right flex items-center text-white"/>
           </button>
         </div>
       </div>
-      <div class="shapes">
-        <div class="shape shape-laboratory"><span><img src="@/assets/image/shape/labratoar.png" alt=" shape-laboratory"></span>
+      <div class="shapes hidden lg:block">
+        <div class="shape shape-laboratory hidden lg:block"><span><img src="@/assets/image/shape/labratoar.png" alt=" shape-laboratory"></span>
         </div>
-        <div class="shape shape-book"><span><img src="@/assets/image/shape/book.png" alt="shape-book"></span></div>
-        <div class="shape shape-boy"><span><img src="@/assets/image/face/boy-news.webp" alt="shape-boy"></span></div>
-        <div class="shape shape-girl"><span><img src="@/assets/image/face/girl-news.webp" alt="shape-girl"></span></div>
+        <div class="shape shape-book hidden lg:block"><span><img src="@/assets/image/shape/book.png" alt="shape-book"></span></div>
+        <div class="shape shape-boy hidden xl:block"><span><img src="@/assets/image/face/boy-news.webp" alt="shape-boy"></span></div>
+        <div class="shape shape-girl hidden xl:block"><span><img src="@/assets/image/face/girl-news.webp" alt="shape-girl"></span></div>
 
       </div>
     </div>
@@ -42,7 +42,6 @@
   justify-items: center;
   align-items: center;
   padding: 20px;
-  min-height: 60vh;
   position: relative;
   overflow: hidden;
   &:after {

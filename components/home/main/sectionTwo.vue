@@ -38,9 +38,9 @@ const data = {
 </script>
 
 <template>
-  <div class="max-w-screen-xl grid grid-cols-2 mx-auto h-[80vh] items-center  pb-32">
+  <div class="max-w-screen-xl grid lg:grid-cols-2 mx-auto min-h-[80vh] items-center px-5 md:gap-32 lg:gap-0 pb-10 lg:pb-32">
     <section class="grid order-1">
-      <div class="welcome-text">
+      <div class="welcome-text ">
         <div class="card ">
           <div class="card-header flex flex-col gap-3">
             <div class="card-welcome"><span>{{ data.topTitle }}</span></div>
@@ -48,12 +48,12 @@ const data = {
             <div class="icon"><span></span></div>
             <div class="card-welcome-text">{{ data.text }}</div>
           </div>
-          <div class="card-body grid grid-cols-2 gap-y-10  gap-x-5">
+          <div class="card-body grid gap-y-3 md:grid-cols-2 md:gap-y-10  gap-x-5">
             <div class="card-welcome-info mt-7 " v-for="(item , index ) in data.section" :key="index">
               <div class="card-info-title"><h5>{{ item.title }}</h5></div>
               <div class="card-info-text"><p>{{ item.text }}</p></div>
             </div>
-            <div class="flex flex-col gap-3 card-support">
+            <div class="flex flex-col gap-3 card-support ">
               <div class="flex items-center gap-2">
                 <span><i class="fa-solid fa-check text-red-600 fa-lg"></i></span>
                 <span class="title">{{ data.sectionTwo.titleOne }}</span>
@@ -84,10 +84,10 @@ const data = {
       <div class="relative flex flex-col justify-center items-center">
         <div class="picture-kid relative">
           <span><img :src="data.picture.face" alt="کودک یک"></span>
-          <span class="absolute top-1/2 left-0"><img :src="data.picture.subFace" alt="کودک دو"></span>
+          <span class="absolute top-1/2 lg:left-0 left-[-35%] hidden md:block"><img :src="data.picture.subFace" alt="کودک دو"></span>
         </div>
 
-        <div class="shapes">
+        <div class="shapes hidden lg:block">
           <div class="shape-sun absolute bottom-[50px] right-[-40px]">
             <span><img :src="data.picture.sun" alt="خورشید"></span>
           </div>

@@ -5,7 +5,7 @@ const props = defineProps(['data'])
 <template>
   <div>
     <div class="card " v-if="props.data">
-      <div class="card-header relative">
+      <div class="card-header  relative">
         <div class="link flex justify-center items-center arrow-link absolute ">
           <nuxt-link class="flex items-center justify-center" to=""><i class="fa-solid fa-arrow-right flex items-center fa-lg text-white"/></nuxt-link>
         </div>
@@ -16,7 +16,7 @@ const props = defineProps(['data'])
         </nuxt-link>
       </div>
       <div class="card-body relative flex flex-col gap-4 ">
-        <div class="type mt-4">
+        <div class="type xl:mt-4">
           <nuxt-link to="">{{ props.data.subject }}</nuxt-link>
         </div>
         <div class="subject">
@@ -145,6 +145,23 @@ figure {
     transition: 0.5s;
   }
 }
+
+//responsive mode
+
+@media screen and (max-width:1024px)  {
+  figure{
+    width: 100% !important;
+    img{
+      object-fit: fill;
+    }
+  }
+  .card-body{
+    &:after{
+      display: none;
+    }
+  }
+}
+
 </style>
 
 

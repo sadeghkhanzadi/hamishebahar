@@ -325,7 +325,7 @@ const articles ={
           <home-main-best-class :data="data" :theme="true"/>
         </section>
         <section>
-          <home-main-best-class :data="activities" theme="noCloud"/>
+          <home-main-best-class :data="activities" theme="noCloud" :active="true"/>
         </section>
         <section>
           <home-main-best-class :data="education" :education="true" theme="noCloud"/>

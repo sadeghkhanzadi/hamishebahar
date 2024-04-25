@@ -109,16 +109,16 @@ const data = {
 
 <template>
   <div>
-    <div class="content">
-      <div class="container flex justify-center mx-auto relative h-[95vh]">
-        <div class="shapes">
+    <div class="content overflow-hidden">
+      <div class="container flex justify-center mx-auto relative min-h-[95vh]">
+        <div class="shapes hidden xl:block">
           <div :class="`shape-${item.name} absolute shape-move opacity-50`" v-for="(item , index) in data.shape"
                :key="index">
             <figure><img :src="item.img" :alt="item.name" :data-speed="`${Math.floor(Math.random()*10)}`"></figure>
           </div>
         </div>
         <div class="flex items-center justify-center main-group">
-          <div class="child">
+          <div class="child child-girl hidden md:block">
             <figure>
               <img :src="data.face.girl.img" :alt="data.face.girl.title">
             </figure>
@@ -141,15 +141,15 @@ const data = {
             </div>
             <div class="card-footer">
               <nav>
-                <ul class="nav flex justify-center gap-10">
+                <ul class="nav flex justify-center gap-3 md:gap-10">
                   <li class="nav-item flex items-center justify-center " v-for="(item , index) in data.card.links"
                       :key="index">
                     <nuxtLink class="nav-link flex flex-col justify-center items-center gap-y-3" :to="item.link">
                       <div class="icon flex justify-center items-center p-3 rounded-full"
                            :style="{background:`${item.color}`}">
-                        <i :class="`fa-solid ${item.icon} fa-xl text-white`"></i>
+                        <i :class="`fa-solid ${item.icon} fa-xl text-white flex items-center`"></i>
                       </div>
-                      <div class="name"><span>{{ item.name }}</span></div>
+                      <div class="name text-center"><span>{{ item.name }}</span></div>
                     </nuxtLink>
                   </li>
                 </ul>
@@ -157,7 +157,7 @@ const data = {
               </nav>
             </div>
           </div>
-          <div class="child">
+          <div class="child child-boy hidden md:block">
             <figure>
               <img :src="data.face.boy.img" :alt="data.face.boy.title">
             </figure>
@@ -194,6 +194,9 @@ const data = {
       font-size: $fontSize-title-section-one;
       color: $color-section-one;
       font-weight: $fontWeight-title-section-one;
+    }
+    .name{
+      font-family: $yekan;
     }
   }
 
@@ -314,4 +317,42 @@ const data = {
     transform: rotate(360deg);
   }
 }
+
+// responsive mode
+
+@media screen and (max-width: 1200px) {
+
+  figure{
+    width: 150px;
+    height: 200px;
+  }
+  .child{
+    position: absolute;
+
+  }
+  .child-boy{
+    left: 0;
+    top: 40%;
+  }
+  .child-girl{
+    right: 0;
+    top: 40%;
+  }
+}
+@media screen and (max-width: 1024px) {
+.container{
+  padding: 10px 20px 80px ;
+  h1{
+    font-size: $fontSize-title-tablet-section-one !important;
+  }
+}
+}
+@media screen and (max-width: 768px) {
+.container{
+  h1{
+    font-size: $fontSize-title-mobile-section-one !important;
+  }
+}
+}
+
 </style>
