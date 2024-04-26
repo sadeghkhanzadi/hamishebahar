@@ -1,4 +1,4 @@
-package com.hamishebahar.security;
+package com.hamishebahar.controllers;
 
 import com.hamishebahar.security.jwt.JwtAuth;
 import com.hamishebahar.security.jwt.JwtUtils;
@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
 import java.security.Principal;
 
 @RestController
-public class MainController {
+public class UserController {
 
     private final UsersService usersService;
 
@@ -30,7 +30,7 @@ public class MainController {
     private final JwtUtils jwtUtils;
 
     @Autowired
-    public MainController(UsersService usersService, AuthenticationManager manager, JwtUtils jwtUtils) {
+    public UserController(UsersService usersService, AuthenticationManager manager, JwtUtils jwtUtils) {
         this.usersService = usersService;
         this.manager = manager;
         this.jwtUtils = jwtUtils;

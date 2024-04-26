@@ -16,11 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 import static com.commonts.Constans.UriConstants.*;
 
 @RestController
-public class NewsEventsControllers {
+public class NewsEventsController {
     private final NewsEventsService newsEventsService;
 
     @Autowired
-    public NewsEventsControllers(NewsEventsService newsEventsService) {
+    public NewsEventsController(NewsEventsService newsEventsService) {
         this.newsEventsService = newsEventsService;
     }
 
