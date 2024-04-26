@@ -13,13 +13,13 @@ function redirect(){
           <img src="@/assets/image/error/404.svg" alt="error image">
         </div>
         <div class="error-content">
-          <h1 class="text-center px-5  w-1/2 mx-auto flex flex-row-reverse justify-center gap-1 items-center text-white  rounded-lg pt-2 shadow-sm">
-            <span>{{ error.statusCode }}</span>
+          <h1 class="text-center px-5   md:w-1/2 mx-auto flex flex-row-reverse justify-center gap-1 items-center text-white  rounded-lg pt-2 shadow-sm">
+            <span v-if="error.statusCode" >{{ error.statusCode }}</span>
             <span>ERROR</span>
           </h1>
-          <p class="text-center mt-4 ">{{  error.message.split(":")[0] }}</p>
+          <p class="text-center mt-4" v-if="error.message.length">{{  error.message.split(":")[0] }}</p>
         <div class="redirect  ">
-          <button class="btn bg-sky-00 shadow-sm mt-5 w-full py-2 rounded-lg  font-bold transition duration-300 ease-linear hover:text-white" @click="redirect">برگشت به صفحه اصلی</button>
+          <button class="btn bg-sky-00 shadow-sm mt-5 w-full py-2 px-5 rounded-lg  font-bold transition duration-300 ease-linear hover:text-white" @click="redirect">برگشت به صفحه اصلی</button>
         </div>
         </div>
       </div>
