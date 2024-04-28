@@ -25,8 +25,8 @@ console.log(props.articles)
         <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-10" v-if="props.data">
           <home-main-card-active :data="item" v-for="(item , index) in props.data.plans" :key="index"/>
         </div>
-        <div class="education-card flex flex-col gap-5">
-          <home-main-card-education :data="item" v-for="(item , index) in props.data.collapse" :key="index"/>
+        <div class="education-card flex flex-col gap-5" v-if="props.data.collapse">
+          <home-main-card-education :data="props.data.collapse" />
         </div>
         <div v-if="props.talentDiscovery" class="grid  sm:grid-cols-2 gap-7">
           <home-main-card-talent-discovery :data="item" v-for="(item , index) in props.data.items" :key="index"/>
@@ -35,7 +35,7 @@ console.log(props.articles)
           <home-main-card-new-articles  v-for="(item , index) in props.data.categories" :key="index" :data="item" />
         </div>
         <div class="shapes hidden xl:block" v-if='props.data'>
-          <div :class="`shape shape-${item.name} absolute`" v-for="(item,index) in props.data.shapes" :key="index">
+          <div :class="`shape shape-${item.name} absolute shape-move`" v-for="(item,index) in props.data.shapes" :key="index">
           <span>
             <img :src="item.img" alt="">
           </span>
