@@ -407,6 +407,19 @@ li.show > a > span.icon:after{
   content: "-";
 }
 
+li .father{
+  animation: show 1s forwards ease 1 0.4s ;
+  transform: translateX(150%);
+}
+@keyframes show {
+  from {
+    transform: translateX(150%);
+    opacity: 0;
+  }
 
-
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
 </style>

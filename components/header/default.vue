@@ -384,9 +384,7 @@ onMounted(()=>{
       </div>
     </div>
     <transition name="transition">
-      <div class="navbar-mobile" >
         <navbar-mobile v-if="showNavbarMobile" @close-navbar-mobile="showNavbarMobile = false" />
-      </div>
     </transition>
   </div>
 </template>
@@ -519,32 +517,20 @@ nav {
 }
 }
 
-//.transition-enter-active {
-//  transition: all 0.7s ease;
-//}
-//
-//.transition-leave-active {
-//  transition: all 0.5s ease;
-//}
-//
-//.transition-enter-from, .transition-leave-to {
-//  transform: translatex(-100%);
-//}
-//
-//.transition-enter-to, .transition-leave-from {
-//  transform: translatex(100%);
-//
-//}
-.transition-enter-active,
-.transition-leave-active {
-  transition: transform 0.5s ease;
+.transition-enter-active {
+  transition: all 0.7s ease;
 }
 
-.transition-enter-from,
-.transition-leave-to {
-  transition: translatex 0.5s ease;
-  transform: translatex(-100%);
+.transition-leave-active {
+  transition: all 0.5s ease;
 }
+
+.transition-enter-from, .transition-leave-to {
+  transform: translatex(100%);
+}
+
+
+
 
 .colsActive{
   grid-template-columns: repeat(2 , 270px) !important;
