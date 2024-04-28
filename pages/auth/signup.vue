@@ -53,7 +53,7 @@ if (form.password !== form.repeatPassword && form.repeatPassword !== form.passwo
 <template>
   <div class="container mx-auto px-5">
     <div class="login mt-[15vh] mb-10 relative">
-      <form action="" class="w-full sm:w-2/3 lg:w-1/3 mx-auto border rounded-lg p-5 py-7" @submit.prevent="handleSubmit">
+      <form action="" class="w-full sm:w-2/3 lg:w-1/2 xl:w-2/5 mx-auto border rounded-lg p-5 py-7" @submit.prevent="handleSubmit">
         <div class="title text-center mb-10 text-xl "><h3>فرم ثبت نام </h3></div>
         <div class="flex flex-col gap-4 mb-4">
           <div class="form-group flex flex-col  gap-3 ">
@@ -104,7 +104,7 @@ if (form.password !== form.repeatPassword && form.repeatPassword !== form.passwo
         </div>
       </form>
       <div class="shapes hidden lg:block">
-        <div v-for="(item , index) in shapes" :key="index" :class="` absolute shape shape-${item.name} opacity-50`">
+        <div v-for="(item , index) in shapes" :key="index" :class="`shape-move absolute shape shape-${item.name} opacity-50`">
           <span><img :src="item.img" :alt="item.name"></span>
         </div>
       </div>

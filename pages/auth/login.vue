@@ -85,7 +85,7 @@ function handleSubmit(){
       </div>
   </form>
   <div class="shapes hidden lg:block" >
-    <div v-for="(item , index) in shapes" :key="index" :class="` absolute shape shape-${item.name} opacity-50`">
+    <div v-for="(item , index) in shapes" :key="index" :class="`shape-move absolute shape shape-${item.name} opacity-50`">
       <span><img :src="item.img" :alt="item.name"></span>
     </div>
   </div>

@@ -34,11 +34,13 @@ const data = {
     subFace: subFace
   }
 
-}
+};
+
+
 </script>
 
 <template>
-  <div class="max-w-screen-xl grid lg:grid-cols-2 mx-auto min-h-[80vh] items-center px-5 md:gap-32 lg:gap-0 pb-10 lg:pb-32">
+  <div class="content max-w-screen-xl grid lg:grid-cols-2 mx-auto min-h-[80vh] items-center px-5 md:gap-32 lg:gap-0 pb-10 lg:pb-32">
     <section class="grid order-1">
       <div class="welcome-text ">
         <div class="card ">
@@ -91,10 +93,10 @@ const data = {
           <div class="shape-sun absolute bottom-[50px] right-[-40px]">
             <span><img :src="data.picture.sun" alt="خورشید"></span>
           </div>
-          <div class="shape-circle absolute bottom-[-60px] right-5 z-[-1]">
+          <div class="shape-circle shape-move absolute bottom-[-60px] right-5 z-[-1]">
             <span><img :src="data.picture.circle" alt="دایره"></span>
           </div>
-          <div class="circle-paint absolute top-1/3 left-28 z-[-1]">
+          <div class="circle-paint  absolute top-1/3 left-28 z-[-1]">
             <span><img :src="data.picture.paint" alt="بادبادک"></span>
           </div>
         </div>
@@ -176,6 +178,7 @@ const data = {
    animation-delay: 3s;
  }
 }
+
 @keyframes rotate {
   from {
     rotate: 0;

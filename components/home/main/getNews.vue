@@ -25,9 +25,8 @@
         <div class="shape shape-laboratory hidden lg:block"><span><img src="@/assets/image/shape/labratoar.png" alt=" shape-laboratory"></span>
         </div>
         <div class="shape shape-book hidden lg:block"><span><img src="@/assets/image/shape/book.png" alt="shape-book"></span></div>
-        <div class="shape shape-boy hidden xl:block"><span><img src="@/assets/image/face/boy-news.webp" alt="shape-boy"></span></div>
-        <div class="shape shape-girl hidden xl:block"><span><img src="@/assets/image/face/girl-news.webp" alt="shape-girl"></span></div>
-
+        <div class="shape shape-boy shape-move hidden xl:block"><span><img src="@/assets/image/face/boy-news.webp" alt="shape-boy"></span></div>
+        <div class="shape shape-girl shape-move hidden xl:block"><span><img src="@/assets/image/face/girl-news.webp" alt="shape-girl"></span></div>
       </div>
     </div>
   </div>
