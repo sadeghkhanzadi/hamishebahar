@@ -1,7 +1,15 @@
 <script setup lang="ts">
-import img1  from "@/assets/image/shape/card-cloud-top.png"
-import img2  from "@/assets/image/shape/card-cloud.png"
 const props = defineProps(['data'])
+const image = ref(null)
+function hover(){
+  image.value.style.background = props.data.color
+  image.value.style.opacity=1
+}
+function leave(){
+  image.value.style.background = props.data.color
+  image.value.style.opacity=0.05
+
+}
 </script>
 
 <template>
@@ -9,11 +17,11 @@ const props = defineProps(['data'])
   <div class="content-container">
     <div class="card flex gap-5">
       <div class="card-header flex">
-        <div class="image flex justify-center items-center ">
-          <span><i :class="`fa-solid fa-${props.data.icon} fa-xl text-white`"/></span>
+        <div class="image flex justify-center items-center hover:text-white filter opacity-15" :style="`background:${props.data.color };color:${props.data.color}`" ref="image" @mouseover="hover" @mouseout="leave">
+          <span><i :class="`fa-solid fa-${props.data.icon} fa-xl `"/></span>
         </div>
       </div>
-      <div class="card-body flex flex-col">
+      <div class="card-body flex flex-col" >
        <nuxt-link to="">
          <div class="title text-end">
            <h3>{{props.data.name}}</h3>
@@ -49,7 +57,7 @@ p{
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: cover;
-  background-color: rgba(26, 182, 157, 0.5);
+  //background-color: rgba(26, 182, 157, 0.5);
   &:after{
     content: "";
     width: 100%;
@@ -59,7 +67,7 @@ p{
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: cover;
-    background-color: rgba(26, 182, 157, 0.9);
+    //background-color: rgba(26, 182, 157, 0.9);
     inset: 0;
   }
 }
