@@ -312,16 +312,22 @@ const data = ref({
 watch(route , ()=>{
   console.log(5)
 })
+console.log(route)
+onMounted(()=>{
+  watch(showNavbarMobile , ()=>{
+    showNavbarMobile.value ? document.body.classList.add("overflow-hidden") : document.body.classList.remove("overflow-hidden")
+  })
+})
 </script>
 
 <template>
-  <div class="header">
+  <div class="header" :class="{addCloud : route.path === '/'}" >
     <div
         class="  mx-auto flex justify-between  items-center xl:items-baseline px-5 sm:px-7 lg:px-0 py-5 gap-10 md:gap-x-16 lg:container header-container">
       <div class="navbar-brand">
         <nuxt-link to="/">{{ data.brand }}</nuxt-link>
       </div>
-      <nav class="flex justify-end xl:justify-between  lg:w-full items-center ">
+      <nav class="flex justify-end xl:justify-between ms-auto lg:w-full items-center ">
         <ul class="nav menu hidden justify-between gap-5 2xl:gap-7 xl:flex">
           <li class="nav-item relative" v-for="(item , index) in data.menu" :key="index">
             <nuxt-link class="nav-link flex items-center gap-3 hover:cursor-pointer " :to="item.link">
@@ -346,7 +352,7 @@ watch(route , ()=>{
             </ul>
           </li>
         </ul>
-        <ul class="nav flex gap-6 items-center">
+        <ul class="nav flex md:gap-6  items-center">
           <li class="nav-item search">
             <div class="input-group">
               <input type="text" id="search" placeholder="دنبال چی میگردی ؟">
@@ -365,7 +371,7 @@ watch(route , ()=>{
           </li>
         </ul>
       </nav>
-      <div class="hamburger-menu p-1 z-10 overflow-hidden xl:hidden">
+      <div class="hamburger-menu p-1 z-[11] overflow-hidden xl:hidden">
         <input type="checkbox" id="checkbox2" class="checkbox2 visuallyHidden">
         <label for="checkbox2" :class="{active:showNavbarMobile===true}" @click="showNavbarMobile = !showNavbarMobile">
           <div class="hamburger hamburger2">
@@ -377,16 +383,18 @@ watch(route , ()=>{
         </label>
       </div>
     </div>
-    <div class="navbar-mobile" v-show="showNavbarMobile">
-          <navbar-mobile @close-navbar-mobile="showNavbarMobile = false" />
-    </div>
+    <transition name="transition">
+      <div class="navbar-mobile" >
+        <navbar-mobile v-if="showNavbarMobile" @close-navbar-mobile="showNavbarMobile = false" />
+      </div>
+    </transition>
   </div>
 </template>
 
 <style scoped lang="scss">
 @import "@/assets/style/_varible.scss";
 
-.header {
+.header.addCloud {
   position: relative;
   z-index: 1;
 
@@ -511,6 +519,33 @@ nav {
 }
 }
 
+//.transition-enter-active {
+//  transition: all 0.7s ease;
+//}
+//
+//.transition-leave-active {
+//  transition: all 0.5s ease;
+//}
+//
+//.transition-enter-from, .transition-leave-to {
+//  transform: translatex(-100%);
+//}
+//
+//.transition-enter-to, .transition-leave-from {
+//  transform: translatex(100%);
+//
+//}
+.transition-enter-active,
+.transition-leave-active {
+  transition: transform 0.5s ease;
+}
+
+.transition-enter-from,
+.transition-leave-to {
+  transition: translatex 0.5s ease;
+  transform: translatex(-100%);
+}
+
 .colsActive{
   grid-template-columns: repeat(2 , 270px) !important;
 }
@@ -584,7 +619,7 @@ h1 {
   background-color: black;
   display: block;
   border-radius: 4px;
-  transition: all 0.5s ease;
+  transition: transform 0.4s ease;
   position: absolute;
 }
 
@@ -608,6 +643,8 @@ h1 {
 .active > .hamburger2 > .bar1 {
   transform: translateX(40px);
   background-color: white;
+    transition: transform 0.4s ease;
+
 }
 
 .active > .hamburger2 > .bar2 {
@@ -625,5 +662,7 @@ h1 {
 .active > .hamburger2 > .bar4 {
   transform: translateX(-40px);
   background-color: white;
+    transition: transform 0.5s ease;
+
 }
 </style>

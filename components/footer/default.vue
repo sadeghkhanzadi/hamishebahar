@@ -186,7 +186,7 @@ const data = ref({
               </div>
             </div>
             <div class="contact-us-footer mt-3">
-              <ul class="nav social-app flex justify-between  w-1/3 md:w-1/2 md:gap-4 ">
+              <ul class="nav social-app flex justify-between w-2/3 sm:w-1/2  md:gap-4 ">
                 <li class="nav-item footer-text footer-text" v-for="(item , index) in data.contactUs.social"
                     :key="index">
                   <nuxtLink class="nav-link" :to="item.link"><i :class="`fa-brands text-${item.color}-500 fa-${item.name} fa-lg`"/></nuxtLink>
