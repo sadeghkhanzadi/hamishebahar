@@ -13,7 +13,7 @@ let axis=ref([])
 onMounted(() => {
   const shapes = document.querySelectorAll('.shape-move')
   shapes.forEach(
-      (item,index)=>{
+      (item)=>{
         if(Math.random()>0.5){
           axis.value.push(1)
         }else{

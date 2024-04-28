@@ -19,7 +19,7 @@ console.log(props.articles)
           </div>
           <div class="icon"><span></span></div>
         </div>
-        <div class=" gap-10 grid grid-cols-1 md:grid-cols-2 lg:flex " v-if='props.data && props.theme==true'>
+        <div class=" gap-10 grid grid-cols-1 md:grid-cols-2 lg:flex " v-if='props.data && props.theme'>
           <home-main-card-best-class-card :data="item" v-for="(item , index) in props.data.cards" :key="index" mode="card"/>
         </div>
         <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-10" v-if="props.data">

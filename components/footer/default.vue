@@ -205,7 +205,7 @@ const data = ref({
 </template>
 
 <style scoped lang="scss">
-@import "~/assets/style/_varible.scss";
+@import "@/assets/style/_varible.scss";
 
 footer {
   background-color: $background-color-footer;
