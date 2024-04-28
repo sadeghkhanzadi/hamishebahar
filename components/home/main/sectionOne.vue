@@ -8,27 +8,7 @@ import laboratory from "~/assets/image/shape/labratoar.png"
 import calender from "~/assets/image/shape/calender.png"
 import boy from "~/assets/image/face/circle--boy-kid.webp"
 import girl from "~/assets/image/face/circle-kid.webp"
-let axis=ref([])
-onMounted(() => {
-  const shapes = document.querySelectorAll('.shape-move')
-  shapes.forEach(
-      (item,index)=>{
-        if(Math.random()>0.5){
-          axis.value.push(1)
-        }else{
-          axis.value.push(-1)
-        }
-      }
-  )
-  const base = document.querySelector('.content')
-  base.addEventListener('mousemove', (e) => {
-    shapes.forEach((item, index) => {
-      let finalX=(e.clientX * 30) / window.innerWidth
-     let finalY = (e.clientY* 30) / window.innerHeight
-      item.style.transform=`translate(${axis.value[index]*finalX}px , ${axis.value[index]*finalY}px)`
-    })
-  })
-})
+
 
 
 const data = {
@@ -114,7 +94,7 @@ const data = {
         <div class="shapes hidden xl:block">
           <div :class="`shape-${item.name} absolute shape-move opacity-50`" v-for="(item , index) in data.shape"
                :key="index">
-            <figure><img :src="item.img" :alt="item.name" :data-speed="`${Math.floor(Math.random()*10)}`"></figure>
+            <figure><img :src="item.img" :alt="item.name" ></figure>
           </div>
         </div>
         <div class="flex items-center justify-center main-group">
