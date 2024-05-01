@@ -1,48 +1,24 @@
-package com.hamishebahar.security.users.entity;
+package com.commonts.Dto;
 
-
-import com.commonts.Dto.RolesDto;
 import com.hamishebahar.security.enums.Authority;
+import com.hamishebahar.security.users.entity.Roles;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.ElementCollection;
+import javax.persistence.FetchType;
 import java.util.List;
 
-@Entity
-public class Roles {
-
-    @Id
-    @GeneratedValue
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class RolesDto {
     private Long id;
-
     private String name;
-
     @ElementCollection(targetClass = Authority.class, fetch = FetchType.EAGER)
     private List<Authority> authorities;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Authority> getAuthorities() {
-        return authorities;
-    }
-
-    public void setAuthorities(List<Authority> authorities) {
-        this.authorities = authorities;
-    }
-
+    
     public static class Builder{
         private Long id;
         private String name;
@@ -63,19 +39,19 @@ public class Roles {
             return this;
         }
 
-        public Roles build(){
-            return new Roles(this);
+        public RolesDto build(){
+            return new RolesDto(this);
         }
     }
 
-    private Roles(Builder builder) {
+    private RolesDto(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
         this.authorities = builder.authorities;
     }
 
-    public RolesDto convertToDto() {
-        return new RolesDto.Builder()
+    public Roles convertToEntity() {
+        return new Roles.Builder()
                 .Id(getId())
                 .Name(getName())
                 .Authorities(getAuthorities() != null && !getAuthorities().isEmpty() ? getAuthorities() : null)

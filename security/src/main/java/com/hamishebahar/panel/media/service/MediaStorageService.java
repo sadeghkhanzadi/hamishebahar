@@ -1,51 +1,81 @@
-package com.hamishebahar.panel.news_events.service;
+package com.hamishebahar.panel.media.service;
 
-import com.commonts.Dto.NewsEventsDto;
+import com.commonts.Dto.MediasDto;
 import com.commonts.Dto.ResultsServiceDto;
+import com.commonts.Enums.MediaStates;
 import com.commonts.bundel.BundleManager;
 import com.commonts.exeption.HamisheBaharException;
 import com.commonts.utils.StringUtils;
-import com.hamishebahar.panel.news_events.entity.Events;
-import com.hamishebahar.panel.news_events.repository.NewsEventsRepository;
+import com.hamishebahar.panel.media.entity.Medias;
+import com.hamishebahar.panel.media.repository.MediaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
+import org.springframework.web.multipart.MultipartFile;
 
-import javax.transaction.Transactional;
+import java.io.File;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Objects;
+import java.util.UUID;
 
-import static com.commonts.utils.VerifyObjectUtils.isNewEvents;
+import static com.commonts.utils.VerifyObjectUtils.isNewMedia;
+
 
 @Service
-@Transactional
-public class NewsEventsService {
-    private final NewsEventsRepository newsEventsRepository;
+public class MediaStorageService {
+    @Value(value = "${file.upload.dir}")
+    String fileUploadDir;
+    private final MediaRepository mediaRepository;
 
     @Autowired
-    public NewsEventsService(NewsEventsRepository newsEventsRepository) {
-        this.newsEventsRepository = newsEventsRepository;
+    public MediaStorageService(MediaRepository mediaRepository) {
+        this.mediaRepository = mediaRepository;
     }
 
-    public ResultsServiceDto insertNews(NewsEventsDto dto) throws HamisheBaharException {
-        if (!isNewEvents(dto)) {
+
+    public String saveFile(MultipartFile file) throws HamisheBaharException {
+        try {
+            String PATH = ResourceUtils.getFile(fileUploadDir).getAbsolutePath();
+            byte[] bytes = file.getBytes();
+            String name = UUID.randomUUID() + "." + Objects.requireNonNull(file.getContentType()).split("/")[1];
+            Files.write(Paths.get(PATH + File.separator + name), bytes);
+            return name;
+        } catch (Exception e) {
+            if (e instanceof FileAlreadyExistsException) {
+                throw new HamisheBaharException(HamisheBaharException.IS_EXISTS_FILE, "Could not upload the file: "
+                        + file.getOriginalFilename() +
+                        ". Error:  A file of that name already exists.");
+            }
+            throw new HamisheBaharException(HamisheBaharException.SERVER_ERROR, e.getMessage());
+        }
+    }
+
+    public ResultsServiceDto insertFile(MediasDto dto) throws HamisheBaharException {
+        if (!isNewMedia(dto)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
         }
-        if (dto.getTitle() == null || dto.getText() == null) {
+        if (dto.getFile().isEmpty() || dto.getName() == null || dto.getStates() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.is.null"));
         }
         try {
-            NewsEventsDto newsEventsDto = newsEventsRepository.save(dto.convertToEntity()).convertToDto();
-            return new ResultsServiceDto.Builder().Result(newsEventsDto).build();
+            dto.setPathFile(saveFile(dto.getFile()));
+            MediasDto mediasDto = mediaRepository.save(dto.convertToEntity()).convertToDto();
+            return new ResultsServiceDto.Builder().Result(mediasDto).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                     BundleManager.wrapKey("error.server"));
         }
     }
 
-    public ResultsServiceDto editeNews(NewsEventsDto dto, Long id) throws HamisheBaharException {
-        if (isNewEvents(dto)) {
+    public ResultsServiceDto editMedia(MediasDto dto, Long id) throws HamisheBaharException {
+        if (isNewMedia(dto)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
         }
@@ -57,26 +87,32 @@ public class NewsEventsService {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
         }
-        if (dto.getTitle() == null || dto.getText() == null || !dto.getId().equals(id)) {
+        if (!dto.getId().equals(id) ||
+                dto.getName() == null ||
+                dto.getPathFile() == null ||
+                dto.getStates() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.is.null"));
         }
-        NewsEventsDto vo = findOneByid(id);
-        NewsEventsDto NewsEventsDto = null;
+        MediasDto vo = findOneById(id);
+        MediasDto MediasDto = null;
         if (vo != null) {
             try {
                 dto = dto.updaterFields(vo);
-                NewsEventsDto = newsEventsRepository.save(dto.convertToEntity()).convertToDto();
+                MediasDto = mediaRepository.save(dto.convertToEntity()).convertToDto();
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                         BundleManager.wrapKey("error.server"));
             }
         }
-        return new ResultsServiceDto.Builder().Result(NewsEventsDto).build();
+        return new ResultsServiceDto.Builder().Result(MediasDto).build();
     }
 
-    public ResultsServiceDto deleteNews(Long id) throws HamisheBaharException {
-        ResultsServiceDto resultsServiceDto = new ResultsServiceDto.Builder().Result(null).Status(HttpStatus.BAD_REQUEST).build();
+    public ResultsServiceDto deleteMedia(Long id) throws HamisheBaharException {
+        ResultsServiceDto resultsServiceDto = new ResultsServiceDto.Builder()
+                .Result(null)
+                .Status(HttpStatus.BAD_REQUEST)
+                .build();
         if (!StringUtils.hasText(String.valueOf(id))) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.is.null"));
@@ -85,12 +121,12 @@ public class NewsEventsService {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
         }
-        NewsEventsDto dto = findOneByid(id);
+        MediasDto dto = findOneById(id);
         if (dto != null) {
             try {
                 dto.setIs_deleted(true);
                 dto.setIs_active(false);
-                newsEventsRepository.save(dto.convertToEntity());
+                mediaRepository.save(dto.convertToEntity());
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result("id = " + id)
                         .Status(HttpStatus.OK)
@@ -103,8 +139,11 @@ public class NewsEventsService {
         return resultsServiceDto;
     }
 
-    public ResultsServiceDto findNews(Long id, String startTime, String endTime, Pageable pageable) throws HamisheBaharException {
-        ResultsServiceDto resultsServiceDto = new ResultsServiceDto.Builder().Result(null).Status(HttpStatus.BAD_REQUEST).build();
+    public ResultsServiceDto findMedia(Long id, String name, MediaStates states, Pageable pageable) throws HamisheBaharException {
+        ResultsServiceDto resultsServiceDto = new ResultsServiceDto.Builder()
+                .Result(null)
+                .Status(HttpStatus.BAD_REQUEST)
+                .build();
         try {
             if (StringUtils.hasText(String.valueOf(id))) {
                 if (!isExists(id)) {
@@ -112,17 +151,11 @@ public class NewsEventsService {
                             BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
                 }
                 resultsServiceDto = new ResultsServiceDto.Builder()
-                        .Result(findOneByid(id))
+                        .Result(findOneById(id))
                         .Status(HttpStatus.OK)
                         .build();
             } else {
-                if (StringUtils.hasText(startTime) && StringUtils.hasText(endTime)) {
-                    resultsServiceDto = findALL(startTime, endTime, pageable);
-                } else if (StringUtils.hasText(startTime)) {
-                    resultsServiceDto = findALL(startTime, null, pageable);
-                } else { //all of
-                    resultsServiceDto = findALL(pageable);
-                }
+                resultsServiceDto = findALL(name, states, pageable);
             }
             return resultsServiceDto;
         } catch (Exception e) {
@@ -131,13 +164,13 @@ public class NewsEventsService {
         }
     }
 
-    public NewsEventsDto findOneByid(Long id) throws HamisheBaharException {
+    public MediasDto findOneById(Long id) throws HamisheBaharException {
         try {
-            NewsEventsDto NewsEventsDto = null;
+            MediasDto MediasDto = null;
             if (!StringUtils.isNullOrEmpty(String.valueOf(id))) {
-                NewsEventsDto = newsEventsRepository.getById(id).convertToDto();
+                MediasDto = mediaRepository.getById(id).convertToDto();
             }
-            return NewsEventsDto;
+            return MediasDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                     BundleManager.wrapKey("error.server"));
@@ -147,8 +180,8 @@ public class NewsEventsService {
     public ResultsServiceDto findALL(Pageable pageable) throws HamisheBaharException {
         try {
             return new ResultsServiceDto.Builder().Result(
-                            newsEventsRepository.findAll(pageable)
-                                    .map(Events::convertToDto)
+                            mediaRepository.findAll(pageable)
+                                    .map(Medias::convertToDto)
                     )
                     .Status(HttpStatus.OK)
                     .build();
@@ -158,21 +191,32 @@ public class NewsEventsService {
         }
     }
 
-    public ResultsServiceDto findALL(String startTime, String endTime, Pageable pageable) throws HamisheBaharException {
-        ResultsServiceDto resultsServiceDto = new ResultsServiceDto.Builder().Result(null).Status(HttpStatus.BAD_REQUEST).build();
+    public ResultsServiceDto findALL(String name, MediaStates states, Pageable pageable) throws HamisheBaharException {
+        ResultsServiceDto resultsServiceDto = new ResultsServiceDto.Builder()
+                .Result(null)
+                .Status(HttpStatus.BAD_REQUEST)
+                .build();
         try {
-            if (StringUtils.hasText(startTime) && StringUtils.hasText(endTime)) {
+            if (StringUtils.hasText(name) && StringUtils.hasText(states.name())){
                 resultsServiceDto = new ResultsServiceDto.Builder()
-                        .Result(newsEventsRepository.findALL(startTime, endTime, pageable)
-                                .map(Events::convertToDto))
+                        .Result(mediaRepository.findAllByNameAndState(name, states.name(), pageable)
+                                .map(Medias::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if (StringUtils.hasText(startTime)) {
+            } else if (StringUtils.hasText(name)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
-                        .Result(newsEventsRepository.findALL(startTime, pageable)
-                                .map(Events::convertToDto))
+                        .Result(mediaRepository.findAllByName(name, pageable)
+                                .map(Medias::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
+            } else if (StringUtils.hasText(states.name())) {
+                resultsServiceDto = new ResultsServiceDto.Builder()
+                        .Result(mediaRepository.findAllByState(states.name(), pageable)
+                                .map(Medias::convertToDto))
+                        .Status(HttpStatus.OK)
+                        .build();
+            } else { //all of
+                resultsServiceDto = findALL(pageable);
             }
             return resultsServiceDto;
         } catch (Exception e) {
@@ -184,7 +228,7 @@ public class NewsEventsService {
     public Boolean isExists(Long id) throws HamisheBaharException {
         if (id != null) {
             try {
-                return this.newsEventsRepository.existsById(id);
+                return this.mediaRepository.existsById(id);
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                         BundleManager.wrapKey("error.server"));

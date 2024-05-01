@@ -1,7 +1,6 @@
 package com.commonts.utils;
 
-import com.commonts.Dto.NewsEventsDto;
-import com.commonts.Dto.StudentDto;
+import com.commonts.Dto.*;
 import com.commonts.bundel.BundleManager;
 import com.commonts.exeption.HamisheBaharException;
 
@@ -20,6 +19,25 @@ public class VerifyObjectUtils {
                 BundleManager.wrapKey("error.json.model.is.null"));
     }
     public static boolean isNewStudent(StudentDto dto) throws HamisheBaharException {
+        if (dto != null){
+            return StringUtils.isNullOrEmpty(String.valueOf(dto.getId()!= null ? dto.getId() : null));
+        } throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
+                BundleManager.wrapKey("error.json.model.is.null"));
+    }
+    public static boolean isNewTeacher(TeacherDto dto) throws HamisheBaharException {
+        if (dto != null){
+            return StringUtils.isNullOrEmpty(String.valueOf(dto.getId()!= null ? dto.getId() : null));
+        } throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
+                BundleManager.wrapKey("error.json.model.is.null"));
+    }
+    public static boolean isNewMedia(MediasDto dto) throws HamisheBaharException {
+        if (dto != null){
+            return StringUtils.isNullOrEmpty(String.valueOf(dto.getId()!= null ? dto.getId() : null));
+        } throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
+                BundleManager.wrapKey("error.json.model.is.null"));
+    }
+
+    public static boolean isNewUser(UsersDto dto) throws HamisheBaharException {
         if (dto != null){
             return StringUtils.isNullOrEmpty(String.valueOf(dto.getId()!= null ? dto.getId() : null));
         } throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,

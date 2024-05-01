@@ -45,8 +45,8 @@ public class StudentsController {
     }
 
     //delete
-    @PutMapping(STUDENT_DELETE_WITH_ID)
-    public ResponseEntity<ResultsServiceDto> editeStudent(@PathVariable(value = "id", required = true) Long id,
+    @DeleteMapping(STUDENT_DELETE_WITH_ID)
+    public ResponseEntity<ResultsServiceDto> deleteStudent(@PathVariable(value = "id", required = true) Long id,
                                                           HttpServletResponse response,
                                                           HttpServletRequest request) throws HamisheBaharException {
         ResultsServiceDto resultsVO = this.StudentService.deleteStudent(id);
@@ -55,7 +55,7 @@ public class StudentsController {
 
     //FIND With Filters
     @GetMapping(STUDENT_FIND_WITH_FILTER)
-    public ResponseEntity<ResultsServiceDto> editeStudent(@RequestParam(value = "id", required = false) Long id,
+    public ResponseEntity<ResultsServiceDto> findStudent(@RequestParam(value = "id", required = false) Long id,
                                                           @RequestParam(value = "nationalCode", required = false) String nationalCode,
                                                           @RequestParam(value = "phoneNumber", required = false) String phoneNumber,
                                                           @RequestParam(value = "studentAge", required = false) String studentAge,

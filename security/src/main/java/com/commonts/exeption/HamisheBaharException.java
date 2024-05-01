@@ -78,6 +78,7 @@ public class HamisheBaharException extends Exception {
     public static int NULL_POINTER_EXCEPTION = 352;
     public static int DATABASE_EXCEPTION = 353;
     public static int TOO_MANY_REQUESTS = 354;
+    public static int IS_EXISTS_FILE = 355;
 
     private String error, error_description, error_uri, state;
     private int http_status_code;

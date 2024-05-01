@@ -1,5 +1,6 @@
 package com.hamishebahar.panel.courses.entity;
 
+import com.commonts.Dto.CoursesDto;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.hamishebahar.panel.media.entity.Medias;
@@ -46,4 +47,7 @@ public class Courses {//لیست آموزش ها
     private LocalDateTime updatedAt;
 
 
+    public static CoursesDto convertToDto(Medias medias) {
+        return new CoursesDto();
+    }
 }

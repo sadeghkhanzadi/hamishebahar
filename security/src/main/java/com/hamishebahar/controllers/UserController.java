@@ -1,10 +1,15 @@
 package com.hamishebahar.controllers;
 
+import com.commonts.Dto.ResultsServiceDto;
+import com.commonts.Dto.UsersDto;
+import com.commonts.exeption.HamisheBaharException;
 import com.hamishebahar.security.jwt.JwtAuth;
 import com.hamishebahar.security.jwt.JwtUtils;
 import com.hamishebahar.security.users.entity.Users;
 import com.hamishebahar.security.users.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PostAuthorize;
@@ -19,6 +24,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
+
+import static com.commonts.Constans.UriConstants.*;
 
 @RestController
 public class UserController {
@@ -36,76 +43,56 @@ public class UserController {
         this.jwtUtils = jwtUtils;
     }
 
-    @GetMapping("")
-    public String indexPage() {
-        return "index";
-    }
-
-    @PreAuthorize("hasAuthority('OP_ACCESS_USER')")
-    @GetMapping("/user")
-    public String userPage() {
-        return "user";
-    }
-
-    @GetMapping("/admin")
-    @PreAuthorize("hasAuthority('OP_ACCESS_ADMIN')")
-    public String adminPage(Model model) {
-        model.addAttribute("users", usersService.findAll());
-        return "admin";
+    @GetMapping(USER_ADMIN_FIND_WITH_FILTER)
+    @PreAuthorize(value = "hasAuthority('OP_ACCESS_ADMIN')")
+    public ResponseEntity<ResultsServiceDto> findUserWithFilter(@RequestParam(value = "id", required = false) Long id,
+                                                                @RequestParam(value = "name", required = false) String name,
+                                                                @RequestParam(value = "phoneNumber", required = false) String phoneNumber,
+                                                                @RequestParam(value = "nationalCode", required = false) String nationalCode,
+                                                                @PageableDefault Pageable pageable,
+                                                                HttpServletResponse response,
+                                                                HttpServletRequest request) throws HamisheBaharException {
+        ResultsServiceDto resultsVO = usersService.findUserWithFilter(id, name, phoneNumber, nationalCode , pageable);
+        return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
 
-    @GetMapping("/user/get/{id}")
-    @PostAuthorize("returnObject.email == authentication.name")
+    @GetMapping(USER_FIND)
+    @PreAuthorize(value = "hasAuthority('OP_ACCESS_USER')")
+    @PostAuthorize(value = "returnObject.email == authentication.name")
     public @ResponseBody
-    Users getUser(@PathVariable("id") Long id) {
-        return usersService.findById(id);
+    ResponseEntity<ResultsServiceDto> findUser(@PathVariable("id") Long id) throws HamisheBaharException {
+        ResultsServiceDto resultsVO = usersService.findUser(id);
+        return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
 
-    @GetMapping(value = "/admin/register")
-    public String registerPage(Model model) {
-        model.addAttribute("user", new Users());
-        return "registerUser";
+    @PutMapping(USER_UPDATE)
+    @PreAuthorize(value = "hasAnyAuthority('OP_EDIT_USER')")
+    public ResponseEntity<ResultsServiceDto> updateUser(@PathVariable("id") Long id, @RequestBody UsersDto dto) throws HamisheBaharException {
+
+        ResultsServiceDto resultsVO = usersService.updateUser(dto , id);
+        return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
-    @GetMapping(value = "/admin/edit/{id}")
-    public String registerPage(Model model, @PathVariable("id") Long id) {
-        model.addAttribute("user", usersService.findById(id));
-        return "registerUser";
+    @PutMapping(USER_ADMIN_UPDATE)
+    @PreAuthorize(value = "hasAnyAuthority('OP_ADMIN_EDIT_USER')")
+    public ResponseEntity<ResultsServiceDto> updateAdminUser(@PathVariable("id") Long id, @RequestBody UsersDto dto) throws HamisheBaharException {
+        ResultsServiceDto resultsVO = usersService.updateAdminUser(dto,id);
+        return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
-    @GetMapping(value = "/admin/delete/{id}")
-    public String delete(@PathVariable("id") Long id) {
-        usersService.deleteById(usersService.findById(id));
-        return "redirect:/admin";
+    @DeleteMapping(USER_ADMIN_DELETE_WITH_ID)
+    @PreAuthorize(value = "hasAnyAuthority('OP_ADMIN_DELETE_USER')")
+    public ResponseEntity<ResultsServiceDto> deleteAdminUser(@PathVariable("id") Long id) throws HamisheBaharException {
+        ResultsServiceDto resultsVO = usersService.deleteAdminUser(id);
+        return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
-
-    @PostMapping(value = "/admin/register")
-    public String register(@ModelAttribute(name = "user") Users users) {
-        usersService.registerUser(users);
-        return "redirect:/admin";
-    }
-
-    @GetMapping("/login")
-    public String loginPage() {
-        return "login";
-    }
-
-    @GetMapping("/getCookie")
-    public String getCookie(HttpServletRequest request, HttpSession session) {
-        for (Cookie cookie : request.getCookies())
-            System.out.println(cookie.getName() + " : " + cookie.getValue());
-        return "login";
-    }
-
-    @GetMapping("/setCookie")
-    public String setCookie(HttpServletResponse response) {
-        Cookie cookie = new Cookie("user", "hatef");
-        cookie.setMaxAge(60);
-        response.addCookie(cookie);
-        return "login";
+    @PostMapping(USER_REGISTER) //All Access
+    public ResponseEntity<ResultsServiceDto> registerUser(@RequestBody UsersDto users) throws HamisheBaharException {
+        ResultsServiceDto resultsVO = usersService.registerUser(users);
+        return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
     @PostMapping("/jwt/login")
@@ -121,18 +108,4 @@ public class UserController {
         response.addHeader("Authorization", jwtUtils.generateToken(jwtAuth.getUsername()));
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
-    @GetMapping("/jwt/hello")
-    public @ResponseBody
-    String jwtHello() {
-        return "Hello Jwt";
-    }
-
-
-    @GetMapping("/info")
-    public @ResponseBody
-    Principal getCookie(Principal principal) {
-        return principal;
-    }
-
 }

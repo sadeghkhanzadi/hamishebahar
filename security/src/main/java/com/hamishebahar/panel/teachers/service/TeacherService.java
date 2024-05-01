@@ -1,12 +1,12 @@
-package com.hamishebahar.panel.news_events.service;
+package com.hamishebahar.panel.teachers.service;
 
-import com.commonts.Dto.NewsEventsDto;
 import com.commonts.Dto.ResultsServiceDto;
+import com.commonts.Dto.TeacherDto;
 import com.commonts.bundel.BundleManager;
 import com.commonts.exeption.HamisheBaharException;
 import com.commonts.utils.StringUtils;
-import com.hamishebahar.panel.news_events.entity.Events;
-import com.hamishebahar.panel.news_events.repository.NewsEventsRepository;
+import com.hamishebahar.panel.teachers.entity.Teachers;
+import com.hamishebahar.panel.teachers.repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -14,38 +14,38 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
-import static com.commonts.utils.VerifyObjectUtils.isNewEvents;
+import static com.commonts.utils.VerifyObjectUtils.isNewTeacher;
 
 @Service
 @Transactional
-public class NewsEventsService {
-    private final NewsEventsRepository newsEventsRepository;
+public class TeacherService {
+    private final TeacherRepository teacherRepository;
 
     @Autowired
-    public NewsEventsService(NewsEventsRepository newsEventsRepository) {
-        this.newsEventsRepository = newsEventsRepository;
+    public TeacherService(TeacherRepository teacherRepository) {
+        this.teacherRepository = teacherRepository;
     }
 
-    public ResultsServiceDto insertNews(NewsEventsDto dto) throws HamisheBaharException {
-        if (!isNewEvents(dto)) {
+    public ResultsServiceDto insertTeacher(TeacherDto dto) throws HamisheBaharException {
+        if (!isNewTeacher(dto)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
         }
-        if (dto.getTitle() == null || dto.getText() == null) {
+        if (dto.getPhoneNumber() == null || dto.getFirstName() == null || dto.getLastName() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.is.null"));
         }
         try {
-            NewsEventsDto newsEventsDto = newsEventsRepository.save(dto.convertToEntity()).convertToDto();
-            return new ResultsServiceDto.Builder().Result(newsEventsDto).build();
+            TeacherDto teacherDto = teacherRepository.save(dto.convertToEntity()).convertToDto();
+            return new ResultsServiceDto.Builder().Result(teacherDto).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                     BundleManager.wrapKey("error.server"));
         }
     }
 
-    public ResultsServiceDto editeNews(NewsEventsDto dto, Long id) throws HamisheBaharException {
-        if (isNewEvents(dto)) {
+    public ResultsServiceDto editTeacher(TeacherDto dto, Long id) throws HamisheBaharException {
+        if (isNewTeacher(dto)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
         }
@@ -57,26 +57,33 @@ public class NewsEventsService {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
         }
-        if (dto.getTitle() == null || dto.getText() == null || !dto.getId().equals(id)) {
+        if (dto.getId() == null ||
+                dto.getFirstName() == null ||
+                dto.getLastName() == null ||
+                dto.getJobTitle() == null ||
+                !dto.getId().equals(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.is.null"));
         }
-        NewsEventsDto vo = findOneByid(id);
-        NewsEventsDto NewsEventsDto = null;
+        TeacherDto vo = findOneById(id);
+        TeacherDto TeacherDto = null;
         if (vo != null) {
             try {
                 dto = dto.updaterFields(vo);
-                NewsEventsDto = newsEventsRepository.save(dto.convertToEntity()).convertToDto();
+                TeacherDto = teacherRepository.save(dto.convertToEntity()).convertToDto();
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                         BundleManager.wrapKey("error.server"));
             }
         }
-        return new ResultsServiceDto.Builder().Result(NewsEventsDto).build();
+        return new ResultsServiceDto.Builder().Result(TeacherDto).build();
     }
 
-    public ResultsServiceDto deleteNews(Long id) throws HamisheBaharException {
-        ResultsServiceDto resultsServiceDto = new ResultsServiceDto.Builder().Result(null).Status(HttpStatus.BAD_REQUEST).build();
+    public ResultsServiceDto deleteTeacher(Long id) throws HamisheBaharException {
+        ResultsServiceDto resultsServiceDto = new ResultsServiceDto.Builder()
+                .Result(null)
+                .Status(HttpStatus.BAD_REQUEST)
+                .build();
         if (!StringUtils.hasText(String.valueOf(id))) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.is.null"));
@@ -85,12 +92,12 @@ public class NewsEventsService {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
         }
-        NewsEventsDto dto = findOneByid(id);
+        TeacherDto dto = findOneById(id);
         if (dto != null) {
             try {
                 dto.setIs_deleted(true);
                 dto.setIs_active(false);
-                newsEventsRepository.save(dto.convertToEntity());
+                teacherRepository.save(dto.convertToEntity());
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result("id = " + id)
                         .Status(HttpStatus.OK)
@@ -103,8 +110,11 @@ public class NewsEventsService {
         return resultsServiceDto;
     }
 
-    public ResultsServiceDto findNews(Long id, String startTime, String endTime, Pageable pageable) throws HamisheBaharException {
-        ResultsServiceDto resultsServiceDto = new ResultsServiceDto.Builder().Result(null).Status(HttpStatus.BAD_REQUEST).build();
+    public ResultsServiceDto findTeacher(Long id, String firstName, String lastName, String jobTitle, Pageable pageable) throws HamisheBaharException {
+        ResultsServiceDto resultsServiceDto = new ResultsServiceDto.Builder()
+                .Result(null)
+                .Status(HttpStatus.BAD_REQUEST)
+                .build();
         try {
             if (StringUtils.hasText(String.valueOf(id))) {
                 if (!isExists(id)) {
@@ -112,17 +122,11 @@ public class NewsEventsService {
                             BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
                 }
                 resultsServiceDto = new ResultsServiceDto.Builder()
-                        .Result(findOneByid(id))
+                        .Result(findOneById(id))
                         .Status(HttpStatus.OK)
                         .build();
             } else {
-                if (StringUtils.hasText(startTime) && StringUtils.hasText(endTime)) {
-                    resultsServiceDto = findALL(startTime, endTime, pageable);
-                } else if (StringUtils.hasText(startTime)) {
-                    resultsServiceDto = findALL(startTime, null, pageable);
-                } else { //all of
-                    resultsServiceDto = findALL(pageable);
-                }
+                resultsServiceDto = findALL(firstName, lastName, jobTitle, pageable);
             }
             return resultsServiceDto;
         } catch (Exception e) {
@@ -131,13 +135,14 @@ public class NewsEventsService {
         }
     }
 
-    public NewsEventsDto findOneByid(Long id) throws HamisheBaharException {
+
+    public TeacherDto findOneById(Long id) throws HamisheBaharException {
         try {
-            NewsEventsDto NewsEventsDto = null;
+            TeacherDto teacherDto = null;
             if (!StringUtils.isNullOrEmpty(String.valueOf(id))) {
-                NewsEventsDto = newsEventsRepository.getById(id).convertToDto();
+                teacherDto = teacherRepository.getById(id).convertToDto();
             }
-            return NewsEventsDto;
+            return teacherDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                     BundleManager.wrapKey("error.server"));
@@ -147,8 +152,8 @@ public class NewsEventsService {
     public ResultsServiceDto findALL(Pageable pageable) throws HamisheBaharException {
         try {
             return new ResultsServiceDto.Builder().Result(
-                            newsEventsRepository.findAll(pageable)
-                                    .map(Events::convertToDto)
+                            teacherRepository.findAll(pageable)
+                                    .map(Teachers::convertToDto)
                     )
                     .Status(HttpStatus.OK)
                     .build();
@@ -158,21 +163,45 @@ public class NewsEventsService {
         }
     }
 
-    public ResultsServiceDto findALL(String startTime, String endTime, Pageable pageable) throws HamisheBaharException {
-        ResultsServiceDto resultsServiceDto = new ResultsServiceDto.Builder().Result(null).Status(HttpStatus.BAD_REQUEST).build();
+    public ResultsServiceDto findALL(String firstName, String lastName,
+                                     String jobTitle, Pageable pageable) throws HamisheBaharException {
+        ResultsServiceDto resultsServiceDto = new ResultsServiceDto.Builder()
+                .Result(null)
+                .Status(HttpStatus.BAD_REQUEST)
+                .build();
         try {
-            if (StringUtils.hasText(startTime) && StringUtils.hasText(endTime)) {
+            if (StringUtils.hasText(firstName) && StringUtils.hasText(lastName) && StringUtils.hasText(jobTitle)){
                 resultsServiceDto = new ResultsServiceDto.Builder()
-                        .Result(newsEventsRepository.findALL(startTime, endTime, pageable)
-                                .map(Events::convertToDto))
+                        .Result(teacherRepository.findAllByFirstNameAndLastNameAndJobTitle(firstName, lastName, jobTitle, pageable)
+                                .map(Teachers::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if (StringUtils.hasText(startTime)) {
+            } else if (StringUtils.hasText(firstName) && StringUtils.hasText(lastName)){
                 resultsServiceDto = new ResultsServiceDto.Builder()
-                        .Result(newsEventsRepository.findALL(startTime, pageable)
-                                .map(Events::convertToDto))
+                        .Result(teacherRepository.findAllByFirstNameAndLastName(firstName, lastName, pageable)
+                                .map(Teachers::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
+            } else if (StringUtils.hasText(firstName)) {
+                resultsServiceDto = new ResultsServiceDto.Builder()
+                        .Result(teacherRepository.findAllByFirstName(firstName, pageable)
+                                .map(Teachers::convertToDto))
+                        .Status(HttpStatus.OK)
+                        .build();
+            } else if (StringUtils.hasText(lastName)) {
+                resultsServiceDto = new ResultsServiceDto.Builder()
+                        .Result(teacherRepository.findAllByLastName(lastName, pageable)
+                                .map(Teachers::convertToDto))
+                        .Status(HttpStatus.OK)
+                        .build();
+            } else if (StringUtils.hasText(jobTitle)) {
+                resultsServiceDto = new ResultsServiceDto.Builder()
+                        .Result(teacherRepository.findAllByJobTitle(jobTitle, pageable)
+                                .map(Teachers::convertToDto))
+                        .Status(HttpStatus.OK)
+                        .build();
+            } else { //all of
+                resultsServiceDto = findALL(pageable);
             }
             return resultsServiceDto;
         } catch (Exception e) {
@@ -184,7 +213,7 @@ public class NewsEventsService {
     public Boolean isExists(Long id) throws HamisheBaharException {
         if (id != null) {
             try {
-                return this.newsEventsRepository.existsById(id);
+                return this.teacherRepository.existsById(id);
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                         BundleManager.wrapKey("error.server"));

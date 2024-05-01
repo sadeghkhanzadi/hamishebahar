@@ -4,9 +4,10 @@ public enum MediaStates {
     SLIDER ,
     BANNER ,
     PROFILE ,
-    CERTIFICATE,
+    BIRTH_CERTIFICATE,
     NATIONAL_CARD,
     COURSE,
     NEWS_EVENTS,
-    CV
+    CV,
+    CERTIFICATE
 }

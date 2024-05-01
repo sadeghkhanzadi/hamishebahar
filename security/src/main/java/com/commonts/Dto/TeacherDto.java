@@ -1,33 +1,18 @@
-package com.hamishebahar.panel.teachers.entity;
+package com.commonts.Dto;
 
-import com.commonts.Dto.MediasDto;
-import com.commonts.Dto.TeacherDto;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.hamishebahar.panel.courses.entity.Courses;
-import com.hamishebahar.panel.media.entity.Medias;
+import com.hamishebahar.panel.teachers.entity.Teachers;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Teachers {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class TeacherDto {
     private Long id;
     private String teacherCode;
     private String firstName;
@@ -39,25 +24,12 @@ public class Teachers {
     private String phoneNumber;
     private Boolean is_active;
     private Boolean is_deleted;
-    @ManyToMany
-    private List<Medias> documentFiles; //فایل های رزومه و عکس و کارت ملی و ...
-    @ManyToMany(mappedBy = "courses")
-    private List<Courses> courses; // لیست دوره های هر مدرس
+    private List<MediasDto> documentFiles; //فایل های رزومه و عکس و کارت ملی و ...
+    private List<CoursesDto> courses; // لیست دوره های هر مدرس
+    private String createdAt;
+    private String updatedAt;
 
-    @Column(
-            name = "created_time",
-            updatable = false
-    )
-    @CreationTimestamp
-    private LocalDateTime createdAt;
-    @Column(
-            name = "updated_time",
-            updatable = true
-    )
-    @UpdateTimestamp
-    private LocalDateTime updatedAt;
-    
-    public static class Builder{
+    public static class Builder {
         private Long id;
         private String teacherCode;
         private String firstName;
@@ -69,8 +41,10 @@ public class Teachers {
         private String phoneNumber;
         private Boolean is_active;
         private Boolean is_deleted;
-        private List<Medias> documentFiles; //فایل های رزومه و عکس و کارت ملی و ...
-        private List<Courses> courses; // لیست دوره های هر مدرس
+        private List<MediasDto> documentFiles; //فایل های رزومه و عکس و کارت ملی و ...
+        private List<CoursesDto> courses; // لیست دوره های هر مدرس
+        private String createdAt;
+        private String updatedAt;
 
         public Builder Id(Long id) {
             this.id = id;
@@ -127,22 +101,32 @@ public class Teachers {
             return this;
         }
 
-        public Builder DocumentFiles(List<Medias> documentFiles) {
+        public Builder DocumentFiles(List<MediasDto> documentFiles) {
             this.documentFiles = documentFiles;
             return this;
         }
 
-        public Builder Courses(List<Courses> courses) {
+        public Builder Courses(List<CoursesDto> courses) {
             this.courses = courses;
             return this;
         }
 
-        public Teachers build(){
-            return new Teachers(this);
+        public Builder CreatedAt(String createdAt) {
+            this.createdAt = createdAt;
+            return this;
+        }
+
+        public Builder UpdatedAt(String updatedAt) {
+            this.updatedAt = updatedAt;
+            return this;
+        }
+
+        public TeacherDto build() {
+            return new TeacherDto(this);
         }
     }
 
-    private Teachers(Builder builder){
+    private TeacherDto(Builder builder) {
         this.id = builder.id;
         this.teacherCode = builder.teacherCode;
         this.firstName = builder.firstName;
@@ -156,12 +140,14 @@ public class Teachers {
         this.is_deleted = builder.is_deleted;
         this.documentFiles = builder.documentFiles;
         this.courses = builder.courses;
+        this.createdAt = builder.createdAt;
+        this.updatedAt = builder.updatedAt;
     }
 
-    public TeacherDto convertToDto(){
-        return new TeacherDto.Builder()
+    public Teachers convertToEntity() {
+        return new Teachers.Builder()
                 .Id(getId() != null ? getId() : null)
-                .TeacherCode(getTeacherCode()!= null ? getTeacherCode() : null)
+                .TeacherCode(getTeacherCode() != null ? getTeacherCode() : null)
                 .FirstName(getFirstName())
                 .LastName(getLastName())
                 .Age(getAge())
@@ -172,16 +158,31 @@ public class Teachers {
                 .Is_active(getIs_active() != null ? getIs_active() : true)
                 .Is_deleted(getIs_deleted() != null ? getIs_deleted() : false)
                 .DocumentFiles(getDocumentFiles() != null ? getDocumentFiles().stream()
-                        .map(Medias::convertToDto)
+                        .map(MediasDto::convertToEntity)
                         .collect(Collectors.toList()) : null)
-                .Courses(getCourses() != null ? getDocumentFiles().stream()
-                        .map(Courses::convertToDto)
+                .Courses(getCourses() != null ? getCourses().stream()
+                        .map(CoursesDto::convertToEntity)
                         .collect(Collectors.toList()) : null)
-                .CreatedAt(getCreatedAt() != null ? getCreatedAt().
-                        format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL)) : null)
-                .UpdatedAt(getUpdatedAt() != null ? getUpdatedAt()
-                        .format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL)) : null)
                 .build();
     }
 
+    public TeacherDto updaterFields(TeacherDto dto) {
+        return new TeacherDto.Builder()
+                .Id(getId() != null ? getId() : dto.getId())
+                .TeacherCode(getTeacherCode() != null ? getTeacherCode() : dto.getTeacherCode())
+                .FirstName(getFirstName() != null ? getFirstName() : dto.getFirstName())
+                .LastName(getLastName() != null ? getLastName() : dto.getLastName())
+                .Age(getAge() != null ? getAge() : dto.getAge())
+                .WorkExperience(getWorkExperience() != null ? getWorkExperience() : dto.getWorkExperience())
+                .JobTitle(getJobTitle() != null ?  getJobTitle() : dto.getJobTitle())
+                .NationalCode(getNationalCode() != null ? getNationalCode() : dto.getNationalCode())
+                .PhoneNumber(getPhoneNumber() != null ? getPhoneNumber() : dto.getPhoneNumber())
+                .Is_active(getIs_active() != null &&
+                        (getIs_active() == dto.getIs_active()) ? getIs_active() : dto.getIs_active())
+                .Is_deleted(getIs_deleted() != null &&
+                        (getIs_deleted() == dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
+                .DocumentFiles(getDocumentFiles() != null ? getDocumentFiles() : dto.getDocumentFiles())
+                .Courses(getCourses() != null ? getCourses() : dto.getCourses())
+                .build();
+    }
 }

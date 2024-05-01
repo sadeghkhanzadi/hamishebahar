@@ -12,10 +12,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 import static com.commonts.utils.StringUtils.isDualFields;
 import static com.commonts.utils.VerifyObjectUtils.isNewStudent;
 
 @Service
+@Transactional
 public class StudentService {
     private final StudentRepository studentRepository;
 
@@ -57,7 +60,7 @@ public class StudentService {
                     BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
         }
         if (dto.getNationalCode() == null || dto.getPhoneNumber() == null ||
-                dto.getFirst_name() == null || dto.getLast_name() == null) {
+                dto.getFirst_name() == null || dto.getLast_name() == null || !dto.getId().equals(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.is.null"));
         }

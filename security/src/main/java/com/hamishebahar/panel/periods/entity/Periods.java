@@ -1,5 +1,6 @@
 package com.hamishebahar.panel.periods.entity;
 
+import com.commonts.Dto.PeriodsDto;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.hamishebahar.panel.development.entity.Development;
@@ -44,4 +45,8 @@ public class Periods {// دوره تحصیلی - دبستان - پیش دبست�
     )
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+    public PeriodsDto convertToDto() {
+        return new PeriodsDto();
+    }
 }

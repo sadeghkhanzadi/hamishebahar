@@ -1,14 +1,13 @@
 package com.commonts.Dto;
 
 import com.hamishebahar.panel.media.entity.Medias;
-import com.hamishebahar.panel.periods.entity.Periods;
 import com.hamishebahar.panel.students.entity.Students;
-import com.hamishebahar.security.users.entity.Users;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
@@ -26,11 +25,11 @@ public class StudentDto {
     private String studentAge;
 
     //Parents
-    private List<Users> studentParents;
+    private List<UsersDto> studentParents;
 
     //period
     // دوره تحصیلی - دبستان - پیش دبستان
-    private List<Periods> studentPeriods;
+    private List<PeriodsDto> studentPeriods;
 
     //Media
     //عکس دانش آموز
@@ -57,11 +56,11 @@ public class StudentDto {
         private String studentAge;
 
         //Parents
-        private List<Users> studentParents;
+        private List<UsersDto> studentParents;
 
         //period
         // دوره تحصیلی - دبستان - پیش دبستان
-        private List<Periods> studentPeriods;
+        private List<PeriodsDto> studentPeriods;
 
         //Media
         //عکس دانش آموز
@@ -115,12 +114,12 @@ public class StudentDto {
             return this;
         }
 
-        public Builder StudentParents(List<Users> studentParents) {
+        public Builder StudentParents(List<UsersDto> studentParents) {
             this.studentParents = studentParents;
             return this;
         }
 
-        public Builder StudentPeriods(List<Periods> studentPeriods) {
+        public Builder StudentPeriods(List<PeriodsDto> studentPeriods) {
             this.studentPeriods = studentPeriods;
             return this;
         }
@@ -183,8 +182,12 @@ public class StudentDto {
                 .PhoneNumber(getPhoneNumber() != null ? getPhoneNumber() : null)
                 .EmergencyPhoneNumber(getEmergencyPhoneNumber() != null ? getEmergencyPhoneNumber() : null)
                 .StudentAge(getStudentAge() != null ? getStudentAge() : null)
-                .StudentParents(getStudentParents() != null ? getStudentParents() : null)
-                .StudentPeriods(getStudentPeriods() != null ? getStudentPeriods() : null)
+                .StudentParents(getStudentParents() != null ? getStudentParents().stream()
+                        .map(UsersDto::convertToEntity)
+                        .collect(Collectors.toList()) : null)
+                .StudentPeriods(getStudentPeriods() != null ? getStudentPeriods().stream()
+                        .map(PeriodsDto::convertToEntity)
+                        .collect(Collectors.toList()) : null)
                 .DocumentFiles(getDocumentFiles() != null ? getDocumentFiles() : null)
                 .Is_active(getIs_active() != null ? getIs_active() : true)
                 .Is_deleted(getIs_deleted() != null ? getIs_deleted() : false)

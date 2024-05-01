@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
@@ -196,8 +197,12 @@ public class Students {
                 .EmergencyPhoneNumber(getEmergencyPhoneNumber() != null ?
                         getEmergencyPhoneNumber() : null)
                 .StudentAge(getStudentAge() != null ? getStudentAge() : null)
-                .StudentParents(getStudentParents() != null ? getStudentParents() : null)
-                .StudentPeriods(getStudentPeriods() != null ? getStudentPeriods() : null)
+                .StudentParents(getStudentParents() != null ? getStudentParents().stream()
+                        .map(Users::convertToDto)
+                        .collect(Collectors.toList()) : null)
+                .StudentPeriods(getStudentPeriods() != null ? getStudentPeriods().stream()
+                        .map(Periods::convertToDto)
+                        .collect(Collectors.toList()) : null)
                 .DocumentFiles(getDocumentFiles() != null ? getDocumentFiles() : null)
                 .Is_active(getIs_active() != null ? getIs_active() : true)
                 .Is_deleted(getIs_deleted() != null ? getIs_deleted() : false)
