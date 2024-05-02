@@ -17,7 +17,6 @@ const password=ref("password")
 const eye = ref(false)
 function showPassword() {
   eye.value = !eye.value
-  console.log(password.value)
   password.value === "password" ?  password.value = "text" : password.value ="password"
 }
 const shapes = [
