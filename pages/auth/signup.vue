@@ -19,7 +19,6 @@ const error = reactive({
 })
 function showPassword() {
   eye.value = !eye.value
-  console.log(password.value)
   password.value === "password" ? password.value = "text" : password.value = "password"
 }
 
@@ -51,8 +50,8 @@ if (form.password !== form.repeatPassword && form.repeatPassword !== form.passwo
 </script>
 
 <template>
-  <div class="container mx-auto px-5">
-    <div class="login mt-[15vh] mb-10 relative">
+  <div class="container mx-auto px-5 w-full">
+    <div class="login mt-[15vh] mb-10 relative w-full">
       <form action="" class="w-full sm:w-2/3 lg:w-1/2 xl:w-2/5 mx-auto border rounded-lg p-5 py-7" @submit.prevent="handleSubmit">
         <div class="title text-center mb-10 text-xl "><h3>فرم ثبت نام </h3></div>
         <div class="flex flex-col gap-4 mb-4">
