@@ -1,306 +1,87 @@
 <script setup>
 import cartShopping from '~/assets/image/shape/cart-shopping.png'
 import NavbarMobile from "~/components/header/navbarMobile.vue";
+
 const showNavbarMobile = ref(false)
+const showAuth = ref(false)
 const route = useRoute()
 const data = ref({
   menu: [
     {
       name: "خانه",
       link: "",
+    },
+    {
+      name: "مربیان",
+      link: "",
       sub: [
         {
-          name: "دموی اصلی ",
-          link: "/#",
+          name: "حسین حسینی",
+          link: "",
         },
         {
-          name: "آموزش از راه دور ",
+          name: "میلاد میرزایی",
+          link: "",
+        },
+      ]
+    },
+    {
+      name: "دوره های تحصیلی ",
+      link: "",
+      sub: [
+        {
+          name: "نوزاد",
           link: ""
         },
         {
-          name: "دانشگاه",
+          name: "مهدکودک",
           link: ""
         },
         {
-          name: "آکادمی آنلاین",
+          name: "پیش دبستان",
           link: ""
         },
         {
-          name: "آموزشگاه مدرن",
-          link: ""
-        },
-        {
-          name: "آموزش آشپزی",
-          link: ""
-        },
-        {
-          name: "یوگا",
-          link: ""
-        },
-        {
-          name: "مهد کودک",
-          link: ""
-        },
-        {
-          name: "آموزشگاه زبان",
-          link: ""
-        },
-        {
-          name: "آموزش از راه دور ",
-          link: ""
-        },
-        {
-          name: "مدیریت کسب و کار",
-          link: ""
-        },
-        {
-          name: "انگیزشی",
-          link: ""
-        },
-        {
-          name: "برنامه نویسی ",
-          link: ""
-        },
-        {
-          name: "هنر آنلاین",
-          link: ""
-        },
-        {
-          name: "آموزش فروش",
-          link: ""
-        },
-        {
-          name: "آموزش قرآن",
-          link: ""
-        },
-        {
-          name: "آموزش بدنسازی",
+          name: "دبستان",
           link: ""
         },
       ]
     },
     {
-      name: "صفحه ها",
+      name: "آموزش",
       link: "",
       sub: [
         {
-          name: "درباره ما ",
-          link: "",
-          sub: [
-            {
-              name: "درباره ما - 1",
-              link: ""
-            },
-            {
-              name: "درباره ما - 2",
-              link: ""
-            },
-            {
-              name: "درباره ما - 3",
-              link: ""
-            },
-            {
-              name: "درباره ما - 4",
-              link: ""
-            },
-          ]
-        },
-        {
-          name: "مربیان",
-          link: "",
-          sub: [
-            {
-              name: "مربیان - 1",
-              link: ""
-            },
-            {
-              name: "مربیان - 2",
-              link: ""
-            },
-            {
-              name: "مربیان - 3",
-              link: ""
-            },
-            {
-              name: "مربیان - 4",
-              link: ""
-            },
-          ]
-        },
-        {
-          name: "صفحه های رویداد",
-          link: "",
-          sub: [
-            {
-              name: "صفحه های رویداد - 1",
-              link: ""
-            },
-            {
-              name: "صفحه های رویداد - 2",
-              link: ""
-            },
-            {
-              name: "صفحه های رویداد - 3",
-              link: ""
-            },
-            {
-              name: "صفحه های رویداد - 4",
-              link: ""
-            },
-          ]
-        },
-        {
-          name: "صفحه های فروشگاه",
-          link: "",
-          sub: [
-            {
-              name: "صفحه های فروشگاه - 1",
-              link: ""
-            },
-            {
-              name: "صفحه های فروشگاه - 2",
-              link: ""
-            },
-            {
-              name: "صفحه های فروشگاه - 3",
-              link: ""
-            },
-            {
-              name: "صفحه های فروشگاه - 4",
-              link: ""
-            },
-          ]
-        },
-        {
-          name: "پرسش های متداول",
-          link: ""
-        },
-        {
-          name: "جدول قیمت ",
-          link: ""
-        },
-        {
-          name: "حریم خصوصی",
-          link: ""
-        },
-        {
-          name: "به زودی",
-          link: ""
-        },
-        {
-          name: "صفحه 404",
-          link: ""
-        },
-      ]
-    },
-    {
-      name: "دوره ها ",
-      link: "",
-      sub: [
-        {
-          name: "استایل دوزه ها",
-          link: "",
-          sub: [
-            {
-              name: "استایل دوزه ها - 1",
-              link: ""
-            },
-            {
-              name: "استایل دوزه ها - 2",
-              link: ""
-            },
-            {
-              name: "استایل دوزه ها - 3",
-              link: ""
-            },
-            {
-              name: "استایل دوزه ها - 4",
-              link: ""
-            },
-          ]
-        },
-        {
-          name: "جزییات دوره ها",
-          link: "",
-          sub: [
-            {
-              name: "جزییات دوره ها - 1",
-              link: ""
-            },
-            {
-              name: "جزییات دوره ها - 2",
-              link: ""
-            },
-            {
-              name: "جزییات دوره ها - 3",
-              link: ""
-            },
-            {
-              name: "جزییات دوره ها - 4",
-              link: ""
-            },
-          ]
-        },
-        {
-          name: "فیلتر دوره ها",
-          link: "",
-          sub: [
-            {
-              name: "فیلتر دوره ها - 1",
-              link: ""
-            },
-            {
-              name: "فیلتر دوره ها - 2",
-              link: ""
-            },
-            {
-              name: "فیلتر دوره ها - 3",
-              link: ""
-            },
-            {
-              name: "فیلتر دوره ها - 4",
-              link: ""
-            },
-          ]
-        },
-      ]
-    },
-    {
-      name: "صفحه های بلاگ",
-      link: "",
-      sub: [
-        {
-          name: "بلاگ 1",
+          name: "رفتارشناسی",
           link: " "
         },
         {
-          name: "بلاگ 2",
+          name: "روانشناسی",
           link: ""
         },
         {
-          name: "بلاگ استاندارد",
+          name: "بازی و آموزش ",
           link: ""
         },
         {
-          name: " جزئیات بلاگ ",
+          name: " نقاشی" ,
           link: ""
         },
       ]
     },
     {
-      name: "صفحه های تماس",
+      name: "اخبار و رویداد ها",
       link: "",
-      sub: [
-        {
-          name: "صفحه تماس با ما ",
-          link: ""
-        },
-        {
-          name: "صفحه تماس با من ",
-          link: ""
-        },
-      ]
     },
+    {
+      name: "تماس با ما",
+      link: "",
+    },
+    {
+      name: "درباره ما",
+      link: "",
+    },
+
   ],
   brand: "همیشه بهار",
   icon: {
@@ -309,41 +90,42 @@ const data = ref({
   },
   start: "استارتش رو بزن ."
 })
-watch(route , ()=>{
-  console.log(5)
-})
-console.log(route)
-onMounted(()=>{
-  watch(showNavbarMobile , ()=>{
+onMounted(() => {
+  watch(showNavbarMobile, () => {
     showNavbarMobile.value ? document.body.classList.add("overflow-hidden") : document.body.classList.remove("overflow-hidden")
+  })
+  watch(showAuth, () => {
+    showAuth.value ? document.body.classList.add("overflow-hidden") : document.body.classList.remove("overflow-hidden")
   })
 })
 </script>
 
 <template>
-  <div class="header" :class="{addCloud : route.path === '/'}" >
+  <div class="header" :class="{addCloud : route.path === '/'}">
     <div
-        class="  mx-auto flex justify-between  items-center xl:items-baseline px-5 sm:px-7 lg:px-0 py-5 gap-10 md:gap-x-16 lg:container header-container">
+        class="  mx-auto flex justify-between  items-center xl:items-baseline px-5 sm:px-7 lg:px-0 py-5 gap-10 md:gap-x-16 lg:container header-container relative ">
       <div class="navbar-brand">
-        <nuxt-link to="/">{{ data.brand }}</nuxt-link>
+        <h1>
+          <nuxt-link to="/">{{ data.brand }}</nuxt-link>
+        </h1>
       </div>
       <nav class="flex justify-end xl:justify-between ms-auto lg:w-full items-center ">
-        <ul class="nav menu hidden justify-between gap-5 2xl:gap-7 xl:flex">
+        <ul class="nav menu hidden justify-between gap-5 lg:gap-5 xl:gap-3 2xl:gap-7 xl:flex">
           <li class="nav-item relative" v-for="(item , index) in data.menu" :key="index">
             <nuxt-link class="nav-link flex items-center gap-3 hover:cursor-pointer " :to="item.link">
               <span>{{ item.name }}</span>
-              <span><i class="fa-solid fa-angle-down fa-md text-sm font-bold"/></span>
+              <span v-if="item.sub"><i class="fa-solid fa-angle-down fa-md text-sm font-bold"/></span>
             </nuxt-link>
             <ul v-if="item.sub" class="grid  gap-4 sub-menu mt-6" :class="{colsActive:item.sub.length>15}">
               <li v-for="(item , index) in item.sub" :key="index">
                 <nuxtLink :to="item.link" class=" flex justify-between">
-                  <span>{{item.name}}</span>
+                  <span>{{ item.name }}</span>
                   <span v-if="item.sub"><i class="fa-solid fa-angle-left"/></span>
                 </nuxtLink>
                 <ul v-if="item.sub" class="grid  gap-4 sub-menu mt-6" :class="{colsActive:item.sub.length>15}">
                   <li v-for="(item , index) in item.sub" :key="index">
                     <nuxtLink :to="item.link" class=" flex justify-between">
-                      <span>{{item.name}}</span>
+                      <span>{{ item.name }}</span>
                       <span v-if="item.sub"><i class="fa-solid fa-angle-left"/></span>
                     </nuxtLink>
                   </li>
@@ -367,7 +149,7 @@ onMounted(()=>{
             </nuxt-link>
           </li>
           <li class="nav-item start hidden md:inline-block">
-            <nuxt-link class="nav-link" to="">{{ data.start }}</nuxt-link>
+            <button class="nav-link hover:cursor-pointer " @click="showAuth = true">{{ data.start }}</button>
           </li>
         </ul>
       </nav>
@@ -382,9 +164,18 @@ onMounted(()=>{
           </div>
         </label>
       </div>
+      <div class="login">
+        <transition name="auth">
+          <auth v-if="showAuth">
+            <button @click="showAuth=false"
+                    class="absolute top-10 right-10 p-2 rounded-md border-gray-600 flex items-center justify-center"><i
+                class="fa-solid fa-close fa-xl flex "/></button>
+          </auth>
+        </transition>
+      </div>
     </div>
     <transition name="transition">
-        <navbar-mobile v-if="showNavbarMobile" @close-navbar-mobile="showNavbarMobile = false" />
+      <navbar-mobile v-if="showNavbarMobile" @close-navbar-mobile="showNavbarMobile = false"/>
     </transition>
   </div>
 </template>
@@ -476,45 +267,50 @@ nav {
 
 
 nav {
-.menu{
-  position: relative;
-  z-index: 1;
-  a{
-    cursor: pointer;
-  }
-  .sub-menu{
-    position: absolute;
-    border-radius: 3px;
-    top: 0;
-    padding: 50px 30px 30px;
-    right: 0;
-    min-width: 270px;
-    background-color: white;
-    transition: .4s;
-    opacity: 0;
-    transform: translateY(-20%);
-    visibility: hidden;
-    z-index: -1;
-    & .sub-menu{
-      position: absolute;
-      right:101%;
-      opacity: 0;
-      transform: translatex(10%);
-      visibility: hidden;
-      z-index: -2;
+  .menu {
+    position: relative;
+    z-index: 1;
+
+    a {
+      cursor: pointer;
     }
-  }
-  li:hover > .sub-menu{
-    transform: translate(0%);
-    opacity: 1;
-    visibility: visible;
-    & li:hover .sub-menu {
+
+    .sub-menu {
+      position: absolute;
+      border-radius: 3px;
+      top: 0;
+      padding: 50px 30px 30px;
+      right: 0;
+      min-width: 270px;
+      background-color: white;
+      transition: .4s;
+      opacity: 0;
+      transform: translateY(-20%);
+      visibility: hidden;
+      z-index: -1;
+
+      & .sub-menu {
+        position: absolute;
+        right: 101%;
+        opacity: 0;
+        transform: translatex(10%);
+        visibility: hidden;
+        z-index: -2;
+      }
+    }
+
+    li:hover > .sub-menu {
       transform: translate(0%);
       opacity: 1;
       visibility: visible;
+
+      & li:hover .sub-menu {
+        transform: translate(0%);
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
-}
 }
 
 .transition-enter-active {
@@ -529,11 +325,22 @@ nav {
   transform: translatex(100%);
 }
 
+.auth-enter-active {
+  transition: all 0.7s ease;
+}
+
+.auth-leave-active {
+  transition: all 0.5s ease;
+}
+
+.auth-enter-from, .auth-leave-to {
+  opacity: 0;
+  transform: translateY(-100%);
+}
 
 
-
-.colsActive{
-  grid-template-columns: repeat(2 , 270px) !important;
+.colsActive {
+  grid-template-columns: repeat(2, 270px) !important;
 }
 
 @media screen and (max-width: 1450px) {
@@ -629,7 +436,7 @@ h1 {
 .active > .hamburger2 > .bar1 {
   transform: translateX(40px);
   background-color: white;
-    transition: transform 0.4s ease;
+  transition: transform 0.4s ease;
 
 }
 
@@ -648,7 +455,7 @@ h1 {
 .active > .hamburger2 > .bar4 {
   transform: translateX(-40px);
   background-color: white;
-    transition: transform 0.5s ease;
+  transition: transform 0.5s ease;
 
 }
 </style>
