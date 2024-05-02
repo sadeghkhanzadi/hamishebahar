@@ -98,21 +98,21 @@ const data = {
           </div>
         </div>
         <div class="flex items-center justify-center main-group">
-          <div class="child child-girl hidden md:block">
+          <div class="child child-girl hidden md:block" data-aos="fade-up" data-aos-delay="600">
             <figure>
               <img :src="data.face.girl.img" :alt="data.face.girl.title">
             </figure>
           </div>
           <div class="card text-content flex flex-col gap-10">
             <div class="card-body flex flex-col gap-5">
-              <div class="header-text-content text-center">
+              <div class="header-text-content text-center" data-aos="fade-up" >
                 <h1>{{ data.card.title }}</h1>
               </div>
-              <div class="body-text-content text-center">
+              <div class="body-text-content text-center" data-aos="fade-up" data-aos-delay="300">
                 <p>{{ data.card.text.textOne }}</p>
                 <p>{{ data.card.text.textTwo }}</p>
               </div>
-              <div class="see-more-content text-center">
+              <div class="see-more-content text-center" data-aos="fade-up" data-aos-delay="400">
                 <nuxt-link :to="data.card.more.link" class="inline-flex items-center justify-center">
                   <span class="flex items-center"><i class="fa-solid fa-arrow-right"></i></span>
                   <span>{{ data.card.more.name }}</span>
@@ -123,7 +123,7 @@ const data = {
               <nav>
                 <ul class="nav flex justify-center gap-3 md:gap-10">
                   <li class="nav-item flex items-center justify-center " v-for="(item , index) in data.card.links"
-                      :key="index">
+                      :key="index" data-aos="zoom-in" data-aos-delay="500">
                     <nuxtLink class="nav-link flex flex-col justify-center items-center gap-y-3" :to="item.link">
                       <div class="icon flex justify-center items-center p-3 rounded-full"
                            :style="{background:`${item.color}`}">
@@ -137,7 +137,7 @@ const data = {
               </nav>
             </div>
           </div>
-          <div class="child child-boy hidden md:block">
+          <div class="child child-boy hidden md:block" data-aos="fade-down" data-aos-delay="700">
             <figure>
               <img :src="data.face.boy.img" :alt="data.face.boy.title">
             </figure>

@@ -5,7 +5,7 @@ const props = defineProps(['data'])
 
 <template>
 <div>
-  <div class="card "  v-if="props.data">
+  <div class="card "  v-if="props.data" data-aos="fade-up">
     <div class="card-header relative">
           <nuxt-link to="">
             <figure>
@@ -14,7 +14,7 @@ const props = defineProps(['data'])
           </nuxt-link>
       <div class="price absolute " :style="`color:${props.data.color}`"><span>{{props.data.price}}</span></div>
     </div>
-    <div class="card-body relative flex flex-col gap-4" :style="`background:${props.data.color}`">
+    <div class="card-body md:bottom-7 relative flex flex-col gap-4" :style="`background:${props.data.color}`">
       <div class="type mt-4"><nuxt-link to="">{{props.data.type}}</nuxt-link></div>
       <div class="subject"><h2><nuxt-link to="">{{props.data.subject}}</nuxt-link></h2></div>
       <ul class="info">
@@ -56,10 +56,9 @@ const props = defineProps(['data'])
   .card-body{
     padding: $body-padding-section-three;
     mask-image: url("@/assets/image/shape/card.png");
-  overflow: hidden;
+     overflow: hidden;
     mask-size: cover;
     mask-repeat: no-repeat;
-    //-webkit-mask-position:center;
     ul.info{
       font-size: $fontSize-card-text-info-section-three;
       .divider{
@@ -69,6 +68,13 @@ const props = defineProps(['data'])
     }
     .text{
       line-height: $lineHeight-normal-card-section-three;
+    }
+    //remove mask image in mobile mode
+     @media screen and (max-height: 767.9px) {
+          .card-body{
+          mask-image: none !important;
+          -webkit-mask-image: none !important;
+          }
     }
   }
 }
@@ -93,4 +99,13 @@ figure{
     transform: scale(1.05);
   }
 }
+//remove mask image in mobile mode 
+@media screen and (max-height: 768px) {
+.card{
+  .card-body{
+    mask-image: none !important;
+  }
+}
+}
+
 </style>

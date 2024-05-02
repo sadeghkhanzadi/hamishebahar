@@ -4,7 +4,7 @@ const props = defineProps(['data'])
 
 <template>
   <div>
-    <div class="card " v-if="props.data">
+    <div class="card " v-if="props.data" data-aos="fade-up">
       <div class="card-header  relative">
         <div class="link flex justify-center items-center arrow-link absolute ">
           <nuxt-link class="flex items-center justify-center" to=""><i class="fa-solid fa-arrow-right flex items-center fa-lg text-white"/></nuxt-link>

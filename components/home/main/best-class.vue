@@ -1,6 +1,5 @@
 <script setup >
 const props = defineProps(['data', 'theme','education', 'talentDiscovery','articles','active'])
-console.log(props.articles)
 </script>
 
 <template>
@@ -10,7 +9,7 @@ console.log(props.articles)
     <div class="cloudy-top"></div>
     <div class="content   mx-auto relative p-2 py-22 my-10">
       <div>
-        <div class="text-center flex flex-col gap-3 mb-7 title-content">
+        <div class="text-center flex flex-col gap-3 mb-7 title-content" data-aos="fade-up" data-aos-duration="1000">
           <div class="sub-title">
             <span v-if="props.data.subTitle">{{ props.data.subTitle }}</span>
           </div>

@@ -18,7 +18,7 @@ function removeCollapseShow(){
 </script>
 
 <template>
-  <div class="accordion-collapse education-card flex flex-col gap-5">
+  <div class="accordion-collapse education-card flex flex-col gap-5" data-aos="zoom-in"  >
     <div class="collapse-container "  v-for="(item,index) in props.data" :key="index">
       <div class="button text-red-600 flex justify-between px-5 py-4" :style="`background:${item.color}`"
            @click="show(index)">

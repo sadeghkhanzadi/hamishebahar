@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@pinia/nuxt','@nuxtjs/tailwindcss','@vesp/nuxt-fontawesome'],
+  modules: ['@pinia/nuxt','@nuxtjs/tailwindcss','nuxt-aos'],
   css:["~/assets/style/main.scss"],
   app:{
     head:{
@@ -9,10 +9,9 @@ export default defineNuxtConfig({
       }
     }
   },
-  fontawesome: {
-    icons: {
-      solid:['cart-shopping'],
-    }
+  aos:{
+    once: true,
+    duration:1500,
+    offset: 50,
   }
-
 })

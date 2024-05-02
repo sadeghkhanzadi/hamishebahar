@@ -44,19 +44,19 @@ const data = {
     <section class="grid order-1">
       <div class="welcome-text ">
         <div class="card ">
-          <div class="card-header flex flex-col gap-3">
+          <div class="card-header flex flex-col gap-3" data-aos="fade-up">
             <div class="card-welcome"><span>{{ data.topTitle }}</span></div>
             <div class="card-welcome-title"><h1>{{ data.title }}</h1></div>
             <div class="icon"><span></span></div>
             <div class="card-welcome-text">{{ data.text }}</div>
           </div>
-          <div class="card-body grid gap-y-3 md:grid-cols-2 md:gap-y-10  gap-x-5">
+          <div class="card-body grid gap-y-3 md:grid-cols-2 md:gap-y-10  gap-x-5"  data-aos="fade-up">
             <div class="card-welcome-info mt-7 " v-for="(item , index ) in data.section" :key="index">
               <div class="card-info-title"><h5>{{ item.title }}</h5></div>
               <div class="card-info-text"><p>{{ item.text }}</p></div>
             </div>
-            <div class="flex flex-col gap-3 card-support ">
-              <div class="flex items-center gap-2">
+            <div class="flex flex-col gap-3 card-support "  data-aos="fade-up">
+              <div class="flex items-center gap-2" >
                 <span><i class="fa-solid fa-check text-red-600 fa-lg"></i></span>
                 <span class="title">{{ data.sectionTwo.titleOne }}</span>
               </div>
@@ -66,13 +66,13 @@ const data = {
               </div>
             </div>
             <div>
-              <div class="card-support">
+              <div class="card-support"  data-aos="fade-up">
                 <p>{{ data.sectionTwo.text }}</p>
               </div>
             </div>
           </div>
           <div class="card-footer">
-            <div class="more-class mt-10">
+            <div class="more-class mt-10"  data-aos="fade-up-left">
               <nuxt-link to="" class="flex  items-center gap-2">
                 <span class="flex items-center"><i class="fa-solid fa-arrow-left"></i></span>
                 <span>{{ data.btn }}</span>

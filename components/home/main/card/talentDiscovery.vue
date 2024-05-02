@@ -15,7 +15,7 @@ function leaveHover() {
 </script>
 
 <template>
-  <div class="talent-discovery ">
+  <div class="talent-discovery " data-aos="fade-up">
     <div class="card flex flex-col  lg:flex-row p-7 " @mouseenter="hover" @mouseleave="leaveHover" ref="hoverCard">
       <div class="card-header">
         <nuxt-link class="image" to="">
