@@ -43,4 +43,17 @@ public class VerifyObjectUtils {
         } throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                 BundleManager.wrapKey("error.json.model.is.null"));
     }
+
+    public static boolean isNewCourse(CoursesDto dto) throws HamisheBaharException {
+        if (dto != null){
+            return StringUtils.isNullOrEmpty(String.valueOf(dto.getId()!= null ? dto.getId() : null));
+        } throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
+                BundleManager.wrapKey("error.json.model.is.null"));
+    }
+    public static boolean isNewCategory(CategoryDto dto) throws HamisheBaharException {
+        if (dto != null){
+            return StringUtils.isNullOrEmpty(String.valueOf(dto.getId()!= null ? dto.getId() : null));
+        } throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
+                BundleManager.wrapKey("error.json.model.is.null"));
+    }
 }

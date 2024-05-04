@@ -3,11 +3,15 @@ package com.hamishebahar.security.users.entity;
 
 import com.commonts.Dto.RolesDto;
 import com.hamishebahar.security.enums.Authority;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Roles {
 
     @Id

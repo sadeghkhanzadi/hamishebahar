@@ -95,7 +95,7 @@ public class UserController {
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
-    @PostMapping("/jwt/login")
+    @PostMapping(LOGIN_JWT)
     public @ResponseBody
     ResponseEntity<?> jwtLogin(@RequestBody JwtAuth jwtAuth, HttpServletResponse response) {
 

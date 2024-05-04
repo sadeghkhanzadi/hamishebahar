@@ -174,7 +174,7 @@ public class Teachers {
                 .DocumentFiles(getDocumentFiles() != null ? getDocumentFiles().stream()
                         .map(Medias::convertToDto)
                         .collect(Collectors.toList()) : null)
-                .Courses(getCourses() != null ? getDocumentFiles().stream()
+                .Courses(getCourses() != null ? getCourses().stream()
                         .map(Courses::convertToDto)
                         .collect(Collectors.toList()) : null)
                 .CreatedAt(getCreatedAt() != null ? getCreatedAt().

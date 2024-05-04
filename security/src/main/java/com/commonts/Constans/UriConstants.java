@@ -57,4 +57,31 @@ public class UriConstants {
     //@GET method - get a USER
     public static final String USER_ADMIN_FIND_WITH_FILTER = "/api/v1/admin/users";
     public static final String USER_FIND = "/api/v1/users/{id}";
+
+    //**LOGIN**
+    public static final String LOGIN_JWT = "/jwt/login";
+
+    //**Course**
+    //@POST method - insert a Course
+    public static final String COURSE_INSERT = "/api/v1/insert/course";
+    //@PUT method - update a Course
+    public static final String COURSE_UPDATE = "/api/v1/course/{id}";
+    //@DELETE method - delete a Course
+    public static final String COURSE_DELETE_WITH_ID = "/api/v1/course/{id}";
+    //@GET method - get a Course
+    public static final String COURSE_FIND_WITH_FILTER = "/api/v1/course";
+
+    public static final String COURSE_FIND = "/api/v1/course/{id}";
+
+
+    //**Category**
+    //@POST method - insert a category
+    public static final String CATEGORY_INSERT = "/api/v1/insert/category";
+    //@PUT method - update a category
+    public static final String CATEGORY_UPDATE = "/api/v1/category/{id}";
+    //@DELETE method - delete a category
+    public static final String CATEGORY_DELETE_WITH_ID = "/api/v1/category/{id}";
+    public static final String CATEGORY_FIND = "/api/v1/category/{id}";
+    public static final String CATEGORY_FIND_ALL = "/api/v1/category";
+
 }

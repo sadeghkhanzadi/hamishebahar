@@ -61,10 +61,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .tokenValiditySeconds(60)
                 .rememberMeParameter("remember")
                 .and().exceptionHandling().accessDeniedPage("/error")
-                .and().logout().logoutUrl("/mylogout").deleteCookies("remember")
+                .and().logout().logoutUrl("/logout").deleteCookies("remember")
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
-                .cors(cors -> cors.configurationSource(corsConfigurationSource())); ;
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()));
     }
 
     private CorsConfigurationSource corsConfigurationSource() {
@@ -72,7 +72,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             @Override
             public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
                 CorsConfiguration ccfg = new CorsConfiguration();
-                ccfg.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+                ccfg.setAllowedOrigins(Arrays.asList(uriPagesForCores));
                 ccfg.setAllowedMethods(Collections.singletonList("*"));
                 ccfg.setAllowCredentials(true);
                 ccfg.setAllowedHeaders(Collections.singletonList("*"));

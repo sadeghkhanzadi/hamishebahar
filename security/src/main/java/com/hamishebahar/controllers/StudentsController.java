@@ -18,11 +18,11 @@ import static com.commonts.Constans.UriConstants.STUDENT_FIND_WITH_FILTER;
 
 @RestController
 public class StudentsController {
-    private final StudentService StudentService;
+    private final StudentService studentService;
 
     @Autowired
     public StudentsController(StudentService StudentService) {
-        this.StudentService = StudentService;
+        this.studentService = StudentService;
     }
 
     //new Student
@@ -30,7 +30,7 @@ public class StudentsController {
     public ResponseEntity<ResultsServiceDto> insertStudent(@RequestBody StudentDto dto,
                                                            HttpServletResponse response,
                                                            HttpServletRequest request) throws HamisheBaharException {
-        ResultsServiceDto resultsVO = this.StudentService.insertStudent(dto);
+        ResultsServiceDto resultsVO = this.studentService.insertStudent(dto);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
@@ -40,7 +40,7 @@ public class StudentsController {
                                                           @PathVariable(value = "id", required = true) Long id,
                                                           HttpServletResponse response,
                                                           HttpServletRequest request) throws HamisheBaharException {
-        ResultsServiceDto resultsVO = this.StudentService.editeStudent(dto, id);
+        ResultsServiceDto resultsVO = this.studentService.editeStudent(dto, id);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
@@ -49,7 +49,7 @@ public class StudentsController {
     public ResponseEntity<ResultsServiceDto> deleteStudent(@PathVariable(value = "id", required = true) Long id,
                                                           HttpServletResponse response,
                                                           HttpServletRequest request) throws HamisheBaharException {
-        ResultsServiceDto resultsVO = this.StudentService.deleteStudent(id);
+        ResultsServiceDto resultsVO = this.studentService.deleteStudent(id);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
@@ -63,7 +63,7 @@ public class StudentsController {
                                                           @PageableDefault Pageable pageable,
                                                           HttpServletResponse response,
                                                           HttpServletRequest request) throws HamisheBaharException {
-        ResultsServiceDto resultsVO = this.StudentService.findStudent(id, nationalCode, phoneNumber,studentAge ,studentCode, pageable);
+        ResultsServiceDto resultsVO = this.studentService.findStudent(id, nationalCode, phoneNumber,studentAge ,studentCode, pageable);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 }
