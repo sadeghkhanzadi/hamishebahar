@@ -1,0 +1,18 @@
+2024-05-25 23:32:12.869  WARN 4164 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-25 23:32:13.229 DEBUG 4164 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-05-25 23:32:13.272 DEBUG 4164 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 36 mappings in 'requestMappingHandlerMapping'
+2024-05-25 23:32:13.301 DEBUG 4164 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-05-25 23:32:13.310 DEBUG 4164 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-05-25 23:32:35.017  INFO 4164 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-25 23:32:35.017 DEBUG 4164 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-05-25 23:32:35.017 DEBUG 4164 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-05-25 23:32:35.017 DEBUG 4164 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-05-25 23:32:35.018 DEBUG 4164 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@414d466e
+2024-05-25 23:32:35.018 DEBUG 4164 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@5749e633
+2024-05-25 23:32:35.018 DEBUG 4164 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-05-25 23:32:35.018  INFO 4164 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-25 23:32:35.034 DEBUG 4164 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/jwt/login", parameters={}
+2024-05-25 23:32:35.038 DEBUG 4164 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hamishebahar.security.controllers.UserController#jwtLogin(JwtAuth, HttpServletResponse)
+2024-05-25 23:32:35.092 DEBUG 4164 --- [http-nio-8082-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.hamishebahar.security.jwt.JwtAuth@7db4715a]
+2024-05-25 23:32:35.182 DEBUG 4164 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/octet-stream', given [*/*] and supported [*/*]
+2024-05-25 23:32:35.184 DEBUG 4164 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

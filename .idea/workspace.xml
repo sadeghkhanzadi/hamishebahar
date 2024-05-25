@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="660b6f52-792a-4916-b6f9-ad8af0bd2b70" name="Changes" comment="USER_STORY: 5&#10;TASK_NUMBER: 5&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 6 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="660b6f52-792a-4916-b6f9-ad8af0bd2b70" name="Changes" comment="USER_STORY: 6&#10;TASK_NUMBER: 6&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
       <change afterPath="$PROJECT_DIR$/2024-05/app.2024-05-22.0.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/2024-05/app.2024-05-23.0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/utils/CourseUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/utils/MediaUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/utils/PeriodsUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/utils/UsersUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/periods/repository/PeriodsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/periods/service/PeriodsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/resources/templates/error.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/resources/templates/errorPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/server_hmb.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server_hmb.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/15293032-5a9c-4722-9714-e04207d12b62.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/3661a6ee-fa0e-44d4-9948-332f10155ec8.jpeg" afterDir="false" />
@@ -25,62 +17,7 @@
       <change afterPath="$PROJECT_DIR$/uploads/6d91a5a4-7638-4fe2-8b79-9cf6443b8e97.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/6f1f747e-0877-4ff1-b6dd-d9ea75f14cde.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/7edf49d7-f9e9-4567-8fa2-056b458466cb.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/security/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/Constans/UriConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Constans/UriConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/Dto/CategoryDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/CategoryDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/Dto/CoursesDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/CoursesDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/Dto/MediasDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/MediasDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/Dto/NewsEventsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/NewsEventsDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/Dto/PeriodsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/PeriodsDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/Dto/ResultsServiceDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/ResultsServiceDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/Dto/RolesDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/RolesDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/Dto/StudentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/StudentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/Dto/TeacherDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/TeacherDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/Dto/UsersDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/UsersDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/Enums/MediaStates.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Enums/MediaStates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/bundel/BundleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/bundel/BundleManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/exeption/ErrorMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/exeption/ErrorMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/exeption/ExceptionConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/exeption/ExceptionConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/exeption/HamisheBaharException.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/exeption/HamisheBaharException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/exeption/OauthException.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/exeption/OauthException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/utils/StringUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/commonts/utils/VerifyObjectUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/utils/VerifyObjectUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/controllers/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/controllers/MediaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MediaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/controllers/NewsEventsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/NewsEventsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/controllers/StudentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/StudentsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/controllers/TeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/TeacherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/category/entity/CourseCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/category/entity/CourseCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/category/repository/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/category/repository/CategoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/category/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/category/service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/courses/entity/Courses.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/courses/entity/Courses.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/courses/repository/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/courses/repository/CourseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/courses/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/courses/service/CourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/development/entity/Development.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/development/entity/Development.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/media/entity/Medias.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/entity/Medias.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/media/repository/MediaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/repository/MediaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/media/service/MediaStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/news_events/entity/Events.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/news_events/entity/Events.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/news_events/repository/NewsEventsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/news_events/repository/NewsEventsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/news_events/service/NewsEventsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/news_events/service/NewsEventsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/periods/entity/Periods.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/periods/entity/Periods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/repostcard/entity/ReportCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/repostcard/entity/ReportCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/students/entity/Students.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/students/entity/Students.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/students/repository/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/students/repository/StudentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/students/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/students/service/StudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/teachers/entity/Teachers.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/teachers/entity/Teachers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/teachers/repository/TeacherRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/teachers/repository/TeacherRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/panel/teachers/service/TeacherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/teachers/service/TeacherService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/LoginSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/LoginSuccessHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/entity/Roles.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/entity/Roles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/entity/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,7 +85,7 @@
     "Spring Boot.SecurityApplication.executor": "Debug",
     "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/hamishebahar/security/src/main/resources/templates",
+    "last_opened_file_path": "E:/hamishebahar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -157,7 +94,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -168,11 +105,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\hamishebahar" />
       <recent name="E:\hamishebahar\security\src\main\resources\templates" />
       <recent name="E:\hamishebahar\security\src\main\resources" />
       <recent name="E:\hamishebahar\security\src\main\java\com\hamishebahar\security" />
       <recent name="E:\hamishebahar\security\src\main\java\com\commonts" />
-      <recent name="E:\hamishebahar\security\src\main\java\com\commonts\utils" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com" />
@@ -255,7 +192,7 @@
       <workItem from="1716112391885" duration="15268000" />
       <workItem from="1716174034952" duration="11589000" />
       <workItem from="1716267019287" duration="19944000" />
-      <workItem from="1716560081055" duration="3505000" />
+      <workItem from="1716560081055" duration="5930000" />
     </task>
     <task id="LOCAL-00001" summary="USER_STORY: 1&#10;TASK_NUMBER: 1&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;First Commit&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
       <option name="closed" value="true" />
@@ -313,7 +250,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714865870881</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="USER_STORY: 6&#10;TASK_NUMBER: 6&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1716661926067</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716661926067</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,7 +293,8 @@
     <MESSAGE value="USER_STORY: 3&#10;TASK_NUMBER: 3&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 4 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
     <MESSAGE value="USER_STORY: 4&#10;TASK_NUMBER: 4&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 5 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
     <MESSAGE value="USER_STORY: 5&#10;TASK_NUMBER: 5&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 6 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="USER_STORY: 5&#10;TASK_NUMBER: 5&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 6 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 6&#10;TASK_NUMBER: 6&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="USER_STORY: 6&#10;TASK_NUMBER: 6&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
