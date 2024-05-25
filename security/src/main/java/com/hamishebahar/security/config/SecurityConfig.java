@@ -45,12 +45,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/login", "/error", "/info", "/jwt/login").permitAll()
+                .antMatchers("/", "https://hamishebahar.liara.run/auth/login", "/error", "/info", "/jwt/login").permitAll()
 //                .antMatchers("/user/**").hasAnyAuthority("USER","ADMIN")
 //                .antMatchers("/admin/**").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/login").usernameParameter("email").successHandler(new LoginSuccessHandler())
+                .formLogin().loginPage("https://hamishebahar.liara.run/auth/login")
+                .usernameParameter("email")
+                .successHandler(new LoginSuccessHandler())
                 .and().oauth2Login()
                 .loginPage("/oauth2Login")
                 .authorizationEndpoint().baseUri("/login/oauth2").and()
@@ -98,6 +100,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return NoOpPasswordEncoder.getInstance();
     }
 }

@@ -1,10 +1,13 @@
 package com.hamishebahar.security.users.service;
 
-import com.commonts.Dto.UsersDto;
-import com.commonts.Dto.ResultsServiceDto;
-import com.commonts.bundel.BundleManager;
-import com.commonts.exeption.HamisheBaharException;
-import com.commonts.utils.StringUtils;
+import com.hamishebahar.security.commonts.Dto.MediasDto;
+import com.hamishebahar.security.commonts.Dto.StudentDto;
+import com.hamishebahar.security.commonts.Dto.UsersDto;
+import com.hamishebahar.security.commonts.Dto.ResultsServiceDto;
+import com.hamishebahar.security.commonts.bundel.BundleManager;
+import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
+import com.hamishebahar.security.commonts.utils.StringUtils;
+import com.hamishebahar.security.commonts.utils.VerifyObjectUtils;
 import com.hamishebahar.security.users.entity.Users;
 import com.hamishebahar.security.users.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +20,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.commonts.utils.VerifyObjectUtils.isNewUser;
 
 @Service
 public class UsersService implements UserDetailsService {
@@ -69,13 +72,17 @@ public class UsersService implements UserDetailsService {
     }
 
     public ResultsServiceDto updateAdminUser(UsersDto dto, Long id) throws HamisheBaharException {
-        if (isNewUser(dto)) {
+        if (dto.getId() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
         }
-        if (!StringUtils.hasText(String.valueOf(id))) {
+        if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.is.null"));
+        }
+        if (!dto.getId().equals(id)) {
+            throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
+                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
@@ -99,25 +106,28 @@ public class UsersService implements UserDetailsService {
                         BundleManager.wrapKey("error.server"));
             }
         }
-        return new ResultsServiceDto.Builder().Result(UsersDto).build();
+        return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(UsersDto).build();
     }
 
     @PreAuthorize("#users.email != authentication.name")
     public ResultsServiceDto updateUser(UsersDto users, Long id) throws HamisheBaharException {
-        if (isNewUser(users)) {
+        if (users.getId() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
         }
-        if (!StringUtils.hasText(String.valueOf(id))) {
+        if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.is.null"));
+        }
+        if (!users.getId().equals(id)) {
+            throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
+                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
         }
-        if (!users.getId().equals(id) ||
-                users.getName() == null ||
+        if (users.getName() == null ||
                 users.getEmail() == null ||
                 users.getPhoneNumber() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
@@ -134,12 +144,12 @@ public class UsersService implements UserDetailsService {
                         BundleManager.wrapKey("error.server"));
             }
         }
-        return new ResultsServiceDto.Builder().Result(UsersDto).build();
+        return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(UsersDto).build();
     }
 
     @Transactional
     public ResultsServiceDto registerUser(UsersDto users) throws HamisheBaharException {
-        if (!isNewUser(users)) {
+        if (users.getId() != null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
         }
@@ -159,7 +169,7 @@ public class UsersService implements UserDetailsService {
                         BundleManager.wrapKey("error.entity.is.exists", users.getPhoneNumber()));
             }
             UsersDto usersDto = usersRepository.saveAndFlush(users.convertToEntity()).convertToDto();
-            return new ResultsServiceDto.Builder().Result(usersDto).build();
+            return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(usersDto).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                     BundleManager.wrapKey("error.server"));
@@ -167,7 +177,7 @@ public class UsersService implements UserDetailsService {
     }
 
     public ResultsServiceDto findUser(Long id) throws HamisheBaharException {
-        if (!StringUtils.hasText(String.valueOf(id))) {
+        if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.is.null"));
         }
@@ -308,5 +318,31 @@ public class UsersService implements UserDetailsService {
         }
         throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                 BundleManager.wrapKey("error.parameter.is.null"));
+    }
+
+    public List<UsersDto> findUsers(List<Long> usersIds) throws HamisheBaharException{
+        try {
+            List<UsersDto> users = new ArrayList<>();
+            for (Long id : usersIds){
+                users.add(findOneById(id));
+            }
+            return users;
+        } catch (Exception e) {
+            throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
+                    BundleManager.wrapKey("error.server"));
+        }
+    }
+
+    private UsersDto findOneById(Long id) throws HamisheBaharException {
+        try {
+            UsersDto usersDto = null;
+            if (id != null) {
+                usersDto = usersRepository.getOne(id).convertToDto();
+            }
+            return usersDto;
+        } catch (Exception e) {
+            throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
+                    BundleManager.wrapKey("error.server"));
+        }
     }
 }
