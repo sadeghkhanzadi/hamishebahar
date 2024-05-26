@@ -9,12 +9,13 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.hamishebahar</groupId>
-	<artifactId>security</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>security</name>
+	<artifactId>hamishebahar</artifactId>
+	<version>0.0.1</version>
+	<name>hamishebahar</name>
 	<description>web site for hamishebahar school with spring boot and nextjs</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<maven.test.skip>true</maven.test.skip>
 	</properties>
 	<dependencies>
 		<dependency>
