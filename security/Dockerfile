@@ -12,6 +12,6 @@ MAINTAINER SadeghKhanzadi@Gmail.com
 
 
 WORKDIR /app
-COPY ./target/hamishebahar-0.0.1.jar /app
+COPY ./deploy/hamishebahar-0.0.1.jar /app
 EXPOSE 8080
 CMD ["java", "-jar", "hamishebahar-0.0.1.jar"]
