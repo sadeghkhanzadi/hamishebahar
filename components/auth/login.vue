@@ -37,10 +37,12 @@ function handleSubmit() {
   if (form.password.length < 5) {
     error.password = "کلمه عبور باید بیشتر از 5 کاراکتر باشد ."
   }
-  if (form.userName.trim().length < 5) {
+  if (form.userName.length < 5) {
     error.userName = "نام کاربری باید بیشتر از 5 کاراکتر باشد ."
   }
-
+  if (!error.userName && !error.password){
+    navigateTo('/dashboard')
+  }
 }
 </script>
 
@@ -57,7 +59,7 @@ function handleSubmit() {
                 <span> نام کاربری :</span>
               </label>
 
-              <input id="userName" type="text" v-model="form.userName"
+              <input id="userName" type="text" v-model.trim="form.userName"
                      @keydown="error.userName.length ? error.userName = '' : ''"
                      class="w-full border-0 outline-0 border-b px-5 text-sm">
               <span class="error">{{ error.userName }}</span>
