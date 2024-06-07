@@ -51,7 +51,7 @@ const props = defineProps(['data'])
   }
   .type{
     font-weight: $fontWeight-type-section-three;
-    font-family: $yekan;
+    font-family: $font;
   }
   .card-body{
     padding: $body-padding-section-three;
