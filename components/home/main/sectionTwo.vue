@@ -120,7 +120,7 @@ const data = {
 .card-info-title {
   font-size: $font-size-title-card-section-two;
   font-weight: $font-weight-title-card;
-  font-family: $yekan;
+  font-family: $font;
   line-height: $lineHeight-title-card-section-two;
   margin-bottom: 20px;
 }

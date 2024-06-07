@@ -85,7 +85,7 @@ const props = defineProps(['data'])
     }
   }
   .type {
-    font-family: $yekan;
+    font-family: $font;
     color: $color-text-articles;
   }
 

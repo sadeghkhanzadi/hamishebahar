@@ -176,7 +176,7 @@ const data = {
       font-weight: $fontWeight-title-section-one;
     }
     .name{
-      font-family: $yekan;
+      font-family: $font;
     }
   }
 
