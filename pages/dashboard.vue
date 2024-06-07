@@ -9,11 +9,13 @@ definePageMeta({
 const data = [
   {
     name: "داشبورد",
-    link: "dashboard",
+    link: "/dashboard",
+    icon:"fa-chart-line"
   },
   {
-    name: "صفحه ها",
-    link: "pages",
+    name: "اخبار و رویداد ها",
+    icon:"fa-newspaper",
+    link: "/pages",
     sub: [
       {
         name: "صفحه اصلی",
@@ -21,21 +23,106 @@ const data = [
       },
     ]
   },
-  {
-    name: "پست ها",
-    link: "posts",
-  },
+
   {
     name: "رسانه ها",
-    link: "medias",
+    link: "/dashboard/media",
+    icon:"fa-photo-film"
   },
   {
-    name: "نظرات",
+    name: "مربیان",
     link: "comments",
+    icon:"fa-person-chalkboard"
+  },
+  {
+    name: "آموزش ها",
+    link: "posts",
+    icon:"fa-school-flag"
+  },
+  {
+    name: "مدیریت  دانش آموزان",
+    link: "posts",
+    icon:"fa-user-graduate"
+  },
+  {
+    name: "نمرات و آمتیازات",
+    link: "posts",
+    icon:"fa-star"
+  },
+  {
+    name: "پیام ها",
+    link: "posts",
+    icon:"fa-envelope",
+    sub:[
+      {
+        name:"نظرات"
+      },
+      {
+        name:"ایمیل "
+      }
+    ]
   },
   {
     name: "تنظیمات",
     link: "setting",
+    icon:"fa-gear",
+    sub:[
+      {
+        name:"تماس با ما"
+      },
+      {
+        name:" درباره ما"
+      },
+      {
+        name:"تغییر رمز "
+      },
+      {
+        name:" مدیریت کاربران"
+      },
+      {
+        name: " لینک ها"
+      },
+      {
+        name:"آدرس"
+      },
+      {
+        name:"سطوح دسترسی"
+      },
+
+    ]
+  }
+]
+const icon = [
+
+
+  {
+    name:'media',
+  },
+  {
+    name:'teachers',
+  },
+  {
+    name:'education',
+  },
+  {
+    name:'students',
+  },
+  {
+    name:"scores",
+  },
+  {
+    name:"message",
+  },
+  {
+    name:"settings",
+  },
+  {
+    name:"",
+    icon:""
+  },
+  {
+    name:"",
+    icon:""
   }
 ]
 </script>
@@ -53,7 +140,7 @@ const data = [
           </ul>
         </div>
       </aside>
-      <div class="bg-gray-50 p-5 ">
+      <div class="bg-gray-50 p-5 w-full rounded-lg ">
         <nuxt-page/>
       </div>
     </main>
