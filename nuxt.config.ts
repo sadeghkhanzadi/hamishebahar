@@ -4,10 +4,14 @@ export default defineNuxtConfig({
   css:["~/assets/style/main.scss"],
   app:{
     head:{
+      link:[{rel:'icon',type:'image/png' , href:'/logo/logo.png'}],
       htmlAttrs:{
         dir:'rtl'
       }
     }
+  },
+  features:{
+    inlineStyles:false
   },
   aos:{
     once: true,
