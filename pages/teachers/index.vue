@@ -1,9 +1,5 @@
 <script setup lang="ts">
 import imgOne from '~/assets/image/teachers/1.webp'
-import imgTwo from '~/assets/image/teachers/2.jpeg'
-import imgThree from '~/assets/image/teachers/3.jpeg'
-import imgFour from '~/assets/image/teachers/4.jpeg'
-
 const teachers = [
   {
     name: 'ممد نصاب',
