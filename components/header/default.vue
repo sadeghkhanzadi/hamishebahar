@@ -13,15 +13,15 @@ const data = ref({
     },
     {
       name: "مربیان",
-      link: "",
+      link: "/teachers",
       sub: [
         {
           name: "حسین حسینی",
-          link: "",
+          link: "/teachers/1",
         },
         {
           name: "میلاد میرزایی",
-          link: "",
+          link: "/teachers/2",
         },
       ]
     },
@@ -64,7 +64,7 @@ const data = ref({
           link: ""
         },
         {
-          name: " نقاشی" ,
+          name: " نقاشی",
           link: ""
         },
       ]
@@ -103,18 +103,23 @@ onMounted(() => {
 <template>
   <div class="header" :class="{addCloud : route.path === '/'}">
     <div
-        class="  mx-auto flex justify-between  items-center xl:items-baseline px-5 sm:px-7 lg:px-0 py-5 gap-10 md:gap-x-16 lg:container header-container relative ">
-      <div class="navbar-brand">
-        <h1>
-          <nuxt-link to="/">{{ data.brand }}</nuxt-link>
-        </h1>
+        class="  mx-auto flex justify-between lg:mx-5 xl:mx-auto items-center xl:items-center px-5 sm:px-7 lg:px-0 py-5 gap-10 md:gap-x-16 xl:container header-container relative ">
+      <div class="navbar-brand flex items-center">
+        <nuxt-link to="/" class="flex flex-row-reverse items-center gap-2">
+          <h1>
+            {{ data.brand }}
+          </h1>
+          <figure class="flex items-center">
+            <img src="/logo/logo.png" alt="همیشه بهار لوگو">
+          </figure>
+        </nuxt-link>
       </div>
       <nav class="flex justify-end xl:justify-between ms-auto lg:w-full items-center ">
         <ul class="nav menu hidden justify-between gap-5 lg:gap-5 xl:gap-3 2xl:gap-7 xl:flex">
           <li class="nav-item relative" v-for="(item , index) in data.menu" :key="index">
-            <nuxt-link class="nav-link flex items-center gap-3 hover:cursor-pointer " :to="item.link">
+            <nuxt-link class="nav-link flex items-center gap-2 hover:cursor-pointer " :to="item.link">
               <span>{{ item.name }}</span>
-              <span v-if="item.sub"><i class="fa-solid fa-angle-down fa-md text-sm font-bold"/></span>
+              <span v-if="item.sub"><i class="fa-solid fa-angle-down fa-md text-sm font-bold flex items-center"/></span>
             </nuxt-link>
             <ul v-if="item.sub" class="grid  gap-4 sub-menu mt-6" :class="{colsActive:item.sub.length>15}">
               <li v-for="(item , index) in item.sub" :key="index">
@@ -164,7 +169,8 @@ onMounted(() => {
           </div>
         </label>
       </div>
-      <div class="login">
+    </div>
+      <div class="login " >
         <transition name="auth">
           <auth v-if="showAuth">
             <button @click="showAuth=false"
@@ -173,7 +179,6 @@ onMounted(() => {
           </auth>
         </transition>
       </div>
-    </div>
     <transition name="transition">
       <navbar-mobile v-if="showNavbarMobile" @close-navbar-mobile="showNavbarMobile = false"/>
     </transition>
@@ -206,11 +211,27 @@ onMounted(() => {
 
 .navbar-brand {
   text-wrap: nowrap;
+  figure {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    overflow: hidden;
+    img {
+      mix-blend-mode: multiply;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 
 nav {
   & .nav.menu {
     font-size: $fontSize-header-menu;
+    @media screen and (max-width: 1500px){
+      .nav .nav-menu{
+      font-size: $fontSize-header-menu-xl;
+      }
+    }
   }
 }
 
