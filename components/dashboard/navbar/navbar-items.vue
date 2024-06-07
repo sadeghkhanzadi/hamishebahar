@@ -16,7 +16,8 @@ function show() {
       :class="{ border : props.theme === 'parent' , theme:props.theme===true , borderNone:!data.sub}"
       ref="parent">
     <div class="flex items-center justify-between w-full">
-      <nuxtLink :to="data.link">
+      <nuxtLink :to="data.link" class="flex gap-1.5">
+        <span><i :class="`fa-solid ${data.icon} `"/></span>
         <span>{{ data.name }}</span>
       </nuxtLink>
       <div class="navbar-mobile-icon">
@@ -43,8 +44,8 @@ function show() {
 
 .theme {
   color: #555555;
-  padding: 16px 20px;
-  margin-top: 10px;
+  padding:0 20px;
+  margin-top: 12px;
 }
 
 .borderNone {
@@ -71,7 +72,7 @@ li.show > div > div > span.icon:after {
 }
 
 .transition-leave-active {
-  transition: 0.5s ease;
+  transition: 0.5s ease ;
 }
 
 .transition-enter-from, .transition-leave-to {
