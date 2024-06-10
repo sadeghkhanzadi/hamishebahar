@@ -1,6 +1,16 @@
 <script setup lang="ts">
 import img from '~/assets/image/teachers/course/img.png'
 import profile from '~/assets/image/teachers/profile/img.png'
+import shapeMove from "~/composables/shapeMove.client";
+const breadcrumb = {
+  title:"اطلاعات مدرس",
+  breadcrumb: [
+    {
+      name: "اطلاعات مدرس",
+      url: ''
+    },
+  ]
+}
 const teacher = {
   img:profile,
   job:"برنامه نویس",
@@ -150,12 +160,15 @@ const courses = [
     },
   },
 ]
+onMounted(()=>{
+  shapeMove()
+})
 </script>
 
 <template>
   <div>
     <section>
-      <breadcrumb-header-title/>
+      <breadcrumb-header-title :data="breadcrumb"/>
     </section>
     <main>
       <article>
@@ -171,7 +184,7 @@ const courses = [
             <div class="container mx-auto  py-20  flex flex-col gap-10">
               <div class="courses-title text-center"><h3>دوره های محبوب من</h3></div>
               <div class="grid grid-cols-12 gap-7 w-2/3 mx-auto">
-                <cards-teachers-course class="col-span-12 md:col-span-6 lg:col-span-3" v-for="(item , index) in courses" :key="index" :data="item"/>
+                <cards-teachers-course class="col-span-12 md:col-span-6 lg:col-span-3" v-for="(item , index) in courses" :key="index" :data="item" data-aos="fade-up"/>
               </div>
             </div>
           </div>
