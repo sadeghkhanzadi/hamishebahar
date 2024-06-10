@@ -9,7 +9,7 @@ const data = ref({
   menu: [
     {
       name: "خانه",
-      link: "",
+      link: "/",
     },
     {
       name: "مربیان",
@@ -71,11 +71,11 @@ const data = ref({
     },
     {
       name: "اخبار و رویداد ها",
-      link: "",
+      link: "news",
     },
     {
       name: "تماس با ما",
-      link: "",
+      link: "/contact-us",
     },
     {
       name: "درباره ما",
