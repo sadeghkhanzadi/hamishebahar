@@ -1,4 +1,7 @@
 <script setup lang="ts">
+const props  = defineProps({
+  data:Object
+})
 
 </script>
 
@@ -7,10 +10,10 @@
     <div class="inner-container relative w-full h-full flex items-center justify-center overflow-hidden">
       <div class="content flex flex-col items-center justify-center gap-4">
         <div class="title ">
-          <h3>صفحه معرفی مربی و مدرسین </h3>
+          <h3>{{data.title}}</h3>
         </div>
         <div class="breadcrumb">
-          <lazy-breadcrumb/>
+          <lazy-breadcrumb :data="data.breadcrumb"/>
         </div>
       </div>
       <div class="shape-move shape-blue hidden lg:block"><img src="~/assets/image/shape/blue-dot.png" alt="shape-move"></div>
