@@ -1,5 +1,15 @@
 <script setup lang="ts">
 import imgOne from '~/assets/image/teachers/1.webp'
+import shapeMove from '~/composables/shapeMove.client'
+const breadcrumb = {
+  title:"صفحه معرفی مربی و مدرسین",
+  breadcrumb: [
+    {
+      name: "صفحه معرفی مربی و مدرسین",
+      url: ''
+    },
+  ]
+}
 const teachers = [
   {
     name: 'ممد نصاب',
@@ -68,12 +78,15 @@ const teachers = [
     }
   },
 ]
+onMounted(()=>{
+  shapeMove()
+})
 </script>
 
 <template>
   <div>
     <div class="header">
-      <breadcrumb-header-title/>
+      <breadcrumb-header-title :data="breadcrumb"/>
     </div>
     <section>
       <div class="container mx-auto pb-5 mt-10">
@@ -84,7 +97,7 @@ const teachers = [
           </div>
           <div class="grid grid-cols-12 gap-10 md:gap-7  ">
             <cards-teachers class=" col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-4"
-                            v-for="(item , index) in teachers" :key="index" :data="item"/>
+                            v-for="(item , index) in teachers" :key="index" :data="item" data-aos="fade-up"/>
           </div>
         </div>
       </div>
@@ -101,9 +114,5 @@ const teachers = [
 .teachers-title {
   font-size: 28px;
   font-weight: 700;
-
-  &:after {
-    content: "";
-  }
 }
 </style>
