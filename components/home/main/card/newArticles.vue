@@ -98,6 +98,7 @@ const props = defineProps(['data'])
       top: -35px;
       right: 0;
       width: 100%;
+      transform: scale(1.15);
     }
     ul.info {
       font-size: $fontSize-card-text-info-section-three;
