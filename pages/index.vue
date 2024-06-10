@@ -19,6 +19,8 @@ import book from "@/assets/image/shape/book.png"
 import calender from "@/assets/image/shape/calender.png"
 import lab from "@/assets/image/shape/labratoar.png"
 
+
+import shapeMove from '~/composables/shapeMove.client'
 const data = {
   title: "یک درس را برای شروع انتخاب کنید",
   subTitle: "کلاس های محبوب ",
@@ -309,6 +311,9 @@ const articles ={
   ]
 
 }
+onMounted(()=>{
+  shapeMove()
+})
 
 
 </script>
