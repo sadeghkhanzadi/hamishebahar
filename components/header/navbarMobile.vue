@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const emit = defineEmits(["closeNavbarMobile"])
-
+const props =defineProps(['data'])
 function close() {
   emit('closeNavbarMobile')
 }
@@ -317,7 +317,7 @@ const menus = [
           <nuxt-link to="/">همیشه بهار</nuxt-link>
         </div>
         <ul class="nav w-full ">
-            <navbar v-for="(item , index) in menus" :key="index" :data="item" theme="parent"/>
+            <navbar v-for="(item , index) in data" :key="index" :data="item" theme="parent"/>
         </ul>
       </nav>
     </div>
