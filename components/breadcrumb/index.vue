@@ -1,11 +1,11 @@
 <script setup >
-const props = defineProps(['data'])
+const props = defineProps(['data','color'])
 </script>
 
 <template>
   <div class="bread-crumb">
     <nav class="flex  items-center ">
-      <ul class="flex items-center gap-3 " >
+      <ul class="flex items-center gap-3 " :style="{color:color}" >
         <li class="flex items-center">
           <nuxtLink to="/">صفحه اصلی</nuxtLink>
         </li>

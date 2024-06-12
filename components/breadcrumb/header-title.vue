@@ -1,26 +1,26 @@
 <script setup lang="ts">
-const props  = defineProps({
-  data:Object
-})
-
+const props  = defineProps(['data', 'img'])
+// import img from '~/assets/image/breadcrumb/edublink-breadcrumb-bg.webp'
+  const color = ref()
+ props.img ? color.value='#fff' : color.value = '#000'
 </script>
 
 <template>
-  <div class="header-pages h-[25vh] flex justify-center items-center overflow-hidden relative">
+  <div class="header-pages h-[25vh] flex justify-center items-center overflow-hidden relative after:z-0  after:w-full after:h-full after:bg-[rgba(0,0,0,0.3)] after:inset-0 after:absolute" :class="{'after:hidden':!img }" :style="{background:`url(${img})` , backgroundAttachment:'fixed'}">
     <div class="inner-container relative w-full h-full flex items-center justify-center overflow-hidden">
       <div class="content flex flex-col items-center justify-center gap-4">
-        <div class="title ">
+        <div class="title " >
           <h3>{{data.title}}</h3>
         </div>
-        <div class="breadcrumb">
-          <lazy-breadcrumb :data="data.breadcrumb"/>
+        <div class="breadcrumb z-[1]">
+          <lazy-breadcrumb :color="color" class="" :data="data.breadcrumb"/>
         </div>
       </div>
-      <div class="shape-move shape-blue hidden lg:block"><img src="~/assets/image/shape/blue-dot.png" alt="shape-move"></div>
-      <div class="shape-move shape-wave hidden lg:block"><img src="~/assets/image/shape/wave.png" alt="shape-move"></div>
-      <div class="shape-move shape-square hidden lg:block "><img src="~/assets/image/shape/red-square.png" alt="shape-move"></div>
-      <div class="image-circle-left hidden lg:block "></div>
-      <div class="image-circle-right hidden lg:block "></div>
+      <div v-if="!img" class="shape-move shape-blue hidden lg:block"><img src="~/assets/image/shape/blue-dot.png" alt="shape-move"></div>
+      <div v-if="!img" class="shape-move shape-wave hidden lg:block"><img src="~/assets/image/shape/wave.png" alt="shape-move"></div>
+      <div v-if="!img" class="shape-move shape-square hidden lg:block "><img src="~/assets/image/shape/red-square.png" alt="shape-move"></div>
+      <div v-if="!img" class="image-circle-left hidden lg:block "></div>
+      <div v-if="!img" class="image-circle-right hidden lg:block "></div>
     </div>
   </div>
 </template>
@@ -28,11 +28,15 @@ const props  = defineProps({
 <style scoped lang="scss">
 .header-pages {
   background: #F5F9FA;
+  background-position: center;
+  background-size: cover;
 }
 
 .title {
   font-size: 30px;
+  z-index: 1;
   font-weight: 700;
+  color: v-bind(color);
 }
 
 .image-circle-left {
