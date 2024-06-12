@@ -79,7 +79,7 @@ const data = ref({
     },
     {
       name: "درباره ما",
-      link: "",
+      link: "/about-us",
     },
 
   ],
@@ -97,6 +97,11 @@ onMounted(() => {
   watch(showAuth, () => {
     showAuth.value ? document.body.classList.add("overflow-hidden") : document.body.classList.remove("overflow-hidden")
   })
+})
+watch(()=>route.name , ()=>{
+  if(showNavbarMobile.value){
+    showNavbarMobile.value = false
+  }
 })
 </script>
 
@@ -180,7 +185,7 @@ onMounted(() => {
         </transition>
       </div>
     <transition name="transition">
-      <navbar-mobile v-if="showNavbarMobile" @close-navbar-mobile="showNavbarMobile = false"/>
+      <navbar-mobile v-if="showNavbarMobile" :data="data.menu" @close-navbar-mobile="showNavbarMobile = false"/>
     </transition>
   </div>
 </template>
