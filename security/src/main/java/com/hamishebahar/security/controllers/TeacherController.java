@@ -24,43 +24,43 @@ public class TeacherController {
         this.teacherService = teacherService;
     }
 
-    //new news
+    //new Teacher
     @PostMapping(TEACHER_INSERT)
-    public ResponseEntity<ResultsServiceDto> insertNews(@RequestBody TeacherDto dto,
-                                                        HttpServletResponse response,
-                                                        HttpServletRequest request) throws HamisheBaharException {
+    public ResponseEntity<ResultsServiceDto> insertTeacher(@RequestBody TeacherDto dto,
+                                                           HttpServletResponse response,
+                                                           HttpServletRequest request) throws HamisheBaharException {
         ResultsServiceDto resultsVO = this.teacherService.insertTeacher(dto);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
-    //edite news
+    //edit Teacher
     @PutMapping(TEACHER_UPDATE)
-    public ResponseEntity<ResultsServiceDto> editNews(@RequestBody TeacherDto dto,
-                                                      @PathVariable(value = "id", required = true) Long id,
-                                                      HttpServletResponse response,
-                                                      HttpServletRequest request) throws HamisheBaharException {
+    public ResponseEntity<ResultsServiceDto> editTeacher(@RequestBody TeacherDto dto,
+                                                         @PathVariable(value = "id", required = true) Long id,
+                                                         HttpServletResponse response,
+                                                         HttpServletRequest request) throws HamisheBaharException {
         ResultsServiceDto resultsVO = this.teacherService.editTeacher(dto, id);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
     //delete
     @DeleteMapping(TEACHER_DELETE_WITH_ID)
-    public ResponseEntity<ResultsServiceDto> deleteNews(@PathVariable(value = "id", required = true) Long id,
-                                                        HttpServletResponse response,
-                                                        HttpServletRequest request) throws HamisheBaharException {
+    public ResponseEntity<ResultsServiceDto> deleteTeacher(@PathVariable(value = "id", required = true) Long id,
+                                                           HttpServletResponse response,
+                                                           HttpServletRequest request) throws HamisheBaharException {
         ResultsServiceDto resultsVO = this.teacherService.deleteTeacher(id);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
     //FIND With Filters
     @GetMapping(TEACHER_FIND_WITH_FILTER)
-    public ResponseEntity<ResultsServiceDto> findNews(@RequestParam(value = "id", required = false) Long id,
-                                                      @RequestParam(value = "firstName", required = false) String firstName,
-                                                      @RequestParam(value = "lastName", required = false) String lastName,
-                                                      @RequestParam(value = "jobTitle", required = false) String jobTitle,
-                                                      @PageableDefault Pageable pageable,
-                                                      HttpServletResponse response,
-                                                      HttpServletRequest request) throws HamisheBaharException {
+    public ResponseEntity<ResultsServiceDto> findTeacher(@RequestParam(value = "id", required = false) Long id,
+                                                         @RequestParam(value = "firstName", required = false) String firstName,
+                                                         @RequestParam(value = "lastName", required = false) String lastName,
+                                                         @RequestParam(value = "jobTitle", required = false) String jobTitle,
+                                                         @PageableDefault Pageable pageable,
+                                                         HttpServletResponse response,
+                                                         HttpServletRequest request) throws HamisheBaharException {
         ResultsServiceDto resultsVO = this.teacherService.findTeacher(id, firstName, lastName, jobTitle, pageable);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }

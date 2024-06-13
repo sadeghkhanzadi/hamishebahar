@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="660b6f52-792a-4916-b6f9-ad8af0bd2b70" name="Changes" comment="USER_STORY: 6&#10;TASK_NUMBER: 6&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <change afterPath="$PROJECT_DIR$/log/2024-05/server_hmb.2024-05-25.0.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/2024-05/server_hmb.2024-05-31.0.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/log/2024-05/server_hmb.2024-05-25.0.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/log/server_hmb.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/AboutUsDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/ContactUsDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/AboutUsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/ContactUsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/entity/AboutUs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/repository/AboutUsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/contactUs/entity/ContactUs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/contactUs/repository/ContactUsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/contactUs/service/ContactUsService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/15293032-5a9c-4722-9714-e04207d12b62.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/3661a6ee-fa0e-44d4-9948-332f10155ec8.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/42f24085-88e3-45ef-b87d-1ff2bd0b5605.jpeg" afterDir="false" />
@@ -14,8 +26,19 @@
       <change afterPath="$PROJECT_DIR$/uploads/6d91a5a4-7638-4fe2-8b79-9cf6443b8e97.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/6f1f747e-0877-4ff1-b6dd-d9ea75f14cde.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/7edf49d7-f9e9-4567-8fa2-056b458466cb.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/server_hmb.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/server_hmb.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Constans/UriConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Constans/UriConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/LoginSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/LoginSuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/CourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MediaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MediaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/StudentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/StudentsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/TeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/TeacherController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +99,7 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.NewsEventsService.executor": "Debug",
+    "Application.SecurityConfig.executor": "Run",
     "Maven.hamishebahar [clean,install].executor": "Run",
     "Maven.hamishebahar [clean].executor": "Run",
     "Maven.security [clean,install].executor": "Run",
@@ -92,7 +116,7 @@
     "git-widget-placeholder": "develop",
     "jdk.selected.JAVA_MODULE": "1.8",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/hamishebahar",
+    "last_opened_file_path": "E:/hamishebahar/security/src/main/java/com/hamishebahar/security/panel/contactUs",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -112,11 +136,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\hamishebahar\security\src\main\java\com\hamishebahar\security\panel\contactUs" />
       <recent name="E:\hamishebahar" />
+      <recent name="E:\hamishebahar\security\deploy" />
       <recent name="E:\hamishebahar\security\src\main\resources\templates" />
       <recent name="E:\hamishebahar\security\src\main\resources" />
-      <recent name="E:\hamishebahar\security\src\main\java\com\hamishebahar\security" />
-      <recent name="E:\hamishebahar\security\src\main\java\com\commonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\hamishebahar\security" />
@@ -132,6 +156,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.hamishebahar.security.panel.news_events.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SecurityConfig" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hamishebahar.security.config.SecurityConfig" />
+      <module name="security" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hamishebahar.security.config.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -167,6 +204,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SecurityConfig" />
         <item itemvalue="Application.NewsEventsService" />
         <item itemvalue="Spring Boot.SecurityApplication (1)" />
       </list>
@@ -210,7 +248,14 @@
       <workItem from="1716267019287" duration="19944000" />
       <workItem from="1716560081055" duration="12247000" />
       <workItem from="1716696463442" duration="2000" />
-      <workItem from="1716745438631" duration="1004000" />
+      <workItem from="1716745438631" duration="1633000" />
+      <workItem from="1717101366621" duration="5321000" />
+      <workItem from="1717107043668" duration="441000" />
+      <workItem from="1717107680369" duration="388000" />
+      <workItem from="1717108259716" duration="272000" />
+      <workItem from="1717407915025" duration="599000" />
+      <workItem from="1717609732161" duration="599000" />
+      <workItem from="1718203153837" duration="16597000" />
     </task>
     <task id="LOCAL-00001" summary="USER_STORY: 1&#10;TASK_NUMBER: 1&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;First Commit&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
       <option name="closed" value="true" />
@@ -292,7 +337,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716745604077</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="USER_STORY: 6&#10;TASK_NUMBER: 6&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1716747928166</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716747928166</updated>
+    </task>
+    <task id="LOCAL-00012" summary="USER_STORY: 6&#10;TASK_NUMBER: 6&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1717107114084</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1717107114084</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,7 +396,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>59</line>
+          <line>62</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -350,7 +411,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>60</line>
+          <line>63</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

@@ -15,10 +15,13 @@ import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import java.security.Principal;
 
 import static com.hamishebahar.security.commonts.Constans.UriConstants.*;
 
@@ -103,5 +106,11 @@ public class UserController {
 
         response.addHeader("Authorization", jwtUtils.generateToken(jwtAuth.getUsername()));
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping(USER_FIND_WITH_TOKEN)
+    @PreAuthorize("authentication.name == #principal.name")
+    public ResponseEntity<?> findUser(Principal principal){
+        return ResponseEntity.status(HttpStatus.OK).body(principal);
     }
 }

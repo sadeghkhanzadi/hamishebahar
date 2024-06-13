@@ -32,7 +32,7 @@ public class CategoryController {
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
-    //edite Student
+    //edit Category
     @PutMapping(CATEGORY_UPDATE)
     public ResponseEntity<ResultsServiceDto> editeCategory(@RequestBody CategoryDto dto,
                                                            @PathVariable(value = "id", required = true) Long id,

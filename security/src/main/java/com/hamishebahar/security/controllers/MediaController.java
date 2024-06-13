@@ -41,7 +41,7 @@ public class MediaController {
     }
 
 
-    //edite news
+    //edit Media
     @PutMapping(MEDIA_UPDATE)
     public ResponseEntity<ResultsServiceDto> editMedia(@RequestParam(value = "name" , required = false) String name,
                                                        @RequestParam(value = "states" , required = false) MediaStates states,

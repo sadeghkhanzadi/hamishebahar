@@ -36,7 +36,7 @@ public class CourseController {
 
     //edite Course
     @PutMapping(COURSE_UPDATE)
-    public ResponseEntity<ResultsServiceDto> editeCourse(@RequestBody CoursesDto dto,
+    public ResponseEntity<ResultsServiceDto> editCourse(@RequestBody CoursesDto dto,
                                                          @PathVariable(value = "id", required = true) Long id,
                                                          HttpServletResponse response,
                                                          HttpServletRequest request) throws HamisheBaharException {

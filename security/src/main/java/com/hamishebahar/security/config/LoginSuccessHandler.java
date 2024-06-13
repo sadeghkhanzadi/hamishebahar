@@ -20,10 +20,10 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
                                         Authentication authentication) throws IOException, ServletException {
 
         if (authentication.getAuthorities().contains(Authority.OP_ACCESS_ADMIN)) {
-            redirect.sendRedirect(httpServletRequest, httpServletResponse, "https://hamishebahar.liara.run");// /admin
+            redirect.sendRedirect(httpServletRequest, httpServletResponse, "https://hamishebahar2.liara.run");// /admin
         } else if (authentication.getAuthorities().contains(Authority.OP_ACCESS_USER)) {
-            redirect.sendRedirect(httpServletRequest, httpServletResponse, "https://hamishebahar.liara.run");// /user
+            redirect.sendRedirect(httpServletRequest, httpServletResponse, "https://hamishebahar2.liara.run");// /user
         } else
-            redirect.sendRedirect(httpServletRequest, httpServletResponse, "https://hamishebahar.liara.run");// /
+            redirect.sendRedirect(httpServletRequest, httpServletResponse, "https://hamishebahar2.liara.run");// /
     }
 }

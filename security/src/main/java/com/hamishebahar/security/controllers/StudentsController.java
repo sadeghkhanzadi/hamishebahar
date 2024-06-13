@@ -33,7 +33,7 @@ public class StudentsController {
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
-    //edite Student
+    //edit Student
     @PutMapping(STUDENT_UPDATE)
     public ResponseEntity<ResultsServiceDto> editeStudent(@RequestBody StudentDto dto,
                                                           @PathVariable(value = "id", required = true) Long id,
