@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import static com.hamishebahar.security.commonts.Constans.UriConstants.*;
 
 @RestController
+@CrossOrigin
 public class CategoryController {
     private final CategoryService categoryService;
 

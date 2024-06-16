@@ -27,8 +27,6 @@ import java.util.Collections;
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    @Value(value = "${uri.front.pages}")
-    private String uriPagesForCores;
     private final DataSource dataSource;
     private final UsersService usersService;
     private final JwtFilter jwtFilter;
@@ -65,27 +63,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().exceptionHandling().accessDeniedPage("/error")
                 .and().logout().logoutUrl("/logout").deleteCookies("remember")
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and().addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()));
+                .and().addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
-    private CorsConfigurationSource corsConfigurationSource() {
-        return new CorsConfigurationSource() {
-            @Override
-            public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
-                CorsConfiguration ccfg = new CorsConfiguration();
-                ccfg.setAllowedOrigins(Arrays.asList(uriPagesForCores));
-                ccfg.setAllowedMethods(Collections.singletonList("*"));
-                ccfg.setAllowCredentials(true);
-                ccfg.setAllowedHeaders(Collections.singletonList("*"));
-                ccfg.setExposedHeaders(Arrays.asList("Authorization"));
-                ccfg.setMaxAge(3600L);
-                return ccfg;
-
-            }
-        };
-
-    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

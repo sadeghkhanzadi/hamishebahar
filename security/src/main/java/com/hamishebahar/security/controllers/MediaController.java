@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import static com.hamishebahar.security.commonts.Constans.UriConstants.*;
 
 @RestController
+@CrossOrigin
 public class MediaController {
 
     private final MediaStorageService mediaStorageService;

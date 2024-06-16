@@ -4,21 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="660b6f52-792a-4916-b6f9-ad8af0bd2b70" name="Changes" comment="USER_STORY: 6&#10;TASK_NUMBER: 6&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+    <list default="true" id="660b6f52-792a-4916-b6f9-ad8af0bd2b70" name="Changes" comment="USER_STORY: 7&#10;TASK_NUMBER: 7&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10; create dto &#10; create AboutUs and ContactUs &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
       <change afterPath="$PROJECT_DIR$/log/2024-05/server_hmb.2024-05-25.0.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/log/2024-05/server_hmb.2024-05-31.0.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/2024-06/server_hmb.2024-06-12.0.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/2024-06/server_hmb.2024-06-14.0.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.1-old.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/log/2024-05/server_hmb.2024-05-25.0.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/log/server_hmb.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/AboutUsDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/ContactUsDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/AboutUsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/ContactUsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/entity/AboutUs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/repository/AboutUsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/contactUs/entity/ContactUs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/contactUs/repository/ContactUsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/contactUs/service/ContactUsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/CorsConfig.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/15293032-5a9c-4722-9714-e04207d12b62.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/3661a6ee-fa0e-44d4-9948-332f10155ec8.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/42f24085-88e3-45ef-b87d-1ff2bd0b5605.jpeg" afterDir="false" />
@@ -29,12 +23,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/server_hmb.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/server_hmb.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Constans/UriConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Constans/UriConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/LoginSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/LoginSuccessHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/AboutUsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/AboutUsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/ContactUsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/ContactUsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/CourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MediaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MediaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/NewsEventsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/NewsEventsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/StudentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/StudentsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/TeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/TeacherController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java" afterDir="false" />
@@ -71,6 +67,9 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -95,45 +94,45 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.NewsEventsService.executor": "Debug",
-    "Application.SecurityConfig.executor": "Run",
-    "Maven.hamishebahar [clean,install].executor": "Run",
-    "Maven.hamishebahar [clean].executor": "Run",
-    "Maven.security [clean,install].executor": "Run",
-    "Maven.security [clean].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.SecurityApplication (1).executor": "Debug",
-    "Spring Boot.SecurityApplication.executor": "Debug",
-    "git-widget-placeholder": "develop",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/hamishebahar/security/src/main/java/com/hamishebahar/security/panel/contactUs",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "build.tools",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.NewsEventsService.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.SecurityConfig.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.hamishebahar [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.hamishebahar [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.security [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.security [clean].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.SecurityApplication (1).executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.SecurityApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/hamishebahar/security/src/main/java/com/hamishebahar/security/panel/contactUs&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\hamishebahar\security\src\main\java\com\hamishebahar\security\panel\contactUs" />
@@ -255,7 +254,8 @@
       <workItem from="1717108259716" duration="272000" />
       <workItem from="1717407915025" duration="599000" />
       <workItem from="1717609732161" duration="599000" />
-      <workItem from="1718203153837" duration="16597000" />
+      <workItem from="1718203153837" duration="29503000" />
+      <workItem from="1718557699623" duration="7257000" />
     </task>
     <task id="LOCAL-00001" summary="USER_STORY: 1&#10;TASK_NUMBER: 1&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;First Commit&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
       <option name="closed" value="true" />
@@ -353,7 +353,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717107114084</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="USER_STORY: 7&#10;TASK_NUMBER: 7&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10; create dto &#10; create AboutUs and ContactUs &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1718307881578</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1718307881578</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,14 +397,15 @@
     <MESSAGE value="USER_STORY: 4&#10;TASK_NUMBER: 4&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 5 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
     <MESSAGE value="USER_STORY: 5&#10;TASK_NUMBER: 5&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 6 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
     <MESSAGE value="USER_STORY: 6&#10;TASK_NUMBER: 6&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="USER_STORY: 6&#10;TASK_NUMBER: 6&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 7&#10;TASK_NUMBER: 7&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10; create dto &#10; create AboutUs and ContactUs &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="USER_STORY: 7&#10;TASK_NUMBER: 7&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10; create dto &#10; create AboutUs and ContactUs &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>62</line>
+          <line>63</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -411,7 +420,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>63</line>
+          <line>64</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -461,7 +470,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MediaController.java</url>
-          <line>57</line>
+          <line>58</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -476,12 +485,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MediaController.java</url>
-          <line>38</line>
+          <line>39</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MediaController.java</url>
-          <line>33</line>
+          <line>34</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -588,6 +597,26 @@
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/TeacherDto.java</url>
           <line>144</line>
           <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
+          <line>101</line>
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.6.2/spring-security-core-5.6.2.jar!/org/springframework/security/authentication/UsernamePasswordAuthenticationToken.class</url>
+          <line>17</line>
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/jwt/JwtFilter.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/jwt/JwtFilter.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="94" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -26,6 +26,7 @@ import java.security.Principal;
 import static com.hamishebahar.security.commonts.Constans.UriConstants.*;
 
 @RestController
+@CrossOrigin
 public class UserController {
 
     private final UsersService usersService;
@@ -103,9 +104,9 @@ public class UserController {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-
-        response.addHeader("Authorization", jwtUtils.generateToken(jwtAuth.getUsername()));
-        return new ResponseEntity<>(HttpStatus.OK);
+        String Authorization = jwtUtils.generateToken(jwtAuth.getUsername());
+        response.addHeader("Authorization", Authorization);
+        return ResponseEntity.status(HttpStatus.OK).body(Authorization);
     }
 
     @PostMapping(USER_FIND_WITH_TOKEN)

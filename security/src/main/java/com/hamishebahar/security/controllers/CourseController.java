@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import static com.hamishebahar.security.commonts.Constans.UriConstants.*;
 
 @RestController
+@CrossOrigin
 public class CourseController {
 
     private final CourseService courseService;
