@@ -3,7 +3,6 @@ package com.hamishebahar.security.panel.aboutUs.entity;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.hamishebahar.security.commonts.Dto.AboutUsDto;
-import com.hamishebahar.security.commonts.Dto.MediasDto;
 import com.hamishebahar.security.panel.media.entity.Medias;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,6 +38,9 @@ public class AboutUs {
     @ManyToMany
     private List<Medias> medias;
 
+    @ManyToMany
+    private List<AboutUsPlans> aboutUsPlans;
+
     @Column(
             name = "created_time",
             updatable = false
@@ -66,6 +68,8 @@ public class AboutUs {
         private Boolean is_deleted;
 
         private List<Medias> medias;
+
+        private List<AboutUsPlans> aboutUsPlans;
 
         public Builder Id(Long id) {
             this.id = id;
@@ -112,6 +116,11 @@ public class AboutUs {
             return this;
         }
 
+        public Builder Plans(List<AboutUsPlans> aboutUsPlans) {
+            this.aboutUsPlans = aboutUsPlans;
+            return this;
+        }
+
         public AboutUs build(){
             return new AboutUs(this);
         }
@@ -127,6 +136,7 @@ public class AboutUs {
         this.is_active = builder.is_active;
         this.is_deleted = builder.is_deleted;
         this.medias = builder.medias;
+        this.aboutUsPlans = builder.aboutUsPlans;
     }
 
     public AboutUsDto convertToDto(){
@@ -139,7 +149,12 @@ public class AboutUs {
                 .EmailAddress(emailAddress)
                 .Is_active(is_active)
                 .Is_deleted(is_deleted)
-                .Medias(medias.stream().map(Medias::convertToDto).collect(Collectors.toList()))
+                .Medias(medias.stream()
+                        .map(Medias::convertToDto)
+                        .collect(Collectors.toList()))
+                .Plans(aboutUsPlans.stream()
+                        .map(AboutUsPlans::convertToDto)
+                        .collect(Collectors.toList()))
                 .build();
     }
 }

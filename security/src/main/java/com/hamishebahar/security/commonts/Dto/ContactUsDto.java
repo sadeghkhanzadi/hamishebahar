@@ -1,7 +1,6 @@
 package com.hamishebahar.security.commonts.Dto;
 
 import com.hamishebahar.security.panel.contactUs.entity.ContactUs;
-import com.hamishebahar.security.panel.media.entity.Medias;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -149,11 +148,11 @@ public class ContactUsDto {
 
     public ContactUsDto updaterFields(ContactUsDto dto) {
         return new ContactUsDto.Builder()
-                .Id(id)
-                .Text(text)
-                .PhoneNumberCompany(phoneNumberCompany)
-                .MobileNumber(mobileNumber)
-                .EmailAddress(emailAddress)
+                .Id(getId() != null ? getId() : dto.getId())
+                .Text(getText() != null ? getText() : dto.getText())
+                .PhoneNumberCompany(getPhoneNumberCompany() != null ? getPhoneNumberCompany() : dto.getPhoneNumberCompany())
+                .MobileNumber(getMobileNumber() != null ? getMobileNumber() :  dto.getMobileNumber())
+                .EmailAddress(getEmailAddress() != null ? getEmailAddress() : dto.getEmailAddress())
                 .Address(address)
                 .LatAddress(latAddress)
                 .LongAddress(longAddress)

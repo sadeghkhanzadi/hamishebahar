@@ -4,37 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="660b6f52-792a-4916-b6f9-ad8af0bd2b70" name="Changes" comment="USER_STORY: 7&#10;TASK_NUMBER: 7&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10; create dto &#10; create AboutUs and ContactUs &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
-      <change afterPath="$PROJECT_DIR$/log/2024-05/server_hmb.2024-05-25.0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/2024-05/server_hmb.2024-05-31.0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/2024-06/server_hmb.2024-06-12.0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/2024-06/server_hmb.2024-06-14.0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.1-old.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/log/2024-05/server_hmb.2024-05-25.0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/log/server_hmb.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/CorsConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/15293032-5a9c-4722-9714-e04207d12b62.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/3661a6ee-fa0e-44d4-9948-332f10155ec8.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/42f24085-88e3-45ef-b87d-1ff2bd0b5605.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/4e50feef-655c-4304-9d1c-84ef269237a9.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/6d91a5a4-7638-4fe2-8b79-9cf6443b8e97.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/6f1f747e-0877-4ff1-b6dd-d9ea75f14cde.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/7edf49d7-f9e9-4567-8fa2-056b458466cb.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/server_hmb.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/server_hmb.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/AboutUsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/AboutUsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/ContactUsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/ContactUsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MediaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MediaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/NewsEventsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/NewsEventsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/StudentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/StudentsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/TeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/TeacherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/application.properties" afterDir="false" />
+    <list default="true" id="660b6f52-792a-4916-b6f9-ad8af0bd2b70" name="Changes" comment="USER_STORY: 9&#10;TASK_NUMBER: 9&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 9 Commit&#10; create entity for site panel&#10; create dto &#10; create Icons and Links &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/AboutUsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/AboutUsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/ContactUsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/ContactUsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/LinksDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/LinksDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/Links/service/LinksService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/Links/service/LinksService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/entity/AboutUs.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/entity/AboutUs.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -115,7 +90,7 @@
     &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/hamishebahar/security/src/main/java/com/hamishebahar/security/panel/contactUs&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/hamishebahar/security/src/main/java/com/hamishebahar/security/panel/Links&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -135,11 +110,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\hamishebahar\security\src\main\java\com\hamishebahar\security\panel\Links" />
       <recent name="E:\hamishebahar\security\src\main\java\com\hamishebahar\security\panel\contactUs" />
       <recent name="E:\hamishebahar" />
       <recent name="E:\hamishebahar\security\deploy" />
       <recent name="E:\hamishebahar\security\src\main\resources\templates" />
-      <recent name="E:\hamishebahar\security\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\hamishebahar\security" />
@@ -255,7 +230,11 @@
       <workItem from="1717407915025" duration="599000" />
       <workItem from="1717609732161" duration="599000" />
       <workItem from="1718203153837" duration="29503000" />
-      <workItem from="1718557699623" duration="7257000" />
+      <workItem from="1718557699623" duration="7937000" />
+      <workItem from="1718731263952" duration="5475000" />
+      <workItem from="1718767614477" duration="127000" />
+      <workItem from="1718780010494" duration="1808000" />
+      <workItem from="1718912350452" duration="6155000" />
     </task>
     <task id="LOCAL-00001" summary="USER_STORY: 1&#10;TASK_NUMBER: 1&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;First Commit&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
       <option name="closed" value="true" />
@@ -361,7 +340,23 @@
       <option name="project" value="LOCAL" />
       <updated>1718307881578</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="USER_STORY: 8&#10;TASK_NUMBER: 8&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 8 Commit&#10; create entity for site panel&#10; create dto &#10; create AboutUs and ContactUs &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1718566062397</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1718566062397</updated>
+    </task>
+    <task id="LOCAL-00015" summary="USER_STORY: 9&#10;TASK_NUMBER: 9&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 9 Commit&#10; create entity for site panel&#10; create dto &#10; create Icons and Links &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1718962784198</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1718962784198</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,7 +393,9 @@
     <MESSAGE value="USER_STORY: 5&#10;TASK_NUMBER: 5&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 6 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
     <MESSAGE value="USER_STORY: 6&#10;TASK_NUMBER: 6&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
     <MESSAGE value="USER_STORY: 7&#10;TASK_NUMBER: 7&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10; create dto &#10; create AboutUs and ContactUs &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="USER_STORY: 7&#10;TASK_NUMBER: 7&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10; create dto &#10; create AboutUs and ContactUs &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 8&#10;TASK_NUMBER: 8&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 8 Commit&#10; create entity for site panel&#10; create dto &#10; create AboutUs and ContactUs &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 9&#10;TASK_NUMBER: 9&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 9 Commit&#10; create entity for site panel&#10; create dto &#10; create Icons and Links &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="USER_STORY: 9&#10;TASK_NUMBER: 9&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 9 Commit&#10; create entity for site panel&#10; create dto &#10; create Icons and Links &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -617,6 +614,11 @@
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/jwt/JwtFilter.java</url>
           <line>37</line>
           <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/entity/AboutUs.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="95" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -31,7 +31,7 @@ public class AboutUsController {
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
-    //edite Student
+    //edite AboutUs
     @PutMapping(ABOUT_US_UPDATE)
     public ResponseEntity<ResultsServiceDto> editAboutUs(@RequestBody AboutUsDto dto,
                                                          @PathVariable(value = "id", required = true) Long id,

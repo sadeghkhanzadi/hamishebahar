@@ -103,4 +103,33 @@ public class UriConstants {
     public static final String CONTACT_US_DELETE_WITH_ID = "/api/v1/contactus/{id}";
     //@GET method - get ContactUs
     public static final String CONTACT_US_FIND = "/api/v1/contactus";
+
+    //**Icons**
+    //@POST method - insert an Icons
+    public static final String ICON_INSERT = "/api/v1/insert/icon";
+    //@PUT method - update an Icons
+    public static final String ICON_UPDATE = "/api/v1/icon/{id}";
+    //@DELETE method - delete an Icons
+    public static final String ICON_DELETE_WITH_ID = "/api/v1/icon/{id}";
+    //@GET method - get Icons
+    public static final String ICON_FIND = "/api/v1/icon";
+    public static final String ICON_FIND_ONE = "/api/v1/icon/{id}";
+
+    //**Links**
+    //@POST method - insert an LINKS
+    public static final String LINKS_INSERT = "/api/v1/insert/links";
+    //@PUT method - update an Icons
+    public static final String LINKS_UPDATE = "/api/v1/links/{id}";
+    //@DELETE method - delete an Icons
+    public static final String LINKS_DELETE_WITH_ID = "/api/v1/links/{id}";
+    //@GET method - get Icons
+    public static final String LINKS_FIND = "/api/v1/links";
+    public static final String LINKS_FIND_ONE = "/api/v1/links/{id}";
+
+    //todo HomeApi
+    //todo Activity
+    //todo newsLetter
+    //todo Periods
+    //todo RepostedCards
+
 }
