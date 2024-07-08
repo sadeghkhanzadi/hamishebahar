@@ -15,7 +15,7 @@ const data = [
   {
     name: "اخبار و رویداد ها",
     icon:"fa-newspaper",
-    link: "/pages",
+    link: "/dashboard/news",
     sub: [
       {
         name: "صفحه اصلی",
@@ -31,65 +31,43 @@ const data = [
   },
   {
     name: "مربیان",
-    link: "comments",
+    link: "/dashboard/teachers",
     icon:"fa-person-chalkboard"
   },
   {
     name: "آموزش ها",
-    link: "posts",
+    link: "/dashboard/educations",
     icon:"fa-school-flag"
   },
   {
     name: "مدیریت  دانش آموزان",
-    link: "posts",
+    link: "/dashboard/students",
     icon:"fa-user-graduate"
   },
   {
     name: "نمرات و آمتیازات",
-    link: "posts",
+    link: "/dashboard/points",
     icon:"fa-star"
   },
   {
     name: "پیام ها",
-    link: "posts",
+    link: "/dashboard/messages",
     icon:"fa-envelope",
     sub:[
       {
-        name:"نظرات"
+        name:"نظرات",
+        link:"/dashboard/messages/comments"
       },
       {
-        name:"ایمیل "
+        name:"ایمیل ",
+        link:"/dashboard/messages/emails"
       }
     ]
   },
   {
     name: "تنظیمات",
-    link: "setting",
+    link: "/dashboard/settings",
     icon:"fa-gear",
-    sub:[
-      {
-        name:"تماس با ما"
-      },
-      {
-        name:" درباره ما"
-      },
-      {
-        name:"تغییر رمز "
-      },
-      {
-        name:" مدیریت کاربران"
-      },
-      {
-        name: " لینک ها"
-      },
-      {
-        name:"آدرس"
-      },
-      {
-        name:"سطوح دسترسی"
-      },
-
-    ]
   }
 ]
 const icon = [
@@ -125,6 +103,7 @@ const icon = [
     icon:""
   }
 ]
+
 </script>
 
 <template>
@@ -132,15 +111,15 @@ const icon = [
     <div>
       <dashboard-navbar/>
     </div>
-    <main class="flex" >
-      <aside class=" w-1/5 " >
+    <main class="grid grid-cols-5" >
+      <aside class=" col-span-2 md:col-span-2 lg:col-span-1  " >
         <div class="navbar-aside p-10  ">
           <ul class=" flex flex-col gap-2">
             <dashboard-navbar-items v-for="(item,index) in data" :key="index" :data="item"/>
           </ul>
         </div>
       </aside>
-      <div class="bg-gray-50 p-5 w-full rounded-lg ">
+      <div class="bg-gray-50 p-5 w-full rounded-lg col-span-3 md:col-span-3 lg:col-span-4 ">
         <nuxt-page/>
       </div>
     </main>
@@ -151,4 +130,5 @@ const icon = [
   .navbar-aside{
     min-height:calc( 100vh - 64px);
   }
+
 </style>

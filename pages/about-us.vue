@@ -127,7 +127,7 @@ const teachers = [
     </header>
     <main>
       <section>
-        <div class="about-us-container mx-auto  flex flex-col lg:flex-row gap-10   my-[10vh]">
+        <div class="about-us-container mx-auto px-5  flex flex-col items-center lg:flex-row gap-10   my-[10vh]">
           <div class="card-body" data-aos="fade-up">
             <div class="content" >
               <div class="sub-title"><span>درباره ما</span></div>
@@ -157,10 +157,10 @@ const teachers = [
               <div class="under-image max-w-[520px] overflow-hidden rounded-lg " >
                 <img src="~/assets/image/about-us/ubder.webp "  alt="family-us"></div>
               <div
-                  class="front-image max-w-[150px] overflow-hidden rounded-lg absolute z-[1] top-[-20%] left-0 transform translate-x-[-40%]">
+                  class="front-image hidden lg:block max-w-[150px] overflow-hidden rounded-lg absolute z-[1] top-[-20%] left-0 transform translate-x-[-40%]">
                 <img src="~/assets/image/about-us/top.webp" alt="me"></div>
             </div>
-            <div class="shape" data-aos="fade-up">
+            <div class="shape hidden lg:block" data-aos="fade-up">
               <div
                   class="blue-dot absolute shape-move z-[-1] left-[-10%] transform scale-110 opacity-50 bottom-[-15%] ">
                 <img src="~/assets/image/shape/blue-dot.png" alt=" blue-dot shape"></div>
@@ -176,9 +176,9 @@ const teachers = [
         </div>
       </section>
       <section>
-        <div class="why-choose-us h-[45vh] flex flex-col items-center relative" data-aos="fade-up">
+        <div class="why-choose-us  flex pb-10 md:p-0 flex-col items-center relative" data-aos="fade-up">
           <div>
-            <div class="why-choose-us-body flex flex-col mt-[20%] items-center gap-2">
+            <div class="why-choose-us-body flex flex-col md:pb-52 mt-[20%] items-center gap-2">
               <div class="why-choose-us-sub-title text-center" data-aos="fade-up">چرا همیشه بهار را انتخاب کنیم ؟</div>
               <div class="why-choose-us-title text-center" data-aos="fade-up">
                 <h3>
@@ -193,20 +193,20 @@ const teachers = [
               </div>
             </div>
           </div>
-          <div class="why-choose-us-content flex justify-center">
-            <div class="grid grid-cols-12 gap-7 absolute w-1/2  top-[30%] transform translate-y-[50%] ">
-              <about-us-card class="col-span-4" v-for="(item , index) in whyUs" :key="index" :data="item" data-aos="fade-up"/>
+          <div class="why-choose-us-content  flex justify-center">
+            <div class="grid grid-cols-12 gap-7 px-5 md:absolute lg:w-3/4 xl:w-1/2 mt-7 md:mt-0  top-[30%] transform md:translate-y-[50%] ">
+              <about-us-card class="col-span-12 md:col-span-4" v-for="(item , index) in whyUs" :key="index" :data="item" data-aos="fade-up"/>
             </div>
           </div>
-          <div class="shapes " data-aos="fade-up">
+          <div class="shapes hidden lg:block " data-aos="fade-up">
             <div class="img shape-move absolute top-1/4 left-0" ><img src="~/assets/image/shape/red-square.png" alt="red-square"></div>
             <div class="img shape-move absolute top-1/4 right-0" ><img src="~/assets/image/shape/blue-dot.png" alt="blue-dot"></div>
-            <div class="img shape-move absolute bottom-16 left-20 border rounded-full border-gray-300 h-[60%] w-[13%]" ></div>
+            <div class="img shape-move absolute bottom-16 left-20 border rounded-full border-gray-300 h-[60%] w-[15%]" ></div>
           </div>
         </div>
       </section>
       <section>
-        <div class="teachers pt-[20vh] pb-[5vh] overflow-hidden">
+        <div class="teachers pt-20 md:pt-[30vh] pb-[5vh] overflow-hidden">
           <div class="teachers-body w-2/3 mx-auto flex flex-col justify-center items-center">
             <div class="teachers-content flex flex-col justify-center items-center gap-2">
               <div class="teachers-content-sub-title" data-aos="fade-up"><h4>مربیان</h4></div>
@@ -214,7 +214,7 @@ const teachers = [
               <div class="teachers-content-icon" data-aos="fade-up"><icons-brow/></div>
             </div>
             <div class="teachers-item grid grid-cols-12 gap-8 py-10">
-              <cards-teachers class=" col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-4"
+              <cards-teachers class=" col-span-12 md:col-span-4 xl:col-span-4"
                               v-for="(item , index) in teachers.splice(0,3)" :key="index" :data="item" data-aos="fade-up"/>
             </div>
           </div>
@@ -277,6 +277,9 @@ const teachers = [
     width: 100%;
     background: #FFFFFF;
     transform: rotate(-2deg);
+    @media screen and (max-width: 768px) {
+      position: static;
+    }
   }
 
   .why-choose-us-sub-title {

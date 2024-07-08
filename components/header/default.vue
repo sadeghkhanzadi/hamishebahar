@@ -4,6 +4,7 @@ import NavbarMobile from "~/components/header/navbarMobile.vue";
 
 const showNavbarMobile = ref(false)
 const showAuth = ref(false)
+const cookie = useCookie('jwt')
 const route = useRoute()
 const data = ref({
   menu: [
@@ -27,23 +28,23 @@ const data = ref({
     },
     {
       name: "دوره های تحصیلی ",
-      link: "",
+      link: "/courses",
       sub: [
         {
           name: "نوزاد",
-          link: ""
+          link: "/courses/1"
         },
         {
           name: "مهدکودک",
-          link: ""
+          link: "/courses/2"
         },
         {
           name: "پیش دبستان",
-          link: ""
+          link: "/courses/3"
         },
         {
           name: "دبستان",
-          link: ""
+          link: "/courses/4"
         },
       ]
     },
@@ -103,6 +104,14 @@ watch(()=>route.name , ()=>{
     showNavbarMobile.value = false
   }
 })
+function login(){
+  if (cookie.value){
+    navigateTo('/dashboard')
+  }
+  else {
+    showAuth.value = true
+  }
+}
 </script>
 
 <template>
@@ -159,7 +168,10 @@ watch(()=>route.name , ()=>{
             </nuxt-link>
           </li>
           <li class="nav-item start hidden md:inline-block">
-            <button class="nav-link hover:cursor-pointer " @click="showAuth = true">{{ data.start }}</button>
+            <button class="nav-link hover:cursor-pointer " @click="login">
+              <span v-if="cookie">ورود</span>
+              <span v-else>استارتش رو بزن </span>
+            </button>
           </li>
         </ul>
       </nav>

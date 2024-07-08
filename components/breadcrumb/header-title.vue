@@ -6,7 +6,7 @@ const props  = defineProps(['data', 'img'])
 </script>
 
 <template>
-  <div class="header-pages h-[25vh] flex justify-center items-center overflow-hidden relative after:z-0  after:w-full after:h-full after:bg-[rgba(0,0,0,0.3)] after:inset-0 after:absolute" :class="{'after:hidden':!img }" :style="{background:`url(${img})` , backgroundAttachment:'fixed'}">
+  <div class="header-pages h-[25vh] flex justify-center items-center overflow-hidden relative after:z-0  after:w-full after:h-full after:bg-[rgba(0,0,0,0.3)] after:inset-0 after:absolute" :class="{'after:hidden':!img , backgroundImage:img }" >
     <div class="inner-container relative w-full h-full flex items-center justify-center overflow-hidden">
       <div class="content flex flex-col items-center justify-center gap-4">
         <div class="title " >
@@ -28,8 +28,14 @@ const props  = defineProps(['data', 'img'])
 <style scoped lang="scss">
 .header-pages {
   background: #F5F9FA;
-  background-position: center;
-  background-size: cover;
+  background-size: cover ;
+  background-position:top center ;
+  background-attachment: fixed;
+  background-repeat: no-repeat ;
+  @media screen and (max-width: 768px){
+    background-attachment: unset;
+    background-size: cover ;
+  }
 }
 
 .title {
@@ -37,6 +43,9 @@ const props  = defineProps(['data', 'img'])
   z-index: 1;
   font-weight: 700;
   color: v-bind(color);
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 .image-circle-left {
@@ -84,5 +93,8 @@ const props  = defineProps(['data', 'img'])
   img{
     width: 80%;
   }
+}
+.backgroundImage{
+  background: v-bind(img);
 }
 </style>

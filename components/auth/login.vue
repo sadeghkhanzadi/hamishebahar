@@ -1,13 +1,19 @@
 <script setup lang="ts">
 import book from "~/assets/image/shape/book.png"
 import laboratory from "~/assets/image/shape/labratoar.png"
-
+import {useToast} from "vue-toastification";
+const Toast = useToast()
+const time = new Date()
+const cookie = useCookie('jwt',{
+  expires:new Date(time.getTime()+(60*60*24*1000))
+})
+const {public:{baseUrl}} = useRuntimeConfig()
 definePageMeta({
   layout: "header"
 })
 const emit = defineEmits(['closeLogin', 'showSignup'])
 const form = reactive({
-  userName: "",
+  username: "",
   password: "",
 })
 const error = reactive({
@@ -33,15 +39,34 @@ const shapes = [
   }
 ]
 
-function handleSubmit() {
-  if (form.password.length < 5) {
+async function handleSubmit() {
+
+  if (form.password.length <= 5) {
     error.password = "کلمه عبور باید بیشتر از 5 کاراکتر باشد ."
   }
-  if (form.userName.length < 5) {
+  if (form.username.length <= 5) {
     error.userName = "نام کاربری باید بیشتر از 5 کاراکتر باشد ."
   }
-  if (!error.userName && !error.password){
-    navigateTo('/dashboard')
+  if (!error.userName && !error.password) {
+    const {data,status, error} = await useFetch( () => `${baseUrl}/jwt/login`, {
+          method: 'POST',
+          body: JSON.stringify({username:form.username , password:form.password}),
+        },
+    )
+    if (status.value === "success") {
+      console.log(data.value)
+      cookie.value = data.value
+      navigateTo({path:'/dashboard'})
+      Toast.success('با موفقیت وارد شدید.')
+    }
+    if (error.value) {
+      console.log(error)
+      if (error.value.statusCode === 400 || '400'){
+      Toast.error('نام کاربری یا رمز عبور اشتباه است .')
+      }else {
+        Toast.error('سیستم قادر به پاسخگویی نمیباشد لطفا مجددا تلاش کنید.')
+      }
+    }
   }
 }
 </script>
@@ -59,7 +84,7 @@ function handleSubmit() {
                 <span> نام کاربری :</span>
               </label>
 
-              <input id="userName" type="text" v-model.trim="form.userName"
+              <input id="userName" type="text" v-model.trim="form.username"
                      @keydown="error.userName.length ? error.userName = '' : ''"
                      class="w-full border-0 outline-0 border-b px-5 text-sm">
               <span class="error">{{ error.userName }}</span>
@@ -70,7 +95,7 @@ function handleSubmit() {
                 <span> کلمه عبور : </span>
               </label>
 
-              <input :type="password" v-model="form.password" id="password"
+              <input :type="password" v-model.trim="form.password" id="password"
                      @keydown="error.password.length ? error.password = '' : ''"
                      class="w-full border-0 outline-0 border-b px-5 text-sm">
               <span class="error">{{ error.password }}</span>

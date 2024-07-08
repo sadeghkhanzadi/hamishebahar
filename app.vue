@@ -11,3 +11,9 @@ useHead({
 })
 
 </script>
+<style>
+ .father .router-link-exact-active{
+  background: #f4f4f4;
+   border-radius: 3px;
+}
+</style>

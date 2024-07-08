@@ -1,15 +1,18 @@
 <script setup lang="ts">
+import {useDashboardMedia} from "~/store/dashboard";
+const store = useDashboardMedia()
 const showFilterMedia = ref(false)
 const editCard = ref(false)
 const addMedia = ref(false)
-const dataCard: object = ref()
+const showAlertRemove = ref(false)
+const alertData = ref("")
+const dataCard = ref()
 const route = useRoute()
 const router = useRouter()
-import boyOne from '@/assets/image/media/boy-one.jpg'
-import boyTwo from '@/assets/image/media/boy-two.jpg'
-import boyThree from '@/assets/image/media/boy-three.jpeg'
-import girlOne from '@/assets/image/media/girl-one.jpg'
-
+const {public:{baseUrl}} = useRuntimeConfig()
+const cookie = useCookie('jwt')
+store.fetchDashboardData()
+const mediaData = computed(()=>store.getDashboardMedia.filter(item => item.is_active === true))
 const filters = [
   {
     name: "همه فایل های رسانه",
@@ -45,36 +48,90 @@ const filters = [
   },
 
 ]
-const medias = [
-  {
-    name: "boy-one",
-    img: boyOne,
-  },
-  {
-    name: "boy-two",
-    img: boyTwo,
-  },
-  {
-    name: "boy-three",
-    img: boyThree,
-  },
-  {
-    name: "girl",
-    img: girlOne,
-  }
-]
 
-function showEditeCard(data) {
-  dataCard.value = data
+function showEditeCard(data:object ) {
+  dataCard.value = {data:data}
   editCard.value = !editCard.value
+  console.log(dataCard.value)
 }
 function  closeFilterMedia(){
   setTimeout(()=>(showFilterMedia.value = false),100)
+}
+ async function editMedia(media:object ){
+  const formData = new FormData()
+   formData.append('name' , media.name)
+   formData.append('file' , media.image)
+   formData.append('states' , media.status)
+  console.log(media)
+  const {data , status , error} = await useFetch(`${baseUrl}/api/v1/media/${dataCard.value.data.id}` , {
+    method:"PUT",
+    headers:{
+      Authorization:`${cookie.value}`
+    },
+    body:formData
+  })
+   if (status.value === "success"){
+     console.log( 'فایل با موفقیت ویرایش شد ', data.value)
+   }
+   if (error.value){
+     console.log(error.value)
+   }
+}
+async function insertMedia(media:object){
+  const formData = new FormData()
+  formData.append('file' , media.image)
+  formData.append('name' , media.name)
+  formData.append('states' , media.status)
+  const {data ,status , error} = await useFetch(`${baseUrl}/api/v1/media`,{
+    method:'POST',
+    headers:{
+      Authorization:`${cookie.value}`
+    },
+    body:formData
+  })
+  if (status.value === 'success'){
+    addMedia.value = false
+    store.fetchDashboardData()
+  }
+  if (error.value){
+    console.log(error.value)
+  }
+}
+async function deleteMedia(id:number|string){
+  const {data , status , error} = await useAsyncData('sendData' , ()=> $fetch(`${baseUrl}/api/v1/media/${id}`,{
+    method:'DELETE',
+    headers:{
+      Authorization:`${cookie.value}`
+    },
+  }))
+  if (status.value === 'success'){
+    console.log(data.value)
+    showAlertRemove.value = false
+    store.fetchDashboardData()
+  }
+  if (error.value){
+    console.log(error.value)
+  }
+}
+function resultProcess (result:boolean){
+  if (result){
+    deleteMedia(alertData.value)
+    console.log(alertData.value)
+  }
+  else {
+    showAlertRemove.value = false
+  }
+  console.log(result)
+}
+function activeAlert(data){
+  alertData.value = data
+  showAlertRemove.value = true
 }
 </script>
 
 <template>
   <div>
+    {{mediaDataFilter}}
     <div class="header flex items-center  justify-between">
       <section>
         <h1 class="title text-2xl font-bold">رسانه ها</h1>
@@ -109,19 +166,24 @@ function  closeFilterMedia(){
     <main>
       <article>
         <div class="mt-10">
-          <div class="media-card grid grid-cols-4 gap-5">
-            <dashboard-media @edite-card="showEditeCard" v-for="(item , index) in medias" :key="index" :data="item"/>
-          </div>
-          <div class="edite-media-modal">
+          <section class="media-card grid grid-cols-5 gap-5" v-if="mediaData">
+            <dashboard-media @edite-card="showEditeCard" class=" col-span-4 md:col-span-2 lg:col-span-1" v-for="(item , index) in mediaData" @remove-card="activeAlert" :key="index" :data="item"/>
+          </section>
+          <section class="edite-media-modal">
             <transition name="modal">
-              <dashboard-media-edite @close="editCard = !editCard" v-if="editCard" :data="dataCard"/>
+              <dashboard-media-edite @close="editCard = !editCard" v-if="editCard" :data="dataCard" @sendMedia="editMedia" />
             </transition>
-          </div>
-          <div class="add-media-modal">
+          </section>
+          <section class="add-media-modal">
             <transition name="modal">
-              <dashboard-media-edite theme="addMedia" @close="addMedia = !addMedia" v-if="addMedia"/>
+              <dashboard-media-edite theme="addMedia" @close="addMedia = !addMedia" v-if="addMedia" @sendMedia="insertMedia" />
             </transition>
-          </div>
+          </section>
+          <section class="remove-media-modal">
+              <transition name="modal">
+                <dashboard-modal-alert @result="resultProcess" v-if="showAlertRemove" :data="alertData"  />
+              </transition>
+          </section>
         </div>
       </article>
     </main>

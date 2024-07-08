@@ -12,11 +12,11 @@ function show() {
 </script>
 
 <template>
-  <li class="w-full  py-1 father navbar-mobile-item  relative  "
+  <li class="w-full   father navbar-mobile-item  relative  " link
       :class="{ border : props.theme === 'parent' , theme:props.theme===true , borderNone:!data.sub}"
-      ref="parent">
+      ref="parent" >
     <div class="flex items-center justify-between w-full">
-      <nuxtLink :to="data.link" class="flex gap-1.5">
+      <nuxtLink :to="data.link" class="flex py-1.5 gap-1.5 w-full px-2">
         <span><i :class="`fa-solid ${data.icon} `"/></span>
         <span>{{ data.name }}</span>
       </nuxtLink>
@@ -37,6 +37,12 @@ function show() {
 </template>
 
 <style scoped lang="scss">
+.active{
+  background: #3498db;
+  color: #FFFFFF;
+  padding: 0 10px;
+  border-radius: 5px;
+}
 .border {
   border: 0;
   border-bottom: 2px dashed rgba(0, 0, 0, 0.1);
