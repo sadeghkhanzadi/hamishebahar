@@ -1,9 +1,9 @@
 export default defineNuxtConfig({
 
   devtools: { enabled: true },
-  runtimeConfig:{
-    public:{
-      baseUrl:'https://hamishebahar-service.liara.run'
+  runtimeConfig: {
+    public: {
+      apiBaseUrl:'https://hamishebahar-service.liara.run'
     }
   },
 
@@ -13,7 +13,8 @@ export default defineNuxtConfig({
     head:{
       link:[{rel:'icon',type:'image/png' , href:'/logo/logo.png'}],
       htmlAttrs:{
-        dir:'rtl'
+        dir:'rtl',
+        lang:"fa"
       }
     }
   },
