@@ -1,11 +1,11 @@
 <script setup >
 import {useDashboardMedia} from "~/store/dashboard";
-
+const {status} = defineProps(['status'])
 const emit = defineEmits(['close', 'selectFile'])
-const {public: {baseUrl}} = useRuntimeConfig()
+const apiBaseUrl = useState('apiBaseUrl').value
 const mediaCards = ref(null)
 const store = useDashboardMedia()
-store.fetchDashboardData()
+store.fetchDashboardData(status)
 const getMedia = computed(() => store.getDashboardMedia.filter(item => item.is_active === true))
 const medias = ref([])
 
@@ -40,12 +40,12 @@ function handleMedia(){
 
 <template>
   <div @click.self="emit('close')"
-       class="backdrop-media fixed backdrop-blur-sm bg-[rgba(0,0,0,0.2)] overflow-scroll top-0 left-0 w-full h-full flex justify-center items-start">
+       class="backdrop-media fixed backdrop-blur-sm bg-[rgba(0,0,0,0.2)] overflow-auto inset-0 z-20 w-full h-full flex justify-center items-start">
     <div class="media-content  w-2/3 bg-white p-5 mt-[10vh] rounded text-black overflow-auto" v-if="getMedia">
       <div class="modal-body grid grid-cols-12 gap-5">
         <div class="card-media relative col-span-6 md:col-span-4 lg:col-span-3 rounded overflow-hidden cursor-pointer"
              v-for="(item , index) in getMedia" :key="index" @click="selectFile(index , item)" ref="mediaCards">
-          <div><img :src="`${baseUrl}/api/v1/view/media/download/${item.pathFile}`" :alt="item.name"></div>
+          <div><img :src="`${apiBaseUrl}/api/v1/view/media/download/${item.pathFile}`" :alt="item.name"></div>
           <div class="title"><h4>{{ item.name }}</h4></div>
         </div>
       </div>
