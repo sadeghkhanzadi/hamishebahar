@@ -26,9 +26,15 @@ const props = defineProps(['data','color'])
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  li a{
+    font-size: var(--text-xl);
+    @media screen and (max-width: 768px) {
+      font-size: var(--text-md) ;
+    }
+  }
 }
 a,.divider{
-  font-size: 0.8rem ;
+  font-size: var(--text-md) ;
 }
 .disabled{
   font-weight: 500;
