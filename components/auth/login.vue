@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import book from "~/assets/image/shape/book.png"
 import laboratory from "~/assets/image/shape/labratoar.png"
-import {useToast} from "vue-toastification";
-const Toast = useToast()
+// import {useToast} from "vue-toastification";
+
+// const Toast = useToast()
 const time = new Date()
-const cookie = useCookie('jwt',{
-  expires:new Date(time.getTime()+(60*60*24*1000))
+const cookie = useCookie('jwt', {
+  expires: new Date(time.getTime() + (60 * 60 * 24 * 1000))
 })
-const {public:{baseUrl}} = useRuntimeConfig()
+const apiBaseUrl = useState('apiBaseUrl').value
+// const apiBaseUrl = useState('apiBaseUrl').value
 definePageMeta({
   layout: "header"
 })
@@ -48,23 +50,29 @@ async function handleSubmit() {
     error.userName = "نام کاربری باید بیشتر از 5 کاراکتر باشد ."
   }
   if (!error.userName && !error.password) {
-    const {data,status, error} = await useFetch( () => `${baseUrl}/jwt/login`, {
+    const {data, status, error} = await useFetch(() => `${apiBaseUrl}/jwt/login`, {
           method: 'POST',
-          body: JSON.stringify({username:form.username , password:form.password}),
-        },
+          body: JSON.stringify({username: form.username, password: form.password}),
+        }
     )
     if (status.value === "success") {
       console.log(data.value)
       cookie.value = data.value
-      navigateTo({path:'/dashboard'})
-      Toast.success('با موفقیت وارد شدید.')
+      navigateTo({path: '/dashboard'})
+      if (process.client) {
+        // Toast.success('با موفقیت وارد شدید.')
+      }
     }
     if (error.value) {
       console.log(error)
-      if (error.value.statusCode === 400 || '400'){
-      Toast.error('نام کاربری یا رمز عبور اشتباه است .')
-      }else {
-        Toast.error('سیستم قادر به پاسخگویی نمیباشد لطفا مجددا تلاش کنید.')
+      if (error.value.statusCode === 400 || '400') {
+        if (process.client) {
+          // Toast.error('نام کاربری یا رمز عبور اشتباه است .')
+        }
+      } else {
+        if (process.client) {
+          // Toast.error('سیستم قادر به پاسخگویی نمیباشد لطفا مجددا تلاش کنید.')
+        }
       }
     }
   }
