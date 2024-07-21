@@ -1,7 +1,8 @@
 <script setup>
 import cartShopping from '~/assets/image/shape/cart-shopping.png'
 import NavbarMobile from "~/components/header/navbarMobile.vue";
-
+import Search from "~/components/search.vue";
+const search = ref(false)
 const showNavbarMobile = ref(false)
 const showAuth = ref(false)
 const cookie = useCookie('jwt')
@@ -54,19 +55,15 @@ const data = ref({
       sub: [
         {
           name: "رفتارشناسی",
-          link: " "
         },
         {
           name: "روانشناسی",
-          link: ""
         },
         {
           name: "بازی و آموزش ",
-          link: ""
         },
         {
           name: " نقاشی",
-          link: ""
         },
       ]
     },
@@ -81,7 +78,7 @@ const data = ref({
     {
       name: "درباره ما",
       link: "/about-us",
-    },
+    }
 
   ],
   brand: "همیشه بهار",
@@ -99,25 +96,28 @@ onMounted(() => {
     showAuth.value ? document.body.classList.add("overflow-hidden") : document.body.classList.remove("overflow-hidden")
   })
 })
-watch(()=>route.name , ()=>{
-  if(showNavbarMobile.value){
+watch(() => route.name, () => {
+  if (showNavbarMobile.value) {
     showNavbarMobile.value = false
   }
+
 })
-function login(){
-  if (cookie.value){
+
+function login() {
+  if (cookie.value) {
     navigateTo('/dashboard')
-  }
-  else {
+  } else {
     showAuth.value = true
   }
 }
+
+
 </script>
 
 <template>
   <div class="header" :class="{addCloud : route.path === '/'}">
     <div
-        class="  mx-auto flex justify-between lg:mx-5 xl:mx-auto items-center xl:items-center px-5 sm:px-7 lg:px-0 py-5 gap-10 md:gap-x-16 xl:container header-container relative ">
+        class=" w-[95%] md:w-[90%] max-w-screen-2xl  mx-auto flex justify-between lg:mx-5 xl:mx-auto items-center xl:items-center px-5 sm:px-7 lg:px-0 py-5 gap-10   header-container relative ">
       <div class="navbar-brand flex items-center">
         <nuxt-link to="/" class="flex flex-row-reverse items-center gap-2">
           <h1>
@@ -128,10 +128,10 @@ function login(){
           </figure>
         </nuxt-link>
       </div>
-      <nav class="flex justify-end xl:justify-between ms-auto lg:w-full items-center ">
-        <ul class="nav menu hidden justify-between gap-5 lg:gap-5 xl:gap-3 2xl:gap-7 xl:flex">
+      <nav class="flex justify-end xl:justify-between ms-auto gap-8 lg:w-full items-center ">
+        <ul class="nav menu hidden justify-between gap-5 lg:gap-5 xl:gap-3 2xl:gap-7 lg:flex">
           <li class="nav-item relative" v-for="(item , index) in data.menu" :key="index">
-            <nuxt-link class="nav-link flex items-center gap-2 hover:cursor-pointer " :to="item.link">
+            <nuxt-link class="nav-link flex items-baseline gap-1.5 hover:cursor-pointer " :to="item.link">
               <span>{{ item.name }}</span>
               <span v-if="item.sub"><i class="fa-solid fa-angle-down fa-md text-sm font-bold flex items-center"/></span>
             </nuxt-link>
@@ -153,11 +153,11 @@ function login(){
             </ul>
           </li>
         </ul>
-        <ul class="nav flex md:gap-6  items-center">
+        <ul class="nav gap-5 lg:gap-5 flex 2xl:gap-8  items-center">
           <li class="nav-item search">
             <div class="input-group">
-              <input type="text" id="search" placeholder="دنبال چی میگردی ؟">
-              <label for="search" class="flex items-center justify-center"><i class="fa-solid fa-search"/></label>
+              <button @click="search = true" class="flex items-center justify-center"><i class="fa-solid fa-lg fa-search"/></button>
+              <search v-if="search" @close-search ="search = false" />
             </div>
           </li>
           <li class="nav-item shop-box  ">
@@ -175,7 +175,7 @@ function login(){
           </li>
         </ul>
       </nav>
-      <div class="hamburger-menu p-1 z-[11] overflow-hidden xl:hidden">
+      <div class="hamburger-menu p-1 z-[11] overflow-hidden lg:hidden">
         <input type="checkbox" id="checkbox2" class="checkbox2 visuallyHidden">
         <label for="checkbox2" :class="{active:showNavbarMobile===true}" @click="showNavbarMobile = !showNavbarMobile">
           <div class="hamburger hamburger2">
@@ -187,17 +187,17 @@ function login(){
         </label>
       </div>
     </div>
-      <div class="login " >
-        <transition name="auth">
-          <auth v-if="showAuth">
-            <button @click="showAuth=false"
-                    class="absolute top-10 right-10 p-2 rounded-md border-gray-600 flex items-center justify-center"><i
-                class="fa-solid fa-close fa-xl flex "/></button>
-          </auth>
-        </transition>
-      </div>
+    <div class="login ">
+      <transition name="auth">
+        <auth v-if="showAuth">
+          <button @click="showAuth=false"
+                  class="absolute top-5 right-[50%] sm:transform translate-x-[50%] sm:top-10 sm:right-10 p-2 rounded-md border-gray-600 flex items-center justify-center"><i
+              class="fa-solid fa-close fa-xl flex "/></button>
+        </auth>
+      </transition>
+    </div>
     <transition name="transition">
-      <navbar-mobile v-if="showNavbarMobile" :data="data.menu" @close-navbar-mobile="showNavbarMobile = false"/>
+      <navbar-mobile v-if="showNavbarMobile" :data="data.menu" @close-navbar-mobile="showNavbarMobile = false" @show-login="showAuth=true"/>
     </transition>
   </div>
 </template>
@@ -212,7 +212,7 @@ function login(){
   &::before {
     content: url('@/assets/image/shape/right-cloud.png');
     position: absolute;
-    top: 0;
+    top: -20%;
     right: 0;
     z-index: -1 !important;
   }
@@ -220,7 +220,7 @@ function login(){
   &:after {
     content: url('@/assets/image/shape/left-cloud.png');
     position: absolute;
-    top: 0;
+    top: -20%;
     left: 0;
     z-index: -1 !important;
   }
@@ -239,14 +239,24 @@ function login(){
       height: 100%;
     }
   }
+  a{
+    font-size:var(--text-xl);
+    @media screen and (max-width: 1300px) {
+      font-size:var(--text-lg);
+
+    }
+  }
 }
 
 nav {
   & .nav.menu {
-    font-size: $fontSize-header-menu;
-    @media screen and (max-width: 1500px){
-      .nav .nav-menu{
-      font-size: $fontSize-header-menu-xl;
+    a {
+      font-size: var(--text-xl);
+      @media screen and (max-width: 1400px) {
+          font-size: var(--text-lg);
+      }
+      @media screen and (max-width: 1300px) {
+          font-size: var(--text-md);
       }
     }
   }
@@ -255,13 +265,24 @@ nav {
 .input-group {
   display: flex;
 
+  #search {
+    padding: 4px 8px;
+
+    &::placeholder {
+      font-size: 12px;
+    }
+  }
+
   input {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-left: 0;
-    padding: 8px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     outline: 0;
+
+    &:not([id="search"]) {
+      padding: 8px;
+    }
   }
 
   label {
@@ -279,8 +300,8 @@ nav {
   align-items: center;
 
   & figure {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
 
     & img {
       width: 100%;
@@ -295,6 +316,7 @@ nav {
   border-radius: 25px 0 25px 0;
   transition: 0.3s;
   color: $text-color-white-header;
+  font-size: 12px;
 
   &:hover {
     background-color: $linearGradient-header-button !important;
@@ -317,7 +339,7 @@ nav {
       position: absolute;
       border-radius: 3px;
       top: 0;
-      padding: 50px 30px 30px;
+      padding: 30px 30px 30px;
       right: 0;
       min-width: 270px;
       background-color: white;
@@ -349,6 +371,7 @@ nav {
       }
     }
   }
+
 }
 
 .transition-enter-active {
@@ -381,13 +404,6 @@ nav {
   grid-template-columns: repeat(2, 270px) !important;
 }
 
-@media screen and (max-width: 1450px) {
-  .header {
-    &::after, &::before {
-      display: none !important;
-    }
-  }
-}
 
 ;
 @media screen and (max-width: 500px) {
@@ -407,9 +423,6 @@ nav {
     display: none;
   }
 }
-
-;
-
 
 // hamburger  button
 
@@ -495,5 +508,22 @@ h1 {
   background-color: white;
   transition: transform 0.5s ease;
 
+}
+
+
+@media screen and (min-width: 1800px) {
+  .header.addCloud {
+    &::after, &::before {
+      display: block;
+    }
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .header.addCloud {
+    &::after, &::before {
+      display: none;
+    }
+  }
 }
 </style>
