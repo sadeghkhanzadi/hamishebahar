@@ -106,7 +106,7 @@ const data = ref({
 
 <template>
   <footer>
-    <div class="footer-container grid  gap-y-5 md:grid-cols-2 lg:grid-cols-5  lg:justify-items-center   lg:mx-auto   ">
+    <div class="footer-container grid  gap-y-5 md:grid-cols-2 lg:grid-cols-5  lg:justify-items-center mt-10  lg:mx-auto   ">
       <section class="brand-info px-7">
         <div class="brand-nav ">
           <div class="brand-title">
@@ -118,8 +118,8 @@ const data = ref({
             {{ data.brand.body }}
           </p>
         </div>
-        <div class="namad flex justify-center mt-4">
-          <ul class="namad-info flex w-full justify-evenly lg:inline-flex mx-auto">
+        <div class="named flex justify-center mt-4">
+          <ul class="named-info flex w-full justify-evenly lg:inline-flex mx-auto">
             <li>
               <nuxt-link to="">
                 <figure>
@@ -247,7 +247,7 @@ h3 {
   z-index: 0;
 }
 
-.namad-info {
+.named-info {
   background: #f9f9f9;
   border-radius: 1px;
   overflow: hidden;
