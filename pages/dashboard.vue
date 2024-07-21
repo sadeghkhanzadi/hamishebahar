@@ -114,7 +114,7 @@ const icon = [
     <main class="grid grid-cols-5" >
       <aside class=" col-span-2 md:col-span-2 lg:col-span-1  " >
         <div class="navbar-aside p-10  ">
-          <ul class=" flex flex-col gap-2">
+          <ul class=" flex flex-col gap-1">
             <dashboard-navbar-items v-for="(item,index) in data" :key="index" :data="item"/>
           </ul>
         </div>
