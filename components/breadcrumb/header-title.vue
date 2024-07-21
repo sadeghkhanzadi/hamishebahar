@@ -39,12 +39,12 @@ const props  = defineProps(['data', 'img'])
 }
 
 .title {
-  font-size: 30px;
+  font-size: var(--title-5xl);
   z-index: 1;
-  font-weight: 700;
+  font-weight: var(--font-bold);
   color: v-bind(color);
   @media screen and (max-width: 768px) {
-    font-size: 16px;
+    font-size: var(--title-2xl);
   }
 }
 
