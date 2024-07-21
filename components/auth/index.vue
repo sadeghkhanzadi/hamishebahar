@@ -3,8 +3,8 @@ const showAuth = ref(false)
 </script>
 
 <template>
-  <div class="backdrop fixed w-full h-full backdrop-blur-[5px] inset-0 z-50 ">
-    <div class="btn-close">
+  <div class="backdrop fixed w-full h-full backdrop-blur-[5px] inset-0 z-50 overflow-auto">
+    <div class="btn-close ">
       <slot/>
     </div>
     <lazy-auth-signup v-if="showAuth " @showLogin="showAuth=false"/>
