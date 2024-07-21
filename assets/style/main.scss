@@ -1,5 +1,6 @@
 @import "assets/fonts/_font.scss";
 @import "assets/style/_varible.scss";
+@import "assets/style/varibles.css";
 //fontawesome start
 @import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 //fontawesome end
@@ -16,6 +17,16 @@
     scroll-behavior: smooth;
   }
 }
+
+.vpd-input-group{
+  border-radius: 3px;
+  overflow: hidden;
+  input{
+    border: 1px solid rgba(0,0,0,0.15);
+  }
+}
+
+
 //remove mask image in mobile mode in best class card
 @media  (max-width: 768px) {
  div.content div.card div.card-body.relative.flex.flex-col.gap-4
