@@ -173,21 +173,23 @@ onMounted(()=>{
     <main>
       <article>
         <section>
-          <div class="container mx-auto my-24">
-            <div class="w-2/3 mx-auto">
+          <div class="w-[92%] md:w-[80%] lg:w-[60%] max-w-screen-2xl mx-auto my-24">
+            <div>
               <cards-teacher-page :data="teacher"/>
             </div>
           </div>
         </section>
         <section>
           <div class="courses">
-            <div class="container mx-auto  py-20  flex flex-col gap-10">
+            <div class="w-[92%] md:w-[80%] lg:w-[60%] max-w-screen-2xl mx-auto  py-20  flex flex-col gap-10">
               <div class="courses-title text-center"><h3>دوره های محبوب من</h3></div>
-              <div class="grid grid-cols-12 gap-7 w-2/3 mx-auto">
+              <div class="grid grid-cols-12 gap-y-5 md:gap-7 md:gap-y-0  mx-auto">
                 <cards-teachers-course class="col-span-12 md:col-span-6 lg:col-span-3" v-for="(item , index) in courses" :key="index" :data="item" data-aos="fade-up"/>
               </div>
             </div>
           </div>
+
+
         </section>
       </article>
     </main>
