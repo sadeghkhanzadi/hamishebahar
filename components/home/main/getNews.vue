@@ -1,7 +1,3 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
   <div class="news-container min-h-[40vh] md:min-h-[60vh]">
     <div class="news relative ">
