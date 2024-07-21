@@ -84,7 +84,7 @@ const categories = [
     </div>
     <icons-brow/>
   </div>
-  <div class="grid grid-cols-12 mx-auto w-[95%] md:w-[80%] lg:w-2/3 gap-5 lg:gap-10">
+  <div class="grid grid-cols-12 mx-auto w-[92%] md:w-[80%] lg:w-2/3 gap-5 lg:gap-10">
     <home-main-card-new-articles  v-for="(item , index) in categories" :key="index" :data="item" class="col-span-12 md:col-span-6 lg:col-span-4" />
   </div>
 </div>
@@ -93,12 +93,18 @@ const categories = [
 
 <style scoped lang="scss">
 .event-sub-title {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: var(--title-xl);
+  font-weight: var(--font-medium);
+  @media screen and (max-width: 768px) {
+    font-size: var(--title-lg);
+  }
 }
 
 .event-title {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: var(--title-5xl);
+  font-weight: var(--font-bolder);
+  @media screen and (max-width: 768px) {
+    font-size: var(--title-2xl);
+  }
 }
 </style>
