@@ -9,9 +9,9 @@ const props = defineProps(['data'])
         <div class="link flex justify-center items-center arrow-link absolute ">
           <nuxt-link class="flex items-center justify-center" to=""><i class="fa-solid fa-arrow-right flex items-center fa-lg text-white"/></nuxt-link>
         </div>
-        <nuxt-link to="">
-          <figure>
-            <img :src="props.data.img" alt="">
+        <nuxt-link class="w-full h-full" to="">
+          <figure class="w-full h-full">
+            <img class="w-full h-full object-cover" :src="props.data.img" alt="">
           </figure>
         </nuxt-link>
       </div>
