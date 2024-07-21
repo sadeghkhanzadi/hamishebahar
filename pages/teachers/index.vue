@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import imgOne from '~/assets/image/teachers/1.webp'
 import shapeMove from '~/composables/shapeMove.client'
+import Brow from "~/components/icons/brow.vue";
 const breadcrumb = {
   title:"صفحه معرفی مربی و مدرسین",
   breadcrumb: [
@@ -89,14 +90,15 @@ onMounted(()=>{
       <breadcrumb-header-title :data="breadcrumb"/>
     </div>
     <section>
-      <div class="container mx-auto pb-5 mt-10">
-        <div class="teachers-group lg:w-8/12 mx-auto text-center flex flex-col gap-20">
-          <div class="teachers-header">
+      <div class=" w-[90%] sm:w-[80%] lg:w-8/12 max-w-screen-2xl mx-auto pb-5 mt-10">
+        <div class="teachers-group  text-center flex flex-col gap-10 md:gap-20">
+          <div class="teachers-header flex flex-col items-center justify-center gap-3 ">
             <div class="teachers-sub-title"><span>مدرس های ما </span></div>
-            <div class="teachers-title mt-5"><h5>مربیان به نام ما </h5></div>
+            <div class="teachers-title "><h5>مربیان به نام ما </h5></div>
+            <div><brow/></div>
           </div>
-          <div class="grid grid-cols-12 gap-10 md:gap-7  ">
-            <cards-teachers class=" col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-4"
+          <div class="grid grid-cols-12 gap-6 sm:gap-7  ">
+            <cards-teachers class=" col-span-12 sm:col-span-6 lg:col-span-4 xl:col-span-4"
                             v-for="(item , index) in teachers" :key="index" :data="item" data-aos="fade-up"/>
           </div>
         </div>
@@ -106,13 +108,19 @@ onMounted(()=>{
 </template>
 
 <style scoped lang="scss">
-.teachers-sub-title {
-  font-size: 15px;
-  font-weight: 500;
-}
 
+.teachers-sub-title {
+  font-size: var(--title-2xl);
+  font-weight: var(--font-medium);
+  @media screen and (max-width: 768px) {
+    font-size: var(--title-lg);
+  }
+}
 .teachers-title {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: var(--title-5xl);
+  font-weight: var(--font-bolder);
+  @media screen and (max-width: 768px) {
+    font-size: var(--title-2xl);
+  }
 }
 </style>
