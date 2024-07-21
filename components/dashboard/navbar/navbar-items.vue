@@ -47,11 +47,12 @@ function show() {
   border: 0;
   border-bottom: 2px dashed rgba(0, 0, 0, 0.1);
 }
-
+.father div a{
+  font-size: var(--title-lg);
+}
 .theme {
   color: #555555;
   padding:0 20px;
-  margin-top: 12px;
 }
 
 .borderNone {
@@ -62,13 +63,15 @@ li > div > div > span.icon:after {
   position: absolute;
   content: "+";
   left: 0;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .sub-menu {
   transition: 0.5s;
 }
-
+.nav li div a {
+  font-size: 12px;
+}
 li.show > div > div > span.icon:after {
   content: "-";
 }
