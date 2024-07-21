@@ -12,14 +12,20 @@
   },
   "dependencies": {
     "@alireza-ab/vue-persian-datepicker": "^2.3.2",
+    "@ckeditor/ckeditor5-vue": "^6.0.0",
     "@fortawesome/fontawesome-free": "^6.5.2",
     "@pinia/nuxt": "^0.5.1",
     "axios": "^1.7.2",
+    "ckeditor5": "^42.0.1",
+    "ckeditor5-premium-features": "^42.0.1",
     "nuxt": "^3.11.2",
     "pinia": "^2.1.7",
+    "swiper": "^11.1.5",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
-    "vue-toastification": "^2.0.0-rc.5"
+    "vue-sweetalert2": "^5.0.11",
+    "vue-toastification": "^2.0.0-rc.5",
+    "vue3-persian-datetime-picker": "^1.2.2"
   },
   "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
