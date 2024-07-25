@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import shapeMove from "~/composables/shapeMove.client"
-import imgOne from '~/assets/image/media/boy-two.jpg'
 import last_card_1 from "assets/image/face/last-card-1.jpg";
 import last_card_2 from "assets/image/face/last-card-2.jpg";
 import last_card_3 from "assets/image/face/last-card-3.jpg";
