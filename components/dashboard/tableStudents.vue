@@ -60,6 +60,11 @@ table, th, td {
   font-weight: var(--font-medium);
   padding-top: 5px;
   padding-bottom: 5px;
+
+}
+
+th,td{
+  padding: 5px 7px;
 }
 
 th {

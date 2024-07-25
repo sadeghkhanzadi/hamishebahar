@@ -40,8 +40,8 @@ function handleMedia(){
 
 <template>
   <div @click.self="emit('close')"
-       class="backdrop-media fixed backdrop-blur-sm bg-[rgba(0,0,0,0.2)] overflow-auto inset-0 z-20 w-full h-full flex justify-center items-start">
-    <div class="media-content  w-2/3 bg-white p-5 mt-[10vh] rounded text-black overflow-auto" v-if="getMedia">
+       class="backdrop-media w-full h-full fixed inset-0 flex justify-center items-start backdrop-blur-sm bg-[rgba(0,0,0,0.2)] overflow-auto    ">
+    <div class="media-content  w-2/3 bg-white p-5 mt-[10vh] mb-5 rounded text-black overflow-auto" v-if="getMedia">
       <div class="modal-body grid grid-cols-12 gap-5">
         <div class="card-media relative col-span-6 md:col-span-4 lg:col-span-3 rounded overflow-hidden cursor-pointer"
              v-for="(item , index) in getMedia" :key="index" @click="selectFile(index , item)" ref="mediaCards">
@@ -58,7 +58,6 @@ function handleMedia(){
 
 <style scoped lang="scss">
 .media-content{
-  max-height: calc(100vh - 30vh);
   overflow: auto;
 }
 .select {

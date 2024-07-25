@@ -111,15 +111,15 @@ const icon = [
     <div>
       <dashboard-navbar/>
     </div>
-    <main class="grid grid-cols-5" >
-      <aside class=" col-span-2 md:col-span-2 lg:col-span-1  " >
+    <main class="md:grid grid-cols-5" >
+      <aside class="hidden md:block md:col-span-2 lg:col-span-1  " >
         <div class="navbar-aside p-10  ">
           <ul class=" flex flex-col gap-1">
             <dashboard-navbar-items v-for="(item,index) in data" :key="index" :data="item"/>
           </ul>
         </div>
       </aside>
-      <div class="bg-gray-50 p-5 w-full rounded-lg col-span-3 md:col-span-3 lg:col-span-4 ">
+      <div class="bg-gray-50 p-5 w-full rounded-lg  md:col-span-3 lg:col-span-4 ">
         <nuxt-page/>
       </div>
     </main>

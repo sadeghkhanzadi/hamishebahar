@@ -127,13 +127,13 @@ if (get) {
 </script>
 
 <template>
-  <div class="modal-backdrop overflow-auto" @click.self="emit('close')">
-    <div class="modal-content mx-auto p-5 bg-white rounded ">
+  <div class=" modal-backdrop overflow-auto" @click.self="emit('close')">
+    <div class="modal-content w-[95%] md:w-full mx-auto p-5 bg-white rounded ">
       <div class="text-center  mt-2 mb-10">
         <h1>{{ event }}</h1>
       </div>
       <form @submit.prevent="handleAddNews" class="flex flex-col gap-y-3">
-        <section class="flex justify-between gap-2">
+        <section class="flex flex-col md:flex-row justify-between gap-2 ">
           <section class="input-group w-full flex flex-col gap-2">
             <label for="title">نام :</label>
             <input type="text" v-model.trim="form.name" id="title">
@@ -145,7 +145,7 @@ if (get) {
             <p v-if="formError.lastName" class="error">لطفا نام خانوادگی خود را وارد کنید</p>
           </section>
         </section>
-        <section class="flex justify-between gap-2">
+        <section class="flex flex-col md:flex-row justify-between gap-2">
           <section class="input-group w-full flex flex-col gap-2">
             <label for="text">کد پرسنلی :</label>
             <input v-model.trim="form.personalCode"/>
@@ -162,7 +162,7 @@ if (get) {
             <p v-if="formError.age" class="error">لطفا تاریخ تولد خود را وارد کنید</p>
           </section>
         </section>
-        <section class="flex justify-between gap-2">
+        <section class="flex flex-col md:flex-row justify-between gap-2">
           <section class="input-group w-full flex flex-col gap-2">
             <label for="text">عنوان شغلی:</label>
             <input v-model.trim="form.jobTitle"/>

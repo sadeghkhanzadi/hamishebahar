@@ -60,13 +60,13 @@ function search() {
 </script>
 
 <template>
-  <section class="search-dashboard card bg-white p-5 rounded flex flex-col gap-5 ">
+  <section class="w-[92%] md:w-full max-w-screen-2xl mx-auto search-dashboard card bg-white p-5 rounded flex flex-col gap-5 ">
     <div class="card-header font-bold border-b pb-3 ">
       <h2>فیلتر ها </h2>
     </div>
     <section class="card-body">
       <form action="" class="flex flex-col gap-5">
-        <section class="flex gap-2 items-center" v-if="theme==='news'">
+        <section class="flex gap-2 items-center flex-col md:flex-row" v-if="theme==='news'">
           <div class="input-group flex flex-col gap-2 ">
             <label for="title">عنوان : </label>
             <input type="text" id="title" v-model.trim="news.title" class="w-full">
@@ -88,7 +88,7 @@ function search() {
             </select>
           </div>
         </section>
-        <section class="flex gap-2 items-center" v-if="theme==='teachers'">
+        <section class="flex gap-2 items-center flex-col md:flex-row" v-if="theme==='teachers'">
           <div class="input-group flex flex-col gap-2">
             <label for="name">نام :</label>
             <input type="text" id="name" placeholder="نام خود را وارد کنید." v-model.trim="teachers.firstName" class="w-full">
@@ -110,7 +110,7 @@ function search() {
             </select>
           </div>
         </section>
-        <section class="flex gap-2 items-center" v-if="theme==='students'">
+        <section class="flex gap-2 items-center flex-col md:flex-row" v-if="theme==='students'">
           <div class="input-group flex flex-col gap-2">
             <label for="name">کد ملی :</label>
             <input type="text" id="name" placeholder="کد ملی دانش آموز را وارد کنید." v-model.trim="students.nationalCode" class="w-full">
@@ -138,7 +138,7 @@ function search() {
         </section>
 
 
-        <div class="grid grid-cols-4 gap-2">
+        <div class=" flex flex-col md:grid grid-cols-4 gap-2 ">
           <div class="col-span-3">
             <button class="w-full bg-blue-500 text-white py-1.5 rounded" @click.prevent="search">جستجو</button>
           </div>
