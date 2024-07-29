@@ -64,4 +64,14 @@ public class NewsEventsController {
         ResultsServiceDto resultsVO = this.newsEventsService.findNews(id, startTime, endTime, pageable);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
+
+    //FIND With Filters
+    @GetMapping(NEWS_FIND_VIEW_WITH_FILTER)
+    public ResponseEntity<ResultsServiceDto> findNewsPermitAll(@RequestParam(value = "id", required = false) Long id,
+                                                               @PageableDefault Pageable pageable,
+                                                               HttpServletResponse response,
+                                                               HttpServletRequest request) throws HamisheBaharException {
+        ResultsServiceDto resultsVO = this.newsEventsService.findNews(id, null , null, pageable);
+        return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
+    }
 }

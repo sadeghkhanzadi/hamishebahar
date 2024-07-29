@@ -1,9 +1,10 @@
-package com.hamishebahar.security.panel.aboutUs.entity;
+package com.hamishebahar.security.panel.activity.entity;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.hamishebahar.security.commonts.Dto.AboutUsPlansDto;
-import com.hamishebahar.security.commonts.Enums.AboutUsPlansName;
+import com.hamishebahar.security.commonts.Dto.ActivityDto;
+import com.hamishebahar.security.commonts.Dto.IconsDto;
+import com.hamishebahar.security.panel.Icons.entity.Icons;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,24 +13,24 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class AboutUsPlans {
+public class Activity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String planTitle;//AboutUsPlansName data is valid
+    private String header;
+    private String title;
     @Lob
     private String text;
 
-    @ElementCollection(targetClass = String.class, fetch = FetchType.EAGER)
-    private List<String> activities;//سرویس رایگان - بازی های فضای باز
+    @OneToOne
+    private Icons icons;
 
     @Column(
             name = "created_time",
@@ -46,17 +47,25 @@ public class AboutUsPlans {
 
     public static class Builder{
         private Long id;
-        private String planTitle; //AboutUsPlansName data is valid
+        private String header;
+        private String title;
         private String text;
-        private List<String> activities;//سرویس رایگان - بازی های فضای باز
+        private Icons icons;
+        private String createdAt;
+        private String updatedAt;
 
         public Builder Id(Long id) {
             this.id = id;
             return this;
         }
 
-        public Builder PlanTitle(String planTitle) {
-            this.planTitle = planTitle;
+        public Builder Header(String header) {
+            this.header = header;
+            return this;
+        }
+
+        public Builder Title(String title) {
+            this.title = title;
             return this;
         }
 
@@ -65,29 +74,33 @@ public class AboutUsPlans {
             return this;
         }
 
-        public Builder Activities(List<String> activities) {
-            this.activities = activities;
+        public Builder Icons(Icons icons) {
+            this.icons = icons;
             return this;
         }
 
-        public AboutUsPlans build(){
-            return new AboutUsPlans(this);
+        public Activity build(){
+            return new Activity(this);
         }
     }
 
-    private AboutUsPlans(Builder builder) {
+    private Activity(Builder builder) {
         this.id = builder.id;
-        this.planTitle = builder.planTitle;
+        this.header = builder.header;
+        this.title = builder.title;
         this.text = builder.text;
-        this.activities = builder.activities;
+        this.icons = builder.icons;
     }
 
-    public AboutUsPlansDto convertToDto(){
-        return new AboutUsPlansDto.Builder()
-                .Id(id)
-                .Text(text)
-                .PlanTitle(planTitle != null ? AboutUsPlansName.valueOf(planTitle) : null)
-                .Activities(activities)
+    public ActivityDto convertToDto(){
+        return new ActivityDto.Builder()
+                .Id(getId())
+                .Text(getText())
+                .Title(getTitle())
+                .Icons(getIcons() != null ? getIcons().convertToDto() : null)
+                .Header(getHeader())
+                .CreatedAt(getCreatedAt().toString())
+                .UpdatedAt(getUpdatedAt().toString())
                 .build();
     }
 }

@@ -25,7 +25,7 @@ public class ContactUs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Lob
     private String text;
 
     private String phoneNumberCompany;

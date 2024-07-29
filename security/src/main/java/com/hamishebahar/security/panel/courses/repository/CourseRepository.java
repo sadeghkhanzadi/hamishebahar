@@ -1,5 +1,6 @@
 package com.hamishebahar.security.panel.courses.repository;
 
+import com.hamishebahar.security.panel.category.entity.CourseCategory;
 import com.hamishebahar.security.panel.courses.entity.Courses;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -9,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+import java.util.Set;
 
 @Repository
 public interface CourseRepository extends JpaRepository<Courses , Long> {
@@ -114,4 +116,6 @@ public interface CourseRepository extends JpaRepository<Courses , Long> {
                                                                                        @Param("teacherFirstName") String teacherFirstName,
                                                                                        @Param("teacherLastName") String teacherLastName,
                                                                                        Pageable pageable);
+    @Query("select C.category from Courses C")
+    Set<CourseCategory> findAllCourseCategoriesUsage();
 }

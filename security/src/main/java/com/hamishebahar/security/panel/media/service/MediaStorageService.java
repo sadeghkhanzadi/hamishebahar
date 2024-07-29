@@ -6,6 +6,8 @@ import com.hamishebahar.security.commonts.Enums.MediaStates;
 import com.hamishebahar.security.commonts.bundel.BundleManager;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
 import com.hamishebahar.security.commonts.utils.StringUtils;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import com.hamishebahar.security.commonts.utils.VerifyObjectUtils;
 import com.hamishebahar.security.panel.media.entity.Medias;
 import com.hamishebahar.security.panel.media.repository.MediaRepository;
@@ -56,6 +58,7 @@ public class MediaStorageService {
             throw new HamisheBaharException(HamisheBaharException.SERVER_ERROR, e.getMessage());
         }
     }
+
 
     public ResultsServiceDto insertFile(MediasDto dto) throws HamisheBaharException {
         if (dto.getId() != null) {
@@ -256,5 +259,25 @@ public class MediaStorageService {
         }
         throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                 BundleManager.wrapKey("error.parameter.is.null"));
+    }
+
+    public Resource findFile(String fileName) {
+        File dir = new File(fileUploadDir + fileName);
+        try {
+            if (dir.exists()) {
+                return new UrlResource(dir.toURI());
+            }
+        } catch (Exception e) {
+            return null;
+        }
+        return null;
+    }
+
+    public ResultsServiceDto downloadFile(String path) {
+        Resource file = findFile(path);
+        return new ResultsServiceDto.Builder()
+                .Result(file)
+                .Status(HttpStatus.BAD_REQUEST)
+                .build();
     }
 }

@@ -18,6 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
@@ -43,13 +44,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "https://hamishebahar2.liara.run/auth/login", "/error", "/info", "/jwt/login").permitAll()
+                .antMatchers("/", "https://hamishebahar2.liara.run/auth/login", "/error", "/info", "/jwt/login","/api/v1/view/**").permitAll()
 //                .antMatchers("/user/**").hasAnyAuthority("USER","ADMIN")
 //                .antMatchers("/admin/**").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("https://hamishebahar2.liara.run/auth/login")
-                .usernameParameter("email")
+                .usernameParameter("phoneNumber")
                 .successHandler(new LoginSuccessHandler())
                 .and().oauth2Login()
                 .loginPage("/oauth2Login")
@@ -63,7 +64,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().exceptionHandling().accessDeniedPage("/error")
                 .and().logout().logoutUrl("/logout").deleteCookies("remember")
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and().addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+                .and().addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+                .cors().configurationSource(corsConfigurationSource());
+    }
+
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Collections.singletonList("*"));
+        configuration.setAllowedMethods(Arrays.asList("DELETE", "GET", "POST", "PATCH", "PUT"));
+        configuration.setAllowedHeaders(Collections.singletonList("*"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 
 

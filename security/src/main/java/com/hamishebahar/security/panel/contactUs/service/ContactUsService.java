@@ -29,7 +29,7 @@ public class ContactUsService {
         }
         try {
             ContactUsDto contactUsDto = contactUsRepository.save(dto.convertToEntity()).convertToDto();
-            return new ResultsServiceDto.Builder().Result(contactUsDto).build();
+            return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(contactUsDto).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                     BundleManager.wrapKey("error.server"));
@@ -68,7 +68,7 @@ public class ContactUsService {
                         BundleManager.wrapKey("error.server"));
             }
         }
-        return new ResultsServiceDto.Builder().Result(contactUsDto).build();
+        return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(contactUsDto).build();
     }
 
     public ResultsServiceDto deleteContactUs(Long id) throws HamisheBaharException {

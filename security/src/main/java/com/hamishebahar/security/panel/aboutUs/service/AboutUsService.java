@@ -28,9 +28,12 @@ public class AboutUsService {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.is.null"));
         }
+        if (isExists()){
+            throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST, "در حال حاضر یک عدد از این موجودیت موجود میباشد لطفا در صورت امکان آن را ویرایش کنید و یا ابتدا آن را حذف و سپس مجدد تلاش فرمایید");
+        }
         try {
             AboutUsDto aboutUsDto = aboutUsRepository.save(dto.convertToEntity()).convertToDto();
-            return new ResultsServiceDto.Builder().Result(aboutUsDto).build();
+            return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(aboutUsDto).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                     BundleManager.wrapKey("error.server"));
@@ -69,7 +72,7 @@ public class AboutUsService {
                         BundleManager.wrapKey("error.server"));
             }
         }
-        return new ResultsServiceDto.Builder().Result(aboutUsDto).build();
+        return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(aboutUsDto).build();
     }
 
     public ResultsServiceDto deleteAboutUs(Long id) throws HamisheBaharException {
@@ -133,5 +136,14 @@ public class AboutUsService {
         }
         throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                 BundleManager.wrapKey("error.parameter.is.null"));
+    }
+
+    public Boolean isExists() throws HamisheBaharException {
+        try {
+            return (this.aboutUsRepository.count() > 0);
+        } catch (Exception e){
+            throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
+                    BundleManager.wrapKey("error.server"));
+        }
     }
 }

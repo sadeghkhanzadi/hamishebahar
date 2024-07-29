@@ -6,8 +6,11 @@ import com.hamishebahar.security.commonts.Enums.MediaStates;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
 import com.hamishebahar.security.panel.media.service.MediaStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -44,9 +47,9 @@ public class MediaController {
 
     //edit Media
     @PutMapping(MEDIA_UPDATE)
-    public ResponseEntity<ResultsServiceDto> editMedia(@RequestParam(value = "name" , required = false) String name,
-                                                       @RequestParam(value = "states" , required = false) MediaStates states,
-                                                       @RequestParam(value = "file" , required = false) MultipartFile file,
+    public ResponseEntity<ResultsServiceDto> editMedia(@RequestParam(value = "name", required = false) String name,
+                                                       @RequestParam(value = "states", required = false) MediaStates states,
+                                                       @RequestParam(value = "file", required = false) MultipartFile file,
                                                        @PathVariable(value = "id", required = true) Long id,
                                                        HttpServletResponse response,
                                                        HttpServletRequest request) throws HamisheBaharException {
@@ -74,10 +77,22 @@ public class MediaController {
     public ResponseEntity<ResultsServiceDto> findMedia(@RequestParam(value = "id", required = false) Long id,
                                                        @RequestParam(value = "name", required = false) String name,
                                                        @RequestParam(value = "states", required = false) MediaStates states,
-                                                       @PageableDefault Pageable pageable,
+                                                       @PageableDefault(size = 15 , page = 0 , value = 15) Pageable pageable,
                                                        HttpServletResponse response,
                                                        HttpServletRequest request) throws HamisheBaharException {
         ResultsServiceDto resultsVO = this.mediaStorageService.findMedia(id, name, states, pageable);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
+    }
+
+    @GetMapping(MEDIA_DOWNLOAD)
+    public ResponseEntity downloadFile(@PathVariable(value = "path", required = true) String path,
+                                       HttpServletResponse response,
+                                       HttpServletRequest request) throws HamisheBaharException {
+        Resource file = this.mediaStorageService.findFile(path);
+        if (file == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            return ResponseEntity.ok().contentType(MediaType.APPLICATION_OCTET_STREAM).body(file);
+        }
     }
 }

@@ -57,4 +57,12 @@ public class AboutUsController {
         ResultsServiceDto resultsVO = aboutUsService.findOne();
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
+
+    //FIND ONE
+    @GetMapping(ABOUT_US_VIEW_FIND)
+    public ResponseEntity<ResultsServiceDto> findAboutUsPermitAll(HttpServletResponse response,
+                                                                  HttpServletRequest request) throws HamisheBaharException {
+        ResultsServiceDto resultsVO = aboutUsService.findOne();
+        return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
+    }
 }

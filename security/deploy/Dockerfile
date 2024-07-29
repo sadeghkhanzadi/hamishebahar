@@ -12,6 +12,10 @@ MAINTAINER khanzadisadegh@Gmail.com
 
 
 WORKDIR /app
+ENV HOME=/app
+ENV VOLUME=/app/uploads
+RUN mkdir -p $VOLUME
+VOLUME $VOLUME
 COPY ./hamishebahar-0.0.1.jar /app
 EXPOSE 8080
 CMD ["java", "-jar", "hamishebahar-0.0.1.jar"]

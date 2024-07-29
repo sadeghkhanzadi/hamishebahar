@@ -1,46 +1,45 @@
-package com.hamishebahar.security.panel.Links.service;
+package com.hamishebahar.security.panel.questions.service;
 
-import com.hamishebahar.security.commonts.Dto.LinksDto;
+import com.hamishebahar.security.commonts.Dto.AboutUsPlansDto;
+import com.hamishebahar.security.commonts.Dto.QuestionDto;
 import com.hamishebahar.security.commonts.Dto.ResultsServiceDto;
 import com.hamishebahar.security.commonts.bundel.BundleManager;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
-import com.hamishebahar.security.panel.Links.entity.Links;
-import com.hamishebahar.security.panel.Links.repository.LinksRepository;
+import com.hamishebahar.security.panel.news_events.entity.Events;
+import com.hamishebahar.security.panel.questions.entity.Questions;
+import com.hamishebahar.security.panel.questions.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
-public class LinksService {
-    private final LinksRepository linksRepository;
+public class QuestionService {
+    private final QuestionRepository questionRepository;
 
     @Autowired
-    public LinksService(LinksRepository linksRepository) {
-        this.linksRepository = linksRepository;
+    public QuestionService(QuestionRepository questionRepository) {
+        this.questionRepository = questionRepository;
     }
 
-    public ResultsServiceDto insertIcons(LinksDto dto) throws HamisheBaharException {
+    public ResultsServiceDto insertQuestion(QuestionDto dto) throws HamisheBaharException {
         if (dto.getId() != null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
         }
-        if (dto.getIcon() == null || dto.getName() == null) {
+        if (dto.getText() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.is.null"));
         }
         try {
-            LinksDto linksDto = linksRepository.save(dto.convertToEntity()).convertToDto();
-            return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(linksDto).build();
+            QuestionDto questionDto = questionRepository.save(dto.convertToEntity()).convertToDto();
+            return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(questionDto).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                     BundleManager.wrapKey("error.server"));
         }
     }
 
-    public ResultsServiceDto editIcons(LinksDto dto, Long id) throws HamisheBaharException {
+    public ResultsServiceDto editQuestion(QuestionDto dto, Long id) throws HamisheBaharException {
         if (dto.getId() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
@@ -57,25 +56,25 @@ public class LinksService {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
         }
-        LinksDto vo = getOne(id);
-        LinksDto linksDto = null;
+        QuestionDto vo = getOne(id);
+        QuestionDto questionDto = null;
         if (vo != null) {
-            if (dto.getId() == null || dto.getIcon() == null || dto.getName() == null) {
+            if (dto.getId() == null || dto.getText() == null) {
                 throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                         BundleManager.wrapKey("error.parameter.is.null"));
             }
             try {
                 dto = dto.updaterFields(vo);
-                linksDto = linksRepository.save(dto.convertToEntity()).convertToDto();
+                questionDto = questionRepository.save(dto.convertToEntity()).convertToDto();
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                         BundleManager.wrapKey("error.server"));
             }
         }
-        return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(linksDto).build();
+        return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(questionDto).build();
     }
 
-    public ResultsServiceDto deleteIcons(Long id) throws HamisheBaharException {
+    public ResultsServiceDto deleteQuestion(Long id) throws HamisheBaharException {
         ResultsServiceDto resultsServiceDto = new ResultsServiceDto.Builder()
                 .Result(null)
                 .Status(HttpStatus.BAD_REQUEST)
@@ -88,10 +87,10 @@ public class LinksService {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
         }
-        LinksDto dto = getOne(id);
+        QuestionDto dto = getOne(id);
         if (dto != null) {
             try {
-                linksRepository.deleteById(dto.getId());
+                questionRepository.deleteById(dto.getId());
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result("id = " + id + " physical deleted.")
                         .Status(HttpStatus.OK)
@@ -104,11 +103,46 @@ public class LinksService {
         return resultsServiceDto;
     }
 
-    public ResultsServiceDto findIcons(Pageable pageable) throws HamisheBaharException {
+    public ResultsServiceDto findOne(Long id) throws HamisheBaharException {
+        try {
+            QuestionDto questionDto = questionRepository.getById(id).convertToDto();
+            return new ResultsServiceDto.Builder().Result(questionDto).Status(HttpStatus.OK).build();
+        } catch (Exception e) {
+            throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
+                    BundleManager.wrapKey("error.server"));
+        }
+    }
+
+    public ResultsServiceDto findByFilter(Long id) throws HamisheBaharException{
+        try {
+            ResultsServiceDto resultsServiceDto;
+            if (id != null){
+                resultsServiceDto = findOne(id);
+            } else {
+                resultsServiceDto = findAll();
+            }
+            return resultsServiceDto;
+        } catch (Exception e){
+            throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
+                    BundleManager.wrapKey("error.server"));
+        }
+    }
+
+    public QuestionDto getOne(Long id) throws HamisheBaharException {
+        try {
+            return questionRepository.getById(id).convertToDto();
+        } catch (Exception e) {
+            throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
+                    BundleManager.wrapKey("error.server"));
+        }
+    }
+
+    public ResultsServiceDto findAll() throws HamisheBaharException {
         try {
             return new ResultsServiceDto.Builder().Result(
-                            linksRepository.findAll(pageable)
-                                    .map(Links::convertToDto)
+                            questionRepository.findAll()
+                                    .stream()
+                                    .map(Questions::convertToDto)
                     )
                     .Status(HttpStatus.OK)
                     .build();
@@ -118,40 +152,10 @@ public class LinksService {
         }
     }
 
-    public ResultsServiceDto findIcons(Long id) throws HamisheBaharException {
-        try {
-            if (id == null){
-                throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                        BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
-            }
-            LinksDto linksDto;
-            linksDto = getOne(id);
-            return new ResultsServiceDto.Builder().Result(linksDto).Status(HttpStatus.OK).build();
-        } catch (Exception e) {
-            throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
-        }
-    }
-
-    public LinksDto getOne(Long id) throws HamisheBaharException {
-        try {
-            Optional<Links> links = linksRepository.findById(id);
-            if (links.isPresent()){
-                return links.get().convertToDto();
-            } else {
-                throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
-            }
-        } catch (Exception e) {
-            throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
-        }
-    }
-
     public Boolean isExists(Long id) throws HamisheBaharException {
         if (id != null) {
             try {
-                return this.linksRepository.existsById(id);
+                return this.questionRepository.existsById(id);
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                         BundleManager.wrapKey("error.server"));
@@ -159,5 +163,14 @@ public class LinksService {
         }
         throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                 BundleManager.wrapKey("error.parameter.is.null"));
+    }
+
+    public Boolean isExists() throws HamisheBaharException {
+        try {
+            return (this.questionRepository.count() > 0);
+        } catch (Exception e) {
+            throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
+                    BundleManager.wrapKey("error.server"));
+        }
     }
 }

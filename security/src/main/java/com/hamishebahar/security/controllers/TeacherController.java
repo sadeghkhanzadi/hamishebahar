@@ -65,4 +65,17 @@ public class TeacherController {
         ResultsServiceDto resultsVO = this.teacherService.findTeacher(id, firstName, lastName, jobTitle, pageable);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
+
+    //FIND With Filters
+    @GetMapping(TEACHER_FIND_VIEW_WITH_FILTER)
+    public ResponseEntity<ResultsServiceDto> findTeacherPermitAll(@RequestParam(value = "id", required = false) Long id,
+                                                                  @RequestParam(value = "firstName", required = false) String firstName,
+                                                                  @RequestParam(value = "lastName", required = false) String lastName,
+                                                                  @RequestParam(value = "jobTitle", required = false) String jobTitle,
+                                                                  @PageableDefault Pageable pageable,
+                                                                  HttpServletResponse response,
+                                                                  HttpServletRequest request) throws HamisheBaharException {
+        ResultsServiceDto resultsVO = this.teacherService.findTeacher(id, firstName, lastName, jobTitle, pageable);
+        return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
+    }
 }

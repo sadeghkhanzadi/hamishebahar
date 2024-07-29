@@ -67,4 +67,13 @@ public class AboutUsPlansDto {
                 .Activities(activities)
                 .build();
     }
+
+    public AboutUsPlansDto updaterFields(AboutUsPlansDto dto) {
+        return new AboutUsPlansDto.Builder()
+                .Id(getId() != null ? getId() : dto.getId())
+                .Text(getText() != null ? getText() : dto.getText())
+                .PlanTitle(getPlanTitle() != null ? getPlanTitle() : dto.getPlanTitle())
+                .Activities(getActivities() != null ? getActivities() : dto.getActivities())
+                .build();
+    }
 }

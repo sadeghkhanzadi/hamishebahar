@@ -28,7 +28,7 @@ public class AboutUsDto {
 
     private List<AboutUsPlansDto> aboutUsPlans;
 
-    public static class Builder{
+    public static class Builder {
         private Long id;
 
         private String text;
@@ -95,7 +95,7 @@ public class AboutUsDto {
             return this;
         }
 
-        public AboutUsDto build(){
+        public AboutUsDto build() {
             return new AboutUsDto(this);
         }
     }
@@ -113,7 +113,7 @@ public class AboutUsDto {
         this.aboutUsPlans = builder.aboutUsPlans;
     }
 
-    public AboutUs convertToEntity(){
+    public AboutUs convertToEntity() {
         return new AboutUs.Builder()
                 .Id(id)
                 .Text(text)
@@ -123,12 +123,14 @@ public class AboutUsDto {
                 .EmailAddress(emailAddress)
                 .Is_active(is_active)
                 .Is_deleted(is_deleted)
-                .Medias(medias.stream()
-                        .map(MediasDto::convertToEntity)
-                        .collect(Collectors.toList()))
-                .Plans(aboutUsPlans.stream()
-                        .map(AboutUsPlansDto::convertToEntity)
-                        .collect(Collectors.toList()))
+                .Medias(getMedias() != null && !getMedias().isEmpty() ?
+                        getMedias()
+                                .stream()
+                                .map(MediasDto::convertToEntity).collect(Collectors.toList()) : null)
+                .Plans(getAboutUsPlans() != null && !getAboutUsPlans().isEmpty() ?
+                        getAboutUsPlans()
+                                .stream()
+                                .map(AboutUsPlansDto::convertToEntity).collect(Collectors.toList()) : null)
                 .build();
     }
 
@@ -144,7 +146,7 @@ public class AboutUsDto {
                         (getIs_active() == dto.getIs_active()) ? getIs_active() : dto.getIs_active())
                 .Is_deleted(getIs_deleted() != null &&
                         (getIs_deleted() == dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
-                .Medias(getMedias()!= null && !getMedias().isEmpty() ? getMedias() : dto.getMedias())
+                .Medias(getMedias() != null && !getMedias().isEmpty() ? getMedias() : dto.getMedias())
                 .Plans(getAboutUsPlans() != null && !getAboutUsPlans().isEmpty() ?
                         getAboutUsPlans() : dto.getAboutUsPlans())
                 .build();

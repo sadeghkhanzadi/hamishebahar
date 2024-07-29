@@ -35,7 +35,7 @@ public class CategoryService {
         }
         try {
             CategoryDto categoryDto = categoryRepository.save(dto.convertToEntity()).convertToDto();
-            return new ResultsServiceDto.Builder().Result(categoryDto).build();
+            return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(categoryDto).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                     BundleManager.wrapKey("error.server"));
@@ -74,7 +74,7 @@ public class CategoryService {
                         BundleManager.wrapKey("error.server"));
             }
         }
-        return new ResultsServiceDto.Builder().Result(categoryDto).build();
+        return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(categoryDto).build();
     }
 
     public ResultsServiceDto deleteCategory(Long id) throws HamisheBaharException {

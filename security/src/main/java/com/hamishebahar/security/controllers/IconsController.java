@@ -69,4 +69,13 @@ public class IconsController {
         ResultsServiceDto resultsVO = iconsService.findIcons(id);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
+
+    //FIND ONE
+    @GetMapping(ICON_FIND_ONE_VIEW)
+    public ResponseEntity<ResultsServiceDto> findIconPermitAll(@PathVariable(value = "id", required = false) Long id,
+                                                               HttpServletResponse response,
+                                                               HttpServletRequest request) throws HamisheBaharException {
+        ResultsServiceDto resultsVO = iconsService.findIcons(id);
+        return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
+    }
 }

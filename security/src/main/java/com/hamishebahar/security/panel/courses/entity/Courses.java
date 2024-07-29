@@ -31,6 +31,7 @@ public class Courses {//لیست آموزش ها
 
     private String courseCode;
     private String title;
+    
     private String text;
     @ManyToOne
     private Teachers teachers;//مدرس دوره

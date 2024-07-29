@@ -34,7 +34,7 @@ public class IconsService {
         }
         try {
             IconsDto iconsDto = iconsRepository.save(dto.convertToEntity()).convertToDto();
-            return new ResultsServiceDto.Builder().Result(iconsDto).build();
+            return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(iconsDto).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                     BundleManager.wrapKey("error.server"));
@@ -73,7 +73,7 @@ public class IconsService {
                         BundleManager.wrapKey("error.server"));
             }
         }
-        return new ResultsServiceDto.Builder().Result(iconsDto).build();
+        return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(iconsDto).build();
     }
 
     public ResultsServiceDto deleteIcons(Long id) throws HamisheBaharException {

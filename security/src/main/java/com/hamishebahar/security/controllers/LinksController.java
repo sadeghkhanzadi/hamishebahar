@@ -61,11 +61,29 @@ public class LinksController {
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
+    //FIND ALL
+    @GetMapping(LINKS_FIND_VIEW)
+    public ResponseEntity<ResultsServiceDto> findAllIconsPermitAll(@PageableDefault Pageable pageable,
+                                                                   HttpServletResponse response,
+                                                                   HttpServletRequest request) throws HamisheBaharException {
+        ResultsServiceDto resultsVO = linksService.findIcons(pageable);
+        return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
+    }
+
     //FIND ONE
     @GetMapping(LINKS_FIND_ONE)
     public ResponseEntity<ResultsServiceDto> findIcon(@PathVariable(value = "id", required = false) Long id,
                                                       HttpServletResponse response,
                                                       HttpServletRequest request) throws HamisheBaharException {
+        ResultsServiceDto resultsVO = linksService.findIcons(id);
+        return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
+    }
+
+    //FIND ONE
+    @GetMapping(LINKS_FIND_ONE_VIEW)
+    public ResponseEntity<ResultsServiceDto> findIconPermitAll(@PathVariable(value = "id", required = false) Long id,
+                                                               HttpServletResponse response,
+                                                               HttpServletRequest request) throws HamisheBaharException {
         ResultsServiceDto resultsVO = linksService.findIcons(id);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }

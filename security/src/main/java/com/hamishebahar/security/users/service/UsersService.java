@@ -8,7 +8,10 @@ import com.hamishebahar.security.commonts.bundel.BundleManager;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
 import com.hamishebahar.security.commonts.utils.StringUtils;
 import com.hamishebahar.security.commonts.utils.VerifyObjectUtils;
+import com.hamishebahar.security.enums.Authority;
+import com.hamishebahar.security.users.entity.Roles;
 import com.hamishebahar.security.users.entity.Users;
+import com.hamishebahar.security.users.repository.RolesRepository;
 import com.hamishebahar.security.users.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +24,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,16 +34,18 @@ import java.util.stream.Collectors;
 public class UsersService implements UserDetailsService {
 
     private final UsersRepository usersRepository;
+    private final RolesRepository rolesRepository;
 
     @Autowired
-    public UsersService(UsersRepository usersRepository) {
+    public UsersService(UsersRepository usersRepository, RolesRepository rolesRepository) {
         this.usersRepository = usersRepository;
+        this.rolesRepository = rolesRepository;
     }
 
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return usersRepository.findByEmail(email);
+    public UserDetails loadUserByUsername(String phone) throws UsernameNotFoundException {
+        return usersRepository.findByPhoneNumber(phone);
     }
 
     public ResultsServiceDto deleteAdminUser(Long id) throws HamisheBaharException {
@@ -344,5 +351,38 @@ public class UsersService implements UserDetailsService {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                     BundleManager.wrapKey("error.server"));
         }
+    }
+
+    public ResultsServiceDto findAllRoles() throws HamisheBaharException {
+        try {
+            return new ResultsServiceDto.Builder()
+                    .Status(HttpStatus.OK)
+                    .Result(rolesRepository.findAll().stream().map(Roles::convertToDto))
+                    .build();
+        } catch (Exception e) {
+            throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
+                    BundleManager.wrapKey("error.server"));
+        }
+    }
+
+    public ResultsServiceDto findAllPermission() throws HamisheBaharException {
+        try {
+            return new ResultsServiceDto.Builder()
+                    .Status(HttpStatus.OK)
+                    .Result(getAllAuthority())
+                    .build();
+        } catch (Exception e) {
+            throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
+                    BundleManager.wrapKey("error.server"));
+        }
+    }
+
+    public List<HashMap<Integer , String>> getAllAuthority(){
+        List<Authority> auth = Arrays.stream(Authority.values()).collect(Collectors.toList());
+        List<HashMap<Integer , String>> op = new ArrayList<>();
+        for (Authority a : auth){
+            op.add(a.getMap());
+        }
+        return op;
     }
 }

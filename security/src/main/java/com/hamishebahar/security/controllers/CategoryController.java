@@ -60,11 +60,30 @@ public class CategoryController {
         ResultsServiceDto resultsVO = categoryService.findOne(id);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
+
+    //FIND ONE
+    @GetMapping(CATEGORY_FIND_VIEW)
+    public ResponseEntity<ResultsServiceDto> findCategoryPermitAll(@PathVariable(value = "id", required = false) Long id,
+                                                                   HttpServletResponse response,
+                                                                   HttpServletRequest request) throws HamisheBaharException {
+        ResultsServiceDto resultsVO = categoryService.findOne(id);
+        return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
+    }
+
     //FIND All
     @GetMapping(CATEGORY_FIND_ALL)
     public ResponseEntity<ResultsServiceDto> findCategory(@PageableDefault Pageable pageable,
                                                           HttpServletResponse response,
                                                           HttpServletRequest request) throws HamisheBaharException {
+        ResultsServiceDto resultsVO = categoryService.findALL(pageable);
+        return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
+    }
+
+    //FIND All
+    @GetMapping(CATEGORY_FIND_VIEW_ALL)
+    public ResponseEntity<ResultsServiceDto> findCategoryPermitAll(@PageableDefault Pageable pageable,
+                                                                   HttpServletResponse response,
+                                                                   HttpServletRequest request) throws HamisheBaharException {
         ResultsServiceDto resultsVO = categoryService.findALL(pageable);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }

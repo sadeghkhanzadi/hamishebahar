@@ -25,6 +25,7 @@ public class Periods {// دوره تحصیلی - دبستان - پیش دبست�
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+    @Lob
     private String text;
     private String startPeriods;
     private String endPeriods;

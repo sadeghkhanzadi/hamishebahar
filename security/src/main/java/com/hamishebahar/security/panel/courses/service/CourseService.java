@@ -8,6 +8,8 @@ import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
 import com.hamishebahar.security.commonts.utils.MediaUtils;
 import com.hamishebahar.security.commonts.utils.StringUtils;
 import com.hamishebahar.security.commonts.utils.VerifyObjectUtils;
+import com.hamishebahar.security.panel.category.entity.CourseCategory;
+import com.hamishebahar.security.panel.category.service.CategoryService;
 import com.hamishebahar.security.panel.courses.entity.Courses;
 import com.hamishebahar.security.panel.courses.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,16 +19,20 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 
 @Service
 public class CourseService {
     private final CourseRepository courseRepository;
+    private final CategoryService categoryService;
     private final MediaUtils mediaUtils;
 
     @Autowired
-    public CourseService(CourseRepository courseRepository, MediaUtils mediaUtils) {
+    public CourseService(CourseRepository courseRepository, CategoryService categoryService, MediaUtils mediaUtils) {
         this.courseRepository = courseRepository;
+        this.categoryService = categoryService;
         this.mediaUtils = mediaUtils;
     }
 
@@ -44,7 +50,7 @@ public class CourseService {
         }
         try {
             CoursesDto coursesDto = courseRepository.save(dto.convertToEntity()).convertToDto();
-            return new ResultsServiceDto.Builder().Result(coursesDto).build();
+            return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(coursesDto).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                     BundleManager.wrapKey("error.server"));
@@ -86,7 +92,7 @@ public class CourseService {
                         BundleManager.wrapKey("error.server"));
             }
         }
-        return new ResultsServiceDto.Builder().Result(coursesDto).build();
+        return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(coursesDto).build();
     }
 
     public ResultsServiceDto deleteCourse(Long id) throws HamisheBaharException {
@@ -300,6 +306,28 @@ public class CourseService {
             }
             return courses;
         } catch (Exception e) {
+            throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
+                    BundleManager.wrapKey("error.server"));
+        }
+    }
+
+    public ResultsServiceDto findCourseCategoriesUsage(Long id) throws HamisheBaharException {
+        ResultsServiceDto resultsServiceDto = new ResultsServiceDto.Builder().Result(null).Status(HttpStatus.BAD_REQUEST).build();
+        try {
+            if (id != null) {
+                resultsServiceDto = categoryService.findOne(id);
+            } else {
+                Set<CourseCategory> categorySet = courseRepository.findAllCourseCategoriesUsage();
+                resultsServiceDto = new ResultsServiceDto.Builder()
+                        .Result(categorySet.stream()
+                                .map(CourseCategory::convertToDto)
+                                .collect(Collectors.toList())
+                        )
+                        .Status(HttpStatus.OK)
+                        .build();
+            }
+            return resultsServiceDto;
+        } catch (Exception e){
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                     BundleManager.wrapKey("error.server"));
         }
