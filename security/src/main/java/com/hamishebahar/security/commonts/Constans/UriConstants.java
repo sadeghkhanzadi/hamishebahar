@@ -98,8 +98,6 @@ public class UriConstants {
     public static final String CATEGORY_FIND_ALL = "/api/v1/category";
     public static final String CATEGORY_FIND_VIEW_ALL = "/api/v1/view/category";
 
-
-
     //**AboutUs**
     //@POST method - insert a AboutUs
     public static final String ABOUT_US_INSERT = "/api/v1/insert/aboutus";
@@ -119,8 +117,8 @@ public class UriConstants {
     //@DELETE method - delete a AboutUsPlan
     public static final String ABOUT_US_PLANS_DELETE_WITH_ID = "/api/v1/plans/{id}";
     //@GET method - get AboutUsPlan
-    public static final String ABOUT_US_PLANS_FIND = "/api/v1/plans";
-    public static final String ABOUT_US_PLANS_VIEW_FIND = "/api/v1/view/plans";
+    public static final String ABOUT_US_ALL_PLANS_VIEW_FIND = "/api/v1/view/plans";
+    public static final String ABOUT_US_PLANS_VIEW_FIND = "/api/v1/view/plans/{id}";
 
     //**ContactUs**
     //@POST method - insert a ContactUs
@@ -130,7 +128,6 @@ public class UriConstants {
     //@DELETE method - delete a ContactUs
     public static final String CONTACT_US_DELETE_WITH_ID = "/api/v1/contactus/{id}";
     //@GET method - get ContactUs
-    public static final String CONTACT_US_FIND = "/api/v1/contactus";
     public static final String CONTACT_US_VIEW_FIND = "/api/v1/view/contactus";
 
     //**Icons**
@@ -142,7 +139,6 @@ public class UriConstants {
     public static final String ICON_DELETE_WITH_ID = "/api/v1/icon/{id}";
     //@GET method - get Icons
     public static final String ICON_FIND = "/api/v1/icon";
-    public static final String ICON_FIND_ONE = "/api/v1/icon/{id}";
     public static final String ICON_FIND_ONE_VIEW = "/api/v1/view/icon/{id}";
 
     //**Links**
@@ -153,9 +149,7 @@ public class UriConstants {
     //@DELETE method - delete an LINKS
     public static final String LINKS_DELETE_WITH_ID = "/api/v1/links/{id}";
     //@GET method - get LINKS
-    public static final String LINKS_FIND = "/api/v1/links";
     public static final String LINKS_FIND_VIEW = "/api/v1/view/links";
-    public static final String LINKS_FIND_ONE = "/api/v1/links/{id}";
     public static final String LINKS_FIND_ONE_VIEW = "/api/v1/view/links/{id}";
 
     //**Question**

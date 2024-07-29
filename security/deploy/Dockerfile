@@ -16,6 +16,6 @@ ENV HOME=/app
 ENV VOLUME=/app/uploads
 RUN mkdir -p $VOLUME
 VOLUME $VOLUME
-COPY ./hamishebahar-0.0.1.jar /app
+COPY ./hamishebahar-0.0.2.jar /app
 EXPOSE 8080
-CMD ["java", "-jar", "hamishebahar-0.0.1.jar"]
+CMD ["java", "-jar", "hamishebahar-0.0.2.jar"]

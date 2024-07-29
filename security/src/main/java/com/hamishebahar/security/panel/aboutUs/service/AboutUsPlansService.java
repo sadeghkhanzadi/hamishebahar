@@ -4,10 +4,14 @@ import com.hamishebahar.security.commonts.Dto.AboutUsPlansDto;
 import com.hamishebahar.security.commonts.Dto.ResultsServiceDto;
 import com.hamishebahar.security.commonts.bundel.BundleManager;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
+import com.hamishebahar.security.panel.aboutUs.entity.AboutUsPlans;
 import com.hamishebahar.security.panel.aboutUs.repository.AboutUsPlansRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AboutUsPlansService {
@@ -100,9 +104,9 @@ public class AboutUsPlansService {
         return resultsServiceDto;
     }
 
-    public ResultsServiceDto findOne() throws HamisheBaharException {
+    public ResultsServiceDto findOne(Long id) throws HamisheBaharException {
         try {
-            AboutUsPlansDto aboutUsPlansDto = aboutUsPlansRepository.findAll().get(0).convertToDto();
+            AboutUsPlansDto aboutUsPlansDto = aboutUsPlansRepository.getById(id).convertToDto();
             return new ResultsServiceDto.Builder().Result(aboutUsPlansDto).Status(HttpStatus.OK).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
@@ -135,6 +139,19 @@ public class AboutUsPlansService {
     public Boolean isExists() throws HamisheBaharException {
         try {
             return (this.aboutUsPlansRepository.count() > 0);
+        } catch (Exception e) {
+            throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
+                    BundleManager.wrapKey("error.server"));
+        }
+    }
+
+    public ResultsServiceDto findAll() throws HamisheBaharException {
+        try {
+            List<AboutUsPlansDto> aboutUsPlansDto = aboutUsPlansRepository.findAll()
+                    .stream()
+                    .map(AboutUsPlans::convertToDto)
+                    .collect(Collectors.toList());
+            return new ResultsServiceDto.Builder().Result(aboutUsPlansDto).Status(HttpStatus.OK).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                     BundleManager.wrapKey("error.server"));

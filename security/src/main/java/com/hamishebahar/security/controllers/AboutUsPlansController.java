@@ -51,18 +51,19 @@ public class AboutUsPlansController {
     }
 
     //FIND ONE
-    @GetMapping(ABOUT_US_PLANS_FIND)
+    @GetMapping(ABOUT_US_ALL_PLANS_VIEW_FIND)
     public ResponseEntity<ResultsServiceDto> findAboutUsPlans(HttpServletResponse response,
                                                               HttpServletRequest request) throws HamisheBaharException {
-        ResultsServiceDto resultsVO = aboutUsPlansService.findOne();
+        ResultsServiceDto resultsVO = aboutUsPlansService.findAll();
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
     //FIND ONE
     @GetMapping(ABOUT_US_PLANS_VIEW_FIND)
-    public ResponseEntity<ResultsServiceDto> findAboutUsPlansPermitAll(HttpServletResponse response,
+    public ResponseEntity<ResultsServiceDto> findAboutUsPlansPermitAll(@PathVariable(value = "id", required = true) Long id,
+                                                                       HttpServletResponse response,
                                                                        HttpServletRequest request) throws HamisheBaharException {
-        ResultsServiceDto resultsVO = aboutUsPlansService.findOne();
+        ResultsServiceDto resultsVO = aboutUsPlansService.findOne(id);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 }

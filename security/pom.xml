@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.hamishebahar</groupId>
 	<artifactId>hamishebahar</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<name>hamishebahar</name>
 	<description>web site for hamishebahar school with spring boot and nextjs</description>
 	<properties>

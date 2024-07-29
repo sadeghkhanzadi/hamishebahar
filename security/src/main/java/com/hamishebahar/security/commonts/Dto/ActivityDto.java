@@ -15,7 +15,7 @@ public class ActivityDto {
     private String header;
     private String title;
     private String text;
-    private IconsDto icons;
+    private IconsDto icon;
     private String createdAt;
     private String updatedAt;
 
@@ -24,7 +24,7 @@ public class ActivityDto {
         private String header;
         private String title;
         private String text;
-        private IconsDto icons;
+        private IconsDto icon;
         private String createdAt;
         private String updatedAt;
 
@@ -48,8 +48,8 @@ public class ActivityDto {
             return this;
         }
 
-        public Builder Icons(IconsDto icons) {
-            this.icons = icons;
+        public Builder Icon(IconsDto icon) {
+            this.icon = icon;
             return this;
         }
 
@@ -73,7 +73,7 @@ public class ActivityDto {
         this.header = builder.header;
         this.title = builder.title;
         this.text = builder.text;
-        this.icons = builder.icons;
+        this.icon = builder.icon;
         this.createdAt = builder.createdAt;
         this.updatedAt = builder.updatedAt;
     }
@@ -83,7 +83,7 @@ public class ActivityDto {
                 .Id(getId())
                 .Text(getText())
                 .Title(getTitle())
-                .Icons(getIcons() != null ? getIcons().convertToEntity() : null)
+                .Icons(getIcon() != null ? getIcon().convertToEntity() : null)
                 .Header(getHeader())
                 .build();
     }
@@ -93,7 +93,7 @@ public class ActivityDto {
                 .Id(getId() != null ? getId() : dto.getId())
                 .Text(getText() != null ? getText() : dto.getText())
                 .Title(getTitle() != null ? getTitle() : dto.getTitle())
-                .Icons(getIcons() != null ? getIcons() : dto.getIcons())
+                .Icon(getIcon() != null ? getIcon() : dto.getIcon())
                 .Header(getHeader() != null ? getHeader() : dto.getHeader())
                 .build();
     }

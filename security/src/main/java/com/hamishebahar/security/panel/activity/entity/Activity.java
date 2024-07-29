@@ -3,7 +3,6 @@ package com.hamishebahar.security.panel.activity.entity;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.hamishebahar.security.commonts.Dto.ActivityDto;
-import com.hamishebahar.security.commonts.Dto.IconsDto;
 import com.hamishebahar.security.panel.Icons.entity.Icons;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -97,7 +96,7 @@ public class Activity {
                 .Id(getId())
                 .Text(getText())
                 .Title(getTitle())
-                .Icons(getIcons() != null ? getIcons().convertToDto() : null)
+                .Icon(getIcons() != null ? getIcons().convertToDto() : null)
                 .Header(getHeader())
                 .CreatedAt(getCreatedAt().toString())
                 .UpdatedAt(getUpdatedAt().toString())

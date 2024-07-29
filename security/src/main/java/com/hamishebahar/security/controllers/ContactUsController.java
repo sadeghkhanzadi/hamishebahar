@@ -52,14 +52,6 @@ public class ContactUsController {
     }
 
     //FIND ONE
-    @GetMapping(CONTACT_US_FIND)
-    public ResponseEntity<ResultsServiceDto> findContactUs(HttpServletResponse response,
-                                                           HttpServletRequest request) throws HamisheBaharException {
-        ResultsServiceDto resultsVO = contactUsService.findOne();
-        return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
-    }
-
-    //FIND ONE
     @GetMapping(CONTACT_US_VIEW_FIND)
     public ResponseEntity<ResultsServiceDto> findContactUsPermitAll(HttpServletResponse response,
                                                            HttpServletRequest request) throws HamisheBaharException {
