@@ -8,9 +8,9 @@
       <change afterPath="$PROJECT_DIR$/log/2024-06/server_hmb.2024-06-27.0.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/log/2024-07/server_hmb.2024-07-17.0.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.1-old.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.2-old.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.2.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.1-old-040424.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.1-old-14030408.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.1-old.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/log/2024-05/server_hmb.2024-05-25.0.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/log/server_hmb.log" afterDir="false" />
@@ -44,19 +44,8 @@
       <change afterPath="$PROJECT_DIR$/uploads/fa2bd50a-5807-4c70-843b-9200a2f2a409.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hamishe_bahar.postman_collection.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/log/server_hmb.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/server_hmb.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/deploy/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/security/deploy/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/security/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Constans/UriConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Constans/UriConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/ActivityDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/ActivityDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/AboutUsPlansController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/AboutUsPlansController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/ContactUsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/ContactUsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/IconsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/IconsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/LinksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/LinksController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsPlansService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsPlansService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/activity/entity/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/activity/entity/Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.1-old-14030408.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -296,7 +285,7 @@
       <workItem from="1721590934580" duration="526000" />
       <workItem from="1721973265055" duration="11437000" />
       <workItem from="1722266130908" duration="2698000" />
-      <workItem from="1722269205990" duration="8726000" />
+      <workItem from="1722269205990" duration="10380000" />
     </task>
     <task id="LOCAL-00001" summary="USER_STORY: 1&#10;TASK_NUMBER: 1&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;First Commit&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
       <option name="closed" value="true" />
@@ -442,7 +431,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722268995205</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 10 Commit&#10; create entity for site panel&#10; create dto &#10; create Activity and Links and Role and Permission and Question and ... &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1722285298375</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1722285298375</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
