@@ -26,29 +26,29 @@ public class LinksController {
     }
 
     @PostMapping(LINKS_INSERT)
-    public ResponseEntity<ResultsServiceDto> insertIcons(@RequestBody LinksDto dto,
+    public ResponseEntity<ResultsServiceDto> insertLinks(@RequestBody LinksDto dto,
                                                          HttpServletResponse response,
                                                          HttpServletRequest request) throws HamisheBaharException {
-        ResultsServiceDto resultsVO = linksService.insertIcons(dto);
+        ResultsServiceDto resultsVO = linksService.insertLinks(dto);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
     //edite
     @PutMapping(LINKS_UPDATE)
-    public ResponseEntity<ResultsServiceDto> editIcons(@RequestBody LinksDto dto,
+    public ResponseEntity<ResultsServiceDto> editLinks(@RequestBody LinksDto dto,
                                                        @PathVariable(value = "id", required = true) Long id,
                                                        HttpServletResponse response,
                                                        HttpServletRequest request) throws HamisheBaharException {
-        ResultsServiceDto resultsVO = linksService.editIcons(dto, id);
+        ResultsServiceDto resultsVO = linksService.editLinks(dto, id);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
     //delete
     @DeleteMapping(LINKS_DELETE_WITH_ID)
-    public ResponseEntity<ResultsServiceDto> deleteIcons(@PathVariable(value = "id", required = true) Long id,
+    public ResponseEntity<ResultsServiceDto> deleteLinks(@PathVariable(value = "id", required = true) Long id,
                                                          HttpServletResponse response,
                                                          HttpServletRequest request) throws HamisheBaharException {
-        ResultsServiceDto resultsVO = linksService.deleteIcons(id);
+        ResultsServiceDto resultsVO = linksService.deleteLinks(id);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
@@ -57,7 +57,7 @@ public class LinksController {
     public ResponseEntity<ResultsServiceDto> findAllIconsPermitAll(@PageableDefault Pageable pageable,
                                                                    HttpServletResponse response,
                                                                    HttpServletRequest request) throws HamisheBaharException {
-        ResultsServiceDto resultsVO = linksService.findIcons(pageable);
+        ResultsServiceDto resultsVO = linksService.findLinks(pageable);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
@@ -66,7 +66,7 @@ public class LinksController {
     public ResponseEntity<ResultsServiceDto> findIconPermitAll(@PathVariable(value = "id", required = false) Long id,
                                                                HttpServletResponse response,
                                                                HttpServletRequest request) throws HamisheBaharException {
-        ResultsServiceDto resultsVO = linksService.findIcons(id);
+        ResultsServiceDto resultsVO = linksService.findLinks(id);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 }

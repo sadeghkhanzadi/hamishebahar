@@ -4,6 +4,7 @@ import com.hamishebahar.security.commonts.Dto.LinksDto;
 import com.hamishebahar.security.commonts.Dto.ResultsServiceDto;
 import com.hamishebahar.security.commonts.bundel.BundleManager;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
+import com.hamishebahar.security.panel.Icons.service.IconsService;
 import com.hamishebahar.security.panel.Links.entity.Links;
 import com.hamishebahar.security.panel.Links.repository.LinksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,20 +17,25 @@ import java.util.Optional;
 @Service
 public class LinksService {
     private final LinksRepository linksRepository;
+    private final IconsService iconsService;
 
     @Autowired
-    public LinksService(LinksRepository linksRepository) {
+    public LinksService(LinksRepository linksRepository, IconsService iconsService) {
         this.linksRepository = linksRepository;
+        this.iconsService = iconsService;
     }
 
-    public ResultsServiceDto insertIcons(LinksDto dto) throws HamisheBaharException {
+    public ResultsServiceDto insertLinks(LinksDto dto) throws HamisheBaharException {
         if (dto.getId() != null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
         }
-        if (dto.getIcon() == null || dto.getName() == null) {
+        if (dto.getName() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.is.null"));
+        }
+        if (dto.getIcon() != null && dto.getIcon().getId() != null && iconsService.isExists(dto.getIcon().getId())){
+            dto.setIcon(iconsService.getOne(dto.getIcon().getId()));
         }
         try {
             LinksDto linksDto = linksRepository.save(dto.convertToEntity()).convertToDto();
@@ -40,22 +46,29 @@ public class LinksService {
         }
     }
 
-    public ResultsServiceDto editIcons(LinksDto dto, Long id) throws HamisheBaharException {
-        if (dto.getId() == null) {
-            throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
-        }
+    public ResultsServiceDto editLinks(LinksDto dto, Long id) throws HamisheBaharException {
         if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.is.null"));
+        }
+        if (dto.getId() != null) {
+            throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
+                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
         }
         if (!dto.getId().equals(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
         }
+        if (dto.getName() == null) {
+            throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
+                    BundleManager.wrapKey("error.parameter.is.null"));
+        }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+        }
+        if (dto.getIcon() != null && dto.getIcon().getId() != null && iconsService.isExists(dto.getIcon().getId())){
+            dto.setIcon(iconsService.getOne(dto.getIcon().getId()));
         }
         LinksDto vo = getOne(id);
         LinksDto linksDto = null;
@@ -75,7 +88,7 @@ public class LinksService {
         return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(linksDto).build();
     }
 
-    public ResultsServiceDto deleteIcons(Long id) throws HamisheBaharException {
+    public ResultsServiceDto deleteLinks(Long id) throws HamisheBaharException {
         ResultsServiceDto resultsServiceDto = new ResultsServiceDto.Builder()
                 .Result(null)
                 .Status(HttpStatus.BAD_REQUEST)
@@ -104,7 +117,7 @@ public class LinksService {
         return resultsServiceDto;
     }
 
-    public ResultsServiceDto findIcons(Pageable pageable) throws HamisheBaharException {
+    public ResultsServiceDto findLinks(Pageable pageable) throws HamisheBaharException {
         try {
             return new ResultsServiceDto.Builder().Result(
                             linksRepository.findAll(pageable)
@@ -118,7 +131,7 @@ public class LinksService {
         }
     }
 
-    public ResultsServiceDto findIcons(Long id) throws HamisheBaharException {
+    public ResultsServiceDto findLinks(Long id) throws HamisheBaharException {
         try {
             if (id == null){
                 throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,

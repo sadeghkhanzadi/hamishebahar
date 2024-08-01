@@ -4,6 +4,7 @@ import com.hamishebahar.security.commonts.Dto.ActivityDto;
 import com.hamishebahar.security.commonts.Dto.ResultsServiceDto;
 import com.hamishebahar.security.commonts.bundel.BundleManager;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
+import com.hamishebahar.security.panel.Icons.service.IconsService;
 import com.hamishebahar.security.panel.activity.entity.Activity;
 import com.hamishebahar.security.panel.activity.repository.ActivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +14,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class ActivityService {
     private final ActivityRepository activityRepository;
+    private final IconsService iconsService;
 
     @Autowired
-    public ActivityService(ActivityRepository activityRepository) {
+    public ActivityService(ActivityRepository activityRepository, IconsService iconsService) {
         this.activityRepository = activityRepository;
+        this.iconsService = iconsService;
     }
 
     public ResultsServiceDto insertActivity(ActivityDto dto) throws HamisheBaharException {
@@ -27,6 +30,9 @@ public class ActivityService {
         if (dto.getText() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.is.null"));
+        }
+        if (dto.getIcon() != null && dto.getIcon().getId() != null && iconsService.isExists(dto.getIcon().getId())){
+            dto.setIcon(iconsService.getOne(dto.getIcon().getId()));
         }
         try {
             ActivityDto activityDto = activityRepository.save(dto.convertToEntity()).convertToDto();
@@ -53,6 +59,9 @@ public class ActivityService {
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+        }
+        if (dto.getIcon() != null && dto.getIcon().getId() != null && iconsService.isExists(dto.getIcon().getId())){
+            dto.setIcon(iconsService.getOne(dto.getIcon().getId()));
         }
         ActivityDto vo = getOne(id);
         ActivityDto activityDto = null;

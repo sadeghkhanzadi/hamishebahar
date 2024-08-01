@@ -101,13 +101,18 @@ public class MediaStorageService {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.is.null"));
         }
-        if (dto.getFile() != null){
+        if (dto.getFile() != null && !dto.getFile().isEmpty()){
             dto.setPathFile(saveFile(dto.getFile()));
         }
         MediasDto vo = findOneById(id);
         MediasDto mediasDto = null;
         if (vo != null) {
             try {
+                if (vo.getPathFile() != null && dto.getFile() != null && !dto.getFile().isEmpty()){
+                    if (isExistFileOnDisk(vo.getPathFile())){
+                        deleteFileOnDisk(vo.getPathFile());
+                    }
+                }
                 dto = dto.updaterFields(vo);
                 mediasDto = mediaRepository.save(dto.convertToEntity()).convertToDto();
             } catch (Exception e) {
@@ -134,13 +139,29 @@ public class MediaStorageService {
         MediasDto dto = findOneById(id);
         if (dto != null) {
             try {
-                dto.setIs_deleted(true);
-                dto.setIs_active(false);
-                mediaRepository.save(dto.convertToEntity());
-                resultsServiceDto = new ResultsServiceDto.Builder()
-                        .Result("id = " + id)
-                        .Status(HttpStatus.OK)
-                        .build();
+                boolean isOK = true;
+                if (dto.getPathFile() != null){
+                    if (!isExistFileOnDisk(dto.getPathFile())){
+                        isOK = false;
+                    }
+                }
+                if (isOK){
+                    //soft Delete
+                    dto.setIs_deleted(true);
+                    dto.setIs_active(false);
+                    mediaRepository.save(dto.convertToEntity());
+                    resultsServiceDto = new ResultsServiceDto.Builder()
+                            .Result("id = " + id)
+                            .Status(HttpStatus.OK)
+                            .build();
+                } else {
+                    //hard delete - delete from db because file not found on disk
+                    mediaRepository.deleteById(dto.getId());
+                    resultsServiceDto = new ResultsServiceDto.Builder()
+                            .Result("id = " + id)
+                            .Status(HttpStatus.OK)
+                            .build();
+                }
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                         BundleManager.wrapKey("error.server"));
@@ -273,11 +294,29 @@ public class MediaStorageService {
         return null;
     }
 
-    public ResultsServiceDto downloadFile(String path) {
-        Resource file = findFile(path);
-        return new ResultsServiceDto.Builder()
-                .Result(file)
-                .Status(HttpStatus.BAD_REQUEST)
-                .build();
+    public Boolean isExistFileOnDisk(String fileName){
+        File dir = new File(fileUploadDir + fileName);
+        boolean isOk = true;
+        try {
+            isOk = dir.exists();
+        } catch (Exception e) {
+            isOk = false;
+        }
+        return isOk;
+    }
+
+    public Boolean deleteFileOnDisk(String fileName){
+        File dir = new File(fileUploadDir + fileName);
+        boolean isOk = true;
+        try {
+            if (dir.exists()) {
+                isOk = dir.delete();
+            } else {
+                isOk = false;
+            }
+        } catch (Exception e) {
+            isOk = false;
+        }
+        return isOk;
     }
 }
