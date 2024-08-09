@@ -5,52 +5,166 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="660b6f52-792a-4916-b6f9-ad8af0bd2b70" name="Changes" comment="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 10 Commit&#10; create entity for site panel&#10; create dto &#10; create Activity and Links and Role and Permission and Question and ... &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
-      <change afterPath="$PROJECT_DIR$/log/2024-07/server_hmb.2024-07-17.0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/2024-07/server_hmb.2024-07-26.0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.1-old.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.2-old.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.1-old-040424.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.1-old.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/log/2024-05/server_hmb.2024-05-25.0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/log/server_hmb.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/09a1fa89-ebf1-4961-9a78-55ce4c973615.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/15293032-5a9c-4722-9714-e04207d12b62.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/22f99efa-edc0-40fc-bee4-60af0e943700.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/27a638e4-0c5c-47e0-aca5-fefcad6d5ee6.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/29e5123f-277f-4adf-9967-7d745b057681.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/323dd930-8914-4765-973d-189c22fa8a40.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/3608b35b-80fd-4c7c-86bb-12d53df5bbf6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/3661a6ee-fa0e-44d4-9948-332f10155ec8.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/3bbf8765-5ec7-47ba-9cef-64aa02130e65.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/42f24085-88e3-45ef-b87d-1ff2bd0b5605.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/4ad9e7c6-ae27-41bf-8d02-ca161686c483.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/4e50feef-655c-4304-9d1c-84ef269237a9.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/4ebe534a-e8af-42f0-bf7f-8f3176269950.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/63dc1558-0c83-4ad0-bc0c-13927d697d43.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/6912f2b6-4e76-45e7-8a17-1ad841779631.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/69d0972b-91cb-4ef2-9c4a-9148730f2b6d.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/6d91a5a4-7638-4fe2-8b79-9cf6443b8e97.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/6f1f747e-0877-4ff1-b6dd-d9ea75f14cde.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/7edf49d7-f9e9-4567-8fa2-056b458466cb.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/8acab427-859d-4786-879b-806c1824a438.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/9e8f5719-9331-4e2c-b89e-587c8ae8dbbb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/caaf9746-a0f3-48e6-b5a6-c16ca9e48d64.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/d21e8d1f-8898-49c2-a125-c4a3c2e00884.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/d5318614-1db9-4179-bf65-ea02aa359a9c.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/d93db97c-31ad-4168-a833-ead1984d8492.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/f587513d-c194-4697-a839-ab6f57e6dfdc.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/f5887e13-6aec-48c8-84d4-803966ed9c0b.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/fa2bd50a-5807-4c70-843b-9200a2f2a409.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/_font.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/pages/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/woff/IRANSansX-Regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/woff2/IRANSansX-Regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/woff2/iran_yekan_web_regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/about-us/top.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/about-us/ubder.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/breadcrumb/edublink-breadcrumb-bg.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/brow/brow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/error/404.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/boy-news.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/circle--boy-kid.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/circle-face.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/circle-face.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/circle-kid.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/enamad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/girl-news.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/last-card-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/last-card-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/last-card-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/saman.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/telent-face-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/telent-face-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/telent-face-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/face/telent-face.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/Irregular circle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/blue-dot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/book.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/calender.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/card-border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/card-cloud-border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/card-cloud-top.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/card-cloud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/card.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/cart-shopping.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/circle-width-shadow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/cloud-blue-sky.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/cloud-bottom.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/cloud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/dot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/gallery.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/gray-cloud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/labratoar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/last-card-cloud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/left-cloud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/paint.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/pen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/red-dot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/red-square.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/right-cloud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/scissor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/sun.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/shape/wave.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/teachers/1.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/teachers/1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/teachers/2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/teachers/3.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/teachers/4.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/teachers/course/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/teachers/profile/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/style/_varible.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/style/ckEditor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/style/main.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/style/varibles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/about-us/card.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/auth/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/auth/login.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/auth/signup.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/breadcrumb/header-title.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/breadcrumb/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/callMe.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/cards/teacherPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/cards/teachers-course.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/cards/teachers.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/breadcrumb/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/card/selectMedia.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/card/settings.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/filters/sortMedia.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/form/news.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/media/edite.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/media/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/modal/alert.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/modal/writeKey.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/navbar/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/navbar/navbar-items.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/search.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/settings/newUsers.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/showItem.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/student/newStudentForm.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/tableStudents.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/tableTeachers.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/teachers/newTeacherForm.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/footer/default.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/header/default.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/header/navbarMobile.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/home/main/best-class.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/home/main/card/active.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/home/main/card/bestClassCard.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/home/main/card/education.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/home/main/card/newArticles.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/home/main/card/talentDiscovery.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/home/main/getNews.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/home/main/sectionOne.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/home/main/sectionTwo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/htmlEditor.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/icons/brow.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/navbar/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/search.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/social-app.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composables/addOpacity.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composables/jwt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composables/setCookie.client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composables/shapeMove.client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/error.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/layouts/dashboard.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/layouts/default.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/layouts/header.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/authMiddleware.global.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nuxt.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/about-us.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/auth/login.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/auth/signup.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/contact-us.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/courses/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/dashboard.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/dashboard/educations.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/dashboard/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/dashboard/media.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/dashboard/messages/comments.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/dashboard/messages/emails.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/dashboard/messages/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/dashboard/news.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/dashboard/points.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/dashboard/settings/access-level.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/dashboard/settings/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/dashboard/students.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/dashboard/teachers.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/news.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/teachers/[id].vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/teachers/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/ckEditor.client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/datePicker.client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/toastification.client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/FetchHomeApi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/dashboard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/server_hmb.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/server_hmb.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.1-old-14030408.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/LinksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/LinksController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/Links/service/LinksService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/Links/service/LinksService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/activity/service/ActivityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/activity/service/ActivityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,14 +189,12 @@
     &quot;assignee&quot;: &quot;sadeghkhanzadi&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="12ef71c0-dc48-4b55-9154-830e2390b076" />
-        <option name="url" value="https://github.com/sadeghkhanzadi/hamishebahar.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/sadeghkhanzadi/hamishebahar.git&quot;,
+    &quot;accountId&quot;: &quot;3c816c07-fdd0-48fd-a02e-83fb15742283&quot;
+  }
+}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
@@ -129,7 +241,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Spring Boot.SecurityApplication (1).executor&quot;: &quot;Debug&quot;,
     &quot;Spring Boot.SecurityApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging front__developer&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;E:/hamishebahar/security/deploy&quot;,
@@ -165,7 +277,7 @@
       <recent name="com" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.SecurityApplication">
+  <component name="RunManager">
     <configuration name="NewsEventsService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.hamishebahar.security.panel.news_events.service.NewsEventsService" />
       <module name="security" />
@@ -218,19 +330,11 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.SecurityConfig" />
-        <item itemvalue="Application.NewsEventsService" />
-        <item itemvalue="Spring Boot.SecurityApplication (1)" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-1.8.0_402-corretto-1.8.0_402-3183f394aec4-734fdc6e" />
-        <option value="jdk-11.0.22-corretto-11.0.22-3183f394aec4-cd32a1c5" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.18034.50" />
       </set>
     </attachedChunks>
   </component>
@@ -292,6 +396,7 @@
       <workItem from="1722269205990" duration="10673000" />
       <workItem from="1722341051776" duration="1138000" />
       <workItem from="1722459225373" duration="6598000" />
+      <workItem from="1723182940199" duration="449000" />
     </task>
     <task id="LOCAL-00001" summary="USER_STORY: 1&#10;TASK_NUMBER: 1&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;First Commit&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
       <option name="closed" value="true" />
@@ -494,246 +599,5 @@
     <MESSAGE value="USER_STORY: 9&#10;TASK_NUMBER: 9&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 9 Commit&#10; create entity for site panel&#10; create dto &#10; create Icons and Links &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
     <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 10 Commit&#10; create entity for site panel&#10; create dto &#10; create Activity and Links and Role and Permission and Question and ... &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
     <option name="LAST_COMMIT_MESSAGE" value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 10 Commit&#10; create entity for site panel&#10; create dto &#10; create Activity and Links and Role and Permission and Question and ... &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java</url>
-          <line>186</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java</url>
-          <line>285</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>188</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>183</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>243</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>173</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>250</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>256</line>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>225</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MediaController.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>115</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>116</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>104</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/news_events/service/NewsEventsService.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/news_events/service/NewsEventsService.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/news_events/service/NewsEventsService.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/news_events/service/NewsEventsService.java</url>
-          <line>134</line>
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/news_events/service/NewsEventsService.java</url>
-          <line>129</line>
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/news_events/service/NewsEventsService.java</url>
-          <line>156</line>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/students/service/StudentService.java</url>
-          <line>145</line>
-          <option name="timeStamp" value="76" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/students/service/StudentService.java</url>
-          <line>165</line>
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/utils/StringUtils.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/students/service/StudentService.java</url>
-          <line>204</line>
-          <option name="timeStamp" value="80" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/students/service/StudentService.java</url>
-          <line>233</line>
-          <option name="timeStamp" value="81" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/students/service/StudentService.java</url>
-          <line>188</line>
-          <option name="timeStamp" value="83" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/students/service/StudentService.java</url>
-          <line>151</line>
-          <option name="timeStamp" value="84" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/teachers/service/TeacherService.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="85" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/teachers/service/TeacherService.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="86" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/teachers/service/TeacherService.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="87" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/teachers/entity/Teachers.java</url>
-          <line>157</line>
-          <option name="timeStamp" value="89" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/TeacherDto.java</url>
-          <line>144</line>
-          <option name="timeStamp" value="90" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="91" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.6.2/spring-security-core-5.6.2.jar!/org/springframework/security/authentication/UsernamePasswordAuthenticationToken.class</url>
-          <line>17</line>
-          <option name="timeStamp" value="92" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/entity/AboutUs.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="95" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MediaController.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/MediaController.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="97" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>285</line>
-          <option name="timeStamp" value="98" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/QuestionController.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="99" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/questions/service/QuestionService.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="100" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/LinksController.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="101" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/Links/service/LinksService.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="102" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
