@@ -43,6 +43,12 @@ const card = [
     link:"/dashboard/settings/address"
   },
   {
+    title:"سولات متداول",
+    color:"#0652DD",
+    icon:"map-location-dot",
+    link:"/dashboard/settings/questions"
+  },
+  {
     title:"سطوح دسترسی",
     color:"#009432",
     icon:"universal-access",
