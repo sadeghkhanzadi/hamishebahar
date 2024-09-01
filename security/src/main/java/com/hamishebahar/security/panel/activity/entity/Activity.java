@@ -98,8 +98,8 @@ public class Activity {
                 .Title(getTitle())
                 .Icon(getIcons() != null ? getIcons().convertToDto() : null)
                 .Header(getHeader())
-                .CreatedAt(getCreatedAt().toString())
-                .UpdatedAt(getUpdatedAt().toString())
+                .CreatedAt(getCreatedAt()!= null ? getCreatedAt().toString() : null)
+                .UpdatedAt(getUpdatedAt() != null ? getUpdatedAt().toString() : null)
                 .build();
     }
 }

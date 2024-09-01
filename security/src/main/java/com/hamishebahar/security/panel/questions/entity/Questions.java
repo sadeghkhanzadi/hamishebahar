@@ -74,8 +74,8 @@ public class Questions {
                 .Id(getId())
                 .Title(getTitle())
                 .Text(getText())
-                .CreatedAt(getCreatedAt().toString())
-                .UpdatedAt(getUpdatedAt().toString())
+                .CreatedAt(getCreatedAt()!= null ? getCreatedAt().toString() : null)
+                .UpdatedAt(getUpdatedAt() != null ? getUpdatedAt().toString() : null)
                 .build();
     }
 }

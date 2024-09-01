@@ -1,0 +1,68 @@
+2024-08-23 02:37:37.517  WARN 12868 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-23 02:37:38.092 DEBUG 12868 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-08-23 02:37:38.142 DEBUG 12868 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 79 mappings in 'requestMappingHandlerMapping'
+2024-08-23 02:37:38.171 DEBUG 12868 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-08-23 02:37:38.181 DEBUG 12868 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-08-23 02:38:35.982  INFO 12868 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-23 02:38:35.983 DEBUG 12868 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-08-23 02:38:35.983 DEBUG 12868 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-08-23 02:38:35.983 DEBUG 12868 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-08-23 02:38:35.984 DEBUG 12868 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@3a22d69f
+2024-08-23 02:38:35.984 DEBUG 12868 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@7acf07b2
+2024-08-23 02:38:35.984 DEBUG 12868 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-08-23 02:38:35.984  INFO 12868 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-08-23 02:38:36.118 DEBUG 12868 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/insert/question", parameters={}
+2024-08-23 02:38:36.123 DEBUG 12868 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hamishebahar.security.controllers.QuestionController#insertQuestion(QuestionDto, HttpServletResponse, HttpServletRequest)
+2024-08-23 02:38:36.177 DEBUG 12868 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [QuestionDto(id=null, title=123, text=321, createdAt=null, updatedAt=null)]
+2024-08-23 02:38:39.174 DEBUG 12868 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-08-23 02:38:39.175 DEBUG 12868 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ResultsServiceDto(referenceNumber=null, messageId=null, durationTime=null, hasError=false, errorCode (truncated)...]
+2024-08-23 02:38:39.189 DEBUG 12868 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-08-23 02:39:34.593 DEBUG 12868 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/v1/view/question?id=3", parameters={masked}
+2024-08-23 02:39:34.594 DEBUG 12868 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hamishebahar.security.controllers.QuestionController#findQuestion(Long, HttpServletResponse, HttpServletRequest)
+2024-08-23 02:39:34.624 DEBUG 12868 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-08-23 02:39:34.624 DEBUG 12868 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ResultsServiceDto(referenceNumber=null, messageId=null, durationTime=null, hasError=false, errorCode (truncated)...]
+2024-08-23 02:39:34.628 DEBUG 12868 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-08-23 02:39:50.091 DEBUG 12868 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : PUT "/api/v1/question/3", parameters={}
+2024-08-23 02:39:50.092 DEBUG 12868 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hamishebahar.security.controllers.QuestionController#editQuestion(QuestionDto, Long, HttpServletResponse, HttpServletRequest)
+2024-08-23 02:39:50.094 DEBUG 12868 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [QuestionDto(id=3, title=43, text=234, createdAt=null, updatedAt=null)]
+2024-08-23 02:39:50.138 DEBUG 12868 --- [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.hamishebahar.security.commonts.exeption.ExceptionConfiguration#serviceException(HamisheBaharException, WebRequest)
+2024-08-23 02:39:50.140 DEBUG 12868 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-08-23 02:39:50.141 DEBUG 12868 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.hamishebahar.security.commonts.exeption.ErrorMessage@3dafd93e]
+2024-08-23 02:39:50.143 DEBUG 12868 --- [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [HamisheBaharException(error=null, error_description=null, error_uri=null, state=null, http_status_code=0, aclErrorCode=0, code=353, object=null, errorObject=null, referenceNumber=null)]
+2024-08-23 02:39:50.144 DEBUG 12868 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2024-08-23 02:40:55.880 DEBUG 12868 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : PUT "/api/v1/question/3", parameters={}
+2024-08-23 02:40:55.881 DEBUG 12868 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hamishebahar.security.controllers.QuestionController#editQuestion(QuestionDto, Long, HttpServletResponse, HttpServletRequest)
+2024-08-23 02:40:55.882 DEBUG 12868 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [QuestionDto(id=3, title=43, text=234, createdAt=null, updatedAt=null)]
+2024-08-23 02:40:55.903 DEBUG 12868 --- [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.hamishebahar.security.commonts.exeption.ExceptionConfiguration#serviceException(HamisheBaharException, WebRequest)
+2024-08-23 02:40:55.904 DEBUG 12868 --- [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-08-23 02:40:55.904 DEBUG 12868 --- [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.hamishebahar.security.commonts.exeption.ErrorMessage@27e34fc1]
+2024-08-23 02:40:55.905 DEBUG 12868 --- [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [HamisheBaharException(error=null, error_description=null, error_uri=null, state=null, http_status_code=0, aclErrorCode=0, code=353, object=null, errorObject=null, referenceNumber=null)]
+2024-08-23 02:40:55.905 DEBUG 12868 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2024-08-23 02:41:07.886 DEBUG 12868 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : PUT "/api/v1/question/3", parameters={}
+2024-08-23 02:41:07.887 DEBUG 12868 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hamishebahar.security.controllers.QuestionController#editQuestion(QuestionDto, Long, HttpServletResponse, HttpServletRequest)
+2024-08-23 02:41:07.887 DEBUG 12868 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [QuestionDto(id=3, title=43, text=234, createdAt=null, updatedAt=null)]
+2024-08-23 02:44:12.710 DEBUG 12868 --- [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.hamishebahar.security.commonts.exeption.ExceptionConfiguration#serviceException(HamisheBaharException, WebRequest)
+2024-08-23 02:44:12.714 DEBUG 12868 --- [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-08-23 02:44:12.715 DEBUG 12868 --- [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.hamishebahar.security.commonts.exeption.ErrorMessage@6577695d]
+2024-08-23 02:44:12.710  WARN 12868 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m32s470ms202µs800ns).
+2024-08-23 02:44:12.716 DEBUG 12868 --- [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [HamisheBaharException(error=null, error_description=null, error_uri=null, state=null, http_status_code=0, aclErrorCode=0, code=353, object=null, errorObject=null, referenceNumber=null)]
+2024-08-23 02:44:12.716 DEBUG 12868 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2024-08-23 02:44:23.046  WARN 17420 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-23 02:44:23.625 DEBUG 17420 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-08-23 02:44:23.676 DEBUG 17420 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 79 mappings in 'requestMappingHandlerMapping'
+2024-08-23 02:44:23.705 DEBUG 17420 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-08-23 02:44:23.715 DEBUG 17420 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-08-23 02:44:37.719  INFO 17420 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-23 02:44:37.720 DEBUG 17420 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-08-23 02:44:37.720 DEBUG 17420 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-08-23 02:44:37.720 DEBUG 17420 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-08-23 02:44:37.721 DEBUG 17420 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@261b27db
+2024-08-23 02:44:37.721 DEBUG 17420 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@6e70861
+2024-08-23 02:44:37.721 DEBUG 17420 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-08-23 02:44:37.721  INFO 17420 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-08-23 02:44:37.858 DEBUG 17420 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : PUT "/api/v1/question/3", parameters={}
+2024-08-23 02:44:37.864 DEBUG 17420 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hamishebahar.security.controllers.QuestionController#editQuestion(QuestionDto, Long, HttpServletResponse, HttpServletRequest)
+2024-08-23 02:44:37.906 DEBUG 17420 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [QuestionDto(id=3, title=43, text=234, createdAt=null, updatedAt=null)]
+2024-08-23 02:44:41.753 DEBUG 17420 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-08-23 02:44:41.754 DEBUG 17420 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ResultsServiceDto(referenceNumber=null, messageId=null, durationTime=null, hasError=false, errorCode (truncated)...]
+2024-08-23 02:44:41.767 DEBUG 17420 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

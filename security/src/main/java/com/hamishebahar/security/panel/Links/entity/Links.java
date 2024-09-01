@@ -85,8 +85,8 @@ public class Links {
                 .Name(getName())
                 .Uri(getUri())
                 .Icon(getIcon().convertToDto())
-                .CreatedAt(getCreatedAt().toString())
-                .UpdatedAt(getUpdatedAt().toString())
+                .CreatedAt(getCreatedAt()!= null ? getCreatedAt().toString() : null)
+                .UpdatedAt(getUpdatedAt() != null ? getUpdatedAt().toString() : null)
                 .build();
     }
 }
