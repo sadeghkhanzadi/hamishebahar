@@ -75,7 +75,7 @@ public class CategoryController {
     public ResponseEntity<ResultsServiceDto> findCategory(@PageableDefault Pageable pageable,
                                                           HttpServletResponse response,
                                                           HttpServletRequest request) throws HamisheBaharException {
-        ResultsServiceDto resultsVO = categoryService.findALL(pageable);
+        ResultsServiceDto resultsVO = categoryService.findALLByIsActiveAndIsDeleted(pageable);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
@@ -84,7 +84,7 @@ public class CategoryController {
     public ResponseEntity<ResultsServiceDto> findCategoryPermitAll(@PageableDefault Pageable pageable,
                                                                    HttpServletResponse response,
                                                                    HttpServletRequest request) throws HamisheBaharException {
-        ResultsServiceDto resultsVO = categoryService.findALL(pageable);
+        ResultsServiceDto resultsVO = categoryService.findALLByIsActiveAndIsDeleted(pageable);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 }

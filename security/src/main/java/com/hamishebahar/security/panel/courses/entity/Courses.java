@@ -172,10 +172,8 @@ public class Courses {//لیست آموزش ها
                 .Medias(medias!= null && !medias.isEmpty() ? medias.stream()
                         .map(Medias::convertToDto)
                         .collect(Collectors.toList()) : null)
-                .CreatedAt(getCreatedAt() != null ? getCreatedAt().
-                        format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL)) : null)
-                .UpdatedAt(getUpdatedAt() != null ? getUpdatedAt()
-                        .format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL)) : null)
+                .CreatedAt(getCreatedAt() != null ? getCreatedAt().toString() : null)
+                .UpdatedAt(getUpdatedAt() != null ? getUpdatedAt().toString() : null)
                 .build();
     }
 }

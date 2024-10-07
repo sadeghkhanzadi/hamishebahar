@@ -12,6 +12,7 @@ import com.hamishebahar.security.panel.category.entity.CourseCategory;
 import com.hamishebahar.security.panel.category.service.CategoryService;
 import com.hamishebahar.security.panel.courses.entity.Courses;
 import com.hamishebahar.security.panel.courses.repository.CourseRepository;
+import com.hamishebahar.security.panel.teachers.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -29,11 +30,14 @@ public class CourseService {
     private final CategoryService categoryService;
     private final MediaUtils mediaUtils;
 
+    private final TeacherService teacherService;
+
     @Autowired
-    public CourseService(CourseRepository courseRepository, CategoryService categoryService, MediaUtils mediaUtils) {
+    public CourseService(CourseRepository courseRepository, CategoryService categoryService, MediaUtils mediaUtils, TeacherService teacherService) {
         this.courseRepository = courseRepository;
         this.categoryService = categoryService;
         this.mediaUtils = mediaUtils;
+        this.teacherService = teacherService;
     }
 
     public ResultsServiceDto insertCourse(CoursesDto dto) throws HamisheBaharException {
@@ -47,6 +51,12 @@ public class CourseService {
         }
         if (dto.getMedias() != null && !dto.getMedias().isEmpty()) {
             dto.setMedias(mediaUtils.findMedia(dto.getMedias()));
+        }
+        if (dto.getTeachers() != null){
+            dto.setTeachers(teacherService.findOneById(dto.getTeachers().getId()));
+        }
+        if (dto.getCategory() != null){
+            dto.setCategory(categoryService.findOneById(dto.getCategory().getId()));
         }
         try {
             CoursesDto coursesDto = courseRepository.save(dto.convertToEntity()).convertToDto();
@@ -83,6 +93,12 @@ public class CourseService {
         if (vo != null) {
             if (dto.getMedias() != null && !dto.getMedias().isEmpty()) {
                 dto.setMedias(mediaUtils.findMedia(dto.getMedias()));
+            }
+            if (dto.getTeachers() != null){
+                dto.setTeachers(teacherService.findOneById(dto.getTeachers().getId()));
+            }
+            if (dto.getCategory() != null){
+                dto.setCategory(categoryService.findOneById(dto.getCategory().getId()));
             }
             try {
                 dto = dto.updaterFields(vo);

@@ -92,6 +92,7 @@ public class Icons {
                 .Name(name)
                 .Color(color)
                 .BackgroundColor(backgroundColor)
+                .Icon(icon)
                 .CreatedAt(createdAt != null ? createdAt.toString() : null)
                 .UpdatedAt(updatedAt != null ? updatedAt.toString() : null)
                 .build();

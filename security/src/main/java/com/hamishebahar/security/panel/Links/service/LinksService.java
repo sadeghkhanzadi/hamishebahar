@@ -51,7 +51,7 @@ public class LinksService {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.is.null"));
         }
-        if (dto.getId() != null) {
+        if (dto.getId() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
         }

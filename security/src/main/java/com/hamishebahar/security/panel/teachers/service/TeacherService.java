@@ -21,12 +21,10 @@ import javax.transaction.Transactional;
 @Transactional
 public class TeacherService {
     private final TeacherRepository teacherRepository;
-    private final CourseUtils courseUtils;
 
     @Autowired
-    public TeacherService(TeacherRepository teacherRepository, CourseUtils courseUtils) {
+    public TeacherService(TeacherRepository teacherRepository) {
         this.teacherRepository = teacherRepository;
-        this.courseUtils = courseUtils;
     }
 
     public ResultsServiceDto insertTeacher(TeacherDto dto) throws HamisheBaharException {

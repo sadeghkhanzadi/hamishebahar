@@ -85,6 +85,7 @@ public class IconsDto {
                 .Id(id)
                 .Name(name)
                 .Color(color)
+                .Icon(icon)
                 .BackgroundColor(backgroundColor)
                 .build();
     }
@@ -95,6 +96,7 @@ public class IconsDto {
                 .Name(getName() != null ? getName() : dto.getName())
                 .Color(getColor() != null ? getColor() : dto.getColor())
                 .BackgroundColor(getBackgroundColor() != null ?  getBackgroundColor() : dto.getBackgroundColor())
+                .Icon(getIcon() != null ? getIcon() : dto.getIcon())
                 .build();
     }
 

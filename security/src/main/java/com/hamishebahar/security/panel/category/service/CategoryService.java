@@ -9,10 +9,10 @@ import com.hamishebahar.security.commonts.utils.VerifyObjectUtils;
 import com.hamishebahar.security.panel.category.entity.CourseCategory;
 import com.hamishebahar.security.panel.category.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-
 
 
 @Service
@@ -139,6 +139,21 @@ public class CategoryService {
             return new ResultsServiceDto.Builder().Result(
                             categoryRepository.findAll(pageable)
                                     .map(CourseCategory::convertToDto)
+                    )
+                    .Status(HttpStatus.OK)
+                    .build();
+        } catch (Exception e) {
+            throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
+                    BundleManager.wrapKey("error.server"));
+        }
+    }
+
+    public ResultsServiceDto findALLByIsActiveAndIsDeleted(Pageable pageable) throws HamisheBaharException {
+        try {
+            Page<CourseCategory> categories = categoryRepository.findALLByIsActiveAndIsDeleted(Boolean.TRUE, Boolean.FALSE, pageable);
+
+            return new ResultsServiceDto.Builder().Result(
+                            categories.map(CourseCategory::convertToDto)
                     )
                     .Status(HttpStatus.OK)
                     .build();
