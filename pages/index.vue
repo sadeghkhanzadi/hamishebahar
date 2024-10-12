@@ -18,10 +18,11 @@ import dot from "@/assets/image/shape/dot.png"
 import book from "@/assets/image/shape/book.png"
 import calender from "@/assets/image/shape/calender.png"
 import lab from "@/assets/image/shape/labratoar.png"
-const token = ref('')
-
 import shapeMove from '~/composables/shapeMove.client'
-import jwt from "~/composables/jwt";
+import {useHomeStore} from "~/store/home";
+const {fetchingFAQ ,faq} = useHomeStore()
+fetchingFAQ()
+const token = ref('')
 const data = {
   title: "یک درس را برای شروع انتخاب کنید",
   subTitle: "کلاس های محبوب ",
