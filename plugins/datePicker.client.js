@@ -4,7 +4,7 @@ export default defineNuxtPlugin(nuxtApp => {
         name: 'date-picker',
         props: {
             format: "YYYY-MM-DD",
-            displayFormat:"YYYY-MM-DD"
+            displayFormat:"jYYYY-jMM-jDD"
         }
     })
 })
