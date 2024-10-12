@@ -1,19 +1,17 @@
 <script setup lang="ts">
+import {useDashboardTeachersStore} from "~/store/dashboard/teachers";
+
+const store = useDashboardTeachersStore()
+store.fetchingTeachers()
+const data  = computed(()=>store.getTeachers)
 const showNewTeachersForm = ref(false)
-const showEditTeachersForm = ref(false)
 const showTeacher = ref(false)
 const showTeacherInfo = ref([])
-const showAlert = ref(false)
 const alertData = ref("")
 const editTeacherId = ref()
 const router = useRouter()
 const route = useRoute()
-const apiBaseUrl = useState('apiBaseUrl').value
-const cookie = useCookie('jwt')
-const teachers = ref([])
-const pendingRequest = ref(false)
-getNews()
-const tableBody = computed(() => teachers.value.content)
+
 const thead = [
   {
     name: 'ردیف'
@@ -47,29 +45,9 @@ const thead = [
   },
 ]
 
-async function getNews(jobTitle: null, firstName: null, lastName: null,size:null) {
-  const {data, error, status} = await useFetch(() => `${apiBaseUrl}/api/v1/teacher`, {
-    headers: {
-      Authorization: `${cookie.value}`
-    },
-    query: {
-      firstName,
-      lastName,
-      jobTitle,
-      size
-    }
-  })
-  if (error.value) {
-    console.log(error.value)
-  }
-  if (status.value === 'success') {
-    console.log(data.value)
-    teachers.value = data.value.result
-  }
-}
 
 function searchInNews(data:object) {
-  getNews(data.jobTitle, data.firstName, data.LastName, data.size)
+  store.fetchingTeachers(data.jobTitle, data.firstName, data.LastName, data.size)
   let query = {
     ...route.query,
     size: data.size || 10,
@@ -82,60 +60,11 @@ function searchInNews(data:object) {
   }
   router.push({path: route.fullPath, query: query})
 }
-async function postNewTeachers(information: object , theme:string) {
-  console.log(information , theme)
-  pendingRequest.value = true
-  const imgId = []
-  information.medias.forEach(item => {
-    imgId.push({id: item.id})
-  })
-  const json = {
-    firstName: information.name,
-    lastName: information.lastName,
-    age: information.age,
-    jobTitle: information.jobTitle,
-    is_active: information.is_active,
-    documentFiles:imgId,
-    teacherCode:information.personalCode,
-    phoneNumber:information.phoneNumber,
-    workExperience : information.workExperience,
-    nationalCode: information.nationalCode
-  }
-  if (theme === 'create' && theme != 'edit'){
-    const { error, status} = await useFetch(()=>`${apiBaseUrl}/api/v1/teacher`, {
-      method: 'POST',
-      body:JSON.stringify(json),
-      headers:{
-        Authorization:`${cookie.value}`
-      }
-    })
-    if (error.value){
-      console.log(error.value)
-    }
-    if (status.value === 'success'){
-      pendingRequest.value =false
-      showNewTeachersForm.value = false
-      getNews()
-    }
-  }
-  if (theme === 'edit' && theme != 'create') {
-    json.id = editTeacherId.value
-    const { error, status} = await useFetch(()=>`${apiBaseUrl}/api/v1/teacher/${editTeacherId.value}`, {
-      method: 'PUT',
-      body:JSON.stringify(json),
-      headers:{
-        Authorization:`${cookie.value}`
-      }
-    })
-    if (error.value){
-      console.log(error.value)
-    }
-    if (status.value === 'success'){
-      pendingRequest.value = false
-      showEditTeachersForm.value = false
-      getNews()
-    }
-  }
+async function postNewTeachers(information: object) {
+  await store.postNewTeachers(information)
+}
+async function editeTeachers(information: object) {
+  await store.editeTeachers(information , editTeacherId.value)
 }
 onMounted(() => {
   watch(() => showNewTeachersForm.value, () => {
@@ -161,37 +90,20 @@ function showTeacherModalInfo(info:any){
 function removeTeacher(teacherInfo:object){
   const name:string = `${teacherInfo.name} ${teacherInfo.lastName}`
   alertData.value = {name:name , id : teacherInfo.id}
-  console.log(alertData.value)
-  showAlert.value = true
+  store.showAlert = true
 }
 function resultRemoveTeacher(info:boolean){
   if (info){
-    removeNews(alertData.value.id)
+    store.removeTeacherItem(alertData.value.id)
   }
   else{
-    showAlert.value =false
+    store.showAlert =false
   }
 }
-async function removeNews(id:number|string){
-  console.log(id)
-  const { error, status} = await useFetch(()=>`${apiBaseUrl}/api/v1/teacher/${id}`, {
-    method: 'DELETE',
-    headers:{
-      Authorization:`${cookie.value}`
-    }
-  })
-  if (error.value){
-    console.log(error.value)
-  }
-  if (status.value === 'success'){
-    alertData.value = ""
-    showAlert.value = false
-    getNews()
-  }
-}
+
 function requestEditTeacher (id:number|string){ /*درخواست از سمت جدول میاد تا فرم رو باز کنه و دیتا رو براش ارسال کنه */
   editTeacherId.value = id
-  showEditTeachersForm.value = true
+  store.showEditTeachersForm= true
 }
 
 </script>
@@ -210,18 +122,18 @@ function requestEditTeacher (id:number|string){ /*درخواست از سمت ج�
       </div>
     </section>
     <section>
-      <lazy-dashboard-table-teachers title="لیست همه معلم ها" v-if="tableBody && tableBody.length" @delete="removeTeacher" @edit="requestEditTeacher" @show="showTeacherModalInfo" :thead="thead" :tbody="tableBody"/>
+      <lazy-dashboard-table-teachers title="لیست همه معلم ها" v-if="data && data.length" @delete="removeTeacher" @edit="requestEditTeacher" @show="showTeacherModalInfo" :thead="thead" :tbody="data"/>
     </section>
     <section >
       <lazy-dashboard-teachers-newTeacherForm v-if="showNewTeachersForm" @sendData="postNewTeachers" :create="true"  @close="showNewTeachersForm = false" event="ثبت نام معلم"/><!--for Create Teachers-->
-      <lazy-dashboard-teachers-newTeacherForm v-if="showEditTeachersForm" @sendData="postNewTeachers" :edit="true" :get="editTeacherId" @close="showEditTeachersForm = false" event="ویرایش معلم"/><!--for Edit Teachers-->
+      <lazy-dashboard-teachers-newTeacherForm v-if="store.showEditTeachersForm"  :edit="true" @edit="editeTeachers" :get="editTeacherId" @close="store.showEditTeachersForm = false" event="ویرایش معلم"/><!--for Edit Teachers-->
     </section>
     <section>
       <lazy-dashboard-show-item @close="showTeacher = false" title=" نمایش جزئیات معلم" :data="showTeacherInfo" v-if="showTeacher && showTeacherInfo " />
     </section>
     <section>
       <lazy-dashboard-modal-alert
-          v-if="showAlert"
+          v-if="store.showAlert"
           @result="resultRemoveTeacher"
           :data="alertData"
       />

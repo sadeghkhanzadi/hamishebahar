@@ -27,7 +27,7 @@ const {thead, tbody, title} = defineProps(['thead', 'tbody', 'title'])
             item.is_active === true ? 'فعال' : "غیرفعال"
           }}</span>
         </td>
-        <td class=" px-2 py-1 flex flex-col md:flex-row gap-1 ">
+        <td class=" px-2 py-1 flex flex-col md:flex-row md:justify-center gap-1 ">
           <button
               @click="emit('show',tbody[index])"
               class=" mx-1 cursor-pointer transition duration-200 ease-in hover:bg-blue-700 text-white bg-blue-500 inline-flex items-center justify-center rounded px-2 py-3">

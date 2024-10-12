@@ -3,6 +3,7 @@ const {index, data} = defineProps({
   data: Object,
   index: Number
 })
+const {$date} = useNuxtApp()
 const emit = defineEmits(['remove', 'sendData'])
 const params = reactive({
   id:data.id,
@@ -23,11 +24,13 @@ const edite = () => {
     textArea.value.disabled = true
   }
 }
-
+function getTimeStamp(time){
+  return new Date(time).getTime()
+}
 </script>
 
 <template>
-  <div class="bg-white p-3 shadow-lg">
+  <div class="bg-white p-3 shadow-lg rounded">
     <form action="" @submit.prevent="edite">
       <div class="input-group flex flex-col justify-center gap-2">
         <label :for="`question-${index}`" class="text-gray-500"> سوال : </label>
@@ -57,6 +60,10 @@ const edite = () => {
             :disabled="!active"
           >حذف
         </button>
+      </div>
+      <div class="flex justify-between items-center mt-2">
+        <div class="text-[10px] text-gray-500 " v-if="data.createdAt">تاریخ ثبت : {{$date(data.createdAt)}}</div>
+        <div class="text-[10px] text-gray-500 " v-if="data.updatedAt && ((getTimeStamp(data.createdAt) - getTimeStamp(data.updatedAt)) != 0) ">تاریخ ویرایش : {{$date(data.updatedAt)}}</div>
       </div>
     </form>
   </div>
