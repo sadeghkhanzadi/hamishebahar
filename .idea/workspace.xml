@@ -4,167 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="660b6f52-792a-4916-b6f9-ad8af0bd2b70" name="Changes" comment="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 10 Commit&#10; create entity for site panel&#10; create dto &#10; create Activity and Links and Role and Permission and Question and ... &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/_font.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/pages/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/woff/IRANSansX-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/woff2/IRANSansX-Regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/woff2/iran_yekan_web_regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/about-us/top.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/about-us/ubder.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/breadcrumb/edublink-breadcrumb-bg.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/brow/brow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/error/404.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/boy-news.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/circle--boy-kid.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/circle-face.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/circle-face.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/circle-kid.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/enamad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/girl-news.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/last-card-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/last-card-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/last-card-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/saman.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/telent-face-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/telent-face-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/telent-face-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/face/telent-face.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/Irregular circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/blue-dot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/book.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/calender.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/card-border.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/card-cloud-border.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/card-cloud-top.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/card-cloud.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/card.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/cart-shopping.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/circle-width-shadow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/cloud-blue-sky.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/cloud-bottom.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/cloud.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/dot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/gallery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/gray-cloud.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/labratoar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/last-card-cloud.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/left-cloud.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/paint.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/pen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/red-dot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/red-square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/right-cloud.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/scissor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/sun.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/shape/wave.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/teachers/1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/teachers/1.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/teachers/2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/teachers/3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/teachers/4.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/teachers/course/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image/teachers/profile/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/style/_varible.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/style/ckEditor.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/style/main.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/style/varibles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/about-us/card.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/auth/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/auth/login.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/auth/signup.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/breadcrumb/header-title.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/breadcrumb/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/callMe.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/cards/teacherPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/cards/teachers-course.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/cards/teachers.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/breadcrumb/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/card/selectMedia.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/card/settings.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/filters/sortMedia.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/form/news.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/media/edite.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/media/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/modal/alert.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/modal/writeKey.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/navbar/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/navbar/navbar-items.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/search.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/settings/newUsers.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/showItem.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/student/newStudentForm.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/tableStudents.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/tableTeachers.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard/teachers/newTeacherForm.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/footer/default.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/header/default.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/header/navbarMobile.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/home/main/best-class.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/home/main/card/active.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/home/main/card/bestClassCard.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/home/main/card/education.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/home/main/card/newArticles.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/home/main/card/talentDiscovery.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/home/main/getNews.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/home/main/sectionOne.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/home/main/sectionTwo.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/htmlEditor.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/icons/brow.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/navbar/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/search.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/social-app.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composables/addOpacity.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composables/jwt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composables/setCookie.client.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composables/shapeMove.client.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/error.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/layouts/dashboard.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/layouts/default.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/layouts/header.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/authMiddleware.global.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nuxt.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/about-us.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/auth/login.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/auth/signup.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/contact-us.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/courses/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/dashboard.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/dashboard/educations.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/dashboard/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/dashboard/media.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/dashboard/messages/comments.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/dashboard/messages/emails.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/dashboard/messages/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/dashboard/news.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/dashboard/points.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/dashboard/settings/access-level.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/dashboard/settings/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/dashboard/students.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/dashboard/teachers.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/news.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/teachers/[id].vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/teachers/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/ckEditor.client.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/datePicker.client.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/toastification.client.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/logo/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/FetchHomeApi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/dashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+    <list default="true" id="660b6f52-792a-4916-b6f9-ad8af0bd2b70" name="Changes" comment="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: modify tags&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <change afterPath="$PROJECT_DIR$/components/dashboard/notFound/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard/textEditor/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/auth/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/auth/login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/dashboard/media.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/media.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/dashboard/settings/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/settings/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,6 +24,9 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="TypeScript File" />
+        <option value="JavaScript File" />
+        <option value="Vue Composition API Component" />
       </list>
     </option>
   </component>
@@ -195,6 +45,9 @@
     &quot;accountId&quot;: &quot;3c816c07-fdd0-48fd-a02e-83fb15742283&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/pages/dashboard/courses.vue" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
@@ -221,56 +74,70 @@
   </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
+    <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.NewsEventsService.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.SecurityConfig.executor&quot;: &quot;Debug&quot;,
-    &quot;Maven.hamishebahar [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.hamishebahar [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.hamishebahar [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.security [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.security [clean].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.SecurityApplication (1).executor&quot;: &quot;Debug&quot;,
-    &quot;Spring Boot.SecurityApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging front__developer&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/hamishebahar/security/deploy&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.NewsEventsService.executor": "Debug",
+    "Application.SecurityConfig.executor": "Debug",
+    "Maven.hamishebahar [clean,install].executor": "Run",
+    "Maven.hamishebahar [clean].executor": "Run",
+    "Maven.hamishebahar [install].executor": "Run",
+    "Maven.security [clean,install].executor": "Run",
+    "Maven.security [clean].executor": "Run",
+    "Node.js.Activities.js.executor": "Run",
+    "Node.js.home.js.executor": "Run",
+    "Node.js.index.js.executor": "Run",
+    "Node.js.multiselect.client.js.executor": "Run",
+    "Node.js.toastification.client.js.executor": "Run",
+    "Node.js.toastification.js.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.SecurityApplication (1).executor": "Debug",
+    "Spring Boot.SecurityApplication.executor": "Debug",
+    "git-widget-placeholder": "front__developer",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/hamishebahar/components/dashboard/modal",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.1.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ],
+    "vue.recent.templates": [
+      "Vue Composition API Component"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\hamishebahar\components\dashboard\modal" />
       <recent name="E:\hamishebahar\security\deploy" />
       <recent name="E:\hamishebahar" />
       <recent name="E:\hamishebahar\security\src\main\java\com\hamishebahar\security\panel\Links" />
       <recent name="E:\hamishebahar\security\src\main\java\com\hamishebahar\security\panel\contactUs" />
-      <recent name="E:\hamishebahar\security\src\main\resources\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\hamishebahar\pages\dashboard\courses" />
+      <recent name="D:\hamishebahar\pages\courses" />
       <recent name="E:\hamishebahar\security" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -278,6 +145,12 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="NewsEventsService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.hamishebahar.security.panel.news_events.service.NewsEventsService" />
       <module name="security" />
@@ -397,22 +270,24 @@
       <workItem from="1722341051776" duration="1138000" />
       <workItem from="1722459225373" duration="6598000" />
       <workItem from="1723182940199" duration="449000" />
-    </task>
-    <task id="LOCAL-00001" summary="USER_STORY: 1&#10;TASK_NUMBER: 1&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;First Commit&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
-      <option name="closed" value="true" />
-      <created>1713640292034</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1713640292034</updated>
-    </task>
-    <task id="LOCAL-00002" summary="USER_STORY: 1&#10;TASK_NUMBER: 1&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;First Commit&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
-      <option name="closed" value="true" />
-      <created>1713640302465</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1713640302465</updated>
+      <workItem from="1723183412428" duration="2736000" />
+      <workItem from="1723655666559" duration="2106000" />
+      <workItem from="1724237880522" duration="1358000" />
+      <workItem from="1724240141961" duration="30721000" />
+      <workItem from="1724788521969" duration="8137000" />
+      <workItem from="1724993337977" duration="1182000" />
+      <workItem from="1725009822257" duration="636000" />
+      <workItem from="1725010648159" duration="75000" />
+      <workItem from="1725014166316" duration="13207000" />
+      <workItem from="1725123410780" duration="51105000" />
+      <workItem from="1726128425611" duration="33973000" />
+      <workItem from="1727837142505" duration="75242000" />
+      <workItem from="1728309728478" duration="85000" />
+      <workItem from="1728309828453" duration="794000" />
+      <workItem from="1728310884689" duration="11812000" />
+      <workItem from="1728363004383" duration="22123000" />
+      <workItem from="1728489354369" duration="131000" />
+      <workItem from="1728619639203" duration="32480000" />
     </task>
     <task id="LOCAL-00003" summary="USER_STORY: 2&#10;TASK_NUMBER: 2&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; Second Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
       <option name="closed" value="true" />
@@ -558,11 +433,235 @@
       <option name="project" value="LOCAL" />
       <updated>1722287181654</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:خب اینجا نمیدونم داستان از چه قراره اما بنظر کامل ترین نسخه این نسخه &#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1723183737827</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1723183737827</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۲۲" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:add span tag for when we don't have props&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1724344091249</created>
+      <option name="number" value="LOCAL‎−۰۰۰۲۲" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۲۲" />
+      <updated>1724344091249</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۲۳" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:create question page in dashboard setting&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1724344157511</created>
+      <option name="number" value="LOCAL‎−۰۰۰۲۳" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۲۳" />
+      <updated>1724344157511</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۲۴" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:create question modal for add new question&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1724344202520</created>
+      <option name="number" value="LOCAL‎−۰۰۰۲۴" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۲۴" />
+      <updated>1724344202520</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۲۵" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:create question from for showing questions&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1724344455822</created>
+      <option name="number" value="LOCAL‎−۰۰۰۲۵" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۲۵" />
+      <updated>1724344455822</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۲۶" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:create page question from for showing questions modals and fetching data&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1724344507126</created>
+      <option name="number" value="LOCAL‎−۰۰۰۲۶" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۲۶" />
+      <updated>1724344507126</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۲۷" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:create dynamic page id for courses.vue&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728741519671</created>
+      <option name="number" value="LOCAL‎−۰۰۰۲۷" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۲۷" />
+      <updated>1728741519671</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۲۸" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:connect to api&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728741691253</created>
+      <option name="number" value="LOCAL‎−۰۰۰۲۸" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۲۸" />
+      <updated>1728741691253</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۲۹" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:connect to api&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728741804480</created>
+      <option name="number" value="LOCAL‎−۰۰۰۲۹" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۲۹" />
+      <updated>1728741804480</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۳۰" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:connect to api&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728741848491</created>
+      <option name="number" value="LOCAL‎−۰۰۰۳۰" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۳۰" />
+      <updated>1728741848491</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۳۱" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:create select options&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728741927455</created>
+      <option name="number" value="LOCAL‎−۰۰۰۳۱" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۳۱" />
+      <updated>1728741927455</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۳۲" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:add toast&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728741959457</created>
+      <option name="number" value="LOCAL‎−۰۰۰۳۲" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۳۲" />
+      <updated>1728741959457</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۳۳" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: date convertor to perstion&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742002429</created>
+      <option name="number" value="LOCAL‎−۰۰۰۳۳" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۳۳" />
+      <updated>1728742002429</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۳۴" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: connect to api&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742030516</created>
+      <option name="number" value="LOCAL‎−۰۰۰۳۴" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۳۴" />
+      <updated>1728742030516</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۳۵" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: add date convertor&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742093901</created>
+      <option name="number" value="LOCAL‎−۰۰۰۳۵" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۳۵" />
+      <updated>1728742093901</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۳۶" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  modify ck editor&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742141115</created>
+      <option name="number" value="LOCAL‎−۰۰۰۳۶" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۳۶" />
+      <updated>1728742141115</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۳۷" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  modify middleWare&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742210950</created>
+      <option name="number" value="LOCAL‎−۰۰۰۳۷" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۳۷" />
+      <updated>1728742210950</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۳۸" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  add store for dashboard&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742256776</created>
+      <option name="number" value="LOCAL‎−۰۰۰۳۸" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۳۸" />
+      <updated>1728742256776</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۳۹" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  add  link for dashboard page&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742286082</created>
+      <option name="number" value="LOCAL‎−۰۰۰۳۹" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۳۹" />
+      <updated>1728742286082</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۴۰" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  modify format showing display&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742339973</created>
+      <option name="number" value="LOCAL‎−۰۰۰۴۰" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۴۰" />
+      <updated>1728742339973</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۴۱" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  create store for dashboard media&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742399440</created>
+      <option name="number" value="LOCAL‎−۰۰۰۴۱" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۴۱" />
+      <updated>1728742399440</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۴۲" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  add baseUrl for server mode&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742443600</created>
+      <option name="number" value="LOCAL‎−۰۰۰۴۲" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۴۲" />
+      <updated>1728742443600</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۴۳" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  update pinia&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742526637</created>
+      <option name="number" value="LOCAL‎−۰۰۰۴۳" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۴۳" />
+      <updated>1728742526637</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۴۴" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  add ckEditor&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742551461</created>
+      <option name="number" value="LOCAL‎−۰۰۰۴۴" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۴۴" />
+      <updated>1728742551461</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۴۵" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  add toastify package&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742651332</created>
+      <option name="number" value="LOCAL‎−۰۰۰۴۵" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۴۵" />
+      <updated>1728742651332</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۴۶" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: update pinia&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742672363</created>
+      <option name="number" value="LOCAL‎−۰۰۰۴۶" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۴۶" />
+      <updated>1728742672363</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۴۷" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: add ck Editor&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742701894</created>
+      <option name="number" value="LOCAL‎−۰۰۰۴۷" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۴۷" />
+      <updated>1728742701894</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۴۸" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: add toastify&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742720219</created>
+      <option name="number" value="LOCAL‎−۰۰۰۴۸" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۴۸" />
+      <updated>1728742720219</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۴۹" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: add ckEditor&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742751555</created>
+      <option name="number" value="LOCAL‎−۰۰۰۴۹" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۴۹" />
+      <updated>1728742751555</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۵۰" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: create ckEditor&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742810395</created>
+      <option name="number" value="LOCAL‎−۰۰۰۵۰" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۵۰" />
+      <updated>1728742810396</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۵۱" summary="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: modify tags&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
+      <option name="closed" value="true" />
+      <created>1728742902182</created>
+      <option name="number" value="LOCAL‎−۰۰۰۵۱" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۵۱" />
+      <updated>1728742902182</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.configurationType" implementationName="Application" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:nuxt" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:vue" />
+    <option featureType="com.intellij.configurationType" implementationName="SpringBootApplicationConfigurationType" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ID_ORDER">
@@ -588,16 +687,48 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="USER_STORY: 1&#10;TASK_NUMBER: 1&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;First Commit&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
-    <MESSAGE value="USER_STORY: 2&#10;TASK_NUMBER: 2&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; Second Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
-    <MESSAGE value="USER_STORY: 3&#10;TASK_NUMBER: 3&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 4 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
-    <MESSAGE value="USER_STORY: 4&#10;TASK_NUMBER: 4&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 5 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
-    <MESSAGE value="USER_STORY: 5&#10;TASK_NUMBER: 5&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 6 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
-    <MESSAGE value="USER_STORY: 6&#10;TASK_NUMBER: 6&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
-    <MESSAGE value="USER_STORY: 7&#10;TASK_NUMBER: 7&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 7 Commit&#10; create entity for site panel&#10; create dto &#10; create AboutUs and ContactUs &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
-    <MESSAGE value="USER_STORY: 8&#10;TASK_NUMBER: 8&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 8 Commit&#10; create entity for site panel&#10; create dto &#10; create AboutUs and ContactUs &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
-    <MESSAGE value="USER_STORY: 9&#10;TASK_NUMBER: 9&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 9 Commit&#10; create entity for site panel&#10; create dto &#10; create Icons and Links &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
-    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 10 Commit&#10; create entity for site panel&#10; create dto &#10; create Activity and Links and Role and Permission and Question and ... &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 10 Commit&#10; create entity for site panel&#10; create dto &#10; create Activity and Links and Role and Permission and Question and ... &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:create question from for showing questions&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:create page question from for showing questions modals and fetching data&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:create dynamic page id for courses.vue&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:connect to api&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:create select options&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:add toast&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: date convertor to perstion&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: connect to api&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: add date convertor&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  modify ck editor&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  modify middleWare&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  add store for dashboard&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  add  link for dashboard page&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  modify format showing display&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  create store for dashboard media&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  add baseUrl for server mode&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  update pinia&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  add ckEditor&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT:  add toastify package&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: update pinia&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: add ck Editor&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: add toastify&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: add ckEditor&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: create ckEditor&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <MESSAGE value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: modify tags&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="USER_STORY: 10&#10;TASK_NUMBER: 10&#10;BUG_NUMBER: 0&#10;COMMENT: modify tags&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/index.vue</url>
+          <line>1</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/dashboard/settings/about-us/index.vue</url>
+          <line>20</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
