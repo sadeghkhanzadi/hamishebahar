@@ -31,10 +31,10 @@ const card = [
     link:"/dashboard/settings/user-manager"
   },
   {
-    title:"لینک ها",
+    title:"شبکه های اجتماعی",
     color:"#1dd1a1",
     icon:"link",
-    link:"/dashboard/settings/links"
+    link:"/dashboard/settings/social-media"
   },
   {
     title:"آدرس",
@@ -45,7 +45,7 @@ const card = [
   {
     title:"سولات متداول",
     color:"#0652DD",
-    icon:"map-location-dot",
+    icon:"circle-question",
     link:"/dashboard/settings/questions"
   },
   {
@@ -53,6 +53,18 @@ const card = [
     color:"#009432",
     icon:"universal-access",
     link:"/dashboard/settings/access-level"
+  },
+  {
+    title:"آیکون ها",
+    color:"#AF47D2",
+    icon:"icons",
+    link:"/dashboard/settings/icons"
+  },
+  {
+    title:"فعالیت ها",
+    color:"#FF5F00",
+    icon:"icons",
+    link:"/dashboard/settings/activities"
   },
 ]
 </script>
