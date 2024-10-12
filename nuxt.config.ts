@@ -2,6 +2,7 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
   runtimeConfig: {
+    baseUrl:'https://hamishebahar-service.liara.run',
     public: {
       apiBaseUrl:'https://hamishebahar-service.liara.run'
     }
