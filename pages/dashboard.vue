@@ -50,6 +50,16 @@ const data = [
     icon:"fa-star"
   },
   {
+    name: "دسته بندی ها ",
+    link: "/dashboard/categories",
+    icon:"fa-layer-group"
+  },
+  {
+    name: "کلاس ها  ",
+    link: "/dashboard/courses",
+    icon:"fa-clipboard-list"
+  },
+  {
     name: "پیام ها",
     link: "/dashboard/messages",
     icon:"fa-envelope",
@@ -111,7 +121,7 @@ const icon = [
     <div>
       <dashboard-navbar/>
     </div>
-    <main class="md:grid grid-cols-5" >
+    <main class="md:grid grid-cols-6" >
       <aside class="hidden md:block md:col-span-2 lg:col-span-1  " >
         <div class="navbar-aside p-10  ">
           <ul class=" flex flex-col gap-1">
@@ -119,7 +129,7 @@ const icon = [
           </ul>
         </div>
       </aside>
-      <div class="bg-gray-50 p-5 w-full rounded-lg  md:col-span-3 lg:col-span-4 ">
+      <div class="bg-gray-50 p-5 w-full rounded-lg  md:col-span-4 lg:col-span-5 ">
         <nuxt-page/>
       </div>
     </main>
