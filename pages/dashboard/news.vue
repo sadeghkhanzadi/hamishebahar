@@ -11,6 +11,7 @@ const removeNewsTitle = ref()
 const editNewsId = ref()
 const news = ref([])
 const pendingRequest = ref(false)
+const {$date} = useNuxtApp()
 getNews()
 const tableData = ref({
   thead: [
@@ -219,9 +220,9 @@ function refreshPageData() {
           <td>{{ index + 1 }}</td>
           <td>{{ item.title }}</td>
           <td>{{ item.text.length > 30 ? item.text.substr(0, 30) + '...' : item.text }}</td>
-          <td>{{ item.startDate }}</td>
-          <td>{{ item.endDate }}</td>
-          <td>{{ item.updatedAt }}</td>
+          <td>{{ $date(item.startDate) }}</td>
+          <td>{{ $date(item.endDate) }}</td>
+          <td>{{ $date(item.updatedAt) }}</td>
           <td class="  rounded status"><span
               :class="` w-fit mx-auto px-3 py-1 rounded ${ item.is_active ? 'bg-blue-500' :'bg-red-500'}`">{{
               item.is_active === true ? 'فعال' : "غیرفعال"
