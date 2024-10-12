@@ -1,7 +1,6 @@
 // import {useToast} from "vue-toastification";
 
 export default defineNuxtRouteMiddleware((to, from) => {
-    // const toast = useToast()
     const cookie = useCookie('jwt')
 if (to.path.startsWith('/dashboard') && cookie.value){
         return
