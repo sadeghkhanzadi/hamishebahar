@@ -1,5 +1,5 @@
 <script setup >
-import {useDashboardMedia} from "~/store/dashboard";
+import {useDashboardMedia} from "~/store/dashboard/mediaSelector.js";
 const {status} = defineProps(['status'])
 const emit = defineEmits(['close', 'selectFile'])
 const apiBaseUrl = useState('apiBaseUrl').value
@@ -45,8 +45,8 @@ function handleMedia(){
       <div class="modal-body grid grid-cols-12 gap-5">
         <div class="card-media relative col-span-6 md:col-span-4 lg:col-span-3 rounded overflow-hidden cursor-pointer"
              v-for="(item , index) in getMedia" :key="index" @click="selectFile(index , item)" ref="mediaCards">
-          <div><img :src="`${apiBaseUrl}/api/v1/view/media/download/${item.pathFile}`" :alt="item.name"></div>
-          <div class="title"><h4>{{ item.name }}</h4></div>
+          <figure class="w-full "><img class="w-full h-full object-contain" :src="`${apiBaseUrl}/api/v1/view/media/download/${item.pathFile}`" :alt="item.name"></figure>
+          <div class="title text-center"><h4>{{ item.name }}</h4></div>
         </div>
       </div>
       <div class="w-full flex flex-wrap gap-2 py-2 px-3 mt-5  bg-blue-400 text-white rounded hover:bg-blue-500 transition duration-200 ease-linear cursor-pointer ">
@@ -57,6 +57,10 @@ function handleMedia(){
 </template>
 
 <style scoped lang="scss">
+.card-media{
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 3px;
+}
 .media-content{
   overflow: auto;
 }
