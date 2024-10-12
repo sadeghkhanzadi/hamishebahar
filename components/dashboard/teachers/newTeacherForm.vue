@@ -2,7 +2,7 @@
 const {event, get, edit, create, pending } = defineProps(['event', 'get', 'edit', 'create', 'pending'])
 const apiBaseUrl = useState('apiBaseUrl').value
 const cookie = useCookie('jwt')
-const emit = defineEmits(['close', 'sendData'])
+const emit = defineEmits(['close', 'sendData' , 'edit'])
 const showMedia = ref(false)
 const status = ref(true)
 const form = reactive({
@@ -87,7 +87,7 @@ const handleAddNews = () => {
       emit('sendData', form, 'create')
     }
     if (edit){
-      emit('sendData', form, 'edit')
+      emit('edit', form, 'edit')
     }
   }
 }

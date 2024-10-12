@@ -12,7 +12,7 @@ const form = reactive({
   is_active: true,
   nationalCode:"",
   phoneNumber:"",
-  accessLevel:[]
+  accessPoints:""
 })
 const formError = reactive({
   name: false,
@@ -80,7 +80,7 @@ function showPasswordKey(){
 </script>
 
 <template>
-  <div class="modal-backdrop overflow-auto" @click.self="emit('close')">
+  <div class="modal-backdrop overflow-auto px-3" @click.self="emit('close')">
     <div class="modal-content mx-auto p-5 bg-white rounded ">
       <div class="text-center  mt-2 mb-10">
         <h1>{{ event }}</h1>
@@ -123,7 +123,14 @@ function showPasswordKey(){
             <p v-if="formError.email" class="error">لطفا ایمیل را وارد کنید</p>
           </section>
         </section>
-        <section class="input-group w-full flex flex-col gap-2">
+        <div class="flex flex-col gap-1.5">
+          <label for="accessPoints" class="">سطح دسترسی :</label>
+          <select id="accessPoints" v-model="form.accessPoints" class="flex w-full border-gray-300 py-1 px-2 text-sm rounded  border">
+            <option value="user">کاربر</option>
+            <option value="admin">ادمین</option>
+          </select>
+        </div>
+        <section class="input-group w-full flex flex-col gap-2" v-if="false">
           <h5 >سطح دسترسی :</h5>
           <div class="flex items-center gap-2">
             <input value="OP_ACCESS_ADMIN" type="checkbox" class="w-4 h-4" v-model="form.accessLevel" id="status">
