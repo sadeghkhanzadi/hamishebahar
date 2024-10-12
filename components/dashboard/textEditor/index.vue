@@ -5,9 +5,9 @@
 <script>
 import { ref } from 'vue';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import {
-  // ... سایر پلاگین‌ها
-} from '@ckeditor/ckeditor5-build-classic';
+// import {
+//   // ... سایر پلاگین‌ها
+// } from '@ckeditor/ckeditor5-build-classic';
 
 export default {
   setup() {
