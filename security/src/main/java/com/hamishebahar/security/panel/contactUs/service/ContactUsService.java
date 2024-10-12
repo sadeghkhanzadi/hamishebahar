@@ -149,7 +149,11 @@ public class ContactUsService {
 
     public ResultsServiceDto findOne() throws HamisheBaharException {
         try {
-            ContactUsDto contactUsDto = contactUsRepository.findAll().get(0).convertToDto();
+            ContactUsDto contactUsDto = null;
+            List<ContactUs> contactUs = contactUsRepository.findAll();
+            if (!contactUs.isEmpty()){
+                contactUsDto = contactUs.get(0).convertToDto();
+            }
             return new ResultsServiceDto.Builder().Result(contactUsDto).Status(HttpStatus.OK).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
@@ -159,7 +163,12 @@ public class ContactUsService {
 
     public ContactUsDto getOne() throws HamisheBaharException {
         try {
-            return contactUsRepository.findAll().get(0).convertToDto();
+            ContactUsDto contactUsDto = null;
+            List<ContactUs> contactUs = contactUsRepository.findAll();
+            if (!contactUs.isEmpty()){
+                contactUsDto = contactUs.get(0).convertToDto();
+            }
+            return contactUsDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                     BundleManager.wrapKey("error.server"));

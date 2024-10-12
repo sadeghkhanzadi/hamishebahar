@@ -116,7 +116,12 @@ public class AboutUsPlansService {
 
     public AboutUsPlansDto getOne() throws HamisheBaharException {
         try {
-            return aboutUsPlansRepository.findAll().get(0).convertToDto();
+            AboutUsPlansDto aboutUsPlansDto = null;
+            List<AboutUsPlans> aboutUsPlans = aboutUsPlansRepository.findAll();
+            if (!aboutUsPlans.isEmpty()){
+                aboutUsPlans.get(0).convertToDto();
+            }
+            return aboutUsPlansDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                     BundleManager.wrapKey("error.server"));

@@ -5,10 +5,13 @@ import com.hamishebahar.security.commonts.Dto.CategoryDto;
 import com.hamishebahar.security.commonts.Dto.ResultsServiceDto;
 import com.hamishebahar.security.commonts.bundel.BundleManager;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
+import com.hamishebahar.security.panel.aboutUs.entity.AboutUs;
 import com.hamishebahar.security.panel.aboutUs.repository.AboutUsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AboutUsService {
@@ -108,7 +111,11 @@ public class AboutUsService {
 
     public ResultsServiceDto findOne() throws HamisheBaharException {
         try {
-            AboutUsDto aboutUsDto = aboutUsRepository.findAll().get(0).convertToDto();
+            AboutUsDto aboutUsDto = null;
+            List<AboutUs> aboutUs = aboutUsRepository.findAll();
+            if (!aboutUs.isEmpty()){
+                aboutUsDto = aboutUs.get(0).convertToDto();
+            }
             return new ResultsServiceDto.Builder().Result(aboutUsDto).Status(HttpStatus.OK).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
@@ -118,7 +125,12 @@ public class AboutUsService {
 
     public AboutUsDto getOne() throws HamisheBaharException {
         try {
-            return aboutUsRepository.findAll().get(0).convertToDto();
+            AboutUsDto aboutUsDto = null;
+            List<AboutUs> aboutUs = aboutUsRepository.findAll();
+            if (!aboutUs.isEmpty()){
+                aboutUsDto = aboutUs.get(0).convertToDto();
+            }
+            return aboutUsDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
                     BundleManager.wrapKey("error.server"));
