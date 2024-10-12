@@ -1,5 +1,5 @@
 <script setup >
-import {useDashboardMedia} from "~/store/dashboard";
+import {useDashboardMedia} from "~/store/dashboard/mediaSelector.js";
 const store = useDashboardMedia()
 const showFilterMedia = ref(false)
 const editCard = ref(false)
@@ -98,7 +98,7 @@ async function insertMedia(media){
   }
 }
 async function deleteMedia(id){
-  const {data , status , error} = await useAsyncData('sendData' , ()=> $fetch(`${apiBaseUrl}/api/v1/media/${id}`,{
+  const {data , status , error} = await useAsyncData('removeData' , ()=> $fetch(`${apiBaseUrl}/api/v1/media/${id}`,{
     method:'DELETE',
     headers:{
       Authorization:`${cookie.value}`
