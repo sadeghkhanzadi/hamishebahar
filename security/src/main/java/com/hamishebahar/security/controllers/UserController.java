@@ -108,7 +108,7 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(Authorization);
     }
 
-    @PostMapping(USER_FIND_WITH_TOKEN)
+    @GetMapping(USER_FIND_WITH_TOKEN)
     @PreAuthorize("authentication.name == #principal.name")
     public ResponseEntity<?> findUser(Principal principal){
         return ResponseEntity.status(HttpStatus.OK).body(principal);

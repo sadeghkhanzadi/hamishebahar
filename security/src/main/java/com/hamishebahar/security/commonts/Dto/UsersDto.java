@@ -4,6 +4,7 @@ import com.hamishebahar.security.users.entity.Users;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -120,7 +121,7 @@ public class UsersDto {
                 .Email(getEmail())
                 .PhoneNumber(getPhoneNumber())
                 .NationalCode(getNationalCode())
-                .Password(getPassword())
+                .Password(new BCryptPasswordEncoder().encode(getPassword()))
                 .Name(getName())
                 .Picture(getPicture())
                 .Enabled(getEnabled())

@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import javax.persistence.*;
@@ -280,17 +281,17 @@ public class Users implements Serializable, UserDetails, OAuth2User {
                 .Email(getEmail())
                 .PhoneNumber(getPhoneNumber())
                 .NationalCode(getNationalCode())
-                .Password(getPassword())
+//                .Password(new BCryptPasswordEncoder().encode(getPassword()))
                 .Name(getName())
                 .Picture(getPicture())
                 .Enabled(getEnabled())
                 .Roles(roles != null && !roles.isEmpty() ? getRoles().stream()
                         .map(Roles::convertToDto)
                         .collect(Collectors.toList()) : null)
-                .CreatedAt(getCreatedAt() != null ? getCreatedAt().
-                        format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL)) : null)
-                .UpdatedAt(getUpdatedAt() != null ? getUpdatedAt()
-                        .format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL)) : null)
+                .CreatedAt(getCreatedAt() != null ? getCreatedAt().toString() : null)
+                .UpdatedAt(getUpdatedAt() != null ? getUpdatedAt().toString() : null)
                 .build();
     }
+
+
 }
