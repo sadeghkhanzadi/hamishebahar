@@ -80,7 +80,7 @@ function handleSubmit(){
     <form action="" @submit.prevent="handleSubmit">
       <div class="input-group flex flex-col gap-1 mt-2">
         <label for="icon">آیکون :</label>
-        <select-option @send-data="params.icon = $event" :currentItem="icon" :data="icons" curentIcon=""/>
+        <select-option @send-data="params.icon = $event" :currentItem="icon" :data="icons" />
         <span class="text-xs text-red-500 text-right" v-if="error.icon">لطفا کادر بالا را پر کنید</span>
       </div>
       <div class="input-group flex  flex-col gap-1 mt-2">

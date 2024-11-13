@@ -30,10 +30,10 @@ function leave() {
         </div>
         <div class="card-body flex flex-col">
           <nuxt-link to="">
-            <div class="title text-end">
+            <div class="title">
               <h3>{{ props.data.name }}</h3>
             </div>
-            <div class="text text-end">
+            <div class="text text-justify">
               <p>{{ props.data.text }}</p>
             </div>
           </nuxt-link>

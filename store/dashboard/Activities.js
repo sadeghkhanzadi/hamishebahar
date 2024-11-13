@@ -9,7 +9,8 @@ export const useDashboardActivitiesStore = defineStore('useDashboardActivitiesSt
             showNewActivityModal:false,
             showAlert:false,
             removeId:"",
-            disabled:true
+            disabled:true,
+            // toast:useNuxtApp().$toast
         }
     },
     getters: {
@@ -25,8 +26,8 @@ export const useDashboardActivitiesStore = defineStore('useDashboardActivitiesSt
 
     },
     actions:{
-
         async fetchingActivities(){
+
             console.log('fetching')
             const {data ,status, error} = await useAsyncData('getActivity', () => $fetch(`${this.apiBaseUrl}/api/v1/view/activity`))
             if (status.value === 'success') {
@@ -45,12 +46,13 @@ export const useDashboardActivitiesStore = defineStore('useDashboardActivitiesSt
                 body: JSON.stringify(obj)
             }))
             if (status.value === 'success') {
-                // toast.success('درخواست شما با موفقیت ثبت شد.')
+                useNuxtApp().$toast.success('درخواست شما با موفقیت ثبت شد.')
                 this.showNewActivityModal = false
                await this.fetchingActivities()
             }
             if (error.value) {
                 console.log(error.value)
+                useNuxtApp().$toast.warning('دروخواست شما با خطا مواجه شد لطفا مجدد امتحان کنید .')
             }
         },
         async removeActivities(result ){
@@ -60,11 +62,11 @@ export const useDashboardActivitiesStore = defineStore('useDashboardActivitiesSt
                     headers: {authorization: `${this.cookie}`},
                 }))
                 if (status.value === 'success') {
-                    // toast.success('آیتم مورد نظر با موفقیت حذف شد .')
+                    useNuxtApp().$toast.success('آیتم مورد نظر با موفقیت حذف شد .')
                    await this.fetchingActivities()
                 }
                 if (error.value) {
-                    // toast.success('دروخواست شما با خطا مواجه شد لطفا مجدد امتحان کنید .')
+                    useNuxtApp().$toast.warning('دروخواست شما با خطا مواجه شد لطفا مجدد امتحان کنید .')
                     console.log(error.value)
                 }
             }
@@ -79,12 +81,12 @@ export const useDashboardActivitiesStore = defineStore('useDashboardActivitiesSt
                     body: JSON.stringify(result)
                 }))
                 if (status.value === 'success') {
-                    // toast.success('آیتم مورد نظر با موفقیت حذف شد .')
+                    useNuxtApp().$toast.success('تغییرات با موفقیت اعمال شد .')
                    await this.fetchingActivities()
                     this.disabled = true
                 }
                 if (error.value) {
-                    // toast.success('دروخواست شما با خطا مواجه شد لطفا مجدد امتحان کنید .')
+                    useNuxtApp().$toast.warning('دروخواست شما با خطا مواجه شد لطفا مجدد امتحان کنید .')
                     console.log(error.value)
                 }
             }
