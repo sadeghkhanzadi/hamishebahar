@@ -3,6 +3,7 @@ import shapeMove from "~/composables/shapeMove.client"
 import last_card_1 from "assets/image/face/last-card-1.jpg";
 import last_card_2 from "assets/image/face/last-card-2.jpg";
 import last_card_3 from "assets/image/face/last-card-3.jpg";
+import {useNewsStore} from "~/store/front/news";
 const breadcrumb ={
     title:"اخبار و رویداد ها",
   breadcrumb:[
@@ -11,6 +12,7 @@ const breadcrumb ={
     }
   ]
 }
+const {$dateAndMonth}=useNuxtApp()
 onMounted(()=>{
   shapeMove()
 })
@@ -68,6 +70,9 @@ const categories = [
     text:"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."
   },
 ]
+const store = useNewsStore()
+store.fetchingNews()
+ const news = computed(()=>store.getNews)
 </script>
 
 <template>
@@ -84,7 +89,7 @@ const categories = [
     <icons-brow/>
   </div>
   <div class="grid grid-cols-12 mx-auto w-[92%] md:w-[80%] lg:w-2/3 gap-5 lg:gap-10">
-    <home-main-card-new-articles  v-for="(item , index) in categories" :key="index" :data="item" class="col-span-12 md:col-span-6 lg:col-span-4" />
+    <home-main-card-new-articles v-if="news && news.content && news.content.length"  v-for="(item , index) in news.content" :key="index" :data="item" class="col-span-12 md:col-span-6 lg:col-span-4" />
   </div>
 </div>
 </section>

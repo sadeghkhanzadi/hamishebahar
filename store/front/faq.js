@@ -1,17 +1,22 @@
 import {defineStore} from "pinia";
-export const useHomeStore = defineStore('useHomeStore', {
+export const useFaqStore = defineStore('useFaqStore', {
     state() {
         return {
             apiBaseUrl: useRuntimeConfig().public.apiBaseUrl,
             faq: ""
         }
     },
+    getters:{
+        getFaq(state) {
+            return state.faq;
+        }
+    },
     actions:{
         async fetchingFAQ(){
-            const {data , error , status} = await useAsyncData('faqFetching' , ()=>$fetch(`${this.apiBaseUrl}/api/v1/view/question `))
+            const {data , error , status} = await useAsyncData('faqFetching' , ()=>$fetch(`/api/faq`))
             if (status.value === 'success'){
                 this.faq=data.value.result
-                console.log(this.faq)
+                console.log(data)
             }
             if(status.value === 'fail'|| error.value ){
                 console.log(error.value)

@@ -1,0 +1,8 @@
+.vpd-time .vpd-down-arrow-btn, .vpd-time .vpd-up-arrow-btn {
+    display: flex;
+    justify-content: center;
+}
+.vpd-controls button {
+    display: flex;
+    justify-content: space-around;
+}
