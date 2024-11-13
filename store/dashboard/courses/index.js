@@ -42,7 +42,8 @@ export const useDashboardCoursesStore = defineStore('useDashboardCoursesStore', 
             }))
             if (status.value === 'success'){
                 console.log(data.value)
-                this.toast.success('آیتم با موفقیت ثبت شد')
+                // this.toast.success('آیتم با موفقیت ثبت شد')
+                navigateTo({path:'/dashboard/courses'})
             }
             if (error.value){
                 console.log(error.value)
@@ -101,7 +102,7 @@ export const useDashboardCoursesStore = defineStore('useDashboardCoursesStore', 
             }))
             if (status.value === 'success'){
                 await this.fetchingCourses()
-                this.toast.success('آیتم با موفقیت ویرایش شد')
+                // this.toast.success('آیتم با موفقیت ویرایش شد')
                 navigateTo('/dashboard/courses')
             }
             if (error.value){

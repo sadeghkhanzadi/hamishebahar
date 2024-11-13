@@ -1,5 +1,6 @@
 <script setup lang="js">
 import {useDashboardCoursesStore} from "~/store/dashboard/courses/index.js";
+import {useDashboardTeachersStore} from "~/store/dashboard/teachers/index.js";
 const store = useDashboardCoursesStore()
 store.fetchingCourses()
 const data = computed(()=>store.getCourses)
@@ -22,7 +23,7 @@ const data = computed(()=>store.getCourses)
 <template>
 <section class="classes flex flex-col gap-y-5">
   <div class="new-class">
-    <button @click="showModal = true"  class="text-sm text-white rounded bg-blue-500 px-3 py-2 float-left">کلاس جدید</button>
+    <nuxt-link to="/dashboard/courses/create"  class="text-sm text-white rounded bg-blue-500 px-3 py-2 float-left">کلاس جدید</nuxt-link>
   </div>
   <dashboard-courses-table :data="data" @delete="showRemoveItemModal"/>
   <transition name="show-modal">
