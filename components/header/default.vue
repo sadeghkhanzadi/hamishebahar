@@ -95,12 +95,26 @@ onMounted(() => {
   watch(showAuth, () => {
     showAuth.value ? document.body.classList.add("overflow-hidden") : document.body.classList.remove("overflow-hidden")
   })
+
+  /*start header animation*/
+  const body = document.body
+  const header = document.querySelector('#fixed-header')
+  let currentHeightHeader = 0
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 150) {
+      header.classList.add('fixed-header')
+    } else {
+      header.classList.remove('fixed-header')
+    }
+    currentHeightHeader = window.scrollY
+  })
+  /*end header animation*/
+
 })
 watch(() => route.name, () => {
   if (showNavbarMobile.value) {
     showNavbarMobile.value = false
   }
-
 })
 
 function login() {
@@ -115,7 +129,7 @@ function login() {
 </script>
 
 <template>
-  <div class="header" :class="{addCloud : route.path === '/'}">
+  <div id="fixed-header" class="header" :class="{addCloud : route.path === '/'}">
     <div
         class=" w-[95%] md:w-[90%] max-w-screen-2xl  mx-auto flex justify-between lg:mx-5 xl:mx-auto items-center xl:items-center px-5 sm:px-7 lg:px-0 py-5 gap-10   header-container relative ">
       <div class="navbar-brand flex items-center">
@@ -160,7 +174,7 @@ function login() {
               <search v-if="search" @close-search ="search = false" />
             </div>
           </li>
-          <li class="nav-item shop-box  ">
+          <li class="nav-item shop-box  " v-if="false">
             <nuxt-link class="nav-link hidden md:block" to="">
               <figure>
                 <img :src="data.icon.shop" alt="cart-shopping">
@@ -509,6 +523,30 @@ h1 {
   transition: transform 0.5s ease;
 
 }
+
+
+/*start header animation*/
+.fixed-header {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  top: -100px;
+  background: #fff;
+  right: 0;
+  left: 0;
+  z-index: 50;
+  padding-bottom: 10px;
+  animation: fixed-header linear 0.5s forwards;
+}
+
+@keyframes fixed-header {
+  from {
+    top: -100px;
+  }
+  to {
+    top: -2px;
+  }
+}
+/*end header animation*/
 
 
 @media screen and (min-width: 1800px) {
