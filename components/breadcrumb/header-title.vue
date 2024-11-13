@@ -10,9 +10,9 @@ const props  = defineProps(['data', 'img'])
     <div class="inner-container relative w-full h-full flex items-center justify-center overflow-hidden">
       <div class="content flex flex-col items-center justify-center gap-4">
         <div class="title " >
-          <h3>{{data.title}}</h3>
+          <h1 v-if="data.title">{{data.title}}</h1>
         </div>
-        <div class="breadcrumb z-[1]">
+        <div class="breadcrumb z-[0]">
           <lazy-breadcrumb :color="color" class="" :data="data.breadcrumb"/>
         </div>
       </div>
@@ -40,7 +40,7 @@ const props  = defineProps(['data', 'img'])
 
 .title {
   font-size: var(--title-5xl);
-  z-index: 1;
+  z-index: 0;
   font-weight: var(--font-bold);
   color: v-bind(color);
   @media screen and (max-width: 768px) {
