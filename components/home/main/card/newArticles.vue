@@ -1,47 +1,47 @@
 <script setup lang="ts">
-const props = defineProps(['data'])
+const {data} = defineProps(['data'])
+const {$dateAndMonth}=useNuxtApp()
+
 </script>
 
 <template>
-  <div>
-    <div class="card " v-if="props.data" data-aos="fade-up">
+    <div class="card " v-if="data" data-aos="fade-up">
       <div class="card-header  relative">
         <div class="link flex justify-center items-center arrow-link absolute ">
           <nuxt-link class="flex items-center justify-center" to=""><i class="fa-solid fa-arrow-right flex items-center fa-lg text-white"/></nuxt-link>
         </div>
-        <nuxt-link class="w-full h-full" to="">
-          <figure class="w-full h-full">
-            <img class="w-full h-full object-cover" :src="props.data.img" alt="">
+        <nuxt-link class="w-full " to="">
+          <figure class="w-full ">
+            <img class="w-full object-cover" :src="showImage(data.medias[0].pathFile)" :alt="data.title">
           </figure>
         </nuxt-link>
       </div>
       <div class="card-body relative flex flex-col gap-4 ">
         <div class="type xl:mt-4">
-          <nuxt-link to="">{{ props.data.subject }}</nuxt-link>
+          <nuxt-link to="">{{}}</nuxt-link>
         </div>
         <div class="subject">
           <h2>
-            <nuxt-link to="">{{ props.data.title }}</nuxt-link>
+            <nuxt-link to="">{{ data.title }}</nuxt-link>
           </h2>
         </div>
         <ul class="info">
           <li class="flex gap-3">
             <div class="flex gap-2">
               <span><i :class="`fa-solid fa-calendar`"></i></span>
-              <span>{{ props.data.dateText }}</span>
+              <span>{{ $dateAndMonth(data.createdAt) }}</span>
             </div>
             <div class="divider"></div>
             <div class="flex gap-2">
               <span><i :class="`fa-solid fa-comment`"></i></span>
               <span class="lesson">نظرات</span>
-              <span>{{ props.data.commentCount }}</span>
+              <span>{{  }}</span>
             </div>
           </li>
         </ul>
-        <div class="text"><p>{{ props.data.text }}</p></div>
+        <div class="text"><p>{{ data.text }}</p></div>
       </div>
     </div>
-  </div>
 </template>
 
 <style scoped lang="scss">
@@ -66,7 +66,6 @@ const props = defineProps(['data'])
       height: 100%;
       background-color: rgba(0,0,0,0.5);
       opacity: 0;
-
     }
     .arrow-link {
       width: 60px;
