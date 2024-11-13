@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import book from "~/assets/image/shape/book.png"
 import laboratory from "~/assets/image/shape/labratoar.png"
-// import {useToast} from "vue-toastification";
+const {$toast} = useNuxtApp()
 
-// const Toast = useToast()
 const time = new Date()
 const cookie = useCookie('jwt', {
   expires: new Date(time.getTime() + (60 * 60 * 24 * 1000))
@@ -60,18 +59,18 @@ async function handleSubmit() {
       cookie.value = data.value
       navigateTo({path: '/dashboard'})
       if (process.client) {
-        // Toast.success('با موفقیت وارد شدید.')
+         $toast.success('با موفقیت وارد شدید.')
       }
     }
     if (error.value) {
       console.log(error)
       if (error.value.statusCode === 400 || '400') {
         if (process.client) {
-          // Toast.error('نام کاربری یا رمز عبور اشتباه است .')
+           $toast.error('نام کاربری یا رمز عبور اشتباه است .')
         }
       } else {
         if (process.client) {
-          // Toast.error('سیستم قادر به پاسخگویی نمیباشد لطفا مجددا تلاش کنید.')
+          $toast.error('سیستم قادر به پاسخگویی نمیباشد لطفا مجددا تلاش کنید.')
         }
       }
     }
