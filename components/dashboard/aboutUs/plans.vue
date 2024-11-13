@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import {useDashboardAboutUsPlansStore} from "~/store/dashboard/aboutUs/plans";
-
-const store = useDashboardAboutUsPlansStore()
 const emit = defineEmits(['sendData' , 'remove','cancel'])
 const {plans , id , text  ,disabled} = defineProps({
   plans:{
@@ -45,14 +42,9 @@ function filterPlans(index) {
 }
 
 function handlePlansForm() {
-  emit(
-      'sendData',
-      {
-        text: params.text,
-        activities: params.plans,
-        planTitle:'TASKS'
-      })
-}
+  const obj ={text: params.text, activities: params.plans, planTitle:'TASKS'}
+  id?obj.id=id :"" //اگر درحالت ویرایش باشد ای دی رو نمیفرسته
+  emit('sendData',obj)}
 function refreshData(){
   emit('cancel')
   params.disabled=true
@@ -67,8 +59,12 @@ function changeDisabled(){
     <form action="" @submit.prevent="handlePlansForm" class="flex flex-col gap-3">
       <div class="form-control flex flex-col gap-2">
         <label for="plan-text">عنوان :</label>
-        <input :disabled="true" placeholder="عنوان" v-model="params.title" type="text" id="plan-text"
-               class="rounded w-full outline-0 border px-3 py-2 border-solid border-gray-200 text-sm placeholder:text-sm"/>
+        <select v-model="params.title" :class="{'bg-[#f6f7f7]':params.disabled}" class="rounded w-full outline-0 border px-3 py-2 border-solid border-gray-200 text-sm" :disabled="params.disabled" id="plan-text">
+          <option value="">یک گزینه را انتخاب کنید</option>
+          <option value="TASKS">ماموریت ما</option>
+          <option value="TARGETS">اهداف ما</option>
+          <option value="DIFFERENCE">تفاوت ما</option>
+        </select>
       </div>
       <div class="form-control">
         <label for="plan-list">فعالیت های ما </label>
@@ -80,6 +76,7 @@ function changeDisabled(){
               v-model.trim="params.inputPlans"
               @keydown.enter.prevent="insertPlan"
               :disabled="params.disabled"
+              autocomplete="off"
               class="rounded w-full outline-0 border px-3 py-2 border-solid border-gray-200  text-sm placeholder:text-sm">
           <ul class="plans flex flex-wrap gap-1 mt-1" v-if="params.plans.length">
             <li
@@ -97,7 +94,7 @@ function changeDisabled(){
       </div>
       <div class="form-control flex flex-col gap-2">
         <label for="plan-text">توضیحات :</label>
-        <textarea placeholder="توضیحات" v-model="params.text" id="plan-text" rows="3"
+        <textarea placeholder="توضیحات" v-model="params.text" id="plan-text" rows="3" autocomplete="off"
                 :disabled="params.disabled"  class="rounded w-full outline-0 border px-3 py-2 border-solid border-gray-200 text-sm placeholder:text-sm"></textarea>
       </div>
       <div>
@@ -117,7 +114,7 @@ function changeDisabled(){
                 class="btn px-3 py-2 rounded hover:text-white text-sm border border-solid mx-0.5 border-blue-500 hover:bg-blue-500"
                 @click="changeDisabled">ویرایش
             </button>
-            <button @keydown.prevent @click="emit('remove' , id)"
+            <button @keydown.prevent @click.prevent="emit('remove' , id)"
                     class="btn px-3 py-2 rounded hover:text-white text-sm border border-solid mx-0.5 border-red-500 hover:bg-red-500">
               حذف
             </button>

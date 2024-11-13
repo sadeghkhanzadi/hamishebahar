@@ -46,11 +46,12 @@ export const useDashboardAboutUsPlansStore = defineStore('useDashboardAboutUsPla
             if (status.value ==='success'){
                await this.fetchingPlans()
                 this.setShowModal (false)
-
+                useNuxtApp().$toast.success('درخواست شما با موفقیت ثبت شد.')
             }
             if(status.value === 'fail' || error.value){
                 console.log(error.value)
                 this.setShowModal (false)
+                useNuxtApp().$toast.warning('دروخواست شما با خطا مواجه شد لطفا مجدد امتحان کنید .')
             }
         },
         async removePlansItem(id) {
@@ -63,12 +64,34 @@ export const useDashboardAboutUsPlansStore = defineStore('useDashboardAboutUsPla
             if (error.value) {
                 console.log(error.value)
                 this.showAlert = false
+                useNuxtApp().$toast.warning('دروخواست شما با خطا مواجه شد لطفا مجدد امتحان کنید .')
             }
-            if (status.value === 'success') {
+            if (status.value === 'success' && !error.value) {
                 await this.fetchingPlans()
                 this.showAlert = false
+                useNuxtApp().$toast.success('درخواست شما با موفقیت ثبت شد.')
             }
 
+        },
+        async editPlansItem(obj){
+            const {data , status , error} = await useAsyncData( 'EditPlans' ,()=>$fetch(`${this.apiBaseUrl}/api/v1/plans/${obj.id}`,{
+                method:'PUT',
+                headers:{
+                    Authorization:`${this.cookie}`,
+                },
+                body:JSON.stringify(obj)
+            }))
+            if (status.value ==='success' && !error.value){
+                this.setShowModal (false)
+                await this.fetchingPlans()
+                useNuxtApp().$toast.success('درخواست شما با موفقیت ثبت شد.')
+            }
+            if(status.value === 'fail' || error.value){
+                console.log(error.value)
+                this.setShowModal (false)
+                useNuxtApp().$toast.warning('دروخواست شما با خطا مواجه شد لطفا مجدد امتحان کنید .')
+
+            }
         },
         setShowModal(op){
             this.showModal = op

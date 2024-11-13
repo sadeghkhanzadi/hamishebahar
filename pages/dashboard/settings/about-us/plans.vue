@@ -29,6 +29,9 @@ function removeActivity(id) {
 async function handleRemoveAlert(result:Boolean) {
   await store.removePlansItem(result)
 }
+async function EditItem(item:object){
+  await store.editPlansItem(item)
+}
 </script>
 
 <template>
@@ -48,6 +51,7 @@ async function handleRemoveAlert(result:Boolean) {
           :disabled="true"
           @cancel="refreshPage"
           @remove="removeActivity"
+          @sendData="EditItem"
       />
       <transition-group name="show-modal">
         <div v-if="showModal" @click.self="store.setShowModal(false)"
