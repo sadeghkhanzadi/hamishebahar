@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import {useToast} from "vue-toastification";
-const toast = useToast()
+const {$toast} = useNuxtApp()
 const showContactusModal = ref(false)
 const {public: {apiBaseUrl}} = useRuntimeConfig()
 const cookie = useCookie('jwt')
@@ -132,7 +131,9 @@ async function handleContactUs() {
       body:JSON.stringify(params)
     }))
     if (status.value === 'success') {
-      toast.success('درخواست با موفقیت ثبت شد')
+      if (process.client) {
+        $toast.success('درخواست با موفقیت ثبت شد')
+      }
       await getData()
       edit.value = true
     }
