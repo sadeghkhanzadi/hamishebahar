@@ -15,7 +15,7 @@ const {title , comment , status , id , modal } = defineProps({
   id:String||Number,
   modal:Boolean,
 })
-const emit = defineEmits(['close' , 'sendData', 'delete' , 'cancel' , 'edit']) // وقتی کنسل میشه برای اینکه احتمال داره دیتامون تغییر کردنه باشه یه دور دیتا هارو رفرش میکنیم تا مطمدن بشیم چیزی تغییر نکرده
+const emit = defineEmits(['close' , 'sendData', 'delete' , 'cancel' , '[slug]']) // وقتی کنسل میشه برای اینکه احتمال داره دیتامون تغییر کردنه باشه یه دور دیتا هارو رفرش میکنیم تا مطمدن بشیم چیزی تغییر نکرده
 const input = ref(null)
 const params = reactive({
   id:id,
@@ -65,13 +65,13 @@ onMounted(()=>{
 <template>
   <div class="card p-3 bg-white rounded">
     <div class="card-body">
-      <form>
+      <form @submit.prevent="handleForm">
         <div class="form-group">
           <label class="text-sm" for="title"> عنوان : </label>
           <input ref="input" :disabled="params.disabled && !modal" class="text-start text-sm w-full rounded border border-solid border-gray-200 mt-2 p-2" v-model.trim="params.title" id="title" type="text">
         </div>
         <div class="form-group mt-3">
-          <label class="text-sm" for="comment">کامنت :</label>
+          <label class="text-sm" for="comment">توضیحات :</label>
           <textarea rows="5" :disabled="params.disabled && !modal" class="text-start text-sm w-full rounded border border-solid border-gray-200 mt-2 p-2"  v-model.trim="params.comment" name="" id="comment"></textarea>
         </div>
         <div class="form-group flex gap-2 items-center mt-3 ">
