@@ -1,6 +1,7 @@
 @import "assets/fonts/_font.scss";
 @import "assets/style/_varible.scss";
 @import "assets/style/varibles.css";
+@import "assets/style/dateTimePicker.css";
 //fontawesome start
 @import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 //fontawesome end
@@ -33,4 +34,8 @@
    {
     mask-image: none !important;
   }
+}
+
+.color-24{
+  color: rgb(24,24,24);
 }
