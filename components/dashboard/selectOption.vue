@@ -3,12 +3,12 @@ const {data, currentItem} = defineProps({
   data: Array,
   currentItem:{
     type:Object,
-    default:""
+    default:" "
   }
 })
 const emit = defineEmits(['sendData'])
 const showOptions = ref(false)
-const searchInput = ref(null)
+const searchInput = ref()
 const searchResult = ref("")
 const selectItem = ref(currentItem)
 
@@ -25,7 +25,7 @@ function selected(item) {
 }
 
 function search() {
-  searchResult.value = data.filter(item => item.name.includes(searchInput.value.value.trim()))
+  searchResult.value = data.filter(item => item.name.includes(searchInput.value.trim()))
 }
 
 onMounted(() => {
@@ -46,7 +46,7 @@ onMounted(() => {
         <p class=" z-0 py-1.5 px-3 w-full bg-white text-sm outline-0 select-none">
         <span v-if="selectItem && Object.keys(selectItem).length" class="flex items-center justify-between">
           <span>{{ selectItem.name }}</span>
-          <span class=" bg-blue-100 py-1 px-2 flex items-center"><i :class="`${selectItem.icon} text-xl`"
+          <span class=" bg-blue-100 py-1 px-2 flex items-center"  v-if="selectItem.icon"><i :class="`${selectItem.icon} text-xl`"
                                                                     :style="{backgroundColor:selectItem.backgroundColor , color:selectItem.color}"/></span>
         </span>
           <span v-else>یک مورد را انتخاب کنید</span>
@@ -57,7 +57,7 @@ onMounted(() => {
              class=" absolute w-full bg-white top-0 right-0 select-content border border-[rgba(0,0,0,.1)] rounded mt-0.5">
           <ul class="w-full">
             <template v-if="data && data.length">
-              <li class="w-full py-1.5 px-3"><input @input="search" searchInput ref="searchInput" type="text"
+              <li class="w-full py-1.5 px-3"><input @keydown="search" v-model="searchInput" type="text"
                                                     class="w-full h-full outline-0 placeholder:text-sm"
                                                     placeholder="جستجو"></li>
               <li v-if="searchResult && searchResult.length" @click="selected(item)"
@@ -65,7 +65,7 @@ onMounted(() => {
                   class="w-full cursor-pointer py-2 px-3 text-sm text-gray-800 my-1.5 last:mb-0 first:mt-0 hover:bg-green-100">
                 <div class="flex justify-between items-center ">
                   <span>{{ item.name }}</span>
-                  <span class=" bg-blue-100 py-1 px-2 flex items-center"><i :class="`${item.icon} text-xl`"
+                  <span class=" bg-blue-100 py-1 px-2 flex items-center" v-if="item.icon"><i :class="`${item.icon} text-xl`"
                                                                             :style="{backgroundColor:item.backgroundColor , color:item.color}"/></span>
                 </div>
               </li>
@@ -74,7 +74,7 @@ onMounted(() => {
                   class="w-full cursor-pointer py-2 px-3 text-sm text-gray-800 my-1.5 last:mb-0 first:mt-0 hover:bg-green-100">
                 <div class="flex justify-between items-center ">
                   <span>{{ item.name }}</span>
-                  <span class=" bg-blue-100 py-1 px-2 flex items-center"><i :class="`${item.icon} text-2xl`"
+                  <span class=" bg-blue-100 py-1 px-2 flex items-center"  v-if="item.icon"><i :class="`${item.icon} text-2xl`"
                                                                             :style="{backgroundColor:item.backgroundColor , color:item.color}"/></span>
                 </div>
               </li>
