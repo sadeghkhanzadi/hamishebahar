@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 const {data} = defineProps ({
   data:Array
 })
@@ -33,17 +34,17 @@ const {$date} = useNuxtApp()
       <td class="px-2" >{{index+1}}</td>
       <td class="px-2" >{{item.courseCode}}</td>
       <td class="px-2" >{{item.title}}</td>
-      <td class="px-2" >{{item.text}}</td>
+      <td class="px-2" >{{item.text.substr(0,40)+'...'}}</td>
       <td class="px-2" >{{item.coste.toLocaleString()}}</td>
       <td class="px-2" >{{$date(item.startTime)}}</td>
       <td class="px-2" >{{$date(item.endTime)}}</td>
       <td class="px-2" ><span :class="` w-fit text-white mx-auto px-3 py-1 rounded ${ item.is_active ? 'bg-blue-500' :'bg-red-500'}`">{{item.is_active === true ? 'فعال' : "غیرفعال"}}</span></td>
-      <td class="px-2" >{{item.teachers.firstName}} {{item.teachers.lastName}}</td>
+      <td class="px-2" >{{item.teachers?.firstName}} {{item.teachers?.lastName}}</td>
       <td class="px-2" >{{item.category.name}}</td>
       <td class="px-2" >
-        <ul >
-          <li  v-for="(item,index) in item.medias" :key="index">
-            <figure class="w-[40px] h-[40px] p-0.5 rounded border" v-if="item.name && item.pathFile"><img class="w-full h-full text-xs object-cover" :src="item.pathFile" :alt="item.name"></figure>
+        <ul class="grid grid-cols-2 gap-0.5 place-content-center">
+          <li class="" v-for="(item,index) in item.medias" :key="index">
+            <figure class="w-[40px] h-[40px] p-0.5 rounded border" v-if="item.name && item.pathFile"><img class="w-full h-full text-xs object-cover rounded" :src="showImage(item.pathFile)" :alt="item.name"></figure>
           </li>
         </ul>
       </td>
