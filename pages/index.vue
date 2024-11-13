@@ -19,9 +19,11 @@ import book from "@/assets/image/shape/book.png"
 import calender from "@/assets/image/shape/calender.png"
 import lab from "@/assets/image/shape/labratoar.png"
 import shapeMove from '~/composables/shapeMove.client'
-import {useHomeStore} from "~/store/home";
-const {fetchingFAQ ,faq} = useHomeStore()
-fetchingFAQ()
+import {useActivityStore} from "~/store/front/activity";
+const storeActivity = useActivityStore()
+storeActivity.fetchingActivity()
+const activity = computed(()=>storeActivity.getActivity)
+
 const token = ref('')
 const data = {
   title: "یک درس را برای شروع انتخاب کنید",
@@ -101,23 +103,6 @@ const education = {
   img: face,
   subTitle: "اموزش برای همه ",
   title: "دورانی که با بچه ها در جایی که هستند ملاقات می کنیم",
-  collapse: [
-    {
-      title: "مدرسه اطفال ( 1 - 2 سال )",
-      color: "#8E56FF",
-      text: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.",
-    },
-    {
-      title: "مهدکودک ( 2 - 3 سال )",
-      color: "#F8941F",
-      text: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.",
-    },
-    {
-      title: "پیش دبستانی ( 3 - 5 سال )",
-      color: "#1AB69D",
-      text: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.",
-    },
-  ],
   shapes: [
     {
       img: sun,
@@ -323,29 +308,30 @@ onMounted(()=>{
   <div>
     <main>
       <article>
+        {{activity}}
         <section>
-          <home-main-section-one/>
+<!--          <home-main-section-one/>-->
         </section>
         <section>
-          <home-main-section-two/>
+<!--          <home-main-section-two/>-->
         </section>
         <section>
           <home-main-best-class :data="data" :theme="true"/>
         </section>
         <section>
-          <home-main-best-class :data="activities" theme="noCloud" :active="true"/>
+          <home-main-best-class :data="activity" theme="noCloud" :active="true"/>
         </section>
         <section>
           <home-main-best-class :data="education" :education="true" theme="noCloud"/>
         </section>
         <section>
-          <home-main-best-class :data="talentDiscovery" :talentDiscovery="true"/>
+<!--          <home-main-best-class :data="talentDiscovery" :talentDiscovery="true"/>-->
         </section>
         <section>
-          <home-main-best-class  :data="articles" :articles="true" theme="noCloud"/>
+<!--          <home-main-best-class  :data="articles" :articles="true" theme="noCloud"/>-->
         </section>
         <section>
-          <home-main-get-news/>
+<!--          <home-main-get-news/>-->
         </section>
       </article>
     </main>
