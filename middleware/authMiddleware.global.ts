@@ -1,13 +1,13 @@
-// import {useToast} from "vue-toastification";
 
 export default defineNuxtRouteMiddleware((to, from) => {
     const cookie = useCookie('jwt')
+    const {$toast} = useNuxtApp()
 if (to.path.startsWith('/dashboard') && cookie.value){
         return
 }
 if (!cookie.value && to.path.startsWith('/dashboard')){
     if (process.client){
-    // toast.error('برای وارد شدن به پنل کاربری ابتدا باید وارد شوید.')
+    $toast.error('برای وارد شدن به پنل کاربری ابتدا باید وارد شوید.')
     }
     return   navigateTo({path:'/'})
 }
