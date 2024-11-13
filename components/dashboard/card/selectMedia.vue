@@ -14,6 +14,7 @@ function selectFile(index, item) {
   const obj = {}
   obj.id = item.id
   obj.name=item.name
+  obj.pathFile = item.pathFile
   if (medias.value.length){
     if (medias.value.find(item => item.id === obj.id)){
       mediaCards.value[index].classList.remove('select')
