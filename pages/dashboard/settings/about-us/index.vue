@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {useDashboardAboutUsStore} from "~/store/dashboard/aboutUs";
-
+import SelectOption from "~/components/dashboard/selectOption.vue";
+const showMedia = ref(false)
 const store = useDashboardAboutUsStore()
 store.fetchingAboutUs()
  const params = reactive({
@@ -10,9 +11,20 @@ store.fetchingAboutUs()
    mobileNumber:"",
    emailAddress:"",
    is_active:true,
-   medias:[{id:1}],
+   medias:[],
    aboutUsPlans:[{id:1}]
  })
+function selectFile(files){
+  files.forEach(file=>{
+    if ( params.medias.find(item => item.id  == file.id )){
+      return
+    }
+    else{
+      params.medias.push(file)
+    }
+  })
+
+}
 </script>
 
 <template>
@@ -40,12 +52,24 @@ store.fetchingAboutUs()
           <label class="text-sm" for="address">آدرس :</label>
           <textarea v-model="params.address" rows="2" id="address" class="px-3 py-1.5 rounded outline-0 border border-gray-200 "/>
         </div>
-        <div class="form-control flex flex-col gap-2 mt-2 col-span-3">
-          <label class="text-sm" for="">رسانه :</label>
-          <input v-model="params.medias" type="text" class="px-3 py-1.5 rounded outline-0 border border-gray-200 ">
+        <div class="form-control col-span-3">
+          <div class="input-group flex flex-col gap-2 mt-3">
+            <div class="w-full flex flex-wrap gap-2 py-2 px-3  bg-blue-400 text-white rounded hover:bg-blue-500 transition duration-200 ease-linear cursor-pointer ">
+              <button type="button" @click.prevent="showMedia=true" class="text-center w-full">
+                رسانه
+              </button>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <div v-if="params.medias.length" v-for="(item , index) in params.medias" :key="index" class="flex gap-2 items-center bg-blue-500 text-white text-sm cursor-pointer py-0.5 px-3 rounded-full" @click="removeMedias(index)">
+              <span >{{item.name}}</span>
+              <span class="relative top-0.5 font-bold">&times;</span>
+            </div>
+          </div>
         </div>
         <div class="form-control flex flex-col gap-2 mt-2 col-span-3">
           <label class="text-sm" for="">برنامه ها :</label>
+          <select-option @send-data="params.aboutUsPlans = $event" :currentItem="icon" :data="icons" curentIcon=""/>
           <input v-model="params.aboutUsPlans" type="text" class="px-3 py-1.5 rounded outline-0 border border-gray-200 ">
         </div>
         <div class="form-control flex items-center gap-2 mt-2 col-span-3">
@@ -63,6 +87,8 @@ store.fetchingAboutUs()
     </form>
   </div>
 </section>
+  <dashboard-card-select-media @close="showMedia = false" @select-file="selectFile" v-if="showMedia" status="NEWS_EVENTS" />
+
 </template>
 
 <style scoped lang="scss">
