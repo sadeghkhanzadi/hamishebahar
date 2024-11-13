@@ -3,7 +3,7 @@ export default defineNuxtPlugin(nuxtApp => {
     nuxtApp.vueApp.use(Vue3PersianDatetimePicker, {
         name: 'date-picker',
         props: {
-            format: "YYYY-MM-DD",
+            format:"YYYY-MM-DD HH:mm",
             displayFormat:"jYYYY-jMM-jDD"
         }
     })
