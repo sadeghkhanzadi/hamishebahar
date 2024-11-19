@@ -229,25 +229,25 @@ public class UsersService implements UserDetailsService {
                                 .map(Users::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if (StringUtils.hasText(String.valueOf(id))) {
+            } else if (id != null) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(usersRepository.findAllById(id, pageable)
                                 .map(Users::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if (StringUtils.hasText(String.valueOf(name))) {
+            } else if (StringUtils.hasText(name)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(usersRepository.findAllByName(name, pageable)
                                 .map(Users::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if (StringUtils.hasText(String.valueOf(phoneNumber))) {
+            } else if (StringUtils.hasText(phoneNumber)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(usersRepository.findAllByPhoneNumber(phoneNumber, pageable)
                                 .map(Users::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if (StringUtils.hasText(String.valueOf(nationalCode))) {
+            } else if (StringUtils.hasText(nationalCode)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(usersRepository.findAllByNationalCode(nationalCode, pageable)
                                 .map(Users::convertToDto))

@@ -121,7 +121,7 @@ public class UsersDto {
                 .Email(getEmail())
                 .PhoneNumber(getPhoneNumber())
                 .NationalCode(getNationalCode())
-                .Password(new BCryptPasswordEncoder().encode(getPassword()))
+                .Password(getPassword()!= null ? new BCryptPasswordEncoder().encode(getPassword()) : null)
                 .Name(getName())
                 .Picture(getPicture())
                 .Enabled(getEnabled())
