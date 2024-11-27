@@ -283,7 +283,7 @@ public class UsersService implements UserDetailsService {
     }
 
     public UsersDto findById(Long id) {
-        return usersRepository.getOne(id).convertToDto();
+        return usersRepository.findById(id).get().convertToDto();
     }
 
     @PreAuthorize("#users.email != authentication.name")

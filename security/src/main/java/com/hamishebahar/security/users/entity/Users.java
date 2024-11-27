@@ -281,7 +281,7 @@ public class Users implements Serializable, UserDetails, OAuth2User {
                 .Email(getEmail())
                 .PhoneNumber(getPhoneNumber())
                 .NationalCode(getNationalCode())
-//                .Password(new BCryptPasswordEncoder().encode(getPassword()))
+                .Password(getPassword())
                 .Name(getName())
                 .Picture(getPicture())
                 .Enabled(getEnabled())

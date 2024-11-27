@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="660b6f52-792a-4916-b6f9-ad8af0bd2b70" name="Changes" comment="USER_STORY: 13&#10;TASK_NUMBER: 13&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;&#10;--COMMIT_TYPE BUG_FIX&#10;--FIX_BUG: 0.0.3">
-      <change afterPath="$PROJECT_DIR$/log/2024-10/server_hmb.2024-10-07.0.log" afterDir="false" />
+    <list default="true" id="660b6f52-792a-4916-b6f9-ad8af0bd2b70" name="Changes" comment="USER_STORY: 14&#10;TASK_NUMBER: 14&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;&#10;--COMMIT_TYPE BUG_FIX&#10;--FIX_BUG: 0.0.4">
+      <change afterPath="$PROJECT_DIR$/log/2024-11/server_hmb.2024-11-16.0.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/2024-11/server_hmb.2024-11-22.0.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.2.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.1-old-040424.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.1-old.jar" afterDir="false" />
@@ -53,6 +54,8 @@
       <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/UsersDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/UsersDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/entity/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,6 +307,18 @@
       <workItem from="1728759502305" duration="3305000" />
       <workItem from="1729367509900" duration="580000" />
       <workItem from="1729794874835" duration="2342000" />
+      <workItem from="1729797251417" duration="187000" />
+      <workItem from="1731484369412" duration="40000" />
+      <workItem from="1731665188418" duration="265000" />
+      <workItem from="1731686305209" duration="1419000" />
+      <workItem from="1731688145244" duration="319000" />
+      <workItem from="1731784863063" duration="1717000" />
+      <workItem from="1732039931260" duration="950000" />
+      <workItem from="1732195932005" duration="139000" />
+      <workItem from="1732219789211" duration="716000" />
+      <workItem from="1732289770834" duration="146000" />
+      <workItem from="1732390614437" duration="103000" />
+      <workItem from="1732730722824" duration="4569000" />
     </task>
     <task id="LOCAL-00001" summary="USER_STORY: 1&#10;TASK_NUMBER: 1&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;First Commit&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
       <option name="closed" value="true" />
@@ -497,7 +512,23 @@
       <option name="project" value="LOCAL" />
       <updated>1728762268913</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="USER_STORY: 14&#10;TASK_NUMBER: 14&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;&#10;--COMMIT_TYPE BUG_FIX&#10;--FIX_BUG: 0.0.4">
+      <option name="closed" value="true" />
+      <created>1729797371396</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1729797371396</updated>
+    </task>
+    <task id="LOCAL-00026" summary="USER_STORY: 14&#10;TASK_NUMBER: 14&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;&#10;--COMMIT_TYPE BUG_FIX&#10;--FIX_BUG: 0.0.4">
+      <option name="closed" value="true" />
+      <created>1732040881535</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1732040881535</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,7 +571,8 @@
     <MESSAGE value="USER_STORY: 11&#10;TASK_NUMBER: 11&#10;BUG_NUMBER: 0&#10;COMMENT:&#10; 10 Commit&#10; create entity for site panel&#10; create dto &#10; create Activity and Links and Role and Permission and Question and ... &#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0" />
     <MESSAGE value="USER_STORY: 12&#10;TASK_NUMBER: 12&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;&#10;--COMMIT_TYPE BUG_FIX&#10;--FIX_BUG: 0.0.1" />
     <MESSAGE value="USER_STORY: 13&#10;TASK_NUMBER: 13&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;&#10;--COMMIT_TYPE BUG_FIX&#10;--FIX_BUG: 0.0.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="USER_STORY: 13&#10;TASK_NUMBER: 13&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;&#10;--COMMIT_TYPE BUG_FIX&#10;--FIX_BUG: 0.0.3" />
+    <MESSAGE value="USER_STORY: 14&#10;TASK_NUMBER: 14&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;&#10;--COMMIT_TYPE BUG_FIX&#10;--FIX_BUG: 0.0.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="USER_STORY: 14&#10;TASK_NUMBER: 14&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;&#10;--COMMIT_TYPE BUG_FIX&#10;--FIX_BUG: 0.0.4" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -732,7 +764,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>100</line>
+          <line>99</line>
           <option name="timeStamp" value="91" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -937,7 +969,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>91</line>
+          <line>90</line>
           <option name="timeStamp" value="147" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -947,8 +979,58 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>113</line>
+          <line>112</line>
           <option name="timeStamp" value="149" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java</url>
+          <line>177</line>
+          <option name="timeStamp" value="150" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java</url>
+          <line>178</line>
+          <option name="timeStamp" value="151" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="152" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java</url>
+          <line>256</line>
+          <option name="timeStamp" value="153" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java</url>
+          <line>258</line>
+          <option name="timeStamp" value="154" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java</url>
+          <line>202</line>
+          <option name="timeStamp" value="155" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/UsersDto.java</url>
+          <line>135</line>
+          <option name="timeStamp" value="156" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="157" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="158" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/UsersDto.java</url>
+          <line>119</line>
+          <option name="timeStamp" value="159" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -68,7 +68,6 @@ public class UserController {
     @PutMapping(USER_UPDATE)
     @PreAuthorize(value = "hasAnyAuthority('OP_EDIT_USER')")
     public ResponseEntity<ResultsServiceDto> updateUser(@PathVariable("id") Long id, @RequestBody UsersDto dto) throws HamisheBaharException {
-
         ResultsServiceDto resultsVO = usersService.updateUser(dto , id);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
