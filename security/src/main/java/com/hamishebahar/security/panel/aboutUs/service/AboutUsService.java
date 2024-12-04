@@ -1,25 +1,33 @@
 package com.hamishebahar.security.panel.aboutUs.service;
 
 import com.hamishebahar.security.commonts.Dto.AboutUsDto;
-import com.hamishebahar.security.commonts.Dto.CategoryDto;
+import com.hamishebahar.security.commonts.Dto.AboutUsPlansDto;
+import com.hamishebahar.security.commonts.Dto.MediasDto;
 import com.hamishebahar.security.commonts.Dto.ResultsServiceDto;
 import com.hamishebahar.security.commonts.bundel.BundleManager;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
 import com.hamishebahar.security.panel.aboutUs.entity.AboutUs;
+import com.hamishebahar.security.panel.aboutUs.repository.AboutUsPlansRepository;
 import com.hamishebahar.security.panel.aboutUs.repository.AboutUsRepository;
+import com.hamishebahar.security.panel.media.service.MediaStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class AboutUsService {
     private final AboutUsRepository aboutUsRepository;
+    private final AboutUsPlansService aboutUsPlansService;
+    private final MediaStorageService mediaStorageService;
 
     @Autowired
-    public AboutUsService(AboutUsRepository aboutUsRepository) {
+    public AboutUsService(AboutUsRepository aboutUsRepository, AboutUsPlansService aboutUsPlansService, MediaStorageService mediaStorageService) {
         this.aboutUsRepository = aboutUsRepository;
+        this.aboutUsPlansService = aboutUsPlansService;
+        this.mediaStorageService = mediaStorageService;
     }
 
     public ResultsServiceDto insertAboutUs(AboutUsDto dto) throws HamisheBaharException {
@@ -35,6 +43,22 @@ public class AboutUsService {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST, "در حال حاضر یک عدد از این موجودیت موجود میباشد لطفا در صورت امکان آن را ویرایش کنید و یا ابتدا آن را حذف و سپس مجدد تلاش فرمایید");
         }
         try {
+            if (dto.getAboutUsPlans() != null && !dto.getAboutUsPlans().isEmpty()){
+                List<AboutUsPlansDto> aboutUsPlansDtos = new ArrayList<>();
+                for (AboutUsPlansDto plan : dto.getAboutUsPlans()){
+                    aboutUsPlansDtos.add(aboutUsPlansService.findOneById(plan.getId()));
+                }
+                dto.getAboutUsPlans().clear();
+                dto.setAboutUsPlans(aboutUsPlansDtos);
+            }
+            if (dto.getMedias() != null && !dto.getMedias().isEmpty()){
+                List<MediasDto> mediasDtos = new ArrayList<>();
+                for (MediasDto media : dto.getMedias()){
+                    mediasDtos.add(mediaStorageService.findOneById(media.getId()));
+                }
+                dto.getMedias().clear();
+                dto.setMedias(mediasDtos);
+            }
             AboutUsDto aboutUsDto = aboutUsRepository.save(dto.convertToEntity()).convertToDto();
             return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(aboutUsDto).build();
         } catch (Exception e) {
@@ -68,6 +92,23 @@ public class AboutUsService {
                         BundleManager.wrapKey("error.parameter.is.null"));
             }
             try {
+                if (dto.getAboutUsPlans() != null && !dto.getAboutUsPlans().isEmpty()){
+                    List<AboutUsPlansDto> aboutUsPlansDtos = new ArrayList<>();
+                    for (AboutUsPlansDto plan : dto.getAboutUsPlans()){
+                        aboutUsPlansDtos.add(aboutUsPlansService.findOneById(plan.getId()));
+                    }
+                    dto.getAboutUsPlans().clear();
+                    dto.setAboutUsPlans(aboutUsPlansDtos);
+                }
+                if (dto.getMedias() != null && !dto.getMedias().isEmpty()){
+                    List<MediasDto> mediasDtos = new ArrayList<>();
+                    for (MediasDto media : dto.getMedias()){
+                        mediasDtos.add(mediaStorageService.findOneById(media.getId()));
+                    }
+                    dto.getMedias().clear();
+                    dto.setMedias(mediasDtos);
+                }
+
                 dto = dto.updaterFields(vo);
                 aboutUsDto = aboutUsRepository.save(dto.convertToEntity()).convertToDto();
             } catch (Exception e) {

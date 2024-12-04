@@ -114,6 +114,16 @@ public class AboutUsPlansService {
         }
     }
 
+    public AboutUsPlansDto findOneById(Long id) throws HamisheBaharException {
+        try {
+            AboutUsPlansDto aboutUsPlansDto = aboutUsPlansRepository.getById(id).convertToDto();
+            return aboutUsPlansDto;
+        } catch (Exception e) {
+            throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
+                    BundleManager.wrapKey("error.server"));
+        }
+    }
+
     public AboutUsPlansDto getOne() throws HamisheBaharException {
         try {
             AboutUsPlansDto aboutUsPlansDto = null;
