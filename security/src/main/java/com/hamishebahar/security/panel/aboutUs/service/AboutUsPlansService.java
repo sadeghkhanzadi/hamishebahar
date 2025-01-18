@@ -57,7 +57,7 @@ public class AboutUsPlansService {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
         }
-        AboutUsPlansDto vo = getOne();
+        AboutUsPlansDto vo = findOneById(id);
         AboutUsPlansDto aboutUsPlansDto = null;
         if (vo != null) {
             if (dto.getId() == null || dto.getText() == null) {
@@ -88,7 +88,7 @@ public class AboutUsPlansService {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
                     BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
         }
-        AboutUsPlansDto dto = getOne();
+        AboutUsPlansDto dto = findOneById(id);
         if (dto != null) {
             try {
                 aboutUsPlansRepository.deleteById(dto.getId());
