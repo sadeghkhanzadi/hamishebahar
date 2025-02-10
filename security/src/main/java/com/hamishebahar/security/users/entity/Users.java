@@ -287,6 +287,7 @@ public class Users implements Serializable, UserDetails, OAuth2User {
                 .Enabled(getEnabled())
                 .Roles(roles != null && !roles.isEmpty() ? getRoles().stream()
                         .map(Roles::convertToDto)
+                        .distinct()
                         .collect(Collectors.toList()) : null)
                 .CreatedAt(getCreatedAt() != null ? getCreatedAt().toString() : null)
                 .UpdatedAt(getUpdatedAt() != null ? getUpdatedAt().toString() : null)
