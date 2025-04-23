@@ -283,7 +283,7 @@ public class UsersService implements UserDetailsService {
     }
 
     public UsersDto findById(Long id) {
-        return usersRepository.findById(id).get().convertToDto();
+        return usersRepository.findByUserId(id).convertToDto();
     }
 
     @PreAuthorize("#users.email != authentication.name")
@@ -384,5 +384,18 @@ public class UsersService implements UserDetailsService {
             op.add(a.getMap());
         }
         return op;
+    }
+
+    public UsersDto findByUsername(String username) throws HamisheBaharException {
+        try {
+            UsersDto usersDto = null;
+            if (username != null) {
+                usersDto = usersRepository.findByPhoneNumber(username).convertToDto();
+            }
+            return usersDto;
+        } catch (Exception e) {
+            throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
+                    BundleManager.wrapKey("error.server"));
+        }
     }
 }

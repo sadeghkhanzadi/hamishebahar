@@ -1,21 +1,19 @@
 package com.hamishebahar.security.users.entity;
 
-import com.hamishebahar.security.commonts.Dto.UsersDto;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.hamishebahar.security.commonts.Dto.UsersDto;
 import com.hamishebahar.security.enums.Authority;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -33,6 +31,8 @@ public class Users implements Serializable, UserDetails, OAuth2User {
     private String name;
     private String picture;
     private Boolean enabled = true;
+    private String otp;
+    private Boolean otpVerified = false;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Roles> roles;
@@ -188,7 +188,23 @@ public class Users implements Serializable, UserDetails, OAuth2User {
         this.updatedAt = updatedAt;
     }
 
-    public static class Builder{
+    public Boolean getOtpVerified() {
+        return otpVerified;
+    }
+
+    public void setOtpVerified(Boolean otpVerified) {
+        this.otpVerified = otpVerified;
+    }
+
+    public String getOtp() {
+        return otp;
+    }
+
+    public void setOtp(String otp) {
+        this.otp = otp;
+    }
+
+    public static class Builder {
         private Long id;
         private String email;
         private String phoneNumber;
@@ -198,6 +214,10 @@ public class Users implements Serializable, UserDetails, OAuth2User {
         private String picture;
         private Boolean enabled = true;
         private List<Roles> roles;
+
+        private String otp;
+
+        private Boolean otpVerified;
         private LocalDateTime createdAt;
         private LocalDateTime updatedAt;
 
@@ -246,6 +266,16 @@ public class Users implements Serializable, UserDetails, OAuth2User {
             return this;
         }
 
+        public Builder Otp(String value) {
+            this.otp = value;
+            return this;
+        }
+
+        public Builder OtpVerified(boolean verified) {
+            this.otpVerified = verified;
+            return this;
+        }
+
         public Builder CreatedAt(LocalDateTime createdAt) {
             this.createdAt = createdAt;
             return this;
@@ -256,7 +286,7 @@ public class Users implements Serializable, UserDetails, OAuth2User {
             return this;
         }
 
-        public Users build(){
+        public Users build() {
             return new Users(this);
         }
     }
@@ -276,7 +306,7 @@ public class Users implements Serializable, UserDetails, OAuth2User {
     }
 
     public UsersDto convertToDto() {
-        return  new UsersDto.Builder()
+        return new UsersDto.Builder()
                 .Id(getId())
                 .Email(getEmail())
                 .PhoneNumber(getPhoneNumber())
@@ -291,6 +321,8 @@ public class Users implements Serializable, UserDetails, OAuth2User {
                         .collect(Collectors.toList()) : null)
                 .CreatedAt(getCreatedAt() != null ? getCreatedAt().toString() : null)
                 .UpdatedAt(getUpdatedAt() != null ? getUpdatedAt().toString() : null)
+                .Otp(getOtp())
+                .OtpVerified(getOtpVerified())
                 .build();
     }
 

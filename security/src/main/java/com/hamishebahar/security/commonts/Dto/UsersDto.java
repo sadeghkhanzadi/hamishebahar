@@ -24,10 +24,13 @@ public class UsersDto {
 
     private List<RolesDto> roles;
 
+    private String otp;
+    private Boolean otpVerified;
+
     private String createdAt;
     private String updatedAt;
 
-    public static class Builder{
+    public static class Builder {
         private Long id;
         private String email;
         private String phoneNumber;
@@ -38,6 +41,8 @@ public class UsersDto {
         private Boolean enabled = true;
         private List<RolesDto> roles;
 
+        private String otp;
+        private Boolean otpVerified;
         private String createdAt;
         private String updatedAt;
 
@@ -86,6 +91,16 @@ public class UsersDto {
             return this;
         }
 
+        public Builder Otp(String value) {
+            this.otp = value;
+            return this;
+        }
+
+        public Builder OtpVerified(boolean verified) {
+            this.otpVerified = verified;
+            return this;
+        }
+
         public Builder CreatedAt(String createdAt) {
             this.createdAt = createdAt;
             return this;
@@ -96,7 +111,7 @@ public class UsersDto {
             return this;
         }
 
-        public UsersDto build(){
+        public UsersDto build() {
             return new UsersDto(this);
         }
     }
@@ -111,6 +126,8 @@ public class UsersDto {
         this.picture = builder.picture;
         this.enabled = builder.enabled;
         this.roles = builder.roles;
+        this.otp = builder.otp;
+        this.otpVerified = builder.otpVerified;
         this.createdAt = builder.createdAt;
         this.updatedAt = builder.updatedAt;
     }
@@ -121,13 +138,15 @@ public class UsersDto {
                 .Email(getEmail())
                 .PhoneNumber(getPhoneNumber())
                 .NationalCode(getNationalCode())
-                .Password(getPassword())
+                .Password(getPassword() != null && !getPassword().isEmpty() ? new BCryptPasswordEncoder().encode(getPassword()) : null)
                 .Name(getName())
                 .Picture(getPicture())
                 .Enabled(getEnabled())
                 .Roles(roles != null && !roles.isEmpty() ? getRoles().stream()
                         .map(RolesDto::convertToEntity)
                         .collect(Collectors.toList()) : null)
+                .Otp(getOtp())
+                .OtpVerified(getOtpVerified())
                 .build();
     }
 
@@ -143,6 +162,9 @@ public class UsersDto {
                 .Enabled(getEnabled() != null &&
                         (getEnabled() == dto.getEnabled()) ? getEnabled() : dto.getEnabled())
                 .Roles(roles != null && !roles.isEmpty() ? getRoles() : dto.getRoles())
+                .Otp(getOtp() != null && !getOtp().isEmpty() ? getOtp() : dto.getOtp())
+                .OtpVerified(getOtpVerified() != null &&
+                        (getOtpVerified() == dto.getOtpVerified()) ? getOtpVerified() : dto.getOtpVerified())
                 .build();
     }
 }

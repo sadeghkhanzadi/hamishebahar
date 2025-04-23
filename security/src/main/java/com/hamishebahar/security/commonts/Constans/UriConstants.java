@@ -70,6 +70,8 @@ public class UriConstants {
 
     //**LOGIN**
     public static final String LOGIN_JWT = "/jwt/login";
+    public static final String LOGIN_OTP = "/otp/login";
+    public static final String LOGIN_VERIFY_OTP = "/otp/verify-otp";
 
     //**Course**
     //@POST method - insert a Course
