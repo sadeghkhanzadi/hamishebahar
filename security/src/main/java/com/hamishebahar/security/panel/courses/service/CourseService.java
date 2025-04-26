@@ -290,7 +290,7 @@ public class CourseService {
     public ResultsServiceDto findALL(Pageable pageable) throws HamisheBaharException {
         try {
             return new ResultsServiceDto.Builder().Result(
-                            courseRepository.findAll(pageable)
+                            courseRepository.findAllIsActive(pageable)
                                     .map(Courses::convertToDto)
                     )
                     .Status(HttpStatus.OK)

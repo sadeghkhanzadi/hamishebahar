@@ -118,4 +118,7 @@ public interface CourseRepository extends JpaRepository<Courses , Long> {
                                                                                        Pageable pageable);
     @Query("select C.category from Courses C")
     Set<CourseCategory> findAllCourseCategoriesUsage();
+
+    @Query("select C from Courses C where C.is_deleted = false and C.is_active = true")
+    Page<Courses> findAllIsActive(Pageable pageable);
 }
