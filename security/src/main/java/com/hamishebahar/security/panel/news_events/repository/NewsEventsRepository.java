@@ -1,6 +1,8 @@
 package com.hamishebahar.security.panel.news_events.repository;
 
 import com.hamishebahar.security.panel.news_events.entity.Events;
+import com.hamishebahar.security.panel.teachers.entity.Teachers;
+import org.apache.commons.lang3.stream.Streams;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,4 +27,7 @@ public interface NewsEventsRepository extends JpaRepository<Events, Long> {
             "and C.is_deleted = false")
     Page<Events> findALL(@Param("startTime") String startTime,
                          Pageable pageable);
+
+    @Query("select T from Events T where T.is_deleted = false and T.is_active = true")
+    Page<Events> findAllIsActive(Pageable pageable);
 }

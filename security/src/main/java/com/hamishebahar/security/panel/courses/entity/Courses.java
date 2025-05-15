@@ -1,8 +1,8 @@
 package com.hamishebahar.security.panel.courses.entity;
 
-import com.hamishebahar.security.commonts.Dto.CoursesDto;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.hamishebahar.security.commonts.Dto.CoursesDto;
 import com.hamishebahar.security.panel.category.entity.CourseCategory;
 import com.hamishebahar.security.panel.media.entity.Medias;
 import com.hamishebahar.security.panel.teachers.entity.Teachers;
@@ -14,8 +14,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,7 +29,7 @@ public class Courses {//لیست آموزش ها
 
     private String courseCode;
     private String title;
-    
+    @Lob
     private String text;
     @ManyToOne
     private Teachers teachers;//مدرس دوره
@@ -60,7 +58,7 @@ public class Courses {//لیست آموزش ها
     private LocalDateTime updatedAt;
 
 
-    public static class Builder{
+    public static class Builder {
         private Long id;
         private String courseCode;
         private String title;
@@ -136,7 +134,7 @@ public class Courses {//لیست آموزش ها
             return this;
         }
 
-        public Courses build(){
+        public Courses build() {
             return new Courses(this);
         }
     }
@@ -162,14 +160,14 @@ public class Courses {//لیست آموزش ها
                 .CourseCode(courseCode)
                 .Title(title)
                 .Text(text)
-                .Teachers(teachers!= null ? teachers.convertToDto() : null)
-                .CategoryDto(category!= null ? category.convertToDto() : null)
+                .Teachers(teachers != null ? teachers.convertToDto() : null)
+                .CategoryDto(category != null ? category.convertToDto() : null)
                 .StartTime(startTime)
                 .EndTime(endTime)
                 .Coste(coste)
                 .Is_active(getIs_active() != null ? getIs_active() : true)
                 .Is_deleted(getIs_deleted() != null ? getIs_deleted() : false)
-                .Medias(medias!= null && !medias.isEmpty() ? medias.stream()
+                .Medias(medias != null && !medias.isEmpty() ? medias.stream()
                         .map(Medias::convertToDto)
                         .collect(Collectors.toList()) : null)
                 .CreatedAt(getCreatedAt() != null ? getCreatedAt().toString() : null)

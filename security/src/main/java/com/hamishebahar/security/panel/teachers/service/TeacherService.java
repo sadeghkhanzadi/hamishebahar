@@ -151,7 +151,7 @@ public class TeacherService {
     public ResultsServiceDto findALL(Pageable pageable) throws HamisheBaharException {
         try {
             return new ResultsServiceDto.Builder().Result(
-                            teacherRepository.findAll(pageable)
+                            teacherRepository.findAllIsActive(pageable)
                                     .map(Teachers::convertToDto)
                     )
                     .Status(HttpStatus.OK)

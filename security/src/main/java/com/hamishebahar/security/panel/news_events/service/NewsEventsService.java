@@ -168,7 +168,7 @@ public class NewsEventsService {
     public ResultsServiceDto findALL(Pageable pageable) throws HamisheBaharException {
         try {
             return new ResultsServiceDto.Builder().Result(
-                            newsEventsRepository.findAll(pageable)
+                            newsEventsRepository.findAllIsActive(pageable)
                                     .map(Events::convertToDto)
                     )
                     .Status(HttpStatus.OK)

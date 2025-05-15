@@ -8,8 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 
 @Repository
 public interface TeacherRepository extends JpaRepository<Teachers , Long> {
@@ -29,4 +27,7 @@ public interface TeacherRepository extends JpaRepository<Teachers , Long> {
     Page<Teachers> findAllByLastName(String lastName, Pageable pageable);
 
     Page<Teachers> findAllByJobTitle(String jobTitle, Pageable pageable);
+
+    @Query("select T from Teachers T where T.is_deleted = false and T.is_active = true")
+    Page<Teachers> findAllIsActive(Pageable pageable);
 }
