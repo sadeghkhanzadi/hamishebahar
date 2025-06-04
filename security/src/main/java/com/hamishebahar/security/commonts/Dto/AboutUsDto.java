@@ -143,9 +143,9 @@ public class AboutUsDto {
                 .MobileNumber(mobileNumber)
                 .EmailAddress(emailAddress)
                 .Is_active(getIs_active() != null &&
-                        (getIs_active() == dto.getIs_active()) ? getIs_active() : dto.getIs_active())
+                        (getIs_active() != dto.getIs_active()) ? getIs_active() : dto.getIs_active())
                 .Is_deleted(getIs_deleted() != null &&
-                        (getIs_deleted() == dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
+                        (getIs_deleted() != dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
                 .Medias(getMedias() != null && !getMedias().isEmpty() ? getMedias() : dto.getMedias())
                 .Plans(getAboutUsPlans() != null && !getAboutUsPlans().isEmpty() ?
                         getAboutUsPlans() : dto.getAboutUsPlans())

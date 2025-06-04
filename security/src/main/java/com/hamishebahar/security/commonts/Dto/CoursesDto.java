@@ -165,9 +165,9 @@ public class CoursesDto {
                 .EndTime(getEndTime() != null ? getEndTime() :  dto.getEndTime())
                 .Coste(getCoste() != null ? getCoste() : dto.getCoste())
                 .Is_active(getIs_active() != null &&
-                        (getIs_active() == dto.getIs_active()) ? getIs_active() : dto.getIs_active())
+                        (getIs_active() != dto.getIs_active()) ? getIs_active() : dto.getIs_active())
                 .Is_deleted(getIs_deleted() != null &&
-                        (getIs_deleted() == dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
+                        (getIs_deleted() != dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
                 .Medias(getMedias()!= null && !getMedias().isEmpty() ? getMedias() : dto.getMedias())
                 .CreatedAt(getCreatedAt() != null ? getCreatedAt() : dto.getCreatedAt())
                 .UpdatedAt(getUpdatedAt() != null ? getUpdatedAt() : dto.getUpdatedAt())

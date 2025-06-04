@@ -1,13 +1,10 @@
 package com.hamishebahar.security.users.service;
 
-import com.hamishebahar.security.commonts.Dto.MediasDto;
-import com.hamishebahar.security.commonts.Dto.StudentDto;
-import com.hamishebahar.security.commonts.Dto.UsersDto;
 import com.hamishebahar.security.commonts.Dto.ResultsServiceDto;
-import com.hamishebahar.security.commonts.bundel.BundleManager;
+import com.hamishebahar.security.commonts.Dto.UsersDto;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
 import com.hamishebahar.security.commonts.utils.StringUtils;
-import com.hamishebahar.security.commonts.utils.VerifyObjectUtils;
+import com.hamishebahar.security.config.ConfigProperties;
 import com.hamishebahar.security.enums.Authority;
 import com.hamishebahar.security.users.entity.Roles;
 import com.hamishebahar.security.users.entity.Users;
@@ -35,11 +32,13 @@ public class UsersService implements UserDetailsService {
 
     private final UsersRepository usersRepository;
     private final RolesRepository rolesRepository;
+    private final ConfigProperties messageBundle;
 
     @Autowired
-    public UsersService(UsersRepository usersRepository, RolesRepository rolesRepository) {
+    public UsersService(UsersRepository usersRepository, RolesRepository rolesRepository, ConfigProperties messageBundle) {
         this.usersRepository = usersRepository;
         this.rolesRepository = rolesRepository;
+        this.messageBundle = messageBundle;
     }
 
 
@@ -55,11 +54,11 @@ public class UsersService implements UserDetailsService {
                 .build();
         if (!StringUtils.hasText(String.valueOf(id))) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                    messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
         }
         UsersDto dto = findById(id);
         if (dto != null) {
@@ -72,7 +71,7 @@ public class UsersService implements UserDetailsService {
                         .build();
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         return resultsServiceDto;
@@ -81,26 +80,26 @@ public class UsersService implements UserDetailsService {
     public ResultsServiceDto updateAdminUser(UsersDto dto, Long id) throws HamisheBaharException {
         if (dto.getId() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         if (!dto.getId().equals(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                    messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
         }
         if (!dto.getId().equals(id) ||
                 dto.getName() == null ||
                 dto.getEmail() == null ||
                 dto.getPhoneNumber() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         UsersDto vo = findById(id);
         UsersDto UsersDto = null;
@@ -110,7 +109,7 @@ public class UsersService implements UserDetailsService {
                 UsersDto = usersRepository.save(dto.convertToEntity()).convertToDto();
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(UsersDto).build();
@@ -120,25 +119,25 @@ public class UsersService implements UserDetailsService {
     public ResultsServiceDto updateUser(UsersDto users, Long id) throws HamisheBaharException {
         if (users.getId() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         if (!users.getId().equals(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                    messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
         }
         if (users.getName() == null ||
                 users.getEmail() == null ||
                 users.getPhoneNumber() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         UsersDto vo = findById(id);
         UsersDto UsersDto = null;
@@ -148,7 +147,7 @@ public class UsersService implements UserDetailsService {
                 UsersDto = usersRepository.save(users.convertToEntity()).convertToDto();
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(UsersDto).build();
@@ -158,39 +157,39 @@ public class UsersService implements UserDetailsService {
     public ResultsServiceDto registerUser(UsersDto users) throws HamisheBaharException {
         if (users.getId() != null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (users.getName() == null ||
                 users.getEmail() == null ||
                 users.getPhoneNumber() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         try {
             if (isExists(users.getEmail(), "EMAIL")) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.entity.is.exists", users.getEmail()));
+                        messageBundle.getArgumentValue("error.entity.is.exists", users.getEmail()));
             }
             if (isExists(users.getPhoneNumber(), "PHONE_NUMBER")) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.entity.is.exists", users.getPhoneNumber()));
+                        messageBundle.getArgumentValue("error.entity.is.exists", users.getPhoneNumber()));
             }
             UsersDto usersDto = usersRepository.saveAndFlush(users.convertToEntity()).convertToDto();
             return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(usersDto).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
     public ResultsServiceDto findUser(Long id) throws HamisheBaharException {
         if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                    messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
         }
         return new ResultsServiceDto.Builder()
                 .Result(findById(id))
@@ -259,7 +258,7 @@ public class UsersService implements UserDetailsService {
             return resultsServiceDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -273,7 +272,7 @@ public class UsersService implements UserDetailsService {
                     .build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -297,11 +296,11 @@ public class UsersService implements UserDetailsService {
                 return this.usersRepository.existsById(id);
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                BundleManager.wrapKey("error.parameter.is.null"));
+                messageBundle.getArgumentValue("error.parameter.is.null",null));
     }
 
     private boolean isExists(String identity, String IDENTITY_TYPE) throws HamisheBaharException {
@@ -312,31 +311,31 @@ public class UsersService implements UserDetailsService {
                         return this.usersRepository.existsUsersByEmail(identity);
                     } catch (Exception e) {
                         throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                                BundleManager.wrapKey("error.server"));
+                                messageBundle.getArgumentValue("error.server", null));
                     }
                 case "PHONE_NUMBER":
                     try {
                         return this.usersRepository.existsUsersByPhoneNumber(identity);
                     } catch (Exception e) {
                         throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                                BundleManager.wrapKey("error.server"));
+                                messageBundle.getArgumentValue("error.server", null));
                     }
             }
         }
         throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                BundleManager.wrapKey("error.parameter.is.null"));
+                messageBundle.getArgumentValue("error.parameter.is.null",null));
     }
 
-    public List<UsersDto> findUsers(List<Long> usersIds) throws HamisheBaharException{
+    public List<UsersDto> findUsers(List<Long> usersIds) throws HamisheBaharException {
         try {
             List<UsersDto> users = new ArrayList<>();
-            for (Long id : usersIds){
+            for (Long id : usersIds) {
                 users.add(findOneById(id));
             }
             return users;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -349,7 +348,7 @@ public class UsersService implements UserDetailsService {
             return usersDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -361,7 +360,7 @@ public class UsersService implements UserDetailsService {
                     .build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -373,14 +372,14 @@ public class UsersService implements UserDetailsService {
                     .build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
-    public List<HashMap<Integer , String>> getAllAuthority(){
+    public List<HashMap<Integer, String>> getAllAuthority() {
         List<Authority> auth = Arrays.stream(Authority.values()).collect(Collectors.toList());
-        List<HashMap<Integer , String>> op = new ArrayList<>();
-        for (Authority a : auth){
+        List<HashMap<Integer, String>> op = new ArrayList<>();
+        for (Authority a : auth) {
             op.add(a.getMap());
         }
         return op;
@@ -395,7 +394,7 @@ public class UsersService implements UserDetailsService {
             return usersDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 }

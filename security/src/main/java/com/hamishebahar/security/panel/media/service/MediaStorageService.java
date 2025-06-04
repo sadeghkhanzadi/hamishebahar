@@ -3,16 +3,15 @@ package com.hamishebahar.security.panel.media.service;
 import com.hamishebahar.security.commonts.Dto.MediasDto;
 import com.hamishebahar.security.commonts.Dto.ResultsServiceDto;
 import com.hamishebahar.security.commonts.Enums.MediaStates;
-import com.hamishebahar.security.commonts.bundel.BundleManager;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
 import com.hamishebahar.security.commonts.utils.StringUtils;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
-import com.hamishebahar.security.commonts.utils.VerifyObjectUtils;
+import com.hamishebahar.security.config.ConfigProperties;
 import com.hamishebahar.security.panel.media.entity.Medias;
 import com.hamishebahar.security.panel.media.repository.MediaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -29,16 +28,17 @@ import java.util.Objects;
 import java.util.UUID;
 
 
-
 @Service
 public class MediaStorageService {
     @Value(value = "${file.upload.dir}")
     String fileUploadDir;
     private final MediaRepository mediaRepository;
+    private final ConfigProperties messageBundle;
 
     @Autowired
-    public MediaStorageService(MediaRepository mediaRepository) {
+    public MediaStorageService(MediaRepository mediaRepository, ConfigProperties messageBundle) {
         this.mediaRepository = mediaRepository;
+        this.messageBundle = messageBundle;
     }
 
 
@@ -63,11 +63,11 @@ public class MediaStorageService {
     public ResultsServiceDto insertFile(MediasDto dto) throws HamisheBaharException {
         if (dto.getId() != null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (dto.getFile().isEmpty() || dto.getName() == null || dto.getStates() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null", null));
         }
         try {
             dto.setPathFile(saveFile(dto.getFile()));
@@ -75,41 +75,41 @@ public class MediaStorageService {
             return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(mediasDto).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
     public ResultsServiceDto editMedia(MediasDto dto, Long id) throws HamisheBaharException {
         if (dto.getId() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null", null));
         }
         if (!dto.getId().equals(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                    messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
         }
         if (dto.getName() == null ||
                 dto.getStates() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null", null));
         }
-        if (dto.getFile() != null && !dto.getFile().isEmpty()){
+        if (dto.getFile() != null && !dto.getFile().isEmpty()) {
             dto.setPathFile(saveFile(dto.getFile()));
         }
         MediasDto vo = findOneById(id);
         MediasDto mediasDto = null;
         if (vo != null) {
             try {
-                if (vo.getPathFile() != null && dto.getFile() != null && !dto.getFile().isEmpty()){
-                    if (isExistFileOnDisk(vo.getPathFile())){
+                if (vo.getPathFile() != null && dto.getFile() != null && !dto.getFile().isEmpty()) {
+                    if (isExistFileOnDisk(vo.getPathFile())) {
                         deleteFileOnDisk(vo.getPathFile());
                     }
                 }
@@ -117,7 +117,7 @@ public class MediaStorageService {
                 mediasDto = mediaRepository.save(dto.convertToEntity()).convertToDto();
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(mediasDto).build();
@@ -130,22 +130,22 @@ public class MediaStorageService {
                 .build();
         if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null", null));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                    messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
         }
         MediasDto dto = findOneById(id);
         if (dto != null) {
             try {
                 boolean isOK = true;
-                if (dto.getPathFile() != null){
-                    if (!isExistFileOnDisk(dto.getPathFile())){
+                if (dto.getPathFile() != null) {
+                    if (!isExistFileOnDisk(dto.getPathFile())) {
                         isOK = false;
                     }
                 }
-                if (isOK){
+                if (isOK) {
                     //soft Delete
                     dto.setIs_deleted(true);
                     dto.setIs_active(false);
@@ -164,7 +164,7 @@ public class MediaStorageService {
                 }
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         return resultsServiceDto;
@@ -179,7 +179,7 @@ public class MediaStorageService {
             if (id != null) {
                 if (!isExists(id)) {
                     throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                            BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                            messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
                 }
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(findOneById(id))
@@ -191,7 +191,7 @@ public class MediaStorageService {
             return resultsServiceDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -204,34 +204,37 @@ public class MediaStorageService {
             return mediasDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
-    public List<MediasDto> findAll(List<Long> mediaIds) throws HamisheBaharException{
+    public List<MediasDto> findAll(List<Long> mediaIds) throws HamisheBaharException {
         try {
             List<MediasDto> medias = new ArrayList<>();
-            for (Long id : mediaIds){
+            for (Long id : mediaIds) {
                 medias.add(findOneById(id));
             }
             return medias;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
     public ResultsServiceDto findALL(Pageable pageable) throws HamisheBaharException {
         try {
             return new ResultsServiceDto.Builder().Result(
-                            mediaRepository.findAll(pageable)
+                            mediaRepository.findALLByIsActiveAndIsDeleted(
+                                            Boolean.TRUE,
+                                            Boolean.FALSE,
+                                            pageable)
                                     .map(Medias::convertToDto)
                     )
                     .Status(HttpStatus.OK)
                     .build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -241,7 +244,7 @@ public class MediaStorageService {
                 .Status(HttpStatus.BAD_REQUEST)
                 .build();
         try {
-            if (StringUtils.hasText(name) && states != null){
+            if (StringUtils.hasText(name) && states != null) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(mediaRepository.findAllByNameAndStates(name, states, pageable)
                                 .map(Medias::convertToDto))
@@ -265,7 +268,7 @@ public class MediaStorageService {
             return resultsServiceDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -275,11 +278,11 @@ public class MediaStorageService {
                 return this.mediaRepository.existsById(id);
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                BundleManager.wrapKey("error.parameter.is.null"));
+                messageBundle.getArgumentValue("error.parameter.is.null", null));
     }
 
     public Resource findFile(String fileName) {
@@ -294,7 +297,7 @@ public class MediaStorageService {
         return null;
     }
 
-    public Boolean isExistFileOnDisk(String fileName){
+    public Boolean isExistFileOnDisk(String fileName) {
         File dir = new File(fileUploadDir + fileName);
         boolean isOk = true;
         try {
@@ -305,7 +308,7 @@ public class MediaStorageService {
         return isOk;
     }
 
-    public Boolean deleteFileOnDisk(String fileName){
+    public Boolean deleteFileOnDisk(String fileName) {
         File dir = new File(fileUploadDir + fileName);
         boolean isOk = true;
         try {

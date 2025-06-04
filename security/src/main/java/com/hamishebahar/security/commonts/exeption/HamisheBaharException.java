@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class HamisheBaharException extends Exception {
-    //FreakException.PARAMETER_ABSENT, BundleManager.wrapKey("error.param.is.empty", entryType)
+    //FreakException.PARAMETER_ABSENT, messageBundle.getArgumentValue("error.param.is.empty", entryType)
 
     public static final int TIMEOUT = 408;
     private static final long serialVersionUID = 3340591057214373572L;

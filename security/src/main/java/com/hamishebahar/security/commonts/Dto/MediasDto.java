@@ -125,9 +125,9 @@ public class MediasDto {
                 .PathFile(getPathFile() != null ? getPathFile() : dto.getPathFile())
                 .States(getStates() != null ? getStates() : dto.getStates())
                 .Is_active(getIs_active() != null &&
-                        (getIs_active() == dto.getIs_active()) ? getIs_active() : dto.getIs_active())
+                        (getIs_active() != dto.getIs_active()) ? getIs_active() : dto.getIs_active())
                 .Is_deleted(getIs_deleted() != null &&
-                        (getIs_deleted() == dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
+                        (getIs_deleted() != dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
                 .build();
     }
 }

@@ -23,7 +23,7 @@ public class NewsEventsDto {
     private String createdAt;
     private String updatedAt;
 
-    public static class Builder{
+    public static class Builder {
         private Long id;
         private String title;
         private String text;
@@ -85,11 +85,12 @@ public class NewsEventsDto {
             return this;
         }
 
-        public NewsEventsDto build(){
+        public NewsEventsDto build() {
             return new NewsEventsDto(this);
         }
     }
-    private NewsEventsDto(Builder builder){
+
+    private NewsEventsDto(Builder builder) {
         this.id = builder.id;
         this.title = builder.title;
         this.text = builder.text;
@@ -118,7 +119,7 @@ public class NewsEventsDto {
                 .build();
     }
 
-    public NewsEventsDto updaterFields(NewsEventsDto dto){
+    public NewsEventsDto updaterFields(NewsEventsDto dto) {
         return new Builder()
                 .Id(getId() != null ? getId() : dto.getId())
                 .Title(getTitle() != null ? getTitle() : dto.getTitle())
@@ -126,10 +127,10 @@ public class NewsEventsDto {
                 .StartDate(getStartDate() != null ? getStartDate() : dto.getStartDate())
                 .EndDate(getEndDate() != null ? getEndDate() : dto.getEndDate())
                 .Is_active(getIs_active() != null &&
-                        (getIs_active() == dto.getIs_active()) ? getIs_active() : dto.getIs_active())
+                        (getIs_active() != dto.getIs_active()) ? getIs_active() : dto.getIs_active())
                 .Is_deleted(getIs_deleted() != null &&
-                        (getIs_deleted() == dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
-                .Medias(getMedias()!= null ? getMedias() : dto.getMedias())
+                        (getIs_deleted() != dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
+                .Medias(getMedias() != null ? getMedias() : dto.getMedias())
                 .build();
     }
 }

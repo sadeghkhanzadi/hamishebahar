@@ -1,13 +1,11 @@
 package com.hamishebahar.security.panel.news_events.service;
 
-import com.hamishebahar.security.commonts.Dto.MediasDto;
 import com.hamishebahar.security.commonts.Dto.NewsEventsDto;
 import com.hamishebahar.security.commonts.Dto.ResultsServiceDto;
-import com.hamishebahar.security.commonts.bundel.BundleManager;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
 import com.hamishebahar.security.commonts.utils.MediaUtils;
 import com.hamishebahar.security.commonts.utils.StringUtils;
-import com.hamishebahar.security.commonts.utils.VerifyObjectUtils;
+import com.hamishebahar.security.config.ConfigProperties;
 import com.hamishebahar.security.panel.media.service.MediaStorageService;
 import com.hamishebahar.security.panel.news_events.entity.Events;
 import com.hamishebahar.security.panel.news_events.repository.NewsEventsRepository;
@@ -17,8 +15,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Service
@@ -26,21 +22,23 @@ import java.util.stream.Collectors;
 public class NewsEventsService {
     private final NewsEventsRepository newsEventsRepository;
     private final MediaUtils mediaUtils;
+    private final ConfigProperties messageBundle;
 
     @Autowired
-    public NewsEventsService(NewsEventsRepository newsEventsRepository, MediaStorageService mediaStorageService, MediaUtils mediaUtils) {
+    public NewsEventsService(NewsEventsRepository newsEventsRepository, MediaStorageService mediaStorageService, MediaUtils mediaUtils, ConfigProperties messageBundle) {
         this.newsEventsRepository = newsEventsRepository;
         this.mediaUtils = mediaUtils;
+        this.messageBundle = messageBundle;
     }
 
     public ResultsServiceDto insertNews(NewsEventsDto dto) throws HamisheBaharException {
         if (dto.getId() != null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (dto.getTitle() == null || dto.getText() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         if (dto.getMedias() != null && !dto.getMedias().isEmpty()) {
             dto.setMedias(mediaUtils.findMedia(dto.getMedias()));
@@ -50,26 +48,26 @@ public class NewsEventsService {
             return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(newsEventsDto).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
     public ResultsServiceDto editeNews(NewsEventsDto dto, Long id) throws HamisheBaharException {
         if (dto.getId() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         if (!dto.getId().equals(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                    messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
         }
         if (dto.getTitle() == null ||
                 dto.getTitle().isEmpty() ||
@@ -77,7 +75,7 @@ public class NewsEventsService {
                 dto.getText().isEmpty() ||
                 !dto.getId().equals(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         NewsEventsDto vo = findOneByid(id);
         NewsEventsDto newsEventsDto = null;
@@ -90,7 +88,7 @@ public class NewsEventsService {
                 newsEventsDto = newsEventsRepository.save(dto.convertToEntity()).convertToDto();
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(newsEventsDto).build();
@@ -100,11 +98,11 @@ public class NewsEventsService {
         ResultsServiceDto resultsServiceDto = new ResultsServiceDto.Builder().Result(null).Status(HttpStatus.BAD_REQUEST).build();
         if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                    messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
         }
         NewsEventsDto dto = findOneByid(id);
         if (dto != null) {
@@ -118,7 +116,7 @@ public class NewsEventsService {
                         .build();
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         return resultsServiceDto;
@@ -130,7 +128,7 @@ public class NewsEventsService {
             if (id != null) {
                 if (!isExists(id)) {
                     throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                            BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                            messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
                 }
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(findOneByid(id))
@@ -148,7 +146,7 @@ public class NewsEventsService {
             return resultsServiceDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -161,7 +159,7 @@ public class NewsEventsService {
             return NewsEventsDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -175,7 +173,7 @@ public class NewsEventsService {
                     .build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -198,7 +196,7 @@ public class NewsEventsService {
             return resultsServiceDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -208,10 +206,10 @@ public class NewsEventsService {
                 return this.newsEventsRepository.existsById(id);
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                BundleManager.wrapKey("error.parameter.is.null"));
+                messageBundle.getArgumentValue("error.parameter.is.null",null));
     }
 }

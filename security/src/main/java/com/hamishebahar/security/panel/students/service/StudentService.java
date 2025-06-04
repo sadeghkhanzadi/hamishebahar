@@ -1,14 +1,13 @@
 package com.hamishebahar.security.panel.students.service;
 
-import com.hamishebahar.security.commonts.Dto.MediasDto;
-import com.hamishebahar.security.commonts.Dto.StudentDto;
 import com.hamishebahar.security.commonts.Dto.ResultsServiceDto;
-import com.hamishebahar.security.commonts.bundel.BundleManager;
+import com.hamishebahar.security.commonts.Dto.StudentDto;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
 import com.hamishebahar.security.commonts.utils.MediaUtils;
 import com.hamishebahar.security.commonts.utils.PeriodsUtils;
 import com.hamishebahar.security.commonts.utils.StringUtils;
 import com.hamishebahar.security.commonts.utils.UsersUtils;
+import com.hamishebahar.security.config.ConfigProperties;
 import com.hamishebahar.security.panel.students.entity.Students;
 import com.hamishebahar.security.panel.students.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,28 +27,31 @@ public class StudentService {
     private final UsersUtils usersUtils;
     private final PeriodsUtils periodsUtils;
 
+    private final ConfigProperties messageBundle;
+
     @Autowired
-    public StudentService(StudentRepository studentRepository, MediaUtils mediaUtils, UsersUtils usersUtils, PeriodsUtils periodsUtils) {
+    public StudentService(StudentRepository studentRepository, MediaUtils mediaUtils, UsersUtils usersUtils, PeriodsUtils periodsUtils, ConfigProperties messageBundle) {
         this.studentRepository = studentRepository;
         this.mediaUtils = mediaUtils;
         this.usersUtils = usersUtils;
         this.periodsUtils = periodsUtils;
+        this.messageBundle = messageBundle;
     }
 
     public ResultsServiceDto insertStudent(StudentDto dto) throws HamisheBaharException {
         if (dto.getId() != null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (dto.getNationalCode() == null || dto.getPhoneNumber() == null ||
                 dto.getFirst_name() == null || dto.getLast_name() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
-        if (dto.getStudentParents() != null ) {
+        if (dto.getStudentParents() != null) {
             dto.setStudentParents(usersUtils.findUsers(dto.getStudentParents()));
         }
-        if (dto.getStudentPeriods() != null ) {
+        if (dto.getStudentPeriods() != null) {
             dto.setStudentPeriods(periodsUtils.findPeriods(dto.getStudentPeriods()));
         }
         if (dto.getDocumentFiles() != null && !dto.getDocumentFiles().isEmpty()) {
@@ -60,39 +62,39 @@ public class StudentService {
             return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(StudentDto).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
     public ResultsServiceDto editeStudent(StudentDto dto, Long id) throws HamisheBaharException {
         if (dto.getId() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         if (!dto.getId().equals(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                    messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
         }
         if (dto.getNationalCode() == null || dto.getPhoneNumber() == null ||
                 dto.getFirst_name() == null || dto.getLast_name() == null || !dto.getId().equals(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         StudentDto vo = findOneByid(id);
         StudentDto studentDto = null;
         if (vo != null) {
-            if (dto.getStudentParents() != null ) {
+            if (dto.getStudentParents() != null) {
                 dto.setStudentParents(usersUtils.findUsers(dto.getStudentParents()));
             }
-            if (dto.getStudentPeriods() != null ) {
+            if (dto.getStudentPeriods() != null) {
                 dto.setStudentPeriods(periodsUtils.findPeriods(dto.getStudentPeriods()));
             }
             if (dto.getDocumentFiles() != null && !dto.getDocumentFiles().isEmpty()) {
@@ -100,10 +102,13 @@ public class StudentService {
             }
             try {
                 dto = dto.updaterFields(vo);
+                if (dto.getIs_active()) {
+                    dto.setIs_deleted(Boolean.TRUE);
+                }
                 studentDto = studentRepository.save(dto.convertToEntity()).convertToDto();
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(studentDto).build();
@@ -116,11 +121,11 @@ public class StudentService {
                 .build();
         if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                    messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
         }
         StudentDto dto = findOneByid(id);
         if (dto != null) {
@@ -134,7 +139,7 @@ public class StudentService {
                         .build();
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         return resultsServiceDto;
@@ -151,7 +156,7 @@ public class StudentService {
             if (id != null) {
                 if (!isExists(id)) {
                     throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                            BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                            messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
                 }
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(findOneByid(id))
@@ -168,7 +173,7 @@ public class StudentService {
             return resultsServiceDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -181,7 +186,7 @@ public class StudentService {
             return StudentDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -195,7 +200,7 @@ public class StudentService {
                     .build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -234,7 +239,7 @@ public class StudentService {
             return resultsServiceDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -244,10 +249,10 @@ public class StudentService {
                 return this.studentRepository.existsById(id);
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                BundleManager.wrapKey("error.parameter.is.null"));
+                messageBundle.getArgumentValue("error.parameter.is.null",null));
     }
 }

@@ -1,13 +1,11 @@
 package com.hamishebahar.security.panel.courses.service;
 
 import com.hamishebahar.security.commonts.Dto.CoursesDto;
-import com.hamishebahar.security.commonts.Dto.MediasDto;
 import com.hamishebahar.security.commonts.Dto.ResultsServiceDto;
-import com.hamishebahar.security.commonts.bundel.BundleManager;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
 import com.hamishebahar.security.commonts.utils.MediaUtils;
 import com.hamishebahar.security.commonts.utils.StringUtils;
-import com.hamishebahar.security.commonts.utils.VerifyObjectUtils;
+import com.hamishebahar.security.config.ConfigProperties;
 import com.hamishebahar.security.panel.category.entity.CourseCategory;
 import com.hamishebahar.security.panel.category.service.CategoryService;
 import com.hamishebahar.security.panel.courses.entity.Courses;
@@ -31,31 +29,33 @@ public class CourseService {
     private final MediaUtils mediaUtils;
 
     private final TeacherService teacherService;
+    private final ConfigProperties messageBundle;
 
     @Autowired
-    public CourseService(CourseRepository courseRepository, CategoryService categoryService, MediaUtils mediaUtils, TeacherService teacherService) {
+    public CourseService(CourseRepository courseRepository, CategoryService categoryService, MediaUtils mediaUtils, TeacherService teacherService, ConfigProperties messageBundle) {
         this.courseRepository = courseRepository;
         this.categoryService = categoryService;
         this.mediaUtils = mediaUtils;
         this.teacherService = teacherService;
+        this.messageBundle = messageBundle;
     }
 
     public ResultsServiceDto insertCourse(CoursesDto dto) throws HamisheBaharException {
         if (dto.getId() != null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (dto.getTitle() == null || dto.getText() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         if (dto.getMedias() != null && !dto.getMedias().isEmpty()) {
             dto.setMedias(mediaUtils.findMedia(dto.getMedias()));
         }
-        if (dto.getTeachers() != null){
+        if (dto.getTeachers() != null) {
             dto.setTeachers(teacherService.findOneById(dto.getTeachers().getId()));
         }
-        if (dto.getCategory() != null){
+        if (dto.getCategory() != null) {
             dto.setCategory(categoryService.findOneById(dto.getCategory().getId()));
         }
         try {
@@ -63,30 +63,30 @@ public class CourseService {
             return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(coursesDto).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
     public ResultsServiceDto editCourse(CoursesDto dto, Long id) throws HamisheBaharException {
         if (dto.getId() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         if (!dto.getId().equals(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                    messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
         }
         if (dto.getTitle() == null || dto.getText() == null || !dto.getId().equals(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         CoursesDto vo = findOneById(id);
         CoursesDto coursesDto = null;
@@ -94,10 +94,10 @@ public class CourseService {
             if (dto.getMedias() != null && !dto.getMedias().isEmpty()) {
                 dto.setMedias(mediaUtils.findMedia(dto.getMedias()));
             }
-            if (dto.getTeachers() != null){
+            if (dto.getTeachers() != null) {
                 dto.setTeachers(teacherService.findOneById(dto.getTeachers().getId()));
             }
-            if (dto.getCategory() != null){
+            if (dto.getCategory() != null) {
                 dto.setCategory(categoryService.findOneById(dto.getCategory().getId()));
             }
             try {
@@ -105,7 +105,7 @@ public class CourseService {
                 coursesDto = courseRepository.save(dto.convertToEntity()).convertToDto();
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(coursesDto).build();
@@ -118,11 +118,11 @@ public class CourseService {
                 .build();
         if (!StringUtils.hasText(String.valueOf(id))) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                    messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
         }
         CoursesDto dto = findOneById(id);
         if (dto != null) {
@@ -136,7 +136,7 @@ public class CourseService {
                         .build();
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         return resultsServiceDto;
@@ -153,111 +153,111 @@ public class CourseService {
                     StringUtils.hasText(teacherFirstName) && StringUtils.hasText(teacherLastName)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(courseRepository.findAllByCourseCodeAndTeacherIdAndTeacherFirstNameAndTeacherLastName(
-                                courseCode, teacherId , teacherFirstName , teacherLastName , pageable)
+                                        courseCode, teacherId, teacherFirstName, teacherLastName, pageable)
                                 .map(Courses::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if(StringUtils.hasText(courseCode) && StringUtils.hasText(teacherId) && StringUtils.hasText(teacherFirstName)) {
+            } else if (StringUtils.hasText(courseCode) && StringUtils.hasText(teacherId) && StringUtils.hasText(teacherFirstName)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(courseRepository.findAllByCourseCodeAndTeacherIdAndTeacherFirstName(
-                                courseCode, teacherId , teacherFirstName , pageable)
+                                        courseCode, teacherId, teacherFirstName, pageable)
                                 .map(Courses::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if(StringUtils.hasText(courseCode) && StringUtils.hasText(teacherId) && StringUtils.hasText(teacherLastName)) {
+            } else if (StringUtils.hasText(courseCode) && StringUtils.hasText(teacherId) && StringUtils.hasText(teacherLastName)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(courseRepository.findAllByCourseCodeAndTeacherIdAndTeacherLastName(
-                                courseCode, teacherId , teacherLastName , pageable)
+                                        courseCode, teacherId, teacherLastName, pageable)
                                 .map(Courses::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if(StringUtils.hasText(courseCode) && StringUtils.hasText(teacherFirstName) && StringUtils.hasText(teacherLastName)) {
+            } else if (StringUtils.hasText(courseCode) && StringUtils.hasText(teacherFirstName) && StringUtils.hasText(teacherLastName)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(courseRepository.findAllByCourseCodeAndTeacherFirstNameAndTeacherLastName(
-                                courseCode, teacherFirstName , teacherLastName , pageable)
+                                        courseCode, teacherFirstName, teacherLastName, pageable)
                                 .map(Courses::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if(StringUtils.hasText(teacherId) && StringUtils.hasText(teacherFirstName) && StringUtils.hasText(teacherLastName)) {
+            } else if (StringUtils.hasText(teacherId) && StringUtils.hasText(teacherFirstName) && StringUtils.hasText(teacherLastName)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(courseRepository.findAllByTeacherIdAndTeacherFirstNameAndTeacherLastName(
-                                teacherId , teacherFirstName , teacherLastName , pageable)
+                                        teacherId, teacherFirstName, teacherLastName, pageable)
                                 .map(Courses::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if(StringUtils.hasText(courseCode) && StringUtils.hasText(teacherId)) {
+            } else if (StringUtils.hasText(courseCode) && StringUtils.hasText(teacherId)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(courseRepository.findAllByCourseCodeAndTeacherId(
-                                courseCode, teacherId , pageable)
+                                        courseCode, teacherId, pageable)
                                 .map(Courses::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if(StringUtils.hasText(courseCode) && StringUtils.hasText(teacherFirstName)) {
+            } else if (StringUtils.hasText(courseCode) && StringUtils.hasText(teacherFirstName)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(courseRepository.findAllByCourseCodeAndTeacherFirstName(
-                                courseCode, teacherFirstName , pageable)
+                                        courseCode, teacherFirstName, pageable)
                                 .map(Courses::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if(StringUtils.hasText(courseCode) && StringUtils.hasText(teacherLastName)) {
+            } else if (StringUtils.hasText(courseCode) && StringUtils.hasText(teacherLastName)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(courseRepository.findAllByCourseCodeAndTeacherLastName(
-                                courseCode, teacherLastName , pageable)
+                                        courseCode, teacherLastName, pageable)
                                 .map(Courses::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if(StringUtils.hasText(teacherId) && StringUtils.hasText(teacherFirstName)) {
+            } else if (StringUtils.hasText(teacherId) && StringUtils.hasText(teacherFirstName)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(courseRepository.findAllByTeacherIdAndTeacherFirstName(
-                                teacherId , teacherFirstName , pageable)
+                                        teacherId, teacherFirstName, pageable)
                                 .map(Courses::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if(StringUtils.hasText(teacherId) && StringUtils.hasText(teacherLastName)) {
+            } else if (StringUtils.hasText(teacherId) && StringUtils.hasText(teacherLastName)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(courseRepository.findAllByTeacherIdeAndTeacherLastName(
-                                teacherId , teacherLastName , pageable)
+                                        teacherId, teacherLastName, pageable)
                                 .map(Courses::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if(StringUtils.hasText(teacherFirstName) && StringUtils.hasText(teacherLastName)) {
+            } else if (StringUtils.hasText(teacherFirstName) && StringUtils.hasText(teacherLastName)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(courseRepository.findAllByTeacherFirstNameAndTeacherLastName(
-                                teacherFirstName , teacherLastName , pageable)
+                                        teacherFirstName, teacherLastName, pageable)
                                 .map(Courses::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if(StringUtils.hasText(courseCode)) {
+            } else if (StringUtils.hasText(courseCode)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
                         .Result(courseRepository.findAllByCourseCode(courseCode, pageable)
                                 .map(Courses::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if(StringUtils.hasText(teacherId)) {
+            } else if (StringUtils.hasText(teacherId)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
-                        .Result(courseRepository.findAllByTeacherId(teacherId , pageable)
+                        .Result(courseRepository.findAllByTeacherId(teacherId, pageable)
                                 .map(Courses::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if(StringUtils.hasText(teacherFirstName)) {
+            } else if (StringUtils.hasText(teacherFirstName)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
-                        .Result(courseRepository.findAllByTeacherFirstName(teacherFirstName , pageable)
+                        .Result(courseRepository.findAllByTeacherFirstName(teacherFirstName, pageable)
                                 .map(Courses::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            } else if(StringUtils.hasText(teacherLastName)) {
+            } else if (StringUtils.hasText(teacherLastName)) {
                 resultsServiceDto = new ResultsServiceDto.Builder()
-                        .Result(courseRepository.findAllByTeacherLastName(teacherLastName , pageable)
+                        .Result(courseRepository.findAllByTeacherLastName(teacherLastName, pageable)
                                 .map(Courses::convertToDto))
                         .Status(HttpStatus.OK)
                         .build();
-            }else { //all of
+            } else { //all of
                 resultsServiceDto = findALL(pageable);
             }
             return resultsServiceDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -270,7 +270,7 @@ public class CourseService {
             return new ResultsServiceDto.Builder().Result(coursesDto).Status(HttpStatus.OK).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -280,11 +280,11 @@ public class CourseService {
                 return this.courseRepository.existsById(id);
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                BundleManager.wrapKey("error.parameter.is.null"));
+                messageBundle.getArgumentValue("error.parameter.is.null",null));
     }
 
     public ResultsServiceDto findALL(Pageable pageable) throws HamisheBaharException {
@@ -297,7 +297,7 @@ public class CourseService {
                     .build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -310,20 +310,20 @@ public class CourseService {
             return coursesDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
     public List<CoursesDto> findAll(List<Long> coursesIds) throws HamisheBaharException {
         try {
             List<CoursesDto> courses = new ArrayList<>();
-            for (Long id : coursesIds){
+            for (Long id : coursesIds) {
                 courses.add(findOneById(id));
             }
             return courses;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -343,9 +343,9 @@ public class CourseService {
                         .build();
             }
             return resultsServiceDto;
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 }

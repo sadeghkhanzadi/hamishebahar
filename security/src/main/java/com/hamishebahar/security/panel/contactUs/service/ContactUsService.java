@@ -3,12 +3,10 @@ package com.hamishebahar.security.panel.contactUs.service;
 import com.hamishebahar.security.commonts.Dto.ContactUsDto;
 import com.hamishebahar.security.commonts.Dto.MediasDto;
 import com.hamishebahar.security.commonts.Dto.ResultsServiceDto;
-import com.hamishebahar.security.commonts.bundel.BundleManager;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
+import com.hamishebahar.security.config.ConfigProperties;
 import com.hamishebahar.security.panel.contactUs.entity.ContactUs;
 import com.hamishebahar.security.panel.contactUs.repository.ContactUsRepository;
-import com.hamishebahar.security.panel.media.entity.Medias;
-import com.hamishebahar.security.panel.media.repository.MediaRepository;
 import com.hamishebahar.security.panel.media.service.MediaStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,29 +20,31 @@ import java.util.stream.Collectors;
 public class ContactUsService {
     private final ContactUsRepository contactUsRepository;
     private final MediaStorageService mediaStorageService;
+    private final ConfigProperties messageBundle;
 
     @Autowired
-    public ContactUsService(ContactUsRepository contactUsRepository, MediaStorageService mediaStorageService) {
+    public ContactUsService(ContactUsRepository contactUsRepository, MediaStorageService mediaStorageService, ConfigProperties messageBundle) {
         this.contactUsRepository = contactUsRepository;
         this.mediaStorageService = mediaStorageService;
+        this.messageBundle = messageBundle;
     }
 
     public ResultsServiceDto insertContactUs(ContactUsDto dto) throws HamisheBaharException {
         if (dto.getId() != null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (dto.getText() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         try {
             List<MediasDto> medias = mediaSet(dto.getMedias());
-            if (!medias.isEmpty()){
+            if (!medias.isEmpty()) {
                 dto.setMedias(medias);
             }
             ContactUs contactUs = contactUsActive();
-            if (contactUs == null){
+            if (contactUs == null) {
                 ContactUsDto contactUsDto = contactUsRepository.save(dto.convertToEntity()).convertToDto();
                 return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(contactUsDto).build();
             }
@@ -52,12 +52,12 @@ public class ContactUsService {
                     String.format("Data for this %s , exists in DB.", String.valueOf(contactUs.getId())));
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
 
-    private ContactUs contactUsActive(){
+    private ContactUs contactUsActive() {
         return contactUsRepository.findAll()
                 .stream()
                 .filter(ContactUs::getIs_active)
@@ -67,9 +67,9 @@ public class ContactUsService {
 
     private List<MediasDto> mediaSet(List<MediasDto> mediasDtoList) throws HamisheBaharException {
         List<MediasDto> medias = new ArrayList<>();
-        if (mediasDtoList != null && !mediasDtoList.isEmpty()){
-            for (MediasDto M : mediasDtoList){
-                if (this.mediaStorageService.isExists(M.getId())){
+        if (mediasDtoList != null && !mediasDtoList.isEmpty()) {
+            for (MediasDto M : mediasDtoList) {
+                if (this.mediaStorageService.isExists(M.getId())) {
                     medias.add(this.mediaStorageService.findOneById(M.getId()));
                 }
             }
@@ -80,37 +80,37 @@ public class ContactUsService {
     public ResultsServiceDto editContactUs(ContactUsDto dto, Long id) throws HamisheBaharException {
         if (dto.getId() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         if (!dto.getId().equals(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                    messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
         }
         ContactUsDto vo = getOne();
         ContactUsDto contactUsDto = null;
         if (vo != null) {
             List<MediasDto> medias = mediaSet(dto.getMedias());
-            if (!medias.isEmpty()){
+            if (!medias.isEmpty()) {
                 dto.setMedias(medias);
             }
             if (dto.getId() == null || dto.getText() == null) {
                 throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                        BundleManager.wrapKey("error.parameter.is.null"));
+                        messageBundle.getArgumentValue("error.parameter.is.null",null));
             }
             try {
                 dto = dto.updaterFields(vo);
                 contactUsDto = contactUsRepository.save(dto.convertToEntity()).convertToDto();
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(contactUsDto).build();
@@ -123,11 +123,11 @@ public class ContactUsService {
                 .build();
         if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                    messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
         }
         ContactUsDto dto = getOne();
         if (dto != null) {
@@ -141,7 +141,7 @@ public class ContactUsService {
                         .build();
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         return resultsServiceDto;
@@ -151,13 +151,13 @@ public class ContactUsService {
         try {
             ContactUsDto contactUsDto = null;
             List<ContactUs> contactUs = contactUsRepository.findAll();
-            if (!contactUs.isEmpty()){
+            if (!contactUs.isEmpty()) {
                 contactUsDto = contactUs.get(0).convertToDto();
             }
             return new ResultsServiceDto.Builder().Result(contactUsDto).Status(HttpStatus.OK).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -165,13 +165,13 @@ public class ContactUsService {
         try {
             ContactUsDto contactUsDto = null;
             List<ContactUs> contactUs = contactUsRepository.findAll();
-            if (!contactUs.isEmpty()){
+            if (!contactUs.isEmpty()) {
                 contactUsDto = contactUs.get(0).convertToDto();
             }
             return contactUsDto;
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -181,10 +181,10 @@ public class ContactUsService {
                 return this.contactUsRepository.existsById(id);
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                BundleManager.wrapKey("error.parameter.is.null"));
+                messageBundle.getArgumentValue("error.parameter.is.null",null));
     }
 }

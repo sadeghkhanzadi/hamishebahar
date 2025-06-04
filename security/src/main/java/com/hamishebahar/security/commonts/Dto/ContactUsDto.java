@@ -29,8 +29,8 @@ public class ContactUsDto {
     private Boolean is_deleted;
 
     private List<MediasDto> medias;
-    
-    public static class Builder{
+
+    public static class Builder {
         private Long id;
 
         private String text;
@@ -109,7 +109,7 @@ public class ContactUsDto {
             return this;
         }
 
-        public ContactUsDto build(){
+        public ContactUsDto build() {
             return new ContactUsDto(this);
         }
     }
@@ -129,7 +129,7 @@ public class ContactUsDto {
         this.medias = builder.medias;
     }
 
-    public ContactUs convertToEntity(){
+    public ContactUs convertToEntity() {
         return new ContactUs.Builder()
                 .Id(id)
                 .Text(text)
@@ -151,17 +151,17 @@ public class ContactUsDto {
                 .Id(getId() != null ? getId() : dto.getId())
                 .Text(getText() != null ? getText() : dto.getText())
                 .PhoneNumberCompany(getPhoneNumberCompany() != null ? getPhoneNumberCompany() : dto.getPhoneNumberCompany())
-                .MobileNumber(getMobileNumber() != null ? getMobileNumber() :  dto.getMobileNumber())
+                .MobileNumber(getMobileNumber() != null ? getMobileNumber() : dto.getMobileNumber())
                 .EmailAddress(getEmailAddress() != null ? getEmailAddress() : dto.getEmailAddress())
                 .Address(address)
                 .LatAddress(latAddress)
                 .LongAddress(longAddress)
                 .LocationAddress(locationAddress)
                 .Is_active(getIs_active() != null &&
-                        (getIs_active() == dto.getIs_active()) ? getIs_active() : dto.getIs_active())
+                        (getIs_active() != dto.getIs_active()) ? getIs_active() : dto.getIs_active())
                 .Is_deleted(getIs_deleted() != null &&
-                        (getIs_deleted() == dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
-                .Medias(getMedias()!= null ? getMedias() : dto.getMedias())
+                        (getIs_deleted() != dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
+                .Medias(getMedias() != null ? getMedias() : dto.getMedias())
                 .build();
     }
 }

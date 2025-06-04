@@ -2,9 +2,9 @@ package com.hamishebahar.security.controllers;
 
 import com.hamishebahar.security.commonts.Dto.ResultsServiceDto;
 import com.hamishebahar.security.commonts.Dto.UsersDto;
-import com.hamishebahar.security.commonts.bundel.BundleManager;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
 import com.hamishebahar.security.commonts.otp.OTPService;
+import com.hamishebahar.security.config.ConfigProperties;
 import com.hamishebahar.security.externalservices.impl.SmsService;
 import com.hamishebahar.security.jwt.JwtAuth;
 import com.hamishebahar.security.jwt.JwtUtils;
@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import java.security.Principal;
 
 import static com.hamishebahar.security.commonts.Constans.UriConstants.*;
@@ -44,13 +43,16 @@ public class UserController {
 
     private final SmsService smsService;
 
+    private final ConfigProperties messageBundle;
+
     @Autowired
-    public UserController(UsersService usersService, AuthenticationManager manager, JwtUtils jwtUtils, OTPService otpService, SmsService smsService) {
+    public UserController(UsersService usersService, AuthenticationManager manager, JwtUtils jwtUtils, OTPService otpService, SmsService smsService, ConfigProperties messageBundle) {
         this.usersService = usersService;
         this.manager = manager;
         this.jwtUtils = jwtUtils;
         this.otpService = otpService;
         this.smsService = smsService;
+        this.messageBundle = messageBundle;
     }
 
     @GetMapping(USER_ADMIN_FIND_WITH_FILTER)
@@ -62,7 +64,7 @@ public class UserController {
                                                                 @PageableDefault Pageable pageable,
                                                                 HttpServletResponse response,
                                                                 HttpServletRequest request) throws HamisheBaharException {
-        ResultsServiceDto resultsVO = usersService.findUserWithFilter(id, name, phoneNumber, nationalCode , pageable);
+        ResultsServiceDto resultsVO = usersService.findUserWithFilter(id, name, phoneNumber, nationalCode, pageable);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
@@ -80,14 +82,14 @@ public class UserController {
     @PutMapping(USER_UPDATE)
     @PreAuthorize(value = "hasAnyAuthority('OP_EDIT_USER')")
     public ResponseEntity<ResultsServiceDto> updateUser(@PathVariable("id") Long id, @RequestBody UsersDto dto) throws HamisheBaharException {
-        ResultsServiceDto resultsVO = usersService.updateUser(dto , id);
+        ResultsServiceDto resultsVO = usersService.updateUser(dto, id);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
     @PutMapping(USER_ADMIN_UPDATE)
     @PreAuthorize(value = "hasAnyAuthority('OP_ADMIN_EDIT_USER')")
     public ResponseEntity<ResultsServiceDto> updateAdminUser(@PathVariable("id") Long id, @RequestBody UsersDto dto) throws HamisheBaharException {
-        ResultsServiceDto resultsVO = usersService.updateAdminUser(dto,id);
+        ResultsServiceDto resultsVO = usersService.updateAdminUser(dto, id);
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
 
@@ -122,16 +124,16 @@ public class UserController {
     public @ResponseBody
     ResponseEntity<?> login(@RequestBody JwtAuth jwtAuth) {
         try {
-            Authentication authentication =  manager.authenticate(new UsernamePasswordAuthenticationToken(jwtAuth.getUsername(), jwtAuth.getPassword()));
+            Authentication authentication = manager.authenticate(new UsernamePasswordAuthenticationToken(jwtAuth.getUsername(), jwtAuth.getPassword()));
             Users user = (Users) authentication.getPrincipal();
 
             String otp = otpService.generateOTP(user.getPhoneNumber());
             user.setOtp(otp);
             user.setOtpVerified(false);
             user.setPassword(null);
-            usersService.updateAdminUser(user.convertToDto(),user.getId());
+            usersService.updateAdminUser(user.convertToDto(), user.getId());
 
-            smsService.Send(user.getPhoneNumber(),otp,otp);
+            smsService.Send(user.getPhoneNumber(), otp, otp);
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -143,15 +145,15 @@ public class UserController {
     public @ResponseBody
     ResponseEntity<?> verifyOtp(@RequestBody OtpRequest request, HttpServletResponse response) throws HamisheBaharException {
         UsersDto user = usersService.findByUsername(request.getUsername());
-        if (user == null){
+        if (user == null) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.user.not.found" , request.getUsername()));
+                    messageBundle.getArgumentValue("error.user.not.found", request.getUsername()));
         }
 
         if (otpService.validateOTP(user.getPhoneNumber(), request.getOtpCode())) {
             user.setOtpVerified(true);
             user.setPassword(null);
-            usersService.updateAdminUser(user,user.getId());
+            usersService.updateAdminUser(user, user.getId());
 
             otpService.clearOTP(user.getPhoneNumber());
             // در اینجا می‌توان JWT یا Session ایجاد کرد
@@ -165,7 +167,7 @@ public class UserController {
 
     @GetMapping(USER_FIND_WITH_TOKEN)
     @PreAuthorize("authentication.name == #principal.name")
-    public ResponseEntity<?> findUser(Principal principal){
+    public ResponseEntity<?> findUser(Principal principal) {
         return ResponseEntity.status(HttpStatus.OK).body(principal);
     }
 
@@ -173,8 +175,7 @@ public class UserController {
     @GetMapping(FIND_ROLE)
     @PreAuthorize(value = "hasAuthority('OP_ACCESS_ADMIN')")
     public ResponseEntity<?> findRoles(HttpServletResponse response,
-                                       HttpServletRequest request) throws HamisheBaharException
-    {
+                                       HttpServletRequest request) throws HamisheBaharException {
         ResultsServiceDto resultsVO = usersService.findAllRoles();
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }
@@ -183,8 +184,7 @@ public class UserController {
     @GetMapping(FIND_PERMISSION)
     @PreAuthorize(value = "hasAuthority('OP_ACCESS_ADMIN')")
     public ResponseEntity<?> findPermission(HttpServletResponse response,
-                                            HttpServletRequest request) throws HamisheBaharException
-    {
+                                            HttpServletRequest request) throws HamisheBaharException {
         ResultsServiceDto resultsVO = usersService.findAllPermission();
         return ResponseEntity.status(resultsVO.getStatus()).body(resultsVO);
     }

@@ -1,8 +1,6 @@
 package com.hamishebahar.security.commonts.utils;
 
 
-
-import com.hamishebahar.security.commonts.bundel.BundleManager;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
 
 import java.util.Map;
@@ -15,6 +13,7 @@ public class StringUtils {
     public static <T> boolean isNullOrEmpty(T text) {
         return (text == null && "".equals(text));
     }
+
     public static boolean hasText(String text) {
         return (text != null && !"".equals(text) && text.length() > 0);
     }
@@ -41,7 +40,7 @@ public class StringUtils {
         if (strLen == 0) {
             return true;
         } else {
-            for(int i = 0; i < strLen; ++i) {
+            for (int i = 0; i < strLen; ++i) {
                 if (!Character.isWhitespace(cs.charAt(i))) {
                     return false;
                 }
@@ -54,7 +53,6 @@ public class StringUtils {
     public static int length(CharSequence cs) {
         return cs == null ? 0 : cs.length();
     }
-
 
 
     public static String replaceAll(String content, Map<String, String> keyValue) {
@@ -79,11 +77,11 @@ public class StringUtils {
         return isDigit;
     }
 
-    public static void isDualFields(String obj1 , String obj2) throws HamisheBaharException {
+    public static void isDualFields(String obj1, String obj2) throws HamisheBaharException {
         if (!isNullOrEmpty(obj1)) {
             if (!isNullOrEmpty(obj2)) {
                 throw new HamisheBaharException(HamisheBaharException.INVALID_PARAMETER,
-                        BundleManager.wrapKey("error.dual.parameter"));
+                        "تداخل در پارامتر های ورودی ، پارامتر های ورودی را بررسی کتید بعضی پارامتر ها نمیتوانند درکنار هم استفاده گردند.");
             }
         }
     }

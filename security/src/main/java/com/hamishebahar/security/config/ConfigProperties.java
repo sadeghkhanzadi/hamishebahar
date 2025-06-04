@@ -26,6 +26,24 @@ public class ConfigProperties {
         return environment.getProperty(defaultMessage);
     }
 
+    public String getArgumentValue(String defaultMessage, Object... args) {
+        String message = null;
+        try {
+            if (StringUtils.hasText(defaultMessage)) {
+                ResourceBundle bundle = ResourceBundle.getBundle("errormessage");
+                message = bundle.getString(defaultMessage);
+                if (StringUtils.hasText(message)) {
+                    if (args != null && args.length > 0) {
+                        message = String.format(message, args);
+                    }
+                }
+            }
+            return message;
+        } catch (MissingResourceException e) {
+            return defaultMessage;
+        }
+    }
+
     public String getApplicationName() {
         return environment.getRequiredProperty("spring.application.name");
     }

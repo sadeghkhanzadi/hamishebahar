@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="660b6f52-792a-4916-b6f9-ad8af0bd2b70" name="Changes" comment="USER_STORY: 16&#10;TASK_NUMBER: 16&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;&#10;--COMMIT_TYPE BUG_FIX&#10;--FIX_BUG: 0.0.6">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/log/2024-11/server_hmb.2024-11-16.0.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/log/2025-01/server_hmb.2025-01-19.0.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/2025-04/server_hmb.2025-04-27.0.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.2.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.1-old-040424.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.1-old.jar" afterDir="false" />
@@ -17,15 +17,13 @@
       <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.2-old-14030511.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.2-old-14030531.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.2-old-14030611.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.2-old-2025-05-16-02.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.2-old-2025-05-16-03.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.2-old-2025-05-16.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.2-old-4-27-2025.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.2-old.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/security/log/2024-05/server_hmb.2024-05-25.0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/otp/OTPService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/ConfigProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/externalservices/impl/KavenegarImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/externalservices/impl/SmsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/jwt/OtpRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/resources/smstemplate.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/resources/errormessage.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/09a1fa89-ebf1-4961-9a78-55ce4c973615.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/15293032-5a9c-4722-9714-e04207d12b62.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/22f99efa-edc0-40fc-bee4-60af0e943700.png" afterDir="false" />
@@ -55,25 +53,40 @@
       <change afterPath="$PROJECT_DIR$/uploads/f587513d-c194-4697-a839-ab6f57e6dfdc.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/f5887e13-6aec-48c8-84d4-803966ed9c0b.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/fa2bd50a-5807-4c70-843b-9200a2f2a409.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/2024-08/server_hmb.2024-08-23.0.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/log/server_hmb.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/server_hmb.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/deploy/hamishebahar-0.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/security/hamishebahar-0.0.1-old-14030408.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/security/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Constans/UriConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Constans/UriConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/UsersDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/UsersDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/exeption/ExceptionConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/exeption/ExceptionConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/AboutUsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/AboutUsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/CategoryDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/CategoryDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/ContactUsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/ContactUsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/CoursesDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/CoursesDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/MediasDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/MediasDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/NewsEventsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/NewsEventsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/StudentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/StudentDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/TeacherDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/Dto/TeacherDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/exeption/HamisheBaharException.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/exeption/HamisheBaharException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/utils/StringUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/utils/VerifyObjectUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/utils/VerifyObjectUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/ConfigProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/ConfigProperties.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/category/repository/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/category/repository/CategoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/entity/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/repository/UsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/repository/UsersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/externalservices/impl/KavenegarImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/externalservices/impl/KavenegarImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/Icons/service/IconsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/Icons/service/IconsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/Links/service/LinksService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/Links/service/LinksService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsPlansService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsPlansService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/activity/service/ActivityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/activity/service/ActivityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/category/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/category/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/contactUs/service/ContactUsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/contactUs/service/ContactUsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/courses/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/courses/service/CourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/repository/MediaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/repository/MediaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/news_events/service/NewsEventsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/news_events/service/NewsEventsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/periods/service/PeriodsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/periods/service/PeriodsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/questions/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/questions/service/QuestionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/students/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/students/service/StudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/teachers/service/TeacherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/teachers/service/TeacherService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/resources/bundle/HamisheBahar_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/bundle/HamisheBahar_en.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +168,7 @@
     &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/ApexAPI/apex-api-management&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/hamishebahar/security/src/main/resources&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -175,11 +188,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\hamishebahar\security\src\main\resources" />
       <recent name="E:\hamishebahar\security\deploy" />
       <recent name="E:\hamishebahar" />
       <recent name="E:\hamishebahar\security\src\main\java\com\hamishebahar\security\panel\Links" />
       <recent name="E:\hamishebahar\security\src\main\java\com\hamishebahar\security\panel\contactUs" />
-      <recent name="E:\hamishebahar\security\src\main\resources\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\hamishebahar\security" />
@@ -368,6 +381,11 @@
       <workItem from="1745004781676" duration="86000" />
       <workItem from="1745007530695" duration="65000" />
       <workItem from="1745012321209" duration="5000" />
+      <workItem from="1745434229861" duration="2726000" />
+      <workItem from="1745582896349" duration="1726000" />
+      <workItem from="1745699850011" duration="3747000" />
+      <workItem from="1747339143766" duration="7177000" />
+      <workItem from="1749072747087" duration="317000" />
     </task>
     <task id="LOCAL-00001" summary="USER_STORY: 1&#10;TASK_NUMBER: 1&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;First Commit&#10;&#10;--COMMIT_TYPE NEW&#10;--FIX_BUG: 0.0.0">
       <option name="closed" value="true" />
@@ -609,7 +627,31 @@
       <option name="project" value="LOCAL" />
       <updated>1739176945713</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="USER_STORY: 16&#10;TASK_NUMBER: 16&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;&#10;--COMMIT_TYPE BUG_FIX&#10;--FIX_BUG: 0.0.6">
+      <option name="closed" value="true" />
+      <created>1745443448453</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1745443448453</updated>
+    </task>
+    <task id="LOCAL-00032" summary="USER_STORY: 16&#10;TASK_NUMBER: 16&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;&#10;--COMMIT_TYPE BUG_FIX&#10;--FIX_BUG: 0.0.6">
+      <option name="closed" value="true" />
+      <created>1745700610653</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1745700610653</updated>
+    </task>
+    <task id="LOCAL-00033" summary="USER_STORY: 16&#10;TASK_NUMBER: 16&#10;BUG_NUMBER: 0&#10;COMMENT:&#10;&#10;--COMMIT_TYPE BUG_FIX&#10;--FIX_BUG: 0.0.6">
+      <option name="closed" value="true" />
+      <created>1747343331188</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1747343331188</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -662,47 +704,47 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>73</line>
+          <line>72</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>72</line>
+          <line>71</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>188</line>
+          <line>187</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>183</line>
+          <line>182</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>243</line>
+          <line>242</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>173</line>
+          <line>172</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>250</line>
+          <line>249</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>256</line>
+          <line>255</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>225</line>
+          <line>224</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -712,92 +754,92 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>115</line>
+          <line>114</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>63</line>
+          <line>62</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>116</line>
+          <line>115</line>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>46</line>
+          <line>45</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>104</line>
+          <line>103</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/news_events/service/NewsEventsService.java</url>
-          <line>44</line>
+          <line>42</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/news_events/service/NewsEventsService.java</url>
-          <line>36</line>
+          <line>34</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/news_events/service/NewsEventsService.java</url>
-          <line>57</line>
+          <line>55</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/news_events/service/NewsEventsService.java</url>
-          <line>134</line>
+          <line>132</line>
           <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/news_events/service/NewsEventsService.java</url>
-          <line>129</line>
+          <line>127</line>
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/news_events/service/NewsEventsService.java</url>
-          <line>156</line>
+          <line>154</line>
           <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/students/service/StudentService.java</url>
-          <line>145</line>
+          <line>150</line>
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/students/service/StudentService.java</url>
-          <line>165</line>
+          <line>170</line>
           <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/commonts/utils/StringUtils.java</url>
-          <line>15</line>
+          <line>13</line>
           <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/students/service/StudentService.java</url>
-          <line>204</line>
+          <line>209</line>
           <option name="timeStamp" value="80" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/students/service/StudentService.java</url>
-          <line>233</line>
+          <line>238</line>
           <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/students/service/StudentService.java</url>
-          <line>188</line>
+          <line>193</line>
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/students/service/StudentService.java</url>
-          <line>151</line>
+          <line>156</line>
           <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -842,7 +884,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/media/service/MediaStorageService.java</url>
-          <line>285</line>
+          <line>284</line>
           <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -862,7 +904,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/Links/service/LinksService.java</url>
-          <line>28</line>
+          <line>30</line>
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -907,17 +949,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/Links/service/LinksService.java</url>
-          <line>49</line>
+          <line>51</line>
           <option name="timeStamp" value="124" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/Links/service/LinksService.java</url>
-          <line>72</line>
+          <line>74</line>
           <option name="timeStamp" value="125" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/Links/service/LinksService.java</url>
-          <line>81</line>
+          <line>83</line>
           <option name="timeStamp" value="126" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -937,7 +979,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/activity/service/ActivityService.java</url>
-          <line>124</line>
+          <line>126</line>
           <option name="timeStamp" value="130" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -947,12 +989,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/activity/service/ActivityService.java</url>
-          <line>148</line>
+          <line>150</line>
           <option name="timeStamp" value="132" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/activity/service/ActivityService.java</url>
-          <line>156</line>
+          <line>158</line>
           <option name="timeStamp" value="133" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -1017,22 +1059,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsService.java</url>
-          <line>157</line>
+          <line>159</line>
           <option name="timeStamp" value="146" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>102</line>
+          <line>104</line>
           <option name="timeStamp" value="147" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>168</line>
+          <line>170</line>
           <option name="timeStamp" value="149" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>64</line>
+          <line>66</line>
           <option name="timeStamp" value="152" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -1042,12 +1084,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsService.java</url>
-          <line>33</line>
+          <line>35</line>
           <option name="timeStamp" value="161" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsService.java</url>
-          <line>61</line>
+          <line>63</line>
           <option name="timeStamp" value="162" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -1057,22 +1099,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsPlansService.java</url>
-          <line>43</line>
+          <line>45</line>
           <option name="timeStamp" value="164" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsPlansService.java</url>
-          <line>47</line>
+          <line>49</line>
           <option name="timeStamp" value="165" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsPlansService.java</url>
-          <line>59</line>
+          <line>61</line>
           <option name="timeStamp" value="166" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsPlansService.java</url>
-          <line>62</line>
+          <line>64</line>
           <option name="timeStamp" value="167" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -1082,92 +1124,92 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsPlansService.java</url>
-          <line>93</line>
+          <line>95</line>
           <option name="timeStamp" value="169" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsPlansService.java</url>
-          <line>78</line>
+          <line>80</line>
           <option name="timeStamp" value="170" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsPlansService.java</url>
-          <line>128</line>
+          <line>130</line>
           <option name="timeStamp" value="171" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/aboutUs/service/AboutUsPlansService.java</url>
-          <line>129</line>
+          <line>131</line>
           <option name="timeStamp" value="172" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/externalservices/impl/KavenegarImpl.java</url>
-          <line>42</line>
+          <line>41</line>
           <option name="timeStamp" value="173" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>124</line>
+          <line>126</line>
           <option name="timeStamp" value="174" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>144</line>
+          <line>146</line>
           <option name="timeStamp" value="175" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>162</line>
+          <line>164</line>
           <option name="timeStamp" value="176" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>157</line>
+          <line>159</line>
           <option name="timeStamp" value="177" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/externalservices/impl/KavenegarImpl.java</url>
-          <line>50</line>
+          <line>49</line>
           <option name="timeStamp" value="180" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>127</line>
+          <line>129</line>
           <option name="timeStamp" value="182" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>136</line>
+          <line>138</line>
           <option name="timeStamp" value="183" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>138</line>
+          <line>140</line>
           <option name="timeStamp" value="184" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>111</line>
+          <line>113</line>
           <option name="timeStamp" value="185" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>113</line>
+          <line>115</line>
           <option name="timeStamp" value="186" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>133</line>
+          <line>135</line>
           <option name="timeStamp" value="187" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>131</line>
+          <line>133</line>
           <option name="timeStamp" value="188" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/UserController.java</url>
-          <line>125</line>
+          <line>127</line>
           <option name="timeStamp" value="199" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -1177,23 +1219,78 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java</url>
-          <line>108</line>
+          <line>107</line>
           <option name="timeStamp" value="201" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java</url>
-          <line>104</line>
+          <line>103</line>
           <option name="timeStamp" value="202" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java</url>
-          <line>285</line>
+          <line>284</line>
           <option name="timeStamp" value="203" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/users/service/UsersService.java</url>
-          <line>105</line>
+          <line>104</line>
           <option name="timeStamp" value="206" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/controllers/CategoryController.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="207" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/category/service/CategoryService.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="208" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/category/service/CategoryService.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="209" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/category/service/CategoryService.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="210" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/category/service/CategoryService.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="211" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/ConfigProperties.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="212" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/ConfigProperties.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="213" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/config/ConfigProperties.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="214" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/category/service/CategoryService.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="215" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/category/service/CategoryService.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="216" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/security/src/main/java/com/hamishebahar/security/panel/category/service/CategoryService.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="217" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

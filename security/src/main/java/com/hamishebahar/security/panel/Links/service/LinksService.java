@@ -2,8 +2,8 @@ package com.hamishebahar.security.panel.Links.service;
 
 import com.hamishebahar.security.commonts.Dto.LinksDto;
 import com.hamishebahar.security.commonts.Dto.ResultsServiceDto;
-import com.hamishebahar.security.commonts.bundel.BundleManager;
 import com.hamishebahar.security.commonts.exeption.HamisheBaharException;
+import com.hamishebahar.security.config.ConfigProperties;
 import com.hamishebahar.security.panel.Icons.service.IconsService;
 import com.hamishebahar.security.panel.Links.entity.Links;
 import com.hamishebahar.security.panel.Links.repository.LinksRepository;
@@ -18,23 +18,25 @@ import java.util.Optional;
 public class LinksService {
     private final LinksRepository linksRepository;
     private final IconsService iconsService;
+    private final ConfigProperties messageBundle;
 
     @Autowired
-    public LinksService(LinksRepository linksRepository, IconsService iconsService) {
+    public LinksService(LinksRepository linksRepository, IconsService iconsService, ConfigProperties messageBundle) {
         this.linksRepository = linksRepository;
         this.iconsService = iconsService;
+        this.messageBundle = messageBundle;
     }
 
     public ResultsServiceDto insertLinks(LinksDto dto) throws HamisheBaharException {
         if (dto.getId() != null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (dto.getName() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
-        if (dto.getIcon() != null && dto.getIcon().getId() != null && iconsService.isExists(dto.getIcon().getId())){
+        if (dto.getIcon() != null && dto.getIcon().getId() != null && iconsService.isExists(dto.getIcon().getId())) {
             dto.setIcon(iconsService.getOne(dto.getIcon().getId()));
         }
         try {
@@ -42,32 +44,32 @@ public class LinksService {
             return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(linksDto).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
     public ResultsServiceDto editLinks(LinksDto dto, Long id) throws HamisheBaharException {
         if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         if (dto.getId() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (!dto.getId().equals(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                    messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
         }
         if (dto.getName() == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                    messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
         }
-        if (dto.getIcon() != null && dto.getIcon().getId() != null && iconsService.isExists(dto.getIcon().getId())){
+        if (dto.getIcon() != null && dto.getIcon().getId() != null && iconsService.isExists(dto.getIcon().getId())) {
             dto.setIcon(iconsService.getOne(dto.getIcon().getId()));
         }
         LinksDto vo = getOne(id);
@@ -75,14 +77,14 @@ public class LinksService {
         if (vo != null) {
             if (dto.getId() == null || dto.getIcon() == null || dto.getName() == null) {
                 throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                        BundleManager.wrapKey("error.parameter.is.null"));
+                        messageBundle.getArgumentValue("error.parameter.is.null",null));
             }
             try {
                 dto = dto.updaterFields(vo);
                 linksDto = linksRepository.save(dto.convertToEntity()).convertToDto();
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         return new ResultsServiceDto.Builder().Status(HttpStatus.OK).Result(linksDto).build();
@@ -95,11 +97,11 @@ public class LinksService {
                 .build();
         if (id == null) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.parameter.is.null"));
+                    messageBundle.getArgumentValue("error.parameter.is.null",null));
         }
         if (!isExists(id)) {
             throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                    BundleManager.wrapKey("error.entity.is.not.exists", String.valueOf(id)));
+                    messageBundle.getArgumentValue("error.entity.is.not.exists", String.valueOf(id)));
         }
         LinksDto dto = getOne(id);
         if (dto != null) {
@@ -111,7 +113,7 @@ public class LinksService {
                         .build();
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         return resultsServiceDto;
@@ -127,37 +129,37 @@ public class LinksService {
                     .build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
     public ResultsServiceDto findLinks(Long id) throws HamisheBaharException {
         try {
-            if (id == null){
+            if (id == null) {
                 throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                        BundleManager.wrapKey("error.parameter.not.valid", "**id**"));
+                        messageBundle.getArgumentValue("error.parameter.not.valid", "**id**"));
             }
             LinksDto linksDto;
             linksDto = getOne(id);
             return new ResultsServiceDto.Builder().Result(linksDto).Status(HttpStatus.OK).build();
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
     public LinksDto getOne(Long id) throws HamisheBaharException {
         try {
             Optional<Links> links = linksRepository.findById(id);
-            if (links.isPresent()){
+            if (links.isPresent()) {
                 return links.get().convertToDto();
             } else {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         } catch (Exception e) {
             throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                    BundleManager.wrapKey("error.server"));
+                    messageBundle.getArgumentValue("error.server", null));
         }
     }
 
@@ -167,10 +169,10 @@ public class LinksService {
                 return this.linksRepository.existsById(id);
             } catch (Exception e) {
                 throw new HamisheBaharException(HamisheBaharException.DATABASE_EXCEPTION,
-                        BundleManager.wrapKey("error.server"));
+                        messageBundle.getArgumentValue("error.server", null));
             }
         }
         throw new HamisheBaharException(HamisheBaharException.INVALID_REQUEST_PARAMETER,
-                BundleManager.wrapKey("error.parameter.is.null"));
+                messageBundle.getArgumentValue("error.parameter.is.null",null));
     }
 }

@@ -77,9 +77,9 @@ public class CategoryDto {
                 .Name(getName() != null ? getName() : dto.getName())
                 .Comment(getComment() != null ? getComment() : dto.getComment())
                 .Is_active(getIs_active() != null &&
-                (getIs_active() == dto.getIs_active()) ? getIs_active() : dto.getIs_active())
+                (getIs_active() != dto.getIs_active()) ? getIs_active() : dto.getIs_active())
                 .Is_deleted(getIs_deleted() != null &&
-                        (getIs_deleted() == dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
+                        (getIs_deleted() != dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
                 .build();
     }
 }

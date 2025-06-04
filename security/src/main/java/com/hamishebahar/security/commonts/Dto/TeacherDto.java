@@ -168,13 +168,13 @@ public class TeacherDto {
                 .LastName(getLastName() != null ? getLastName() : dto.getLastName())
                 .Age(getAge() != null ? getAge() : dto.getAge())
                 .WorkExperience(getWorkExperience() != null ? getWorkExperience() : dto.getWorkExperience())
-                .JobTitle(getJobTitle() != null ?  getJobTitle() : dto.getJobTitle())
+                .JobTitle(getJobTitle() != null ? getJobTitle() : dto.getJobTitle())
                 .NationalCode(getNationalCode() != null ? getNationalCode() : dto.getNationalCode())
                 .PhoneNumber(getPhoneNumber() != null ? getPhoneNumber() : dto.getPhoneNumber())
                 .Is_active(getIs_active() != null &&
-                        (getIs_active() == dto.getIs_active()) ? getIs_active() : dto.getIs_active())
+                        (getIs_active() != dto.getIs_active()) ? getIs_active() : dto.getIs_active())
                 .Is_deleted(getIs_deleted() != null &&
-                        (getIs_deleted() == dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
+                        (getIs_deleted() != dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
                 .DocumentFiles(getDocumentFiles() != null ? getDocumentFiles() : dto.getDocumentFiles())
                 .build();
     }
