@@ -156,6 +156,7 @@ public class CoursesDto {
                 .Coste(coste)
                 .Is_active(getIs_active() != null ? getIs_active() : true)
                 .Is_deleted(getIs_deleted() != null ? getIs_deleted() : false)
+                .ExternalUrl(getExternalUrl() != null ? getExternalUrl() : null)
                 .Medias(medias != null && !medias.isEmpty() ? medias.stream()
                         .map(MediasDto::convertToEntity)
                         .collect(Collectors.toList()) : null)
