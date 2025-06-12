@@ -19,6 +19,7 @@ public class NewsEventsDto {
     private String endDate;
     private Boolean is_active = true;
     private Boolean is_deleted = false;
+    private String externalUrl;
     private List<MediasDto> medias;
     private String createdAt;
     private String updatedAt;
@@ -31,6 +32,7 @@ public class NewsEventsDto {
         private String endDate;
         private Boolean is_active = true;
         private Boolean is_deleted = false;
+        private String externalUrl;
         private List<MediasDto> medias;
         private String createdAt;
         private String updatedAt;
@@ -70,6 +72,11 @@ public class NewsEventsDto {
             return this;
         }
 
+        public Builder ExternalUrl(String url) {
+            this.externalUrl = url;
+            return this;
+        }
+
         public Builder Medias(List<MediasDto> medias) {
             this.medias = medias;
             return this;
@@ -98,6 +105,7 @@ public class NewsEventsDto {
         this.endDate = builder.endDate;
         this.is_active = builder.is_active;
         this.is_deleted = builder.is_deleted;
+        this.externalUrl = builder.externalUrl;
         this.medias = builder.medias;
         this.createdAt = builder.createdAt;
         this.updatedAt = builder.updatedAt;
@@ -112,6 +120,7 @@ public class NewsEventsDto {
                 .EndDate(getEndDate() != null ? getEndDate() : null)
                 .Is_active(getIs_active() != null ? getIs_active() : true)
                 .Is_deleted(getIs_deleted() != null ? getIs_deleted() : false)
+                .ExternalUrl(getExternalUrl()!= null ? getExternalUrl() : null)
                 .Medias(medias != null ? getMedias()
                         .stream()
                         .map(MediasDto::convertToEntity)
@@ -130,6 +139,7 @@ public class NewsEventsDto {
                         (getIs_active() != dto.getIs_active()) ? getIs_active() : dto.getIs_active())
                 .Is_deleted(getIs_deleted() != null &&
                         (getIs_deleted() != dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
+                .ExternalUrl(getExternalUrl() != null ? getExternalUrl() : dto.getExternalUrl())
                 .Medias(getMedias() != null ? getMedias() : dto.getMedias())
                 .build();
     }

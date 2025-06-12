@@ -23,11 +23,12 @@ public class CoursesDto {
     private String coste; //قیمت دوره
     private Boolean is_active = true;
     private Boolean is_deleted = false;
+    private String externalUrl;
     private List<MediasDto> medias;
     private String createdAt;
     private String updatedAt;
 
-    public static class Builder{
+    public static class Builder {
         private Long id;
         private String courseCode;
         private String title;
@@ -39,6 +40,7 @@ public class CoursesDto {
         private String coste; //قیمت دوره
         private Boolean is_active;
         private Boolean is_deleted;
+        private String externalUrl;
         private List<MediasDto> medias;
         private String createdAt;
         private String updatedAt;
@@ -98,6 +100,11 @@ public class CoursesDto {
             return this;
         }
 
+        public Builder ExternalUrl(String url) {
+            this.externalUrl = url;
+            return this;
+        }
+
         public Builder Medias(List<MediasDto> medias) {
             this.medias = medias;
             return this;
@@ -113,10 +120,11 @@ public class CoursesDto {
             return this;
         }
 
-        public CoursesDto build(){
+        public CoursesDto build() {
             return new CoursesDto(this);
         }
     }
+
     private CoursesDto(Builder builder) {
         this.id = builder.id;
         this.courseCode = builder.courseCode;
@@ -129,6 +137,7 @@ public class CoursesDto {
         this.coste = builder.coste;
         this.is_active = builder.is_active;
         this.is_deleted = builder.is_deleted;
+        this.externalUrl = builder.externalUrl;
         this.medias = builder.medias;
         this.createdAt = builder.createdAt;
         this.updatedAt = builder.updatedAt;
@@ -140,14 +149,14 @@ public class CoursesDto {
                 .CourseCode(courseCode)
                 .Title(title)
                 .Text(text)
-                .Teachers(teachers!= null ? teachers.convertToEntity() : null)
-                .CourseCategory(category!= null ? category.convertToEntity() : null)
+                .Teachers(teachers != null ? teachers.convertToEntity() : null)
+                .CourseCategory(category != null ? category.convertToEntity() : null)
                 .StartTime(startTime)
                 .EndTime(endTime)
                 .Coste(coste)
                 .Is_active(getIs_active() != null ? getIs_active() : true)
                 .Is_deleted(getIs_deleted() != null ? getIs_deleted() : false)
-                .Medias(medias!= null && !medias.isEmpty() ? medias.stream()
+                .Medias(medias != null && !medias.isEmpty() ? medias.stream()
                         .map(MediasDto::convertToEntity)
                         .collect(Collectors.toList()) : null)
                 .build();
@@ -155,20 +164,21 @@ public class CoursesDto {
 
     public CoursesDto updaterFields(CoursesDto dto) {
         return new CoursesDto.Builder()
-                .Id(getId() != null ? getId()  : dto.getId())
+                .Id(getId() != null ? getId() : dto.getId())
                 .CourseCode(getCourseCode() != null ? getCourseCode() : dto.getCourseCode())
-                .Title(getTitle() != null ?  getTitle() : dto.getTitle())
+                .Title(getTitle() != null ? getTitle() : dto.getTitle())
                 .Text(getText() != null ? getText() : dto.getText())
                 .Teachers(getTeachers() != null ? getTeachers() : dto.getTeachers())
                 .CategoryDto(getCategory() != null ? getCategory() : dto.getCategory())
                 .StartTime(getStartTime() != null ? getStartTime() : dto.getStartTime())
-                .EndTime(getEndTime() != null ? getEndTime() :  dto.getEndTime())
+                .EndTime(getEndTime() != null ? getEndTime() : dto.getEndTime())
                 .Coste(getCoste() != null ? getCoste() : dto.getCoste())
                 .Is_active(getIs_active() != null &&
                         (getIs_active() != dto.getIs_active()) ? getIs_active() : dto.getIs_active())
                 .Is_deleted(getIs_deleted() != null &&
                         (getIs_deleted() != dto.getIs_deleted()) ? getIs_deleted() : dto.getIs_deleted())
-                .Medias(getMedias()!= null && !getMedias().isEmpty() ? getMedias() : dto.getMedias())
+                .ExternalUrl(getExternalUrl() != null ? getExternalUrl() : dto.getExternalUrl())
+                .Medias(getMedias() != null && !getMedias().isEmpty() ? getMedias() : dto.getMedias())
                 .CreatedAt(getCreatedAt() != null ? getCreatedAt() : dto.getCreatedAt())
                 .UpdatedAt(getUpdatedAt() != null ? getUpdatedAt() : dto.getUpdatedAt())
                 .build();

@@ -1,9 +1,9 @@
 package com.hamishebahar.security.panel.news_events.entity;
 
 
-import com.hamishebahar.security.commonts.Dto.NewsEventsDto;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.hamishebahar.security.commonts.Dto.NewsEventsDto;
 import com.hamishebahar.security.panel.media.entity.Medias;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,8 +13,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,6 +32,9 @@ public class Events {
     private String endDate;
     private Boolean is_active;
     private Boolean is_deleted;
+    @Lob
+    private String externalUrl;
+
     @ManyToMany
     private List<Medias> medias;
 
@@ -51,7 +52,7 @@ public class Events {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    public static class Builder{
+    public static class Builder {
         private Long id;
         private String title;
         private String text;
@@ -59,6 +60,7 @@ public class Events {
         private String endDate;
         private Boolean is_active;
         private Boolean is_deleted;
+        private String externalUrl;
 
         private List<Medias> medias;
 
@@ -97,12 +99,17 @@ public class Events {
             return this;
         }
 
+        public Builder ExternalUrl(String url) {
+            this.externalUrl = url;
+            return this;
+        }
+
         public Builder Medias(List<Medias> medias) {
             this.medias = medias;
             return this;
         }
 
-        public Events build(){
+        public Events build() {
             return new Events(this);
         }
     }
@@ -115,6 +122,7 @@ public class Events {
         this.endDate = builder.endDate;
         this.is_active = builder.is_active;
         this.is_deleted = builder.is_deleted;
+        this.externalUrl = builder.externalUrl;
         this.medias = builder.medias;
     }
 
@@ -130,8 +138,9 @@ public class Events {
                 .Medias(medias != null ? getMedias().stream()
                         .map(Medias::convertToDto)
                         .collect(Collectors.toList()) : null)
+                .ExternalUrl(getExternalUrl() != null ? getExternalUrl() : null)
                 .CreatedAt(getCreatedAt() != null ? getCreatedAt().toString() : null)
-                .UpdatedAt(getUpdatedAt() != null ? getUpdatedAt().toString(): null)
+                .UpdatedAt(getUpdatedAt() != null ? getUpdatedAt().toString() : null)
                 .build();
     }
 }

@@ -40,6 +40,8 @@ public class Courses {//لیست آموزش ها
     private String coste; //قیمت دوره
     private Boolean is_active;
     private Boolean is_deleted;
+    @Lob
+    private String externalUrl;
 
     @ManyToMany
     private List<Medias> medias;
@@ -70,6 +72,7 @@ public class Courses {//لیست آموزش ها
         private String coste; //قیمت دوره
         private Boolean is_active;
         private Boolean is_deleted;
+        private String externalUrl;
         private List<Medias> medias;
         private String createdAt;
         private String updatedAt;
@@ -129,6 +132,11 @@ public class Courses {//لیست آموزش ها
             return this;
         }
 
+        public Builder ExternalUrl(String url) {
+            this.externalUrl = url;
+            return this;
+        }
+
         public Builder Medias(List<Medias> medias) {
             this.medias = medias;
             return this;
@@ -151,6 +159,7 @@ public class Courses {//لیست آموزش ها
         this.coste = builder.coste;
         this.is_active = builder.is_active;
         this.is_deleted = builder.is_deleted;
+        this.externalUrl = builder.externalUrl;
         this.medias = builder.medias;
     }
 
@@ -167,6 +176,7 @@ public class Courses {//لیست آموزش ها
                 .Coste(coste)
                 .Is_active(getIs_active() != null ? getIs_active() : true)
                 .Is_deleted(getIs_deleted() != null ? getIs_deleted() : false)
+                .ExternalUrl(getExternalUrl()!= null ? getExternalUrl() : null)
                 .Medias(medias != null && !medias.isEmpty() ? medias.stream()
                         .map(Medias::convertToDto)
                         .collect(Collectors.toList()) : null)
